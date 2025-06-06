@@ -1,95 +1,36 @@
-# 🔥Build a Stunning Fashion Studio Website with React JS [ Locomotive Scroll + GSAP + Framer Motion ]
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-![GitHub stars](https://img.shields.io/github/stars/codebucks27/wibe-studio-starter-files?style=social&logo=ApacheSpark&label=Stars)&nbsp;&nbsp;
-![GitHub forks](https://img.shields.io/github/forks/codebucks27/wibe-studio-starter-files?style=social&logo=KashFlow&&label=Forks)&nbsp;&nbsp;
-![Github Followers](https://img.shields.io/github/followers/codebucks27.svg?style=social&label=Follow)&nbsp;&nbsp;<br />
+## Getting Started
 
-This repository contains final code for Fashion Studio Website in ReactJS. <br />
+First, run the development server:
 
-View Demo👇: <br />
-https://wibe-studio.netlify.app/ <br />
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-checkout following **Tutorial** to learn👇: <br />
-<a href="https://devdreaming.com/videos/build-stunning-fashion-studio-website-with-reactJS-locomotive-scroll-gsap" target="_blank">🔥Build a Stunning Fashion Studio Website with React JS</a> ![YouTube Video Views](https://img.shields.io/youtube/views/Ra1Fsa9YJCk?style=social) </br >
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-[![YouTube Video Views](https://img.shields.io/youtube/views/Ra1Fsa9YJCk?style=social)](https://youtu.be/Ra1Fsa9YJCk)<br />
+You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-### Images of The Fashion Studio Website:
-![HOME](https://github.com/codebucks27/wibe-studio-starter-files/blob/main/Wibe-Home-Desktop.png)
-![ABOUT](https://github.com/codebucks27/wibe-studio-starter-files/blob/main/Wibe-About-Desktop.png)
-![HOME](https://github.com/codebucks27/wibe-studio-starter-files/blob/main/Wibe-Home-Moblie.png)
-![ABOUT](https://github.com/codebucks27/wibe-studio-starter-files/blob/main/Wibe-About-Mobile.png)
+## Learn More
 
+To learn more about Next.js, take a look at the following resources:
 
-### Resources Used in This Project
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-Fonts: https://fontsource.org/ <br />
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-### External Libraries used in this project: 
+## Deploy on Vercel
 
-[styled-components](https://styled-components.com/docs/advanced) <br />
-[GSAP](https://greensock.com/gsap/) <br />
-[Framer-mMtion](https://www.framer.com/motion/) <br />
-[React-Locomotive-Scroll](https://www.npmjs.com/package/react-locomotive-scroll) <br />
-[Locomotive-Scroll](https://www.npmjs.com/package/locomotive-scroll) <br />
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-### All The Resources Used in This Website Are from👇:
-
-Walking Girl Video:<br />
-Video by cottonbro from Pexels [https://www.pexels.com/@cottonbro]<br />
-
-Images:<br />
-
-Ring: Photo by Arif Syuhada from Pexels<br />
-https://www.pexels.com/@arifsyd15<br />
-
-Rings: Photo by cottonbro from Pexels<br />
-https://www.pexels.com/@cottonbro<br />
-
-Earings: Photo by say straight from Pexels<br />
-https://www.pexels.com/@say-straight-1400349<br />
-
-White Tee:Photo by cottonbro from Pexels<br />
-https://www.pexels.com/@cottonbro<br />
-
-black t-shirt girl: Photo by Lena Hsvl from Pexels<br />
-https://www.pexels.com/@lenaneva<br />
-
-Red girl: Photo by Yaroslava Borz from Pexels<br />
-https://www.pexels.com/@yaroslava-borz-126286496<br />
-
-Ethnic Wear: Photo by Artem Beliaikin from Pexels<br />
-https://www.pexels.com/@belart84<br />
-
-Suit: Photo by Chloe from Pexels<br />
-https://www.pexels.com/@chloekalaartist<br />
-
-cap male: Photo by cottonbro from Pexels<br />
-https://www.pexels.com/@cottonbro<br />
-
-Watches: Photo by Mister Mister from Pexels<br />
-https://www.pexels.com/@bemistermister<br />
-
-Denim: Photo by Denis Zagorodniuc from Pexels<br />
-https://www.pexels.com/@imdennyz<br />
-
-Jacket: Photo by Simon Robben from Pexels<br />
-https://www.pexels.com/@simon-robben-55958<br />
-
-Yellow T-shirt:Photo by RAUL REYNOSO from Pexels<br />
-https://www.pexels.com/@raulkingr<br />
-
-Yellow Dress: Photo by Godisable Jacob from Pexels<br />
-https://www.pexels.com/@godisable-jacob-226636<br />
-
-
-
-### Famous Quotes Used:
-"Fashion is the armour to survive the reality of everyday life."<br />
--- bill cunningham
-
-"One is never over-dressed or under-dressed with a Little Black Dress." —Karl Lagerfeld<br />
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
