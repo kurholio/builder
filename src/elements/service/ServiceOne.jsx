@@ -1,27 +1,25 @@
 import React, { Component } from "react";
 
-import icon1 from "../../assets/images/icons/icon-01.png";
-import icon2 from "../../assets/images/icons/icon-02.png";
-import icon3 from "../../assets/images/icons/icon-03.png";
+import icon1 from "../../assets/images/icons/icon-03.png";
 
 const ServiceList = [
   {
     icon: icon1,
-    title: "Business Stratagy",
+    title: "Clean Code",
     description:
-      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered.",
+      "We write code that's readable, maintainable, and built to scale — ensuring smooth development and long-term stability.",
   },
   {
-    icon: icon2,
-    title: "Website Development",
+    icon: icon1,
+    title: "Bold Design",
     description:
-      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered.",
+      "Our designs are crafted to stand out — modern, intuitive, and tailored to create lasting impressions.",
   },
   {
-    icon: icon3,
-    title: "Marketing & Reporting",
+    icon: icon1,
+    title: "Real Connection",
     description:
-      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered.",
+      "We prioritize genuine collaboration, turning your ideas into digital experiences that resonate with your audience.",
   },
 ];
 

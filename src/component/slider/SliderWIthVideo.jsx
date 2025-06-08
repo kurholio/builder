@@ -10,7 +10,7 @@ class SliderWithVideo extends Component {
                     <div className="row">
                         <div className="col-lg-7">
                             <div className="inner">
-                                <h1 className="title color-white">A digital <br /> agency. </h1>
+                                <h1 className="title color-white">sadfA digital <br /> agency. </h1>
                                 <p className="description">There are many variations of passages of Lorem Ipsum
                                     available but the majority have suffered alteration.</p>
                             </div>

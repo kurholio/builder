@@ -1,32 +1,30 @@
 import React, { Component, Fragment } from "react";
-
 import CounterComponent from "../../component/common/Counter";
 
 class CounterOne extends Component {
   state = {
     didViewCountUp: false,
   };
+
   onVisibilityChange = (isVisible) => {
     if (isVisible) {
       this.setState({ didViewCountUp: true });
     }
   };
+
   render() {
     let Data = [
       {
-        countNum: 199,
-        countTitle:
-          "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those.",
+        countNum: 6,
+        countTitle: "Areas of Expertise Across Design, Development, and Strategy",
       },
       {
-        countNum: 575,
-        countTitle:
-          "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those.",
+        countNum: 1,
+        countTitle: "Tightly-Knit Family Team Driving Every Project with Passion",
       },
       {
-        countNum: 69,
-        countTitle:
-          "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those.",
+        countNum: 3,
+        countTitle: "Decades of Combined Experience Creating Digital Solutions",
       },
     ];
 
@@ -49,4 +47,5 @@ class CounterOne extends Component {
     );
   }
 }
+
 export default CounterOne;

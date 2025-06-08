@@ -23,7 +23,7 @@ const SlideList = [
     category: "",
     title: "Marketing",
     description:
-      "There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration.",
+      "We craft strategic campaigns that elevate your brand, attract the right audience, and drive measurable results.",
     buttonText: "Contact Us",
     buttonLink: "/contact",
   },
@@ -33,7 +33,7 @@ const SlideList = [
     category: "",
     title: "Development.",
     description:
-      "There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration.",
+      "From concept to deployment, we build fast, scalable, and secure digital solutions tailored to your business goals.",
     buttonText: "Contact Us",
     buttonLink: "/contact",
   },
@@ -43,7 +43,7 @@ const SlideList = [
     category: "",
     title: "UX Research.",
     description:
-      "There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration.",
+      "We dive deep into user behavior to design experiences that are intuitive, effective, and human-centered.",
     buttonText: "Contact Us",
     buttonLink: "/contact",
   },
@@ -53,7 +53,7 @@ const SlideList = [
     category: "",
     title: "UX Research.",
     description:
-      "There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration.",
+      "Understanding your users is our priority — we translate insights into actions that shape better digital products.",
     buttonText: "Contact Us",
     buttonLink: "/contact",
   },
@@ -64,7 +64,7 @@ class DigitalAgency extends Component {
     const PostList = BlogContent.slice(0, 3);
     let title = "About",
       description =
-        "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which dont look even slightly believable. If you are going to use a passage of Lorem Ipsum,";
+        "We build websites and mobile apps that feel personal, work seamlessly, and scale with you. From UX and UI to launch and beyond, LunaraTech helps brands move with clarity, energy, and purpose.";
     return (
       <Fragment>
         <Helmet pageTitle="Digital Agency" />

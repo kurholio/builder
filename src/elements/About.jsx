@@ -3,8 +3,6 @@ import PageHelmet from "../component/common/Helmet";
 import Breadcrumb from "../elements/common/Breadcrumb";
 import CounterOne from "../elements/counters/CounterOne";
 import Testimonial from "../elements/Testimonial";
-import BrandTwo from "../elements/BrandTwo";
-import { FaFacebookF, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 import ScrollToTop from "react-scroll-up";
 import { FiChevronUp } from "react-icons/fi";
 import Header from "../component/header/Header";
@@ -12,16 +10,17 @@ import Footer from "../component/footer/Footer";
 
 import about from "../assets/images/about/about-3.jpg";
 import findingImg from "../assets/images/about/finding-us-01.png";
-import teamImg1 from "../assets/images/team/team-01.jpg";
-import teamImg2 from "../assets/images/team/team-02.jpg";
-import teamImg3 from "../assets/images/team/team-03.jpg";
+
 
 class About extends Component {
   render() {
-    let title = "About",
-      description =
-        "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which dont look even slightly believable. If you are going to use a passage of Lorem Ipsum Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which dont look even slightly believable. If you are going.";
+    let description1 = "We’re a family-run boutique studio — think less corporate boardroom, more creative kitchen table (with better snacks). Our small but mighty team brings together years of expertise in software development, graphic design, and marketing. When you work with us, you’re not dealing with “account managers” or getting lost in a support queue — you’re talking to the folks who actually do the work (and love it).",
+	description2 = "We believe in a hands-on, human approach. From early-stage UX research and wireframes to jaw-dropping UI design and flawless development, we’re with you at every step. Need a go-to-market strategy? We’ve got that covered too — ideally without a single boring PowerPoint involved.",
+		description3 = "Whether you’re breathing new life into an outdated site, giving your brand a much-needed glow-up, or launching a bold new idea into the digital universe, we’re here to make the process smooth, collaborative, and maybe even fun (crazy, right?). We bring clarity, energy, and just the right amount of caffeine to every project.",
+		description4 = "LunaraTech isn’t just about services — it’s about partnership. We’re the team that listens, rolls up our sleeves, and actually gives a damn. If you’re looking for something meaningful, built with care and a bit of good humor, let’s make it happen together.";
+		
     return (
+		<div className="active-dark">
       <React.Fragment>
         <PageHelmet pageTitle="About" />
 
@@ -51,29 +50,30 @@ class About extends Component {
                 <div className="col-lg-7">
                   <div className="about-inner inner">
                     <div className="section-title">
-                      <h2 className="title">{title}</h2>
-                      <p className="description">{description}</p>
+
+                      <p className="description">{description1}</p>
+					  <p className="description">{description2}</p>
+					 
+					  
                     </div>
-                    <div className="row mt--30">
-                      <div className="col-lg-6 col-md-12 col-sm-12 col-12">
-                        <div className="about-us-list">
-                          <h3 className="title">Who we are</h3>
-                          <p>
-                            There are many vtions of passages of Lorem Ipsum
-                            available, but the majority have suffered.
-                          </p>
-                        </div>
-                      </div>
-                      <div className="col-lg-6 col-md-12 col-sm-12 col-12">
-                        <div className="about-us-list">
-                          <h3 className="title">Who we are</h3>
-                          <p>
-                            There are many vtions of passages of Lorem Ipsum
-                            available, but the majority have suffered.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
+                    <div className="row mt--30 mt_sm--10">
+					  <div className="col-lg-6 col-md-12 col-sm-12 col-12">
+					    <div className="about-us-list">
+					      <h3 className="title">Step By Step</h3>
+					      <p>
+					        We help brands show up online with confidence — building websites and apps that not only look amazing but actually do their job: inform, convert, and grow.
+					      </p>
+					    </div>
+					  </div>
+					  <div className="col-lg-6 col-md-12 col-sm-12 col-12">
+					    <div className="about-us-list">
+					      <h3 className="title">Minus the Jargon</h3>
+					      <p>
+					        We listen closely, design with purpose, and build with precision — translating your vision into a seamless digital product people actually want to use.
+					      </p>
+					    </div>
+					  </div>
+					</div>
                   </div>
                 </div>
               </div>
@@ -102,13 +102,11 @@ class About extends Component {
           <div className="inner">
             <div className="content-wrapper">
               <div className="content">
-                <h4 className="theme-gradient">Find Your Work Now</h4>
-                <p>
-                  It is a long established fact that a reader will be distracted
-                  by the readable content of a page when looking at its layout.
-                  The point of using Lorem Ipsum is that.
-                </p>
-                <a className="rn-btn btn-white" href="/about">
+			  <h4 className="theme-gradient">Built on Collaboration</h4>
+			  <p>
+			    Great work doesn’t happen in silos. At LunaraTech, designers, developers, and strategists work side by side (literally) to bring your ideas to life. We listen, challenge, and support each other — and you — every step of the way.
+			  </p>
+                <a className="rn-btn btn-white" href="/contact">
                   Get Started
                 </a>
               </div>
@@ -122,149 +120,8 @@ class About extends Component {
         </div>
         {/* End Finding Us Area  */}
 
-        {/* Start Team Area  */}
-        <div className="rn-team-area bg_color--1 ptb--120">
-          <div className="container">
-            <div className="row">
-              <div className="col-lg-12">
-                <div className="section-title service-style--3 text-center mb--25">
-                  <h2 className="title">Skilled Team</h2>
-                  <p>
-                    There are many variations of passages of Lorem Ipsum
-                    available, but the majority have suffered alteration.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="row">
-              {/* Start Single Team  */}
-              <div className="col-lg-4 col-md-6 col-sm-6 col-12">
-                <div className="team">
-                  <div className="thumbnail">
-                    <img
-                      className="w-100"
-                      src={teamImg1}
-                      alt="Blog Images"
-                    />
-                  </div>
-                  <div className="content">
-                    <h4 className="title">Jone Due</h4>
-                    <p className="designation">Sr. Web Developer</p>
-                  </div>
-                  <ul className="social-icon">
-                    <li>
-                      <a href="https://www.facebook.com/">
-                        <FaFacebookF />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="http://linkedin.com/">
-                        <FaLinkedinIn />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="https://twitter.com/">
-                        <FaTwitter />
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              {/* End Single Team  */}
+        
 
-              {/* Start Single Team  */}
-              <div className="col-lg-4 col-md-6 col-sm-6 col-12">
-                <div className="team">
-                  <div className="thumbnail">
-                    <img
-                      className="w-100"
-                      src={teamImg2}
-                      alt="Blog Images"
-                    />
-                  </div>
-                  <div className="content">
-                    <h4 className="title">BM. Alamin</h4>
-                    <p className="designation">Sr. Web Developer</p>
-                  </div>
-                  <ul className="social-icon">
-                    <li>
-                      <a href="https://www.facebook.com/">
-                        <FaFacebookF />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="http://linkedin.com/">
-                        <FaLinkedinIn />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="https://twitter.com/">
-                        <FaTwitter />
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              {/* End Single Team  */}
-
-              {/* Start Single Team  */}
-              <div className="col-lg-4 col-md-6 col-sm-6 col-12">
-                <div className="team">
-                  <div className="thumbnail">
-                    <img
-                      className="w-100"
-                      src={teamImg3}
-                      alt="Blog Images"
-                    />
-                  </div>
-                  <div className="content">
-                    <h4 className="title">Jone Due</h4>
-                    <p className="designation">Sr. Web Developer</p>
-                  </div>
-                  <ul className="social-icon">
-                    <li>
-                      <a href="https://www.facebook.com/">
-                        <FaFacebookF />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="http://linkedin.com/">
-                        <FaLinkedinIn />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="https://twitter.com/">
-                        <FaTwitter />
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              {/* End Single Team  */}
-            </div>
-          </div>
-        </div>
-        {/* End Team Area  */}
-
-        {/* Start Testimonial Area */}
-        <div className="rn-testimonial-area bg_color--5 ptb--120">
-          <div className="container">
-            <Testimonial />
-          </div>
-        </div>
-        {/* End Testimonial Area */}
-
-        {/* Start Brand Area */}
-        <div className="rn-brand-area brand-separation bg_color--5 ptb--120">
-          <div className="container">
-            <div className="row">
-              <div className="col-lg-12">
-                <BrandTwo />
-              </div>
-            </div>
-          </div>
-        </div>
-        {/* End Brand Area */}
 
         {/* Start Back To Top */}
         <div className="backto-top">
@@ -276,6 +133,7 @@ class About extends Component {
 
         <Footer />
       </React.Fragment>
+	  </div>
     );
   }
 }

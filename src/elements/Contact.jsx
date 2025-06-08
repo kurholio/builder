@@ -22,6 +22,7 @@ class Contact extends Component {
 
   render() {
     return (
+	  <div className="active-dark">
       <React.Fragment>
         <PageHelmet pageTitle="Contact" />
 
@@ -121,34 +122,7 @@ class Contact extends Component {
         </div>
         {/* End Contact Page Area  */}
 
-        {/* Start Contact Map  */}
-        <div className="rn-contact-map-area position-relative">
-          <div style={{ height: "650px", width: "100%" }}>
-            <GoogleMapReact
-              defaultCenter={this.props.center}
-              defaultZoom={this.props.zoom}
-            >
-              <AnyReactComponent
-                lat={59.955413}
-                lng={30.337844}
-                text="My Marker"
-              />
-            </GoogleMapReact>
-          </div>
-        </div>
-        {/* End Contact Map  */}
-
-        {/* Start Brand Area */}
-        <div className="rn-brand-area brand-separation bg_color--5 ptb--120">
-          <div className="container">
-            <div className="row">
-              <div className="col-lg-12">
-                <BrandTwo />
-              </div>
-            </div>
-          </div>
-        </div>
-        {/* End Brand Area */}
+     
 
         {/* Start Back To Top */}
         <div className="backto-top">
@@ -160,6 +134,7 @@ class Contact extends Component {
 
         <Footer />
       </React.Fragment>
+	  </div>
     );
   }
 }
