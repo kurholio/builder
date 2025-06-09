@@ -39,17 +39,20 @@ class Footer extends Component {
                     {/* Start Single Widget  */}
                     <div className="col-lg-6 col-sm-6 col-12">
                       <div className="footer-link">
-                        <h4>Quick Link</h4>
+                     
                         <ul className="ft-link">
                           <li>
-                            <a href="/portfolio">Work</a>
+                            <a href="/">Home</a>
                           </li>
                           <li>
                             <a href="/about">About</a>
                           </li>
                           <li>
-                            <a href="/contact">Let's Talk</a>
+                            <a href="/service">Services</a>
                           </li>
+						  <li>
+                              <a href="/contact">Let's Talk</a>
+                            </li>
                         </ul>
                       </div>
                     </div>
@@ -61,23 +64,13 @@ class Footer extends Component {
                         <ul className="ft-link">
                           <li>
                             <a href="mailto:admin@example.com">
-                              admin@example.com
+                              admin@lunaratech.com
                             </a>
                           </li>
                           <li>
-                            <a href="mailto:hr@example.com">hr@example.com</a>
+                            <a href="mailto:sales@lunaratech.com">sales@lunaratech.com</a>
                           </li>
                         </ul>
-
-                        <div className="social-share-inner">
-                          <ul className="social-share social-style--2 d-flex justify-content-start liststyle mt--15">
-                            {SocialShare.map((val, i) => (
-                              <li key={i}>
-                                <a href={`${val.link}`}>{val.Social}</a>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
                       </div>
                     </div>
                     {/* End Single Widget  */}
@@ -85,7 +78,7 @@ class Footer extends Component {
                     <div className="col-lg-12">
                       <div className="copyright-text">
                         <p>
-                          Copyright © 2024 Rainbow-Themes. All Rights Reserved.
+                          Copyright © 2025 Lunaratech. All Rights Reserved.
                         </p>
                       </div>
                     </div>

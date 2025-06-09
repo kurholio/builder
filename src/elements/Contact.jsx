@@ -8,7 +8,7 @@ import ScrollToTop from "react-scroll-up";
 import { FiChevronUp } from "react-icons/fi";
 import Header from "../component/header/Header";
 import Footer from "../component/footer/Footer";
-
+import contactImg from "../assets/images/about/about-6.jpg";
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 class Contact extends Component {
@@ -40,13 +40,12 @@ class Contact extends Component {
           <div className="container">
             <div className="row">
               <div className="col-lg-12">
-                <div className="rn-page-title text-center pt--100">
-                  <h2 className="title theme-gradient">Cntact With Us</h2>
-                  <p>
-                    Contrary to popular belief, Lorem Ipsum is not simply random
-                    text.{" "}
-                  </p>
-                </div>
+			  <div className="rn-page-title text-center pt--100">
+			    <h2 className="title theme-gradient">Your Vision, Our Code</h2>
+			    <p>
+			      At LunaraTech, we don’t just deliver digital products — we co-create them with you. We're the kind of team that listens carefully, thinks creatively, and builds with intention. If you're after results that feel as good as they perform, you're in good company. Let’s turn your idea into something unforgettable.
+			    </p>
+			  </div>
               </div>
             </div>
           </div>
@@ -85,10 +84,10 @@ class Contact extends Component {
                   <div className="inner">
                     <h4 className="title">Email Address</h4>
                     <p>
-                      <a href="mailto:admin@gmail.com">admin@gmail.com</a>
+                      <a href="mailto:admin@lunaratech.com">admin@lunaratech.com</a>
                     </p>
                     <p>
-                      <a href="mailto:example@gmail.com">example@gmail.com</a>
+                      <a href="mailto:sales@lunaratech.com">sales@lunaratech.com</a>
                     </p>
                   </div>
                 </div>
@@ -104,8 +103,7 @@ class Contact extends Component {
                   <div className="inner">
                     <h4 className="title">Location</h4>
                     <p>
-                      5678 Bangla Main Road, cities 580 <br /> GBnagla, example
-                      54786
+                      2720 Joppa Ave S, <br /> Minneapolis MN, 55416
                     </p>
                   </div>
                 </div>
@@ -118,7 +116,26 @@ class Contact extends Component {
 
         {/* Start Contact Page Area  */}
         <div className="rn-contact-page ptb--120 bg_color--1">
-          <ContactTwo />
+			<div className="contact-form--1">
+		        <div className="container">
+		          <div className="row row--35 align-items-start">
+		            <div className="col-lg-6 order-2 order-lg-1">
+		              <div className="section-title text-left mb--50">
+		                <h2 className="title">Contact Us</h2>
+		                <p className="description">
+		                 Whether you’re breathing new life into an outdated site, giving your brand a much-needed glow-up, or launching a bold new idea into the digital universe, we’re here to make the process smooth, collaborative, and maybe even fun (crazy, right?). We bring clarity, energy, and just the right amount of caffeine to every project.
+		                </p>
+		              </div>
+		              
+		            </div>
+		            <div className="col-lg-6 order-1 order-lg-2">
+		              <div className="thumbnail mb_md--30 mb_sm--30">
+		                <img src={contactImg} alt="trydo" />
+		              </div>
+		            </div>
+		          </div>
+		        </div>
+		      </div>
         </div>
         {/* End Contact Page Area  */}
 
