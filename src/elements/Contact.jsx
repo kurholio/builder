@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import PageHelmet from "../component/common/Helmet";
 import { FiHeadphones, FiMail, FiMapPin } from "react-icons/fi";
-import GoogleMapReact from "google-map-react";
-import ContactTwo from "../elements/contact/ContactTwo";
-import BrandTwo from "../elements/BrandTwo";
+import Breadcrumb from "../elements/common/Breadcrumb";
 import ScrollToTop from "react-scroll-up";
 import { FiChevronUp } from "react-icons/fi";
 import Header from "../component/header/Header";
@@ -32,19 +30,25 @@ class Contact extends Component {
           logoname="logo.png"
         />
 
-        {/* Start Breadcrump Area */}
-        <div
-          className="rn-page-title-area pt--120 pb--190 bg_image bg_image--17"
+		{/* Start Breadcrump Area */}
+			 <Breadcrumb title={'Contact'} />
+		{/* End Breadcrump Area */}
+		<div
+          className="rn-page-title-area pt--50 pb--60 bg_image bg_image--17 bg_color--1"
           data-black-overlay="6"
         >
           <div className="container">
             <div className="row">
               <div className="col-lg-12">
-			  <div className="rn-page-title text-center pt--100">
-			    <h2 className="title theme-gradient">Your Vision, Our Code</h2>
-			    <p>
-			      At LunaraTech, we don’t just deliver digital products — we co-create them with you. We're the kind of team that listens carefully, thinks creatively, and builds with intention. If you're after results that feel as good as they perform, you're in good company. Let’s turn your idea into something unforgettable.
-			    </p>
+			  <div className="rn-page-title text-center">
+			    
+				
+								  
+								  
+								  <h3 className="title">Your Vision, Our Code</h3>
+								  			    <p>
+								  			      At LunaraTech, we don’t just deliver digital products — we co-create them with you. We're the kind of team that listens carefully, thinks creatively, and builds with intention. If you're after results that feel as good as they perform, you're in good company. Let’s turn your idea into something unforgettable.
+								  			    </p>
 			  </div>
               </div>
             </div>

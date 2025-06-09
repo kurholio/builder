@@ -83,7 +83,7 @@ class Service extends Component {
                     {/* End Breadcrump Area */}
 
                     {/* Start Service Area */}
-                    <div className="service-area ptb--120 bg_color--5">
+                    <div className="service-area ptb--120 bg_color--1">
                         <div className="container">
                             <div className="row">
                                  <div className="col-lg-4 col-md-12">
