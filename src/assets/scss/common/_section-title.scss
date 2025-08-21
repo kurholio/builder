@@ -2,6 +2,19 @@
     Section Title 
 ====================*/
 
+// Override all h2 elements in section titles to be black and plain
+.section-title h2, .section-title .h2,
+.section-title h3, .section-title .h3 {
+    color: #000000 !important;
+    font-weight: 400 !important;
+    text-transform: none !important;
+    text-decoration: none !important;
+    text-shadow: none !important;
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    -webkit-text-fill-color: unset !important;
+}
+
 .section-title {
     margin-top: -20px;
     @media #{$sm-layout} {

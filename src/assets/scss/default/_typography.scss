@@ -21,6 +21,7 @@ body {
 	font-family: $body-font;
 	color: $body-color;
 	font-weight: 400;
+	background-color: $white;
 }
 
 a {
@@ -69,6 +70,31 @@ h6,
 	font-family: $heading-font;
 	line-height: 1.4074;
 	color: $heading-color;
+}
+
+// Make h1 and h2 black and plain
+h1, .h1 {
+	font-size: $h1;
+	color: #000000 !important;
+	font-weight: 400 !important;
+	text-transform: none !important;
+	text-decoration: none !important;
+	text-shadow: none !important;
+	background: none !important;
+	-webkit-background-clip: unset !important;
+	-webkit-text-fill-color: unset !important;
+}
+
+h2, .h2 {
+	font-size: $h2;
+	color: #000000 !important;
+	font-weight: 400 !important;
+	text-transform: none !important;
+	text-decoration: none !important;
+	text-shadow: none !important;
+	background: none !important;
+	-webkit-background-clip: unset !important;
+	-webkit-text-fill-color: unset !important;
 }
 h1,
 .h1 {

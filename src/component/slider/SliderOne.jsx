@@ -11,9 +11,8 @@ class SliderOne extends Component {
                     <div className="row">
                         <div className="col-lg-12">
                             <div className="inner">
-                                <h1 className="title theme-gradient">
-								Turn vision<br />
-								 into velocity. </h1>
+                                <h1 className="pt-5 theme-gradient">
+								Turn vision into velocity </h1>
                             </div>
                         </div>
                     </div>

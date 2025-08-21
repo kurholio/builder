@@ -2,6 +2,41 @@
     Breadcrump Area 
 ======================*/
 
+// Override all h2 elements in breadcrumbs to be black and plain
+.breadcrumb-inner h2, .breadcrumb-inner .h2,
+.breadcrupm-style--2 h2, .breadcrupm-style--2 .h2,
+.rn-page-title h2, .rn-page-title .h2 {
+    color: #000000 !important;
+    font-weight: 400 !important;
+    text-transform: none !important;
+    text-decoration: none !important;
+    text-shadow: none !important;
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    -webkit-text-fill-color: unset !important;
+}
+
+// Breadcrumb area styling - white background with darker bottom border
+.breadcrumb-area {
+    background-color: #ffffff !important;
+    border-bottom: 2px solid #e5e7eb !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+// Remove any background images and overlays
+.breadcrumb-area.rn-bg-color {
+    background-image: none !important;
+    background-color: #ffffff !important;
+}
+
+.breadcrumb-area[data-black-overlay] {
+    background-color: #ffffff !important;
+}
+
+.breadcrumb-area[data-black-overlay]::before {
+    display: none !important;
+}
+
 @media (min-width: 1200px){
     .container {
         max-width: 1260px;

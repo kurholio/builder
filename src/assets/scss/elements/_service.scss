@@ -366,6 +366,49 @@
     }
 }
 
+// Elegant Service Styling
+.service.service__style--1.elegant-service {
+    padding: 80px 50px !important;
+    background: #ffffff;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    
+    .content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        
+        h4.title {
+            color: #1e293b;
+            font-weight: 600;
+            font-size: 24px;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+        
+        p {
+            color: #64748b;
+            font-weight: 400;
+            line-height: 1.7;
+            margin: 0;
+            font-size: 16px;
+        }
+    }
+    
+    @media #{$sm-layout} {
+        padding: 50px 30px !important;
+        margin-bottom: 20px;
+    }
+    
+    @media #{$md-layout} {
+        padding: 60px 40px !important;
+    }
+}
+
 /*---------------------------
     Paralax Service Style  
 -----------------------------*/

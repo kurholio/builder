@@ -7,25 +7,14 @@ class Breadcrumb extends Component {
     return (
       <React.Fragment>
         <div
-          className="breadcrumb-area rn-bg-color ptb--120 bg_image bg_image--1"
-          data-black-overlay="6"
+          className="breadcrumb-area rn-bg-color pt--120"
         >
           <div className="container">
             <div className="row">
               <div className="col-lg-12">
-                <div className="breadcrumb-inner pt--100">
+                <div className="breadcrumb-inner pt--110">
                   <h2 className="title">{title}</h2>
-                  <ul className="page-list">
-                    <li className="breadcrumb-item">
-                      <Link to={`/`}>Home</Link>
-                    </li>
-                    {parent ? (
-                      <li className="breadcrumb-item">{parent}</li>
-                    ) : (
-                      ""
-                    )}
-                    <li className="breadcrumb-item active">{title}</li>
-                  </ul>
+                  
                 </div>
               </div>
             </div>

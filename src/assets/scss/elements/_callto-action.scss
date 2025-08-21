@@ -53,3 +53,11 @@ Call To Action Wrapper
         }
     }
 }
+
+// Custom elegant styling for the call-to-action heading
+.call-to-action .inner h2.elegant-heading {
+    color: #f8fafc !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-weight: 300 !important;
+    letter-spacing: 0.5px;
+}

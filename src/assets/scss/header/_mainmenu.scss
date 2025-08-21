@@ -14,7 +14,7 @@ Mainmenu Area
                 position: relative;
                 > a {
                     @extend %transition;
-                    color: #c6c9d8;
+                    color: $heading-color;
                     font-size: 16px;
                     font-weight: 500;
                     padding: 20px 0;
@@ -39,17 +39,17 @@ Mainmenu Area
                         border-radius: 4px;
                         li {
                             position: relative;
-                            a {
-                                font-size: 16px;
-                                font-weight: 500;
-                                padding: 5px 20px;
-                                font-size: 14px;
-                                display: block;
-                                color: #1f1f25;
-                                margin: 0 10px;
-                                border-radius: 3px;
-                                @extend %transition;
-                            }
+                                                         a {
+                                 font-size: 16px;
+                                 font-weight: 500;
+                                 padding: 5px 20px;
+                                 font-size: 14px;
+                                 display: block;
+                                 color: $heading-color;
+                                 margin: 0 10px;
+                                 border-radius: 3px;
+                                 @extend %transition;
+                             }
                             &:hover {
                                 > a {
                                     color: $theme-color;
@@ -113,7 +113,7 @@ Mainmenu Area
 .humberger-menu{
     span{
         &.text-white{
-            color: #c6c9d8 !important;
+            color: $heading-color !important;
             
         }
     }
@@ -126,11 +126,11 @@ Mainmenu Area
                 @extend %liststyle;
                 > li {
                     > a {
-                        color: #ffffff;
+                        color: $heading-color;
                     }
                     &:hover {
                         > a {
-                            color: rgba(255,255,255,0.6);
+                            color: rgba($heading-color, 0.6);
                             @media #{$md-layout} {
                                 color: $theme-color;
                             }
@@ -168,19 +168,19 @@ Mainmenu Area
 
 @media #{$lg-layout}{
     .header-style-two .humberger-menu span.text-white {
-        color: #1d1d24 !important;
+        color: $heading-color !important;
     }
 }
 
 @media #{$md-layout}{
     .header-style-two .humberger-menu span.text-white{
-        color: #1d1d24 !important;
+        color: $heading-color !important;
     }
 }
 
 @media #{$sm-layout}{
     .header-style-two .humberger-menu span.text-white{
-        color: #1d1d24 !important;
+        color: $heading-color !important;
     }
 }
 

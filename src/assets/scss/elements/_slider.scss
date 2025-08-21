@@ -2,6 +2,31 @@
     Slider Area 
 ======================*/
 
+// Override all h1 and h2 elements in sliders to be black and plain
+.slide h1, .slide .h1,
+.slide h2, .slide .h2 {
+    color: #000000 !important;
+    font-weight: 400 !important;
+    text-transform: none !important;
+    text-decoration: none !important;
+    text-shadow: none !important;
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    -webkit-text-fill-color: unset !important;
+}
+
+// Specific override for slider titles
+.slide .inner h1.title,
+.slide .inner h2.title {
+    color: #000000 !important;
+    font-weight: 400 !important;
+    text-transform: none !important;
+    text-decoration: none !important;
+    text-shadow: none !important;
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    -webkit-text-fill-color: unset !important;
+}
 
 @media #{$sm-layout} {
     .bg_image--31 {
@@ -54,7 +79,7 @@ Slider Default Style
                 font-size: 125px;
                 font-weight: 900;
                 text-transform: uppercase;
-                font-family: 'Montserrat', sans-serif;
+                font-family: $heading-font;
                 font-weight: 900;
                 line-height: 130px;
 
@@ -208,7 +233,7 @@ Slider Default Style
             }
 
             >span {
-                color: #fff;
+                color: $heading-color;
                 font-size: 15px;
                 text-transform: uppercase;
                 letter-spacing: 4px;
@@ -218,7 +243,7 @@ Slider Default Style
 
             h1 {
                 &.title {
-                    color: #ffffff;
+                    color: $heading-color;
                     font-size: 100px;
                     font-weight: 900;
 
@@ -240,7 +265,7 @@ Slider Default Style
 
             p {
                 &.description {
-                    color: #c6c9d8;
+                    color: $body-color;
                     font-size: 24px;
                     line-height: 40px;
                     margin: 0;
@@ -317,7 +342,7 @@ Slider Default Style
     &.slider-style-3 {
         .inner {
             >span {
-                color: #1f1f25;
+                color: $heading-color;
                 font-size: 15px;
                 text-transform: uppercase;
                 letter-spacing: 4px;
@@ -332,10 +357,10 @@ Slider Default Style
 
             h1 {
                 &.title {
-                    color: #1f1f25;
+                    color: $heading-color;
                     font-size: 75px;
                     font-weight: 900;
-                    font-family: 'Montserrat', sans-serif;
+                    font-family: $heading-font;
                     line-height: 90px;
                     text-transform: inherit;
                     width: 70%;

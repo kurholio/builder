@@ -77,7 +77,135 @@ font-family: 'Poppins', sans-serif;
 
 .wrapper {
     position: relative;
+    background-color: $white;
 }
+
+// Add light backgrounds to main content areas
+.rn-section {
+    background-color: $white;
+}
+
+.rn-area {
+    background-color: $white;
+}
+
+.main-content {
+    background-color: $white;
+}
+
+// Force white theme overrides
+body, html {
+    background-color: #ffffff !important;
+    color: #374151 !important;
+}
+
+.wrapper, .main-wrapper, .content-wrapper {
+    background-color: #ffffff !important;
+}
+
+// Force dark text for headings
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    color: #111827 !important;
+}
+
+// Force dark text for body text
+p, span, div, a {
+    color: #374151 !important;
+}
+
+// Force white background for sections
+section, .section, .rn-section, .rn-area {
+    background-color: #ffffff !important;
+}
+
+// Force white background for header
+.header-area, .header-wrapper {
+    background-color: #ffffff !important;
+}
+
+// Force dark text for navigation
+.mainmenunav ul.mainmenu > li > a {
+    color: #111827 !important;
+}
+
+// Force dark text for slider
+.slide .inner h1.title,
+.slide .inner p.description,
+.slide .inner > span {
+    color: #111827 !important;
+}
+
+// Make logo transparent
+.logo {
+    a {
+        img {
+            opacity: 0.8 !important;
+            background: transparent !important;
+            mix-blend-mode: multiply !important;
+        }
+    }
+}
+
+// Logo transparency variations
+.logo-transparent {
+    a {
+        img {
+            opacity: 0.6 !important;
+            background: transparent !important;
+            mix-blend-mode: multiply !important;
+        }
+    }
+}
+
+.logo-very-transparent {
+    a {
+        img {
+            opacity: 0.4 !important;
+            background: transparent !important;
+            mix-blend-mode: screen !important;
+        }
+    }
+}
+
+.logo-ghost {
+    a {
+        img {
+            opacity: 0.2 !important;
+            background: transparent !important;
+            mix-blend-mode: overlay !important;
+        }
+    }
+}
+
+// Specific logo class styling
+.logo-1, .logo-2 {
+    opacity: 0.8 !important;
+    background: transparent !important;
+    mix-blend-mode: multiply !important;
+}
+
+// Logo image transparency
+.logo img, 
+.logo a img,
+.logo .logo-1,
+.logo .logo-2 {
+    opacity: 0.8 !important;
+    background: transparent !important;
+    mix-blend-mode: multiply !important;
+}
+
+// Alternative: Make logo completely transparent (uncomment if you want this)
+/*
+.logo {
+    a {
+        img {
+            opacity: 0.3 !important;
+            background: transparent !important;
+            mix-blend-mode: screen !important;
+        }
+    }
+}
+*/
 
 /* Define Colors */
 .theme-color {
@@ -85,11 +213,10 @@ font-family: 'Poppins', sans-serif;
 }
 
 .theme-gradient {
-    background: rgb(248,31,1);
-    background: -moz-linear-gradient(145deg,  rgba(248,31,1,1) 0%, rgba(238,7,110,1) 100%);
-    background: -webkit-linear-gradient(145deg,  rgba(248,31,1,1) 0%,rgba(238,7,110,1) 100%);
-    background: linear-gradient(145deg,  rgba(248,31,1,1) 0%,rgba(238,7,110,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f81f01', endColorstr='#ee076e',GradientType=1 );
+    background: $theme-color;
+    background: -moz-linear-gradient(145deg, $theme-color 0%, $theme-color-2 100%);
+    background: -webkit-linear-gradient(145deg, $theme-color 0%, $theme-color-2 100%);
+    background: linear-gradient(145deg, $theme-color 0%, $theme-color-2 100%);
 }
 
 .rn-text-white {
@@ -401,7 +528,7 @@ textarea:-ms-input-placeholder {
 }
 
 [data-black-overlay]:before {
-    background-color: #00010c;
+    background-color: #ffffff;
 }
 
 [data-white-overlay]:before {
@@ -478,3 +605,30 @@ textarea:-ms-input-placeholder {
 img.react-parallax-bgimage {
     object-fit: contain;
 }
+
+/*=============================
+    Logo Transparency Utilities
+==============================*/
+
+// Logo transparency levels
+.logo-opacity-10 { opacity: 0.1 !important; }
+.logo-opacity-20 { opacity: 0.2 !important; }
+.logo-opacity-30 { opacity: 0.3 !important; }
+.logo-opacity-40 { opacity: 0.4 !important; }
+.logo-opacity-50 { opacity: 0.5 !important; }
+.logo-opacity-60 { opacity: 0.6 !important; }
+.logo-opacity-70 { opacity: 0.7 !important; }
+.logo-opacity-80 { opacity: 0.8 !important; }
+.logo-opacity-90 { opacity: 0.9 !important; }
+
+// Logo blend modes
+.logo-blend-multiply { mix-blend-mode: multiply !important; }
+.logo-blend-screen { mix-blend-mode: screen !important; }
+.logo-blend-overlay { mix-blend-mode: overlay !important; }
+.logo-blend-soft-light { mix-blend-mode: soft-light !important; }
+.logo-blend-color-burn { mix-blend-mode: color-burn !important; }
+
+// Quick logo transparency classes
+.logo-fade { opacity: 0.7 !important; mix-blend-mode: multiply !important; }
+.logo-ghost { opacity: 0.3 !important; mix-blend-mode: screen !important; }
+.logo-watermark { opacity: 0.2 !important; mix-blend-mode: overlay !important; }

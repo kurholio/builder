@@ -3,6 +3,7 @@
 =======================*/
 
 .header-area{
+    background-color: $white;
     &.header--transparent {
         position: absolute;
         top: 0;
@@ -110,7 +111,7 @@
         a{
             &.rn-btn {
                 border: 2px solid rgba(29, 29, 36, 0.5);
-                color: #1d1d24;
+                color: $heading-color;
             }
         }
     }
@@ -412,7 +413,7 @@
                                         height: 0;
                                         border-style: solid;
                                         border-width: 7px 7px 0 7px;
-                                        border-color: #1f1f25 transparent transparent transparent;
+                                        border-color: $heading-color transparent transparent transparent;
                                         position: absolute;
                                         content: "";
                                         right: 0;

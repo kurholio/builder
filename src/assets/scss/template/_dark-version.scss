@@ -3,7 +3,7 @@
 ----------------------------*/
 
 .active-dark {
-    background: #101010;
+    background: #ffffff;
     [data-overlay="6"]:before,
     [data-black-overlay="6"]:before,
     [data-white-overlay="6"]:before {
@@ -33,7 +33,7 @@
     }
     .bg_color--5,
     .footer-right {
-        background: #101010;
+        background: #ffffff;
     }
     ul.brand-style-2 img {
         filter: invert(1);
@@ -85,7 +85,7 @@
         box-shadow: inset 0 0 0 5px #ffffff;
     }
     .creative-service-wrapper .row.creative-service .service.service__style--2 {
-        background: #191919;
+        background: #ffffff;
     }
     .contact-form--1 input, .contact-form--1 textarea ,
     .header-area.color-black a.rn-btn {
@@ -95,7 +95,7 @@
         border-color: $theme-color;
     }
     .header-area.header--fixed.sticky {
-        background: #191919;
+        background: #ffffff;
     }
     .header-area.header--fixed.sticky .header-wrapper a.rn-btn {
         color: #ffffff;
@@ -113,7 +113,7 @@
         background-size: cover;
     }
     .backto-top>div {
-        background-color: #000;
+        background-color: #ffffff;
     }
     .backto-top svg {
         color: #fff;
@@ -155,7 +155,7 @@
             color: #c6c9d8 !important;
         }
         .header-area .header-wrapper .mainmenunav ul.mainmenu {
-            background: #101010;
+            background: #ffffff;
         }
         .header-area .header-wrapper.menu-open .close-menu span {
             color: #c6c9d8 !important;
