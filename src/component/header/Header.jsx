@@ -44,46 +44,48 @@ class Header extends Component {
       <header
         className={`header-area formobile-menu header--transparent ${color}`}
       >
-        <div className="header-wrapper" id="header-wrapper">
-          <div className="header-left">
-            <div className="logo">
-              <a href="/">{logoUrl}</a>
+        <div className="container">
+          <div className="header-wrapper" id="header-wrapper">
+            <div className="header-left">
+              <div className="logo">
+                <a href="/">{logoUrl}</a>
+              </div>
             </div>
-          </div>
-          <div className="header-right">
-            <nav className="mainmenunav d-lg-block">
-              <ul className="mainmenu">
-               
-                 <li>
-                      <Link to="/">Home</Link>
-                 </li>
-                <li>
-                  <Link to="/service">Service</Link>
-                </li>
-                <li>
-                  <Link to="/about">About</Link>
-                </li>
+            <div className="header-right">
+              <nav className="mainmenunav d-lg-block">
+                <ul className="mainmenu">
+                 
+                   <li>
+                        <Link to="/">Home</Link>
+                   </li>
+                  <li>
+                    <Link to="/service">Service</Link>
+                  </li>
+                  <li>
+                    <Link to="/about">About</Link>
+                  </li>
 
-                <li>
-                  <Link to="/contact">Contact</Link>
-                </li>
-              </ul>
-            </nav>
-            
-            {/* Start Humberger Menu  */}
-            <div className="humberger-menu d-block d-lg-none pl--20">
-              <span
-                onClick={this.menuTrigger}
-                className="menutrigger text-white"
-              >
-                <FiMenu />
-              </span>
-            </div>
-            {/* End Humberger Menu  */}
-            <div className="close-menu d-block d-lg-none">
-              <span onClick={this.CLoseMenuTrigger} className="closeTrigger">
-                <FiX />
-              </span>
+                  <li>
+                    <Link to="/contact">Contact</Link>
+                  </li>
+                </ul>
+              </nav>
+              
+              {/* Start Humberger Menu  */}
+              <div className="humberger-menu d-block d-lg-none pl--20">
+                <span
+                  onClick={this.menuTrigger}
+                  className="menutrigger text-white"
+                >
+                  <FiMenu />
+                </span>
+              </div>
+              {/* End Humberger Menu  */}
+              <div className="close-menu d-block d-lg-none">
+                <span onClick={this.CLoseMenuTrigger} className="closeTrigger">
+                  <FiX />
+                </span>
+              </div>
             </div>
           </div>
         </div>

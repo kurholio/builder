@@ -8,21 +8,22 @@ Footer Styles
 
 .footer-left {
     background: linear-gradient(145deg, #f3f2f1 0%, #bbbaba 100%);
-    padding: 120px 120px;
+    padding: 120px 80px;
     position: relative;
     z-index: 2;
     margin-right: -15px;
     border-top-right-radius: 6px;
 
     @media #{$lg-layout} {
-        padding: 120px 80px;
+        padding: 120px 60px;
     }
     @media #{$md-layout} {
-        padding: 60px 70px;
+        padding: 60px 50px;
     }
 
     @media #{$sm-layout} {
         padding: 60px 30px;
+        margin-right: 0;
     }
 
     

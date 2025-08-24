@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ServiceOne from "../../elements/service/ServiceOne";
+import Nitches from "../../elements/service/Nitches";
 
 class SliderOne extends Component {
   render() {
@@ -19,6 +20,9 @@ class SliderOne extends Component {
                     {/* Start Service Area */}
                     <div className="service-wrapper service-white">
                         <ServiceOne />
+                    </div>
+                    <div className="service-wrapper service-white">
+                        <Nitches />
                     </div>
                     {/* End Service Area */}
                 </div>

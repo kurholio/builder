@@ -10,17 +10,7 @@
         left: 0;
         right: 0;
         width: auto;
-        padding-left: 50px;
-        padding-right: 50px;
         z-index: 999;
-        @media #{$lg-layout} {
-            padding-left: 30px;
-            padding-right: 30px;
-        }
-        @media #{$sm-layout} {
-            padding-left: 30px;
-            padding-right: 30px;
-        }
     }
     .header-wrapper {
         display: flex;
