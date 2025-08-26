@@ -6,7 +6,7 @@ import React, { useState } from "react";
 // Icons: inline SVG (black & white, lightweight, fully scalable)
 
 const Pill = ({ children }) => (
-  <span className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2 text-sm shadow-sm">
+  <span className="inline-flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-4 py-2 text-sm shadow-sm">
     {children}
   </span>
 );
@@ -95,9 +95,9 @@ const Sparkles = () => (
   </Icon>
 );
 
-const Stat = ({ value, label }) => (
-  <div className="rounded-2xl border border-gray-200 bg-white p-6 text-center shadow-sm">
-    <div className="text-4xl font-semibold tracking-tight">{value}</div>
+const Stat = ({ value, label, className }) => (
+  <div className={`rounded-lg border border-gray-200 bg-white p-6 text-center shadow-sm transition-all duration-500 hover:shadow-lg hover:-translate-y-1 hover:scale-105 hover:border-gray-300 ${className || ''}`}>
+    <div className="text-4xl font-semibold tracking-tight transition-all duration-300 hover:text-gray-700">{value}</div>
     <div className="mt-2 text-sm text-gray-600">{label}</div>
   </div>
 );
@@ -105,7 +105,7 @@ const Stat = ({ value, label }) => (
 const SectionHeader = ({ eyebrow, title, subtitle, id }) => (
   <div className="mx-auto max-w-3xl text-center" id={id}>
     {eyebrow && (
-      <div className="mb-3 inline-block rounded-full border border-gray-200 bg-white px-3 py-1 text-xs uppercase tracking-wide text-gray-600">
+      <div className="mb-3 inline-block rounded-lg border border-gray-200 bg-white px-3 py-1 text-xs uppercase tracking-wide text-gray-600">
         {eyebrow}
       </div>
     )}
@@ -116,23 +116,23 @@ const SectionHeader = ({ eyebrow, title, subtitle, id }) => (
   </div>
 );
 
-const Card = ({ title, children, icon }) => (
-  <div className="group relative flex h-full flex-col rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition hover:shadow-md">
-    <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gray-50 text-gray-700 ring-1 ring-gray-200">
+const Card = ({ title, children, icon, className }) => (
+  <div className={`group relative flex h-full flex-col rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:scale-[1.02] ${className || ''}`}>
+    <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-gray-50 text-gray-700 ring-1 ring-gray-200 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
       {icon}
     </div>
-    <h3 className="text-lg font-semibold text-gray-900">{title}</h3>
+    <h3 className="text-lg font-semibold text-gray-900 transition-colors duration-300 group-hover:text-gray-700">{title}</h3>
     <p className="mt-2 text-sm text-gray-600 leading-relaxed">{children}</p>
-    <div className="pointer-events-none absolute inset-x-0 -bottom-px h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
+    <div className="pointer-events-none absolute inset-x-0 -bottom-px h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent transition-all duration-300 group-hover:from-transparent group-hover:via-gray-400 group-hover:to-transparent" />
   </div>
 );
 
 const Input = (props) => (
-  <input {...props} className={`w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 shadow-sm focus:border-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-200 ${props.className||''}`} />
+  <input {...props} className={`w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 shadow-sm focus:border-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-200 ${props.className||''}`} />
 );
 
 const Textarea = (props) => (
-  <textarea {...props} className={`w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 shadow-sm focus:border-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-200 ${props.className||''}`} />
+  <textarea {...props} className={`w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 shadow-sm focus:border-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-200 ${props.className||''}`} />
 );
 
 export default function LunaraTechLanding() {
@@ -142,6 +142,50 @@ export default function LunaraTechLanding() {
     e.preventDefault();
     setSent(true);
   };
+
+  // Add custom CSS animations
+  React.useEffect(() => {
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+      }
+      @keyframes pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+      }
+      @keyframes slideInLeft {
+        from { opacity: 0; transform: translateX(-30px); }
+        to { opacity: 1; transform: translateX(0); }
+      }
+      @keyframes slideInRight {
+        from { opacity: 0; transform: translateX(30px); }
+        to { opacity: 1; transform: translateX(0); }
+      }
+      .animate-fade-in {
+        animation: fadeIn 1s ease-out;
+      }
+      .animate-float {
+        animation: float 3s ease-in-out infinite;
+      }
+      .animate-pulse-slow {
+        animation: pulse 2s ease-in-out infinite;
+      }
+      .animate-slide-in-left {
+        animation: slideInLeft 0.8s ease-out;
+      }
+      .animate-slide-in-right {
+        animation: slideInRight 0.8s ease-out;
+      }
+    `;
+    document.head.appendChild(style);
+    return () => document.head.removeChild(style);
+  }, []);
 
   const navItems = [
     { href: "#home", label: "Home" },
@@ -158,7 +202,7 @@ export default function LunaraTechLanding() {
       <header className="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-white/70 border-b border-gray-100">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:py-4">
           <a href="#home" className="flex items-center gap-2 font-semibold tracking-tight">
-            <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-gray-900 text-white">L</span>
+            <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-gray-900 text-white animate-pulse-slow">L</span>
             LunaraTech
           </a>
           <nav className="hidden gap-6 text-sm text-gray-700 sm:flex">
@@ -166,7 +210,7 @@ export default function LunaraTechLanding() {
               <a key={n.href} href={n.href} className="hover:text-gray-900">{n.label}</a>
             ))}
           </nav>
-          <a href="#contact" className="hidden rounded-xl bg-gray-900 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-gray-800 sm:inline-flex">Get Quote</a>
+          <a href="#contact" className="hidden rounded-md bg-gray-100 px-4 py-2 text-sm font-medium text-black hover:bg-gray-300 transition-all duration-300 sm:inline-flex">Get Quote</a>
         </div>
       </header>
 
@@ -174,19 +218,13 @@ export default function LunaraTechLanding() {
       <section id="home" className="relative">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:py-24">
           <div className="mx-auto max-w-3xl text-center">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-3 py-1 text-xs uppercase tracking-wide text-gray-600">
-              Turn vision into velocity
-            </div>
-            <h1 className="text-4xl font-semibold tracking-tight sm:text-6xl">Software consulting that ships fast — and looks superb</h1>
-            <p className="mx-auto mt-4 max-w-2xl text-gray-600">We craft clean code, bold design, and real connections. From idea to launch, we build experiences that scale, convert, and feel great to use.</p>
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-              <Pill><Check/> Clean Code</Pill>
-              <Pill><Star/> Bold Design</Pill>
-              <Pill><Arrow/> Real Connection</Pill>
-            </div>
+            
+            <h1 className="mt-15 text-4xl font-semibold tracking-tight sm:text-6xl animate-pulse">Turn vision into velocity</h1>
+            <p className="mx-auto mt-10 max-w-2xl text-gray-600 animate-fade-in">We craft clean code, bold design, and real connections. From idea to launch, we build experiences that scale, convert, and feel great to use.</p>
+            
             <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-              <a href="#contact" className="rounded-xl bg-gray-900 px-5 py-3 text-sm font-medium text-white shadow-sm hover:bg-gray-800">Start a Project</a>
-              <a href="#services" className="rounded-xl border border-gray-200 bg-white px-5 py-3 text-sm font-medium text-gray-900 hover:border-gray-300">What we do</a>
+              <a href="#contact" className="rounded-md bg-blue-50 px-6 py-3 text-sm font-medium text-blue-600 hover:bg-blue-100 transition-all duration-300 hover:scale-105 animate-bounce">Start a Project</a>
+              <a href="#services" className="rounded-md border border-gray-300 bg-white px-6 py-3 text-sm font-medium text-gray-900 hover:border-gray-400 hover:bg-gray-50 transition-all duration-300 hover:scale-105">What we do</a>
             </div>
           </div>
         </div>
@@ -195,17 +233,17 @@ export default function LunaraTechLanding() {
       {/* Value props */}
       <section className="border-y border-gray-100 bg-gray-50">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-4 py-12 sm:grid-cols-3">
-          <Card title="Clean Code" icon={<Check/>}>We write code that's readable, maintainable, and built to scale — ensuring smooth development and long‑term stability.</Card>
-          <Card title="Bold Design" icon={<Star/>}>Modern, intuitive, and tailored to create lasting impressions across devices and contexts.</Card>
-          <Card title="Real Connection" icon={<Arrow/>}>Genuine collaboration that turns your ideas into digital experiences people love.</Card>
+          <Card title="Clean Code" icon={<Check/>} className="bg-red-50 animate-float" style={{animationDelay: '0s'}}>We write code that's readable, maintainable, and built to scale — ensuring smooth development and long‑term stability.</Card>
+          <Card title="Bold Design" icon={<Star/>} className="bg-blue-50 animate-float" style={{animationDelay: '1s'}}>Modern, intuitive, and tailored to create lasting impressions across devices and contexts.</Card>
+          <Card title="Real Connection" icon={<Arrow/>} className="bg-green-50 animate-float" style={{animationDelay: '2s'}}>Genuine collaboration that turns your ideas into digital experiences people love.</Card>
         </div>
       </section>
 
       {/* Niches */}
       <section className="px-4 py-16 sm:py-20" id="niches">
         <SectionHeader
-          eyebrow="Niches"
-          title="Websites that work for your world"
+          eyebrow=""
+          title="Niches that work for your world"
           subtitle="We tailor strategy, design, and technology to your industry — built to perform and evolve."
         />
         <div className="mx-auto mt-10 grid max-w-7xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -222,8 +260,27 @@ export default function LunaraTechLanding() {
             {t:"Events", d:"Speaker bios, registration, schedules, and live‑stream integrations.", icon:<Calendar/>},
             {t:"Personal", d:"Creators, coaches, influencers — elevate your brand and grow your audience.", icon:<UserIco/>},
             {t:"Custom", d:"Have a unique vision? We’ll build it from the ground up for your goals.", icon:<Sparkles/>},
-          ].map((i)=> (
-            <Card key={i.t} title={i.t} icon={i.icon}>{i.d}</Card>
+          ].map((i, index)=> (
+            <div 
+              key={i.t} 
+              className="group relative flex h-full flex-col rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-all duration-500 hover:shadow-xl hover:-translate-y-2 hover:scale-[1.03] hover:border-gray-300"
+              style={{
+                animationDelay: `${index * 0.1}s`,
+                animation: 'fadeIn 0.6s ease-out forwards',
+                opacity: 0
+              }}
+            >
+              <div className="mb-4 flex justify-center">
+                <div className="h-16 w-16 text-gray-700 flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">
+                  <div className="scale-150 transition-transform duration-500 group-hover:scale-[1.2]">
+                    {i.icon}
+                  </div>
+                </div>
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900 text-center transition-colors duration-300 group-hover:text-gray-700">{i.t}</h3>
+              <p className="mt-2 text-sm text-gray-600 leading-relaxed text-center">{i.d}</p>
+              <div className="pointer-events-none absolute inset-x-0 -bottom-px h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent transition-all duration-300 group-hover:from-transparent group-hover:via-gray-400 group-hover:to-transparent" />
+            </div>
           ))}
         </div>
       </section>
@@ -231,7 +288,7 @@ export default function LunaraTechLanding() {
       {/* Services */}
       <section className="border-y border-gray-100 bg-gray-50 px-4 py-16 sm:py-20" id="services">
         <SectionHeader
-          eyebrow="Services"
+          eyebrow=""
           title="From concept to launch — and beyond"
           subtitle="Design, development, hosting, and ongoing support for a seamless digital experience."
         />
@@ -248,25 +305,35 @@ export default function LunaraTechLanding() {
       {/* About */}
       <section className="px-4 py-16 sm:py-20" id="about">
         <SectionHeader
-          eyebrow="About"
+          eyebrow=""
           title="Who we are"
           subtitle="A family‑run boutique studio. Less boardroom, more creative kitchen table — with better snacks."
         />
         <div className="mx-auto mt-10 grid max-w-6xl grid-cols-1 gap-8 lg:grid-cols-2">
           <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
             <p className="text-gray-700 leading-relaxed">
-              Our small but mighty team blends software development, graphic design, and marketing. Work with the folks who actually build your product — no hand‑offs, no support queues.
+              Our small but mighty team blends software development, graphic design, and marketing into a digital Swiss Army knife. We're the folks who actually build your product — no hand‑offs, no support queues, and definitely no "it works on my machine" excuses. Think of us as your tech-savvy best friend who happens to know how to make websites that don't break when someone sneezes at them.
             </p>
             <p className="mt-4 text-gray-700 leading-relaxed">
               From early‑stage UX research and wireframes to jaw‑dropping UI and flawless development, we’re with you at every step. Need go‑to‑market? We’ve got it — ideally without a single boring slide deck.
             </p>
             <div className="mt-6 grid grid-cols-3 gap-3">
-              <Stat value="6" label="Areas of Expertise"/>
-              <Stat value="1" label="Tightly‑Knit Team"/>
-              <Stat value="3" label="Decades Combined"/>
+              <Stat className ="pl-0 pr-0" value="6" label="Areas of Expertise"/>
+              <Stat className ="pl-0 pr-0" value="1" label="Tightly-Knit Team"/>
+              <Stat className ="pl-0 pr-0" value="3" label="Decades Combined"/>
             </div>
+            <p className="mt-6 text-sm text-gray-600 leading-relaxed">
+              We're not your typical agency. We're the kind of team that gets excited about CSS Grid, debates the merits of dark mode at 2 AM, and actually reads the documentation. When we're not coding, we're probably arguing about whether pineapple belongs on pizza (it doesn't) or debating the best way to center a div (flexbox, obviously). But most importantly, we're the team that turns your "wouldn't it be cool if..." into "holy cow, this is amazing!"
+            </p>
           </div>
           <div className="flex flex-col gap-6">
+                          <div className="rounded-lg overflow-hidden">
+                <img 
+                  src="/niks1.png" 
+                  alt="LunaraTech Team" 
+                  className="w-full h-56 object-cover rounded-lg"
+                />
+              </div>
             <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
               <h3 className="text-lg font-semibold">What we do</h3>
               <p className="mt-2 text-sm text-gray-700">Modern websites and mobile apps that are intuitive, scalable, and deeply aligned with your brand’s goals and audience.</p>
@@ -286,7 +353,7 @@ export default function LunaraTechLanding() {
       {/* Process */}
       <section className="border-y border-gray-100 bg-gray-50 px-4 py-16 sm:py-20" id="process">
         <SectionHeader
-          eyebrow="Step by Step"
+          eyebrow=""
           title="Minus the jargon, plus the momentum"
           subtitle="We listen closely, design with purpose, and build with precision — so your site informs, converts, and grows."
         />
@@ -299,7 +366,7 @@ export default function LunaraTechLanding() {
             {t:"Drive", d:"Iterate with data: SEO, UX, and feature improvements."},
             {t:"Support", d:"We stay with you — updates, fixes, and new ideas."},
           ].map((s, i)=> (
-            <div key={s.t} className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+            <div key={s.t} className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
               <div className="mb-2 text-xs font-medium uppercase tracking-wide text-gray-500">Step {i+1}</div>
               <div className="text-lg font-semibold">{s.t}</div>
               <p className="mt-2 text-sm text-gray-600">{s.d}</p>
@@ -313,7 +380,7 @@ export default function LunaraTechLanding() {
         <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 lg:grid-cols-2">
           <div>
             <SectionHeader
-              eyebrow="Ready to do this?"
+              eyebrow=""
               title={"Let’s get to work"}
               subtitle="Tell us about your project. We’ll reply with a quick plan, timeline, and budget."
             />
@@ -338,7 +405,7 @@ export default function LunaraTechLanding() {
                     <input type="checkbox" className="rounded border-gray-300" />
                     I’d like a quick 15‑min intro call
                   </label>
-                  <button type="submit" className="rounded-xl bg-gray-900 px-5 py-3 text-sm font-medium text-white shadow-sm hover:bg-gray-800">Contact Us</button>
+                  <button type="submit" className="rounded-md bg-gray-900 px-5 py-3 text-sm font-medium text-white hover:bg-gray-800 transition-all duration-300">Contact Us</button>
                 </div>
                 <p className="text-xs text-gray-500">Prefer email? <a className="underline" href="mailto:hello@lunaratech.example">hello@lunaratech.example</a></p>
               </form>
