@@ -314,7 +314,7 @@ export default function LunaraTechLanding() {
         <SectionHeader
           eyebrow=""
           title="Who we are"
-          subtitle="A family‑run boutique studio. Less boardroom, more creative kitchen table — with better snacks."
+          subtitle="A family‑run boutique. Less boardroom, more creative kitchen table — with better snacks."
         />
         <div className="mx-auto mt-10 grid max-w-6xl grid-cols-1 gap-8 lg:grid-cols-2">
           <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm h-full">
