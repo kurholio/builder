@@ -54,11 +54,10 @@ jobs:
 
       - name: Invalidate CloudFront Cache
         run: |
-          # Create invalidation with a unique comment
+          # Create invalidation
           aws cloudfront create-invalidation \
             --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
-            --paths "/*" \
-            --comment "Deployment $(date +%Y%m%d-%H%M%S)"
+            --paths "/*"
           
           # Wait for invalidation to complete
           echo "Waiting for CloudFront invalidation to complete..."
