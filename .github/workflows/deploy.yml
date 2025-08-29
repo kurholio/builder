@@ -39,7 +39,7 @@ jobs:
         run: |
           # Set cache control for HTML files (no cache)
           aws s3 cp s3://${{ secrets.S3_BUCKET_NAME }}/index.html s3://${{ secrets.S3_BUCKET_NAME }}/index.html \
-            --cache-control "no-cache, no-store, must-revalidate" \
+            --cache-control "no-cache, no-store, must-revalidate, max-age=0" \
             --metadata-directive REPLACE
           
           # Set cache control for JS/CSS files (cache for 1 year with versioning)
@@ -50,6 +50,9 @@ jobs:
           
           # Force CloudFront to fetch fresh content
           echo "Forcing CloudFront to fetch fresh content..."
+          
+          # Add a timestamp file to force refresh
+          echo "Build timestamp: $(date)" > s3://${{ secrets.S3_BUCKET_NAME }}/build-timestamp.txt
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -57,14 +60,21 @@ jobs:
 
       - name: Invalidate CloudFront Cache
         run: |
-          # Create invalidation
+          # Create invalidation for all files
           aws cloudfront create-invalidation \
             --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
             --paths "/*"
           
+          # Create specific invalidation for critical files
+          aws cloudfront create-invalidation \
+            --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
+            --paths "/index.html" "/assets/*"
+          
           # Wait for invalidation to complete
           echo "Waiting for CloudFront invalidation to complete..."
-          sleep 30
+          sleep 60
+          
+          echo "CloudFront invalidation completed. Site should refresh within 5-10 minutes."
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
