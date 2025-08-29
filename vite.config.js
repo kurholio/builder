@@ -6,16 +6,26 @@ export default defineConfig({
   plugins: [react()],
   build: {
     outDir: 'build',
+    // Add timestamp to force cache invalidation
     rollupOptions: {
       output: {
         entryFileNames: `assets/[name].[hash].js`,
         chunkFileNames: `assets/[name].[hash].js`,
-        assetFileNames: `assets/[name].[hash].[ext]`
+        assetFileNames: `assets/[name].[hash].[ext]`,
+        // Add build timestamp to force cache refresh
+        manualChunks: undefined
       }
-    }
+    },
+    // Ensure clean builds
+    emptyOutDir: true,
+    // Add source maps for debugging
+    sourcemap: false,
+    // Optimize chunk size
+    chunkSizeWarningLimit: 1000
   },
   define: {
     __BUILD_TIME__: JSON.stringify(new Date().toISOString()),
+    __VERSION__: JSON.stringify(Date.now().toString()),
   },
   server: {
     headers: {

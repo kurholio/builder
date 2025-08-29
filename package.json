@@ -8,7 +8,10 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "start": "vite start"
+    "start": "vite start",
+    "deploy:build": "npm run build && echo 'Build completed. Run your deployment script now.'",
+    "deploy:verify": "node scripts/clear-cache.js",
+    "deploy:clean": "rm -rf build/ .vite/ && echo 'Build cache cleared'"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
