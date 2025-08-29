@@ -35,11 +35,34 @@ jobs:
           AWS_REGION: ${{ secrets.AWS_REGION }}
           SOURCE_DIR: "dist"
 
+      - name: Set Cache Control Headers
+        run: |
+          # Set cache control for HTML files (no cache)
+          aws s3 cp s3://${{ secrets.S3_BUCKET_NAME }}/index.html s3://${{ secrets.S3_BUCKET_NAME }}/index.html \
+            --cache-control "no-cache, no-store, must-revalidate" \
+            --metadata-directive REPLACE
+          
+          # Set cache control for JS/CSS files (cache for 1 year with versioning)
+          aws s3 cp s3://${{ secrets.S3_BUCKET_NAME }}/assets/ s3://${{ secrets.S3_BUCKET_NAME }}/assets/ \
+            --recursive \
+            --cache-control "public, max-age=31536000, immutable" \
+            --metadata-directive REPLACE
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+
       - name: Invalidate CloudFront Cache
         run: |
+          # Create invalidation with a unique comment
           aws cloudfront create-invalidation \
             --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
-            --paths "/*"
+            --paths "/*" \
+            --comment "Deployment $(date +%Y%m%d-%H%M%S)"
+          
+          # Wait for invalidation to complete
+          echo "Waiting for CloudFront invalidation to complete..."
+          sleep 30
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
