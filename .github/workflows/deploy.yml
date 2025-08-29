@@ -39,7 +39,7 @@ jobs:
         run: |
           # Set cache control for HTML files (no cache)
           aws s3 cp s3://${{ secrets.S3_BUCKET_NAME }}/index.html s3://${{ secrets.S3_BUCKET_NAME }}/index.html \
-            --cache-control "no-cache, no-store, must-revalidate, max-age=0" \
+            --cache-control "no-cache, no-store, must-revalidate, max-age=0, s-maxage=0" \
             --metadata-directive REPLACE
           
           # Set cache control for JS/CSS files (cache for 1 year with versioning)
@@ -53,6 +53,9 @@ jobs:
           
           # Add a timestamp file to force refresh
           echo "Build timestamp: $(date)" | aws s3 cp - s3://${{ secrets.S3_BUCKET_NAME }}/build-timestamp.txt
+          
+          # Force refresh of all HTML files
+          find build -name "*.html" -exec aws s3 cp {} s3://${{ secrets.S3_BUCKET_NAME }}/{} --cache-control "no-cache, no-store, must-revalidate, max-age=0, s-maxage=0" --metadata-directive REPLACE \;
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -70,11 +73,22 @@ jobs:
             --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
             --paths "/index.html" "/assets/*"
           
+          # Create invalidation for timestamp file
+          aws cloudfront create-invalidation \
+            --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
+            --paths "/build-timestamp.txt"
+          
           # Wait for invalidation to complete
           echo "Waiting for CloudFront invalidation to complete..."
-          sleep 60
+          sleep 90
           
           echo "CloudFront invalidation completed. Site should refresh within 5-10 minutes."
+          
+          # Force a second invalidation after waiting
+          echo "Creating second invalidation to ensure refresh..."
+          aws cloudfront create-invalidation \
+            --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
+            --paths "/*"
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
