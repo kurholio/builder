@@ -96,9 +96,9 @@ const Sparkles = () => (
 );
 
 const Stat = ({ value, label, className }) => (
-  <div className={`rounded-lg border border-gray-200 bg-white p-6 text-center shadow-sm transition-all duration-500 hover:shadow-lg hover:-translate-y-1 hover:scale-105 hover:border-gray-300 ${className || ''}`}>
-    <div className="text-4xl font-semibold tracking-tight transition-all duration-300 hover:text-gray-700">{value}</div>
-    <div className="mt-2 text-sm text-gray-600">{label}</div>
+  <div className={`rounded-lg border p-6 text-center shadow-sm transition-all duration-500 hover:shadow-lg hover:-translate-y-2 hover:scale-105 ${className || 'bg-white border-gray-200'}`}>
+    <div className="text-4xl font-semibold tracking-tight transition-all duration-300 hover:text-gray-700 animate-pulse-slow">{value}</div>
+    <div className="mt-2 text-sm text-gray-600 leading-tight" dangerouslySetInnerHTML={{ __html: label }} />
   </div>
 );
 
@@ -167,6 +167,10 @@ export default function LunaraTechLanding() {
         from { opacity: 0; transform: translateX(30px); }
         to { opacity: 1; transform: translateX(0); }
       }
+      @keyframes gentleBounce {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-8px); }
+      }
       .animate-fade-in {
         animation: fadeIn 1s ease-out;
       }
@@ -175,6 +179,9 @@ export default function LunaraTechLanding() {
       }
       .animate-pulse-slow {
         animation: pulse 2s ease-in-out infinite;
+      }
+      .animate-gentle-bounce {
+        animation: gentleBounce 2s ease-in-out infinite;
       }
       .animate-slide-in-left {
         animation: slideInLeft 0.8s ease-out;
@@ -310,23 +317,107 @@ export default function LunaraTechLanding() {
           subtitle="A family‑run boutique studio. Less boardroom, more creative kitchen table — with better snacks."
         />
         <div className="mx-auto mt-10 grid max-w-6xl grid-cols-1 gap-8 lg:grid-cols-2">
-          <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+          <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm h-full">
             <p className="text-gray-700 leading-relaxed">
-              Our small but mighty team blends software development, graphic design, and marketing into a digital Swiss Army knife. We're the folks who actually build your product — no hand‑offs, no support queues, and definitely no "it works on my machine" excuses. Think of us as your tech-savvy best friend who happens to know how to make websites that don't break when someone sneezes at them.
+              Our small but mighty team blends software development, graphic design, and marketing into a digital 
+              Swiss Army knife. We're the folks who actually build your product — no hand‑offs, no support queues,
+               and definitely no "it works on my machine" excuses. 
             </p>
-            <p className="mt-4 text-gray-700 leading-relaxed">
-              From early‑stage UX research and wireframes to jaw‑dropping UI and flawless development, we’re with you at every step. Need go‑to‑market? We’ve got it — ideally without a single boring slide deck.
-            </p>
-            <div className="mt-6 grid grid-cols-3 gap-3">
-              <Stat className ="pl-0 pr-0" value="6" label="Areas of Expertise"/>
-              <Stat className ="pl-0 pr-0" value="1" label="Tightly-Knit Team"/>
-              <Stat className ="pl-0 pr-0" value="3" label="Decades Combined"/>
+           
+            <div className="mt-8 grid grid-cols-3 gap-3">
+              <div className="animate-gentle-bounce" style={{animationDelay: '0s', animationDuration: '2s', animationIterationCount: 'infinite'}}>
+                <Stat className ="pl-0 pr-0 bg-red-50 border-red-200" value="6" label="Areas of<br/>Expertise"/>
+              </div>
+              <div className="animate-gentle-bounce" style={{animationDelay: '1.5s', animationDuration: '2.5s', animationIterationCount: 'infinite'}}>
+                <Stat className ="pl-0 pr-0 bg-blue-50 border-blue-200" value="1" label="Tightly-Knit<br/>Team"/>
+              </div>
+              <div className="animate-gentle-bounce" style={{animationDelay: '3s', animationDuration: '1.8s', animationIterationCount: 'infinite'}}>
+                <Stat className ="pl-0 pr-0 bg-green-50 border-green-200" value="3" label="Decades<br/>Combined"/>
+              </div>
             </div>
             <p className="mt-6 text-sm text-gray-600 leading-relaxed">
-              We're not your typical agency. We're the kind of team that gets excited about CSS Grid, debates the merits of dark mode at 2 AM, and actually reads the documentation. When we're not coding, we're probably arguing about whether pineapple belongs on pizza (it doesn't) or debating the best way to center a div (flexbox, obviously). But most importantly, we're the team that turns your "wouldn't it be cool if..." into "holy cow, this is amazing!"
+              When we're not coding, we're probably arguing about whether pineapple belongs on pizza (it doesn't) or debating the best way to center a div (flexbox, obviously). But most importantly, we're the team that turns your "wouldn't it be cool if..." into "holy cow, this is amazing!"
             </p>
-          </div>
-          <div className="flex flex-col gap-6">
+            {/* Cool Slideshow */}
+            <div className="mt-8 relative overflow-hidden rounded-lg bg-gradient-to-br from-blue-50 to-indigo-100 p-6">
+              <div className="relative h-36 sm:h-44">
+                {(() => {
+                  const [currentSlide, setCurrentSlide] = React.useState(0);
+                  
+                  React.useEffect(() => {
+                    const timer = setInterval(() => {
+                      setCurrentSlide((prev) => (prev + 1) % 5);
+                    }, 3000);
+                    return () => clearInterval(timer);
+                  }, []);
+                  
+                  const slides = [
+                    {
+                      title: "Modern Tech Stack",
+                      content: "React, Next.js, Node.js, AWS, and cutting-edge tools that keep your project ahead of the curve."
+                    },
+                    {
+                      title: "Design Excellence",
+                      content: "From wireframes to pixel-perfect UI, we craft experiences that users love and remember."
+                    },
+                    {
+                      title: "Performance First",
+                      content: "Lightning-fast load times, SEO optimization, and mobile-first responsive design that converts."
+                    },
+                    {
+                      title: "Mobile Applications",
+                      content: "Full-stack mobile apps for iOS and Android with native performance, smooth animations, and platform-specific UX patterns."
+                    },
+                    {
+                      title: "Enterprise Security",
+                      content: "Bank-level security, GDPR compliance, and bulletproof infrastructure that scales with your business."
+                    }
+                  ];
+                  
+                  return (
+                    <>
+                      {slides.map((slide, index) => (
+                        <div
+                          key={index}
+                          className={`absolute inset-0 flex flex-col justify-center transition-all duration-700 ease-in-out px-12 ${
+                            index === currentSlide ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
+                          }`}
+                        >
+                          <h4 className="text-lg font-semibold text-gray-900 mb-2 text-center">{slide.title}</h4>
+                          <p className="text-sm text-gray-700 text-center leading-relaxed">{slide.content}</p>
+                        </div>
+                      ))}
+                      
+
+                      
+                      {/* Navigation Arrows */}
+                      <button
+                        onClick={() => setCurrentSlide((prev) => (prev - 1 + 5) % 5)}
+                        className="absolute -left-2 top-1/2 transform -translate-y-1/2 w-8 h-8 bg-white/80 rounded-full flex items-center justify-center text-gray-600 hover:bg-white transition-all duration-300 shadow-sm"
+                      >
+                        ←
+                      </button>
+                      <button
+                        onClick={() => setCurrentSlide((prev) => (prev + 1) % 5)}
+                        className="absolute -right-2 top-1/2 transform -translate-y-1/2 w-8 h-8 bg-white/80 rounded-full flex items-center justify-center text-gray-600 hover:bg-white transition-all duration-300 shadow-sm"
+                      >
+                        →
+                      </button>
+                      
+                      {/* Floating Elements */}
+                      <div className="absolute top-2 right-2 w-3 h-3 bg-blue-400 rounded-full animate-pulse opacity-60"></div>
+                      <div className="absolute bottom-8 left-4 w-2 h-2 bg-indigo-400 rounded-full animate-bounce opacity-40"></div>
+                      <div className="absolute top-8 left-8 w-1.5 h-1.5 bg-purple-400 rounded-full animate-ping opacity-30"></div>
+                    </>
+                  );
+                })()}
+              </div>
+            </div>
+                          <p className="mt-6 text-sm text-gray-600 leading-relaxed">
+                            Think of us as your tech-savvy friend who happens to know how to make websites and mobile apps that don't break when someone sneezes at them.
+                            We don't just build – we build digital empires that your competitors will envy.</p>
+                          </div>
+          <div className="flex flex-col gap-6 h-full">
                           <div className="rounded-lg overflow-hidden">
                 <img 
                   src="/niks1.png" 
@@ -336,15 +427,15 @@ export default function LunaraTechLanding() {
               </div>
             <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
               <h3 className="text-lg font-semibold">What we do</h3>
-              <p className="mt-2 text-sm text-gray-700">Modern websites and mobile apps that are intuitive, scalable, and deeply aligned with your brand’s goals and audience.</p>
+              <p className="mt-2 text-sm text-gray-700">Modern websites and mobile apps that are intuitive, scalable, and deeply aligned with your brand's goals and audience. From e-commerce platforms to enterprise solutions, we build digital experiences that drive real business results.</p>
             </div>
             <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
               <h3 className="text-lg font-semibold">How we do it</h3>
-              <p className="mt-2 text-sm text-gray-700">Intentional design, clean development, and strategic thinking to turn bold ideas into products that connect and perform.</p>
+              <p className="mt-2 text-sm text-gray-700">Intentional design, clean development, and strategic thinking to turn bold ideas into products that connect and perform. We combine cutting-edge technology with time-tested methodologies to deliver solutions that scale with your growth.</p>
             </div>
             <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
               <h3 className="text-lg font-semibold">Built on Collaboration</h3>
-              <p className="mt-2 text-sm text-gray-700">Designers, developers, and strategists working side‑by‑side (literally). We listen, challenge, and support — every step of the way.</p>
+              <p className="mt-2 text-sm text-gray-700">Designers, developers, and strategists working side‑by‑side (literally). We listen, challenge, and support — every step of the way. This collaborative approach ensures every decision is informed by multiple perspectives and every solution is crafted with your success in mind.</p>
             </div>
           </div>
         </div>
@@ -376,21 +467,72 @@ export default function LunaraTechLanding() {
       </section>
 
       {/* CTA / Contact */}
+      
       <section className="px-4 py-16 sm:py-20" id="contact">
-        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 lg:grid-cols-2">
-          <div>
-            <SectionHeader
+
+      <SectionHeader
               eyebrow=""
               title={"Let’s get to work"}
               subtitle="Tell us about your project. We’ll reply with a quick plan, timeline, and budget."
             />
-            <ul className="mt-6 space-y-2 text-sm text-gray-600">
-              <li className="flex items-center gap-2"><Check/> Fast response, clear next steps</li>
-              <li className="flex items-center gap-2"><Check/> Fixed‑price or sprint‑based options</li>
-              <li className="flex items-center gap-2"><Check/> No jargon, just outcomes</li>
-            </ul>
+        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 lg:grid-cols-2">
+          <div className="flex flex-col gap-6 h-full">
+            {/* Enhanced Features Grid */}
+            <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
+              <div className="group relative rounded-lg border border-gray-200 bg-gradient-to-br from-blue-50 to-indigo-100 p-4 text-center transition-all duration-300 hover:shadow-md hover:-translate-y-1">
+                <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-blue-100 text-blue-600 transition-all duration-300 group-hover:scale-110">
+                  <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
+                <h4 className="text-sm font-semibold text-gray-900 mb-1">Fast Response</h4>
+                <p className="text-xs text-gray-600">Clear next steps</p>
+              </div>
+              
+              <div className="group relative rounded-lg border border-gray-200 bg-gradient-to-br from-green-50 to-emerald-100 p-4 text-center transition-all duration-300 hover:shadow-md hover:-translate-y-1">
+                <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-green-100 text-green-600 transition-all duration-300 group-hover:scale-110">
+                  <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <h4 className="text-sm font-semibold text-gray-900 mb-1">Fixed Pricing</h4>
+                <p className="text-xs text-gray-600">Sprint-based options</p>
+              </div>
+              
+              <div className="group relative rounded-lg border border-gray-200 bg-gradient-to-br from-purple-50 to-violet-100 p-4 text-center transition-all duration-300 hover:shadow-md hover:-translate-y-1">
+                <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-purple-100 text-purple-600 transition-all duration-300 group-hover:scale-110">
+                  <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <h4 className="text-sm font-semibold text-gray-900 mb-1">No Jargon</h4>
+                <p className="text-xs text-gray-600">Just outcomes</p>
+              </div>
+            </div>
+            
+            {/* Additional Benefits */}
+            <div className="mt-0 rounded-lg border border-gray-200 bg-gradient-to-r from-gray-50 to-blue-50 p-4">
+              <div className="flex items-center justify-center gap-3">
+                <div className="flex h-8 w-12 items-center justify-center rounded-full bg-blue-100 text-blue-600">
+                  <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <span className="text-sm font-medium text-gray-700">Professional team with 10+ years of experience</span>
+              </div>
+            </div>
+            
+            {/* niks3 Image - moved to left side for balance */}
+            <div className="rounded-lg overflow-hidden">
+              <img 
+                src="/niks3.png" 
+                alt="LunaraTech Team" 
+                className="w-full h-56 object-cover rounded-lg"
+              />
+            </div>
           </div>
-          <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+          <div className="flex flex-col gap-6 mt-10 h-full">
+            <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
             {!sent ? (
               <form onSubmit={onSubmit} className="space-y-4">
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -405,9 +547,10 @@ export default function LunaraTechLanding() {
                     <input type="checkbox" className="rounded border-gray-300" />
                     I’d like a quick 15‑min intro call
                   </label>
-                  <button type="submit" className="rounded-md bg-gray-900 px-5 py-3 text-sm font-medium text-white hover:bg-gray-800 transition-all duration-300">Contact Us</button>
+                  <button type="submit" className="rounded-md bg-green-50 px-5 py-2 text-sm font-medium text-green-600 hover:bg-green-100 transition-all duration-300">Contact Us</button>
                 </div>
-                <p className="text-xs text-gray-500">Prefer email? <a className="underline" href="mailto:hello@lunaratech.example">hello@lunaratech.example</a></p>
+                <p className="text-xs text-gray-500">Prefer to call? <a className="underline" href="tel:+1234567890">+1 (234) 567-890</a><div className="h-1"></div>
+                Prefer email? <a className="underline" href="mailto:hello@lunaratech.example">hello@lunaratech.example</a></p>
               </form>
             ) : (
               <div className="text-center">
@@ -417,6 +560,7 @@ export default function LunaraTechLanding() {
                 <a href="#home" className="mt-6 inline-flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-4 py-2 text-sm hover:border-gray-300"><Arrow/> Back to top</a>
               </div>
             )}
+          </div>
           </div>
         </div>
       </section>
