@@ -52,7 +52,7 @@ jobs:
           echo "Forcing CloudFront to fetch fresh content..."
           
           # Add a timestamp file to force refresh
-          echo "Build timestamp: $(date)" > s3://${{ secrets.S3_BUCKET_NAME }}/build-timestamp.txt
+          echo "Build timestamp: $(date)" | aws s3 cp - s3://${{ secrets.S3_BUCKET_NAME }}/build-timestamp.txt
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
