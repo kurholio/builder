@@ -8,8 +8,13 @@ import React, { useState, useEffect } from "react";
 // Animated Background Component
 const AnimatedBackground = () => {
   useEffect(() => {
+    console.log('AnimatedBackground: Setting up canvas...');
     const canvas = document.getElementById('animated-bg');
-    if (!canvas) return;
+    if (!canvas) {
+      console.log('AnimatedBackground: Canvas not found!');
+      return;
+    }
+    console.log('AnimatedBackground: Canvas found, starting animation...');
     
     const ctx = canvas.getContext('2d');
     let animationId;
@@ -34,7 +39,7 @@ const AnimatedBackground = () => {
         this.vx = (Math.random() - 0.5) * 0.5;
         this.vy = (Math.random() - 0.5) * 0.5;
         this.size = Math.random() * 2 + 1;
-        this.opacity = Math.random() * 0.3 + 0.1;
+        this.opacity = Math.random() * 0.6 + 0.3;
         this.angle = Math.random() * Math.PI * 2;
         this.rotationSpeed = (Math.random() - 0.5) * 0.02;
       }
@@ -104,7 +109,7 @@ const AnimatedBackground = () => {
       });
       
       // Draw connecting lines between nearby particles
-      ctx.strokeStyle = 'rgba(229, 231, 235, 0.1)';
+      ctx.strokeStyle = 'rgba(229, 231, 235, 0.3)';
       ctx.lineWidth = 0.5;
       
       for (let i = 0; i < particles.length; i++) {
@@ -137,7 +142,7 @@ const AnimatedBackground = () => {
     <canvas
       id="animated-bg"
       className="fixed inset-0 pointer-events-none z-0"
-      style={{ background: 'transparent' }}
+      style={{ background: 'transparent', border: '1px solid rgba(59, 130, 246, 0.3)' }}
     />
   );
 };
@@ -145,8 +150,13 @@ const AnimatedBackground = () => {
 // Floating Geometric Pattern Overlay
 const FloatingPattern = () => {
   useEffect(() => {
+    console.log('FloatingPattern: Setting up canvas...');
     const canvas = document.getElementById('floating-pattern');
-    if (!canvas) return;
+    if (!canvas) {
+      console.log('FloatingPattern: Canvas not found!');
+      return;
+    }
+    console.log('FloatingPattern: Canvas found, starting animation...');
     
     const ctx = canvas.getContext('2d');
     let animationId;
@@ -167,7 +177,7 @@ const FloatingPattern = () => {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
         this.size = Math.random() * 40 + 20;
-        this.opacity = Math.random() * 0.08 + 0.02;
+        this.opacity = Math.random() * 0.2 + 0.1;
         this.rotation = Math.random() * Math.PI * 2;
         this.rotationSpeed = (Math.random() - 0.5) * 0.005;
         this.floatOffset = Math.random() * Math.PI * 2;
@@ -234,7 +244,7 @@ const FloatingPattern = () => {
     <canvas
       id="floating-pattern"
       className="fixed inset-0 pointer-events-none z-0"
-      style={{ background: 'transparent' }}
+      style={{ background: 'transparent', border: '1px solid rgba(16, 185, 129, 0.3)' }}
     />
   );
 };
