@@ -381,6 +381,8 @@ const Textarea = (props) => (
 
 export default function LunaraTechLanding() {
   const [sent, setSent] = useState(false);
+  
+  console.log('LunaraTechLanding component rendering...');
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -447,6 +449,8 @@ export default function LunaraTechLanding() {
     { href: "#contact", label: "Contact" },
   ];
 
+  console.log('About to render AnimatedBackground and FloatingPattern...');
+  
   return (
     <>
       <AnimatedBackground />
