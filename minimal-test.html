@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimal React Test</title>
+</head>
+<body>
+    <div id="root"></div>
+    
+    <script type="importmap">
+    {
+        "imports": {
+            "react": "https://esm.sh/react@18",
+            "react-dom/client": "https://esm.sh/react-dom@18/client"
+        }
+    }
+    </script>
+    
+    <script type="module">
+        import React from 'react';
+        import { createRoot } from 'react-dom/client';
+        
+        console.log('React imported successfully');
+        
+        const TestComponent = () => {
+            console.log('TestComponent rendering...');
+            return React.createElement('div', {
+                style: {
+                    position: 'fixed',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    backgroundColor: 'rgba(0,255,0,0.5)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontSize: '32px',
+                    color: 'white',
+                    zIndex: 9999
+                }
+            }, '🎉 REACT IS WORKING! 🎉');
+        };
+        
+        console.log('About to render...');
+        const root = createRoot(document.getElementById('root'));
+        root.render(React.createElement(TestComponent));
+        console.log('Render called');
+    </script>
+</body>
+</html>
