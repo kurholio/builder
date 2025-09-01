@@ -7,16 +7,11 @@ import React, { useState, useEffect } from "react";
 
 // Animated Background Component
 const AnimatedBackground = () => {
-  console.log('🎨 AnimatedBackground: Component function called');
-  
   useEffect(() => {
-    console.log('🎨 AnimatedBackground: useEffect started');
     const canvas = document.getElementById('animated-bg');
     if (!canvas) {
-      console.error('❌ AnimatedBackground: Canvas element not found!');
       return;
     }
-    console.log('✅ AnimatedBackground: Canvas found, starting animation');
     
     const ctx = canvas.getContext('2d');
     let animationId;
@@ -70,16 +65,11 @@ const AnimatedBackground = () => {
 
 // Floating Geometric Pattern Overlay
 const FloatingPattern = () => {
-  console.log('🌀 FloatingPattern: Component function called');
-  
   useEffect(() => {
-    console.log('🌀 FloatingPattern: useEffect started');
     const canvas = document.getElementById('floating-pattern');
     if (!canvas) {
-      console.error('❌ FloatingPattern: Canvas element not found!');
       return;
     }
-    console.log('✅ FloatingPattern: Canvas found, starting animation');
     
     const ctx = canvas.getContext('2d');
     let animationId;
