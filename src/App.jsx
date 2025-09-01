@@ -340,7 +340,6 @@ export default function LunaraTechLanding() {
 
   return (
     <>
-      {console.log('🚀 Main component rendering...')}
       <AnimatedBackground />
       <FloatingPattern />
       <main className="min-h-screen bg-white/95 backdrop-blur-sm text-gray-900 relative z-10">
