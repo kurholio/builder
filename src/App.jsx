@@ -7,9 +7,16 @@ import React, { useState, useEffect } from "react";
 
 // Animated Background Component
 const AnimatedBackground = () => {
+  console.log('🎨 AnimatedBackground: Component function called');
+  
   useEffect(() => {
+    console.log('🎨 AnimatedBackground: useEffect started');
     const canvas = document.getElementById('animated-bg');
-    if (!canvas) return;
+    if (!canvas) {
+      console.error('❌ AnimatedBackground: Canvas element not found!');
+      return;
+    }
+    console.log('✅ AnimatedBackground: Canvas found, starting animation');
     
     const ctx = canvas.getContext('2d');
     let animationId;
@@ -23,105 +30,24 @@ const AnimatedBackground = () => {
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
     
-    // Particle system
-    const particles = [];
-    const particleCount = 50;
-    
-    class Particle {
-      constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.vx = (Math.random() - 0.5) * 0.5;
-        this.vy = (Math.random() - 0.5) * 0.5;
-        this.size = Math.random() * 2 + 1;
-        this.opacity = Math.random() * 0.3 + 0.1;
-        this.angle = Math.random() * Math.PI * 2;
-        this.rotationSpeed = (Math.random() - 0.5) * 0.02;
-      }
-      
-      update() {
-        this.x += this.vx;
-        this.y += this.vy;
-        this.angle += this.rotationSpeed;
-        
-        // Wrap around edges
-        if (this.x < 0) this.x = canvas.width;
-        if (this.x > canvas.width) this.x = 0;
-        if (this.y < 0) this.y = canvas.height;
-        if (this.y > canvas.height) this.y = 0;
-      }
-      
-      draw() {
-        ctx.save();
-        ctx.translate(this.x, this.y);
-        ctx.rotate(this.angle);
-        ctx.globalAlpha = this.opacity;
-        
-        // Draw subtle geometric shapes
-        if (Math.random() > 0.7) {
-          // Diamond
-          ctx.beginPath();
-          ctx.moveTo(0, -this.size);
-          ctx.lineTo(this.size, 0);
-          ctx.lineTo(0, this.size);
-          ctx.lineTo(-this.size, 0);
-          ctx.closePath();
-          ctx.strokeStyle = '#e5e7eb';
-          ctx.lineWidth = 0.5;
-          ctx.stroke();
-        } else {
-          // Circle
-          ctx.beginPath();
-          ctx.arc(0, 0, this.size, 0, Math.PI * 2);
-          ctx.fillStyle = '#f3f4f6';
-          ctx.fill();
-        }
-        
-        ctx.restore();
-      }
-    }
-    
-    // Create particles
-    for (let i = 0; i < particleCount; i++) {
-      particles.push(new Particle());
-    }
-    
-    // Animation loop
+    // Simple visible animation
+    let time = 0;
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
-      // Draw subtle gradient background
-      const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
-      gradient.addColorStop(0, 'rgba(249, 250, 251, 0.3)');
-      gradient.addColorStop(1, 'rgba(243, 244, 246, 0.1)');
-      ctx.fillStyle = gradient;
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      
-      // Update and draw particles
-      particles.forEach(particle => {
-        particle.update();
-        particle.draw();
-      });
-      
-      // Draw connecting lines between nearby particles
-      ctx.strokeStyle = 'rgba(229, 231, 235, 0.1)';
-      ctx.lineWidth = 0.5;
-      
-      for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-          const dx = particles[i].x - particles[j].x;
-          const dy = particles[i].y - particles[j].y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-          
-          if (distance < 100) {
-            ctx.beginPath();
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.stroke();
-          }
-        }
+      // Draw moving circles
+      for (let i = 0; i < 20; i++) {
+        const x = (canvas.width / 2) + Math.cos(time + i * 0.5) * 100;
+        const y = (canvas.height / 2) + Math.sin(time + i * 0.3) * 80;
+        const size = 5 + Math.sin(time + i) * 3;
+        
+        ctx.beginPath();
+        ctx.arc(x, y, size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(59, 130, 246, ${0.3 + Math.sin(time + i) * 0.2})`; // Blue with varying opacity
+        ctx.fill();
       }
       
+      time += 0.02;
       animationId = requestAnimationFrame(animate);
     };
     
@@ -144,9 +70,16 @@ const AnimatedBackground = () => {
 
 // Floating Geometric Pattern Overlay
 const FloatingPattern = () => {
+  console.log('🌀 FloatingPattern: Component function called');
+  
   useEffect(() => {
+    console.log('🌀 FloatingPattern: useEffect started');
     const canvas = document.getElementById('floating-pattern');
-    if (!canvas) return;
+    if (!canvas) {
+      console.error('❌ FloatingPattern: Canvas element not found!');
+      return;
+    }
+    console.log('✅ FloatingPattern: Canvas found, starting animation');
     
     const ctx = canvas.getContext('2d');
     let animationId;
@@ -159,66 +92,34 @@ const FloatingPattern = () => {
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
     
-    const patterns = [];
-    const patternCount = 8;
-    
-    class Pattern {
-      constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 40 + 20;
-        this.opacity = Math.random() * 0.08 + 0.02;
-        this.rotation = Math.random() * Math.PI * 2;
-        this.rotationSpeed = (Math.random() - 0.5) * 0.005;
-        this.floatOffset = Math.random() * Math.PI * 2;
-        this.floatSpeed = Math.random() * 0.01 + 0.005;
-      }
+    // Simple floating shapes
+    let time = 0;
+    const animate = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
       
-      update() {
-        this.rotation += this.rotationSpeed;
-        this.floatOffset += this.floatSpeed;
-        this.y += Math.sin(this.floatOffset) * 0.2;
-      }
-      
-      draw() {
-        ctx.save();
-        ctx.translate(this.x, this.y);
-        ctx.rotate(this.rotation);
-        ctx.globalAlpha = this.opacity;
+      // Draw floating triangles
+      for (let i = 0; i < 8; i++) {
+        const x = (canvas.width / 4) + Math.cos(time + i * 0.8) * 150;
+        const y = (canvas.height / 4) + Math.sin(time + i * 0.6) * 120;
+        const size = 15 + Math.sin(time + i * 0.5) * 8;
         
-        // Draw hexagon pattern
+        ctx.save();
+        ctx.translate(x, y);
+        ctx.rotate(time + i * 0.3);
+        
         ctx.beginPath();
-        for (let i = 0; i < 6; i++) {
-          const angle = (i * Math.PI) / 3;
-          const x = Math.cos(angle) * this.size;
-          const y = Math.sin(angle) * this.size;
-          if (i === 0) {
-            ctx.moveTo(x, y);
-          } else {
-            ctx.lineTo(x, y);
-          }
-        }
+        ctx.moveTo(0, -size);
+        ctx.lineTo(size * 0.866, size * 0.5);
+        ctx.lineTo(-size * 0.866, size * 0.5);
         ctx.closePath();
-        ctx.strokeStyle = '#d1d5db';
-        ctx.lineWidth = 1;
+        ctx.strokeStyle = `rgba(147, 51, 234, ${0.4 + Math.sin(time + i) * 0.2})`; // Purple with varying opacity
+        ctx.lineWidth = 2;
         ctx.stroke();
         
         ctx.restore();
       }
-    }
-    
-    for (let i = 0; i < patternCount; i++) {
-      patterns.push(new Pattern());
-    }
-    
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
       
-      patterns.forEach(pattern => {
-        pattern.update();
-        pattern.draw();
-      });
-      
+      time += 0.015;
       animationId = requestAnimationFrame(animate);
     };
     
@@ -439,6 +340,7 @@ export default function LunaraTechLanding() {
 
   return (
     <>
+      {console.log('🚀 Main component rendering...')}
       <AnimatedBackground />
       <FloatingPattern />
       <main className="min-h-screen bg-white/95 backdrop-blur-sm text-gray-900 relative z-10">
@@ -769,7 +671,7 @@ export default function LunaraTechLanding() {
             </div>
           </div>
           <div className="flex flex-col gap-6 mt-10 h-full">
-            <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+            <div className="rounded-2xl border border-gray-200 bg-gray-50 p-6 shadow-sm">
             {!sent ? (
               <form onSubmit={onSubmit} className="space-y-4">
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -780,13 +682,15 @@ export default function LunaraTechLanding() {
                 <Input placeholder="Website (optional)" />
                 <Textarea rows={5} placeholder="What are you building?" required />
                 <div className="flex items-center justify-between">
-                  <label className="flex items-center gap-2 text-xs text-gray-600">
-                    <input type="checkbox" className="rounded border-gray-300" />
-                    I’d like a quick 15‑min intro call
+                  <label className="flex items-center gap-2 text-xs text-gray-400">
+                   
+                    We usually respond within a day
                   </label>
-                  <button type="submit" className="rounded-md bg-green-50 px-5 py-2 text-sm font-medium text-green-600 hover:bg-green-100 transition-all duration-300">Contact Us</button>
+                  <button type="submit" className="rounded-md bg-green-50 px-5 py-2 text-sm font-medium text-green-600 hover:bg-green-300 transition-all duration-300">
+                    Submit</button>
                 </div>
-                <p className="text-xs text-gray-500">Prefer to call? <a className="underline" href="tel:+1234567890">+1 (234) 567-890</a><div className="h-1"></div>
+                <p className="text-xs text-gray-500">Prefer to call? <a className="underline" href="tel:+1234567890">+1 (234) 567-890</a>
+                <div className="h-1"></div>
                 Prefer email? <a className="underline" href="mailto:hello@lunaratech.example">hello@lunaratech.example</a></p>
               </form>
             ) : (
