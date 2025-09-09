@@ -368,7 +368,7 @@ export default function App() {
       {/* Value props */}
       <section className="border-y border-gray-100 bg-gray-50">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-4 py-12 sm:grid-cols-3">
-          <Card title="Clean Code" icon={<Check/>} className="bg-red-50 animate-float" style={{animationDelay: '0s'}}>We write code that's readable, maintainable, and built to scale — ensuring smooth development and long‑term stability.</Card>
+          <Card title="Clean Code" icon={<Check/>} className="bg-red-50 animate-float" style={{animationDelay: '0s'}}>We write code that's readable, maintainable, and built to scale — ensuring smooth development and long-term stability.</Card>
           <Card title="Bold Design" icon={<Star/>} className="bg-blue-50 animate-float" style={{animationDelay: '1s'}}>Modern, intuitive, and tailored to create lasting impressions across devices and contexts.</Card>
           <Card title="Real Connection" icon={<Arrow/>} className="bg-green-50 animate-float" style={{animationDelay: '2s'}}>Genuine collaboration that turns your ideas into digital experiences people love.</Card>
         </div>
@@ -386,13 +386,13 @@ export default function App() {
             {t:"Plumbing", d:"Fast, functional sites with service highlights, testimonials, and simple booking.", icon:<Faucet/>},
             {t:"Landscaping", d:"Showcase projects with beautiful, responsive portfolios for outdoor services.", icon:<Leaf/>},
             {t:"Wellness", d:"Calm design, booking systems, and storytelling that builds trust.", icon:<Heart/>},
-            {t:"eCommerce", d:"Scalable stores with streamlined navigation, secure checkout, and conversion‑focused UX.", icon:<Cart/>},
-            {t:"Contractors", d:"Lead‑driving sites that highlight expertise and portfolios.", icon:<Hammer/>},
+            {t:"eCommerce", d:"Scalable stores with streamlined navigation, secure checkout, and conversion-focused UX.", icon:<Cart/>},
+            {t:"Contractors", d:"Lead-driving sites that highlight expertise and portfolios.", icon:<Hammer/>},
             {t:"Restaurants", d:"Menus, reservations, delivery integrations — sites that whet appetites.", icon:<Utensils/>},
             {t:"Real Estate", d:"Custom listings, MLS integrations, and smart lead capture.", icon:<HomeIco/>},
             {t:"Nonprofit", d:"Donation tools, volunteer signups, and compelling impact visuals.", icon:<HandHeart/>},
-            {t:"Education", d:"Websites for schools and e‑learning with scheduling and content delivery.", icon:<Book/>},
-            {t:"Events", d:"Speaker bios, registration, schedules, and live‑stream integrations.", icon:<Calendar/>},
+            {t:"Education", d:"Websites for schools and e-learning with scheduling and content delivery.", icon:<Book/>},
+            {t:"Events", d:"Speaker bios, registration, schedules, and live-stream integrations.", icon:<Calendar/>},
             {t:"Personal", d:"Creators, coaches, influencers — elevate your brand and grow your audience.", icon:<UserIco/>},
             {t:"Custom", d:"Have a unique vision? We’ll build it from the ground up for your goals.", icon:<Sparkles/>},
           ].map((i, index)=> (
@@ -428,12 +428,12 @@ export default function App() {
           subtitle="Design, development, hosting, and ongoing support for a seamless digital experience."
         />
         <div className="mx-auto mt-10 grid max-w-7xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <Card title="Website Development" icon={<Check/>}>Fast, scalable, user‑friendly websites using modern frameworks — crafted to meet your goals and delight users.</Card>
+          <Card title="Website Development" icon={<Check/>}>Fast, scalable, user-friendly websites using modern frameworks — crafted to meet your goals and delight users.</Card>
           <Card title="UI Prototyping" icon={<Check/>}>Interactive wireframes and prototypes to validate flows and align stakeholders before build.</Card>
-          <Card title="Graphic Design" icon={<Check/>}>Pixel‑perfect UI aligned to your brand for a consistent, engaging experience.</Card>
+          <Card title="Graphic Design" icon={<Check/>}>Pixel-perfect UI aligned to your brand for a consistent, engaging experience.</Card>
           <Card title="Hosting & Deployment" icon={<Check/>}>Secure, scalable hosting and smooth deployments — your site stays fast and reliable.</Card>
           <Card title="Maintenance & Support" icon={<Check/>}>Reliable updates, monitoring, and feature rollouts to keep you growing.</Card>
-          <Card title="Accessibility" icon={<Check/>}>WCAG/ADA‑minded design for inclusivity, compliance, and better UX for everyone.</Card>
+          <Card title="Accessibility" icon={<Check/>}>WCAG/ADA-minded design for inclusivity, compliance, and better UX for everyone.</Card>
         </div>
       </section>
 
@@ -442,13 +442,13 @@ export default function App() {
         <SectionHeader
           eyebrow=""
           title="Who we are"
-          subtitle="A family‑run boutiqueoks . Less boardroom, more creative kitchen table — with better snacks."
+          subtitle="A family-run boutique. Less boardroom, more creative kitchen table — with better snacks."
         />
         <div className="mx-auto mt-10 grid max-w-6xl grid-cols-1 gap-8 lg:grid-cols-2">
           <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm h-full">
             <p className="text-gray-700 leading-relaxed">
               Our small but mighty team blends software development, graphic design, and marketing into a digital 
-              Swiss Army knife. We're the folks who actually build your product — no hand‑offs, no support queues,
+              Swiss Army knife. We're the folks who actually build your product — no hand-offs, no support queues,
                and definitely no "it works on my machine" excuses. 
             </p>
            
@@ -563,7 +563,7 @@ export default function App() {
             </div>
             <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
               <h3 className="text-lg font-semibold">Built on Collaboration</h3>
-              <p className="mt-2 text-sm text-gray-700">Designers, developers, and strategists working side‑by‑side (literally). We listen, challenge, and support — every step of the way. This collaborative approach ensures every decision is informed by multiple perspectives and every solution is crafted with your success in mind.</p>
+              <p className="mt-2 text-sm text-gray-700">Designers, developers, and strategists working side-by-side (literally). We listen, challenge, and support — every step of the way. This collaborative approach ensures every decision is informed by multiple perspectives and every solution is crafted with your success in mind.</p>
             </div>
           </div>
         </div>
@@ -581,7 +581,7 @@ export default function App() {
             {t:"Discover", d:"We align on goals, users, scope, and success metrics."},
             {t:"Design", d:"Wireframes → prototypes → beautiful, accessible UI."},
             {t:"Develop", d:"Clean, scalable code with performance baked in."},
-            {t:"Deploy", d:"Zero‑drama hosting & deployment with observability."},
+            {t:"Deploy", d:"Zero-drama hosting & deployment with observability."},
             {t:"Drive", d:"Iterate with data: SEO, UX, and feature improvements."},
             {t:"Support", d:"We stay with you — updates, fixes, and new ideas."},
           ].map((s, i)=> (
