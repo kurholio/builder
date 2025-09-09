@@ -325,6 +325,7 @@ export default function App() {
     { href: "#services", label: "Services" },
     { href: "#about", label: "About" },
     { href: "#process", label: "Process" },
+    { href: "#projects", label: "Projects" },
     { href: "#contact", label: "Contact" },
   ];
 
@@ -594,6 +595,110 @@ export default function App() {
         </div>
       </section>
 
+      {/* Latest Projects */}
+      <section className="px-4 py-16 sm:py-20" id="projects">
+        <SectionHeader
+          eyebrow=""
+          title="Latest Projects"
+          subtitle="Real work, real results. See how we've helped businesses grow with modern web solutions."
+        />
+        <div className="mx-auto mt-10 grid max-w-6xl grid-cols-1 gap-8 lg:grid-cols-2">
+          {/* Mortgage Calculator Project */}
+          <div className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-500 hover:shadow-xl hover:-translate-y-2 hover:scale-[1.02]">
+            <div className="aspect-video overflow-hidden">
+              <div className="h-full w-full bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">
+                <div className="text-center p-8">
+                  <div className="w-16 h-16 mx-auto mb-4 bg-blue-100 rounded-full flex items-center justify-center">
+                    <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Mortgage Calculator</h3>
+                  <p className="text-sm text-gray-600">Free & Easy to Use</p>
+                </div>
+              </div>
+            </div>
+            <div className="p-6">
+              <div className="flex items-center justify-between mb-3">
+                <h3 className="text-xl font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">Home Mortgage Calculator</h3>
+                <span className="px-3 py-1 text-xs font-medium bg-green-100 text-green-800 rounded-full">Live</span>
+              </div>
+              <p className="text-gray-600 mb-4 leading-relaxed">
+                A comprehensive mortgage calculator that helps users estimate monthly payments, view detailed amortization schedules, 
+                and analyze home loans including PMI, property tax, and insurance costs.
+              </p>
+              <div className="flex flex-wrap gap-2 mb-4">
+                <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded">React</span>
+                <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded">JavaScript</span>
+                <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded">Financial Tools</span>
+                <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded">Responsive Design</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <a 
+                  href="https://www.homemortgagecalculator.net/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium text-sm transition-colors"
+                >
+                  View Project
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+                <div className="text-xs text-gray-500">2024</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Macroaxis Project */}
+          <div className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-500 hover:shadow-xl hover:-translate-y-2 hover:scale-[1.02]">
+            <div className="aspect-video overflow-hidden">
+              <div className="h-full w-full bg-gradient-to-br from-purple-50 to-violet-100 flex items-center justify-center">
+                <div className="text-center p-8">
+                  <div className="w-16 h-16 mx-auto mb-4 bg-purple-100 rounded-full flex items-center justify-center">
+                    <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Macroaxis</h3>
+                  <p className="text-sm text-gray-600">Financial Analytics Platform</p>
+                </div>
+              </div>
+            </div>
+            <div className="p-6">
+              <div className="flex items-center justify-between mb-3">
+                <h3 className="text-xl font-semibold text-gray-900 group-hover:text-purple-600 transition-colors">Macroaxis Financial Platform</h3>
+                <span className="px-3 py-1 text-xs font-medium bg-green-100 text-green-800 rounded-full">Live</span>
+              </div>
+              <p className="text-gray-600 mb-4 leading-relaxed">
+                A comprehensive financial analytics platform providing investment research, portfolio analysis, 
+                and market data tools for investors and financial professionals.
+              </p>
+              <div className="flex flex-wrap gap-2 mb-4">
+                <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded">Java</span>
+                <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded">Spring</span>
+                <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded">Financial Data</span>
+                <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded">Analytics</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <a 
+                  href="https://www.macroaxis.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-purple-600 hover:text-purple-700 font-medium text-sm transition-colors"
+                >
+                  View Project
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+                <div className="text-xs text-gray-500">2024</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA / Contact */}
       
       <section className="px-4 py-16 sm:py-20" id="contact">
@@ -702,6 +807,7 @@ export default function App() {
           <div className="flex items-center gap-4 text-sm text-gray-600">
             <a href="#services" className="hover:text-gray-900">Services</a>
             <a href="#about" className="hover:text-gray-900">About</a>
+            <a href="#projects" className="hover:text-gray-900">Projects</a>
             <a href="#contact" className="hover:text-gray-900">Contact</a>
           </div>
         </div>
