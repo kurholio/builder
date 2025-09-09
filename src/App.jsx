@@ -566,14 +566,15 @@ export default function App() {
               <p className="mt-2 text-sm text-gray-700">Designers, developers, and strategists working side-by-side (literally). We listen, challenge, and support — every step of the way. This collaborative approach ensures every decision is informed by multiple perspectives and every solution is crafted with your success in mind.</p>
             </div>
           </div>
+        </div>
 
-          {/* Latest Projects Subsection */}
-          <div className="mt-16">
-            <div className="text-center mb-10">
-              <h3 className="text-2xl font-semibold text-gray-900 mb-3">Latest Projects</h3>
-              <p className="text-gray-600 max-w-2xl mx-auto">Real work, real results. See how we've helped businesses grow with modern web solutions.</p>
-            </div>
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {/* Latest Projects Subsection - Full Width */}
+        <div className="mt-16">
+          <div className="text-center mb-10">
+            <h3 className="text-2xl font-semibold text-gray-900 mb-3">Latest Projects</h3>
+            <p className="text-gray-600 max-w-2xl mx-auto">Real work, real results. See how we've helped businesses grow with modern web solutions.</p>
+          </div>
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
               {/* Mortgage Calculator Project */}
               <div className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-500 hover:shadow-xl hover:-translate-y-2 hover:scale-[1.02]">
                 <div className="aspect-video overflow-hidden">
@@ -716,7 +717,6 @@ export default function App() {
               </div>
             </div>
           </div>
-        </div>
       </section>
 
       {/* Process */}
