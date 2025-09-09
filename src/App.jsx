@@ -325,7 +325,6 @@ export default function App() {
     { href: "#services", label: "Services" },
     { href: "#about", label: "About" },
     { href: "#process", label: "Process" },
-    { href: "#projects", label: "Projects" },
     { href: "#contact", label: "Contact" },
   ];
 
@@ -336,11 +335,17 @@ export default function App() {
       <main className="min-h-screen bg-white/95 backdrop-blur-sm text-gray-900 relative z-10">
         {/* Top nav */}
       <header className="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-white/70 border-b border-gray-100">
-        <div className="mx-auto flex max-w-7xl items-center justify-center px-4 py-3 sm:py-4">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:py-4">
           <a href="#home" className="flex items-center gap-2 font-semibold tracking-tight">
             <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-gray-900 text-white animate-pulse-slow">L</span>
             LunaraTech
           </a>
+          <nav className="hidden gap-6 text-sm text-gray-700 sm:flex">
+            {navItems.map((n) => (
+              <a key={n.href} href={n.href} className="hover:text-gray-900">{n.label}</a>
+            ))}
+          </nav>
+          <a href="#contact" className="hidden rounded-md bg-gray-100 px-4 py-2 text-sm font-medium text-black hover:bg-gray-300 transition-all duration-300 sm:inline-flex">Get Quote</a>
         </div>
       </header>
 
@@ -843,8 +848,13 @@ export default function App() {
 
       {/* Footer */}
       <footer className="border-t border-gray-100 bg-gray-50">
-        <div className="mx-auto flex max-w-7xl items-center justify-center px-4 py-8">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 py-8 sm:flex-row">
           <div className="text-sm text-gray-600">© {new Date().getFullYear()} LunaraTech. All rights reserved.</div>
+          <div className="flex items-center gap-4 text-sm text-gray-600">
+            <a href="#services" className="hover:text-gray-900">Services</a>
+            <a href="#about" className="hover:text-gray-900">About</a>
+            <a href="#contact" className="hover:text-gray-900">Contact</a>
+          </div>
         </div>
       </footer>
     </main>
