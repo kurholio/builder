@@ -336,17 +336,11 @@ export default function App() {
       <main className="min-h-screen bg-white/95 backdrop-blur-sm text-gray-900 relative z-10">
         {/* Top nav */}
       <header className="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-white/70 border-b border-gray-100">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:py-4">
+        <div className="mx-auto flex max-w-7xl items-center justify-center px-4 py-3 sm:py-4">
           <a href="#home" className="flex items-center gap-2 font-semibold tracking-tight">
             <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-gray-900 text-white animate-pulse-slow">L</span>
             LunaraTech
           </a>
-          <nav className="hidden gap-6 text-sm text-gray-700 sm:flex">
-            {navItems.map((n) => (
-              <a key={n.href} href={n.href} className="hover:text-gray-900">{n.label}</a>
-            ))}
-          </nav>
-          <a href="#contact" className="hidden rounded-md bg-gray-100 px-4 py-2 text-sm font-medium text-black hover:bg-gray-300 transition-all duration-300 sm:inline-flex">Get Quote</a>
         </div>
       </header>
 
@@ -602,7 +596,7 @@ export default function App() {
           title="Latest Projects"
           subtitle="Real work, real results. See how we've helped businesses grow with modern web solutions."
         />
-        <div className="mx-auto mt-10 grid max-w-6xl grid-cols-1 gap-8 lg:grid-cols-2">
+        <div className="mx-auto mt-10 grid max-w-7xl grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {/* Mortgage Calculator Project */}
           <div className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-500 hover:shadow-xl hover:-translate-y-2 hover:scale-[1.02]">
             <div className="aspect-video overflow-hidden">
@@ -686,6 +680,53 @@ export default function App() {
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-purple-600 hover:text-purple-700 font-medium text-sm transition-colors"
+                >
+                  View Project
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+                <div className="text-xs text-gray-500">2024</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Chosen Rooter Project */}
+          <div className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-500 hover:shadow-xl hover:-translate-y-2 hover:scale-[1.02]">
+            <div className="aspect-video overflow-hidden">
+              <div className="h-full w-full bg-gradient-to-br from-orange-50 to-red-100 flex items-center justify-center">
+                <div className="text-center p-8">
+                  <div className="w-16 h-16 mx-auto mb-4 bg-orange-100 rounded-full flex items-center justify-center">
+                    <svg className="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Chosen Rooter</h3>
+                  <p className="text-sm text-gray-600">Plumbing Services</p>
+                </div>
+              </div>
+            </div>
+            <div className="p-6">
+              <div className="flex items-center justify-between mb-3">
+                <h3 className="text-xl font-semibold text-gray-900 group-hover:text-orange-600 transition-colors">Chosen Rooter & Plumbing</h3>
+                <span className="px-3 py-1 text-xs font-medium bg-green-100 text-green-800 rounded-full">Live</span>
+              </div>
+              <p className="text-gray-600 mb-4 leading-relaxed">
+                San Francisco's top plumbing company providing emergency plumbing services, drain cleaning, 
+                water heater repairs, and comprehensive plumbing solutions throughout the Bay Area.
+              </p>
+              <div className="flex flex-wrap gap-2 mb-4">
+                <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded">WordPress</span>
+                <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded">PHP</span>
+                <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded">Local Business</span>
+                <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded">SEO</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <a 
+                  href="https://chosenrooter.com/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-orange-600 hover:text-orange-700 font-medium text-sm transition-colors"
                 >
                   View Project
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -802,14 +843,8 @@ export default function App() {
 
       {/* Footer */}
       <footer className="border-t border-gray-100 bg-gray-50">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 py-8 sm:flex-row">
+        <div className="mx-auto flex max-w-7xl items-center justify-center px-4 py-8">
           <div className="text-sm text-gray-600">© {new Date().getFullYear()} LunaraTech. All rights reserved.</div>
-          <div className="flex items-center gap-4 text-sm text-gray-600">
-            <a href="#services" className="hover:text-gray-900">Services</a>
-            <a href="#about" className="hover:text-gray-900">About</a>
-            <a href="#projects" className="hover:text-gray-900">Projects</a>
-            <a href="#contact" className="hover:text-gray-900">Contact</a>
-          </div>
         </div>
       </footer>
     </main>
