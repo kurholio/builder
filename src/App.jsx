@@ -1054,7 +1054,7 @@ export default function App() {
             ) : (
               <div className="text-center">
                 <div className="mx-auto mb-6 inline-flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-[#da1c5c] to-[#FFB700] text-white shadow-lg animate-pulse">
-                  <Check/>
+                  <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-8 w-8"/>
                 </div>
                 <h3 className="text-2xl font-bold text-[#262262] mb-3">Message Sent Successfully!</h3>
                 <p className="text-gray-600 mb-6">Thanks for reaching out! We'll review your project details and get back to you within 24 hours.</p>
