@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import emailjs from '@emailjs/browser';
 
 // Single-file, preview-ready React landing page
 // Theme: clean, airy, white with soft accents
@@ -262,10 +263,50 @@ const Textarea = (props) => (
 
 export default function App() {
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    company: '',
+    website: '',
+    message: ''
+  });
 
-  const onSubmit = (e) => {
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const onSubmit = async (e) => {
     e.preventDefault();
-    setSent(true);
+    setLoading(true);
+
+    try {
+      // EmailJS configuration
+      const serviceId = 'service_lunara'; // You'll need to create this in EmailJS
+      const templateId = 'template_contact'; // You'll need to create this in EmailJS
+      const publicKey = 'YOUR_EMAILJS_PUBLIC_KEY'; // You'll need to get this from EmailJS
+
+      // Send email
+      await emailjs.send(serviceId, templateId, {
+        from_name: formData.name,
+        from_email: formData.email,
+        company: formData.company,
+        website: formData.website,
+        message: formData.message,
+        to_email: 'malkazevka@gmail.com'
+      }, publicKey);
+
+      setSent(true);
+    } catch (error) {
+      console.error('Error sending email:', error);
+      alert('Sorry, there was an error sending your message. Please try again or email us directly at malkazevka@gmail.com');
+    } finally {
+      setLoading(false);
+    }
   };
 
   // Add custom CSS animations
@@ -817,29 +858,64 @@ export default function App() {
             {!sent ? (
               <form onSubmit={onSubmit} className="space-y-4">
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                  <Input placeholder="Your name" required />
-                  <Input type="email" placeholder="Email" required />
+                  <Input 
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    placeholder="Your name" 
+                    required 
+                  />
+                  <Input 
+                    name="email"
+                    type="email" 
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    placeholder="Email" 
+                    required 
+                  />
                 </div>
-                <Input placeholder="Company / Organization" />
-                <Input placeholder="Website (optional)" />
-                <Textarea rows={5} placeholder="What are you building?" required />
+                <Input 
+                  name="company"
+                  value={formData.company}
+                  onChange={handleInputChange}
+                  placeholder="Company / Organization" 
+                />
+                <Input 
+                  name="website"
+                  value={formData.website}
+                  onChange={handleInputChange}
+                  placeholder="Website (optional)" 
+                />
+                <Textarea 
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  rows={5} 
+                  placeholder="What are you building?" 
+                  required 
+                />
                 <div className="flex items-center justify-between">
                   <label className="flex items-center gap-2 text-xs text-gray-400">
                    
                     We usually respond within a day
                   </label>
-                  <button type="submit" className="rounded-md bg-green-50 px-5 py-2 text-sm font-medium text-green-600 hover:bg-green-300 transition-all duration-300">
-                    Submit</button>
+                  <button 
+                    type="submit" 
+                    disabled={loading}
+                    className="rounded-md bg-green-50 px-5 py-2 text-sm font-medium text-green-600 hover:bg-green-300 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {loading ? 'Sending...' : 'Submit'}
+                  </button>
                 </div>
                 <p className="text-xs text-gray-500">Prefer to call? <a className="underline" href="tel:+1234567890">+1 (234) 567-890</a>
                 <div className="h-1"></div>
-                Prefer email? <a className="underline" href="mailto:hello@lunaratech.example">hello@lunaratech.example</a></p>
+                Prefer email? <a className="underline" href="mailto:malkazevka@gmail.com">malkazevka@gmail.com</a></p>
               </form>
             ) : (
               <div className="text-center">
                 <div className="mx-auto mb-3 inline-flex h-12 w-12 items-center justify-center rounded-full bg-gray-900 text-white"><Check/></div>
                 <h3 className="text-lg font-semibold">Thanks! We’ll be in touch shortly.</h3>
-                <p className="mt-2 text-sm text-gray-600">Want to talk now? Email <a className="underline" href="mailto:hello@lunaratech.example">hello@lunaratech.example</a>.</p>
+                <p className="mt-2 text-sm text-gray-600">Want to talk now? Email <a className="underline" href="mailto:malkazevka@gmail.com">malkazevka@gmail.com</a>.</p>
                 <a href="#home" className="mt-6 inline-flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-4 py-2 text-sm hover:border-gray-300"><Arrow/> Back to top</a>
               </div>
             )}
