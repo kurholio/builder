@@ -377,13 +377,12 @@ export default function App() {
         {/* Top nav */}
       <header className="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-white/70 border-b border-gray-100">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:py-4">
-          <a href="#home" className="flex items-center gap-2 font-semibold tracking-tight">
+          <a href="#home" className="flex items-center">
             <img 
-              src="/lunaratechLogo.jpg" 
+              src="/lunaratechLogo.png" 
               alt="LunaraTech Logo" 
               className="h-8 w-auto animate-pulse-slow"
             />
-            LunaraTech
           </a>
           <nav className="hidden gap-6 text-sm text-gray-700 sm:flex">
             {navItems.map((n) => (
