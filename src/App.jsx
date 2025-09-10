@@ -357,9 +357,9 @@ export default function App() {
 
     try {
       // EmailJS configuration - Replace these with your actual values from EmailJS dashboard
-      const serviceId = 'YOUR_SERVICE_ID'; // Get from EmailJS → Services → Your Gmail service
-      const templateId = 'YOUR_TEMPLATE_ID'; // Get from EmailJS → Email Templates → Your template
-      const publicKey = 'YOUR_PUBLIC_KEY'; // Get from EmailJS → Account → General
+      const serviceId = 'service_email_malkazevka'; // Get from EmailJS → Services → Your Gmail service
+      const templateId = 'template_7tqsqw9'; // Get from EmailJS → Email Templates → Your template
+      const publicKey = 'zVz2a3ivQo6s7kZ47'; // Get from EmailJS → Account → General
 
       // Send email
       await emailjs.send(serviceId, templateId, {
