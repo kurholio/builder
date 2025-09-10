@@ -590,12 +590,12 @@ export default function App() {
                     </div>
                   </div>
                 </div>
-                <div className="p-6">
+                <div className="p-6 flex flex-col h-full">
                   <div className="flex items-center justify-between mb-3">
                     <h4 className="text-xl font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">Home Mortgage Estimator</h4>
                     <span className="px-3 py-1 text-xs font-medium bg-green-100 text-green-800 rounded-full">Live</span>
                   </div>
-                  <p className="text-gray-600 mb-4 leading-relaxed">
+                  <p className="text-gray-600 mb-4 leading-relaxed flex-grow">
                     A comprehensive mortgage calculator that helps users estimate monthly payments, view detailed amortization schedules, 
                     and analyze home loans including PMI, property tax, and insurance costs.
                   </p>
@@ -605,7 +605,7 @@ export default function App() {
                     <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded">Financial Tools</span>
                     <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded">Responsive Design</span>
                   </div>
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-between mt-auto">
                     <a 
                       href="https://www.homemortgagecalculator.net/" 
                       target="_blank" 
@@ -637,12 +637,12 @@ export default function App() {
                     </div>
                   </div>
                 </div>
-                <div className="p-6">
+                <div className="p-6 flex flex-col h-full">
                   <div className="flex items-center justify-between mb-3">
                     <h4 className="text-xl font-semibold text-gray-900 group-hover:text-purple-600 transition-colors">Fintech Platform</h4>
                     <span className="px-3 py-1 text-xs font-medium bg-green-100 text-green-800 rounded-full">Live</span>
                   </div>
-                  <p className="text-gray-600 mb-4 leading-relaxed">
+                  <p className="text-gray-600 mb-4 leading-relaxed flex-grow">
                     A comprehensive financial analytics platform providing investment research, portfolio analysis, 
                     and market data tools for investors and financial professionals.
                   </p>
@@ -652,7 +652,7 @@ export default function App() {
                     <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded">Financial Data</span>
                     <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded">Analytics</span>
                   </div>
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-between mt-auto">
                     <a 
                       href="https://www.macroaxis.com" 
                       target="_blank" 
@@ -684,12 +684,12 @@ export default function App() {
                     </div>
                   </div>
                 </div>
-                <div className="p-6">
+                <div className="p-6 flex flex-col h-full">
                   <div className="flex items-center justify-between mb-3">
                     <h4 className="text-xl font-semibold text-gray-900 group-hover:text-orange-600 transition-colors">Chosen Rooter & Plumbing</h4>
                     <span className="px-3 py-1 text-xs font-medium bg-green-100 text-green-800 rounded-full">Live</span>
                   </div>
-                  <p className="text-gray-600 mb-4 leading-relaxed">
+                  <p className="text-gray-600 mb-4 leading-relaxed flex-grow">
                     San Francisco's top plumbing company providing emergency plumbing services, drain cleaning, 
                     water heater repairs, and comprehensive plumbing solutions throughout the Bay Area.
                   </p>
@@ -699,7 +699,7 @@ export default function App() {
                     <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded">Local Business</span>
                     <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded">SEO</span>
                   </div>
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-between mt-auto">
                     <a 
                       href="https://chosenrooter.com/" 
                       target="_blank" 
