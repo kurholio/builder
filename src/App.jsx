@@ -921,7 +921,7 @@ export default function App() {
         <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 lg:grid-cols-2 items-stretch">
           <div className="flex flex-col gap-6 h-full">
             {/* Enhanced Features Grid */}
-            <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
               <div className="group relative rounded-xl border border-gray-200 bg-gradient-to-br from-[#da1c5c]/10 to-[#da1c5c]/5 p-4 text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-2 hover:scale-105">
                 <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-[#da1c5c]/20 to-[#da1c5c]/10 text-[#da1c5c] transition-all duration-300 group-hover:scale-110 group-hover:rotate-6">
                   <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -977,18 +977,12 @@ export default function App() {
               />
             </div>
           </div>
-          <div className="flex flex-col gap-6 mt-10 h-full">
+          <div className="flex flex-col gap-6 h-full">
             <div className="relative rounded-3xl border-2 border-gray-200 bg-gradient-to-br from-white to-gray-50 p-8 shadow-xl transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.02] flex-grow overflow-hidden">
               {/* Floating decorative elements */}
               <div className="absolute top-4 right-4 w-3 h-3 bg-gradient-to-r from-[#da1c5c] to-[#FFB700] rounded-full animate-pulse opacity-60"></div>
-              <div className="absolute bottom-6 left-6 w-2 h-2 bg-gradient-to-r from-[#70CBD0] to-[#262262] rounded-full animate-bounce opacity-40"></div>
               <div className="absolute top-8 left-8 w-1.5 h-1.5 bg-gradient-to-r from-[#FFB700] to-[#da1c5c] rounded-full animate-ping opacity-30"></div>
               
-              {/* Form header */}
-              <div className="mb-8 text-center">
-                <h3 className="text-2xl font-bold text-[#262262] mb-2">Let's Build Something Amazing</h3>
-                <p className="text-gray-600">Tell us about your project and we'll get back to you within 24 hours</p>
-              </div>
               
             {!sent ? (
               <form onSubmit={onSubmit} className="space-y-6">
