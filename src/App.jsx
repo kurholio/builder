@@ -918,7 +918,7 @@ export default function App() {
             title={"Let's get to work"}
             subtitle="Tell us about your project. We'll reply with a quick plan, timeline, and budget."
             />
-        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 lg:grid-cols-2 items-stretch">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 lg:grid-cols-2 items-stretch mt-12">
           <div className="flex flex-col gap-6 h-full">
             {/* Enhanced Features Grid */}
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
@@ -979,9 +979,6 @@ export default function App() {
           </div>
           <div className="flex flex-col gap-6 h-full">
             <div className="relative rounded-3xl border-2 border-gray-200 bg-gradient-to-br from-white to-gray-50 p-8 shadow-xl transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.02] flex-grow overflow-hidden">
-              {/* Floating decorative elements */}
-              <div className="absolute top-4 right-4 w-3 h-3 bg-gradient-to-r from-[#da1c5c] to-[#FFB700] rounded-full animate-pulse opacity-60"></div>
-              <div className="absolute top-8 left-8 w-1.5 h-1.5 bg-gradient-to-r from-[#FFB700] to-[#da1c5c] rounded-full animate-ping opacity-30"></div>
               
               
             {!sent ? (
