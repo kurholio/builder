@@ -295,6 +295,23 @@ const ProcessCard = ({ title, children, step, className }) => (
   </div>
 );
 
+// About Section Cards - Slick and modern with brand colors
+const AboutCard = ({ title, children, color, className }) => {
+  const colorClasses = {
+    fuschia: "from-[#da1c5c]/15 to-[#da1c5c]/5 border-[#da1c5c]/20 hover:shadow-[#da1c5c]/20 hover:border-[#da1c5c]/40",
+    navy: "from-[#262262]/15 to-[#262262]/5 border-[#262262]/20 hover:shadow-[#262262]/20 hover:border-[#262262]/40", 
+    gold: "from-[#FFB700]/15 to-[#FFB700]/5 border-[#FFB700]/20 hover:shadow-[#FFB700]/20 hover:border-[#FFB700]/40"
+  };
+  
+  return (
+    <div className={`group relative flex h-full flex-col rounded-2xl border-2 bg-gradient-to-br p-6 shadow-lg transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.02] ${colorClasses[color]} ${className || ''}`}>
+      <h3 className="text-lg font-semibold text-[#262262] transition-colors duration-300 group-hover:text-[#da1c5c] mb-3">{title}</h3>
+      <p className="text-sm text-gray-700 leading-relaxed flex-grow">{children}</p>
+      <div className="mt-4 h-1 w-12 bg-gradient-to-r from-[#da1c5c] to-[#FFB700] rounded-full transition-all duration-300 group-hover:w-20" />
+    </div>
+  );
+};
+
 // Legacy Card for backward compatibility
 const Card = ({ title, children, icon, className }) => (
   <div className={`group relative flex h-full flex-col rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:scale-[1.02] ${className || ''}`}>
@@ -524,12 +541,10 @@ export default function App() {
           subtitle="A family-run boutique. Less boardroom, more creative kitchen table — with better snacks."
         />
         <div className="mx-auto mt-10 grid max-w-6xl grid-cols-1 gap-8 lg:grid-cols-2">
-          <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm h-full">
-            <p className="text-gray-700 leading-relaxed">
-              Our small but mighty team blends software development, graphic design, and marketing into a digital 
-              Swiss Army knife. We're the folks who actually build your product — no hand-offs, no support queues,
-               and definitely no "it works on my machine" excuses. 
-            </p>
+          <AboutCard title="Our Story" color="fuschia" className="h-full">
+            Our small but mighty team blends software development, graphic design, and marketing into a digital 
+            Swiss Army knife. We're the folks who actually build your product — no hand-offs, no support queues,
+             and definitely no "it works on my machine" excuses.
            
             <div className="mt-8 grid grid-cols-3 gap-3">
               <div className="animate-gentle-bounce" style={{animationDelay: '0s', animationDuration: '2s', animationIterationCount: 'infinite'}}>
@@ -545,8 +560,10 @@ export default function App() {
             <p className="mt-6 text-sm text-gray-600 leading-relaxed">
               When we're not coding, we're probably arguing about whether pineapple belongs on pizza (it doesn't) or debating the best way to center a div (flexbox, obviously). But most importantly, we're the team that turns your "wouldn't it be cool if..." into "holy cow, this is amazing!"
             </p>
-            {/* Cool Slideshow */}
-            <div className="mt-8 relative overflow-hidden rounded-lg bg-gradient-to-br from-[#70CBD0]/20 to-[#70CBD0]/10 p-6">
+          </AboutCard>
+          
+          {/* Cool Slideshow */}
+          <div className="mt-8 relative overflow-hidden rounded-lg bg-gradient-to-br from-[#70CBD0]/20 to-[#70CBD0]/10 p-6">
               <div className="relative h-36 sm:h-44">
                 {(() => {
                   const [currentSlide, setCurrentSlide] = React.useState(0);
@@ -623,7 +640,6 @@ export default function App() {
                           <p className="mt-6 text-sm text-gray-600 leading-relaxed">
                             Think of us as your tech-savvy friend who happens to know how to make websites and mobile apps that don't break when someone sneezes at them.
                             We don't just build – we build digital empires that your competitors will envy.</p>
-                          </div>
           <div className="flex flex-col gap-6 h-full">
                           <div className="rounded-lg overflow-hidden">
                 <img 
@@ -632,18 +648,15 @@ export default function App() {
                   className="w-full h-56 object-cover rounded-lg"
                 />
               </div>
-            <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-              <h3 className="text-lg font-semibold">What we do</h3>
-              <p className="mt-2 text-sm text-gray-700">Modern websites and mobile apps that are intuitive, scalable, and deeply aligned with your brand's goals and audience. From e-commerce platforms to enterprise solutions, we build digital experiences that drive real business results.</p>
-            </div>
-            <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-              <h3 className="text-lg font-semibold">How we do it</h3>
-              <p className="mt-2 text-sm text-gray-700">Intentional design, clean development, and strategic thinking to turn bold ideas into products that connect and perform. We combine cutting-edge technology with time-tested methodologies to deliver solutions that scale with your growth.</p>
-            </div>
-            <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-              <h3 className="text-lg font-semibold">Built on Collaboration</h3>
-              <p className="mt-2 text-sm text-gray-700">Designers, developers, and strategists working side-by-side (literally). We listen, challenge, and support — every step of the way. This collaborative approach ensures every decision is informed by multiple perspectives and every solution is crafted with your success in mind.</p>
-            </div>
+            <AboutCard title="What we do" color="navy">
+              Modern websites and mobile apps that are intuitive, scalable, and deeply aligned with your brand's goals and audience. From e-commerce platforms to enterprise solutions, we build digital experiences that drive real business results.
+            </AboutCard>
+            <AboutCard title="How we do it" color="gold">
+              Intentional design, clean development, and strategic thinking to turn bold ideas into products that connect and perform. We combine cutting-edge technology with time-tested methodologies to deliver solutions that scale with your growth.
+            </AboutCard>
+            <AboutCard title="Built on Collaboration" color="fuschia">
+              Designers, developers, and strategists working side-by-side (literally). We listen, challenge, and support — every step of the way. This collaborative approach ensures every decision is informed by multiple perspectives and every solution is crafted with your success in mind.
+            </AboutCard>
           </div>
         </div>
 
