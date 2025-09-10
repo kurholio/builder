@@ -1037,9 +1037,7 @@ export default function App() {
                     </button>
                   </div>
                 </div>
-                <p className="text-xs text-gray-500">Prefer to call? <a className="underline" href="tel:+15074003910">(507) 400-3910</a>
-                <div className="h-1"></div>
-                Prefer email? <a className="underline" href="mailto:malkazevka@gmail.com">malkazevka@gmail.com</a></p>
+                <p className="text-xs text-gray-500">Prefer to call? <a className="underline" href="tel:+15074003910">(507) 400-3910</a></p>
               </form>
             ) : (
               <div className="text-center">
