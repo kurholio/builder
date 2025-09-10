@@ -378,7 +378,7 @@ export default function App() {
       <header className="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-white/70 border-b border-gray-100">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:py-4">
           <a href="#home" className="flex items-center gap-2 font-semibold tracking-tight">
-            <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-gray-900 text-white animate-pulse-slow">L</span>
+            <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-[#262262] text-white animate-pulse-slow">L</span>
             LunaraTech
           </a>
           <nav className="hidden gap-6 text-sm text-gray-700 sm:flex">
@@ -386,7 +386,7 @@ export default function App() {
               <a key={n.href} href={n.href} className="hover:text-gray-900">{n.label}</a>
             ))}
           </nav>
-          <a href="#contact" className="hidden rounded-md bg-gray-100 px-4 py-2 text-sm font-medium text-black hover:bg-gray-300 transition-all duration-300 sm:inline-flex">Get Quote</a>
+          <a href="#contact" className="hidden rounded-md bg-[#da1c5c] px-4 py-2 text-sm font-medium text-white hover:bg-[#c01a52] transition-all duration-300 sm:inline-flex">Get Quote</a>
         </div>
       </header>
 
@@ -399,8 +399,8 @@ export default function App() {
             <p className="mx-auto mt-10 max-w-2xl text-gray-600 animate-fade-in">We craft clean code, bold design, and real connections. From idea to launch, we build experiences that scale, convert, and feel great to use.</p>
             
             <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-              <a href="#contact" className="rounded-md bg-blue-50 px-6 py-3 text-sm font-medium text-blue-600 hover:bg-blue-100 transition-all duration-300 hover:scale-105 ">Start a Project</a>
-              <a href="#services" className="rounded-md border border-gray-300 bg-white px-6 py-3 text-sm font-medium text-gray-900 hover:border-gray-400 hover:bg-gray-50 transition-all duration-300 hover:scale-105">What we do</a>
+              <a href="#contact" className="rounded-md bg-[#da1c5c] px-6 py-3 text-sm font-medium text-white hover:bg-[#c01a52] transition-all duration-300 hover:scale-105 ">Start a Project</a>
+              <a href="#services" className="rounded-md border border-[#262262] bg-white px-6 py-3 text-sm font-medium text-[#262262] hover:border-[#1a1a4a] hover:bg-[#f8f9ff] transition-all duration-300 hover:scale-105">What we do</a>
             </div>
           </div>
         </div>
@@ -619,10 +619,10 @@ export default function App() {
               {/* Mortgage Calculator Project */}
               <div className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-500 hover:shadow-xl hover:-translate-y-2 hover:scale-[1.02] flex flex-col">
                 <div className="aspect-video overflow-hidden">
-                  <div className="h-full w-full bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">
+                  <div className="h-full w-full bg-gradient-to-br from-[#fbb040]/20 to-[#fbb040]/10 flex items-center justify-center">
                     <div className="text-center p-8">
-                      <div className="w-16 h-16 mx-auto mb-4 bg-blue-100 rounded-full flex items-center justify-center">
-                        <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <div className="w-16 h-16 mx-auto mb-4 bg-[#fbb040]/20 rounded-full flex items-center justify-center">
+                        <svg className="w-8 h-8 text-[#fbb040]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
                         </svg>
                       </div>
@@ -633,7 +633,7 @@ export default function App() {
                 </div>
                 <div className="p-6 flex flex-col flex-1">
                   <div className="flex items-center justify-between mb-3">
-                    <h4 className="text-xl font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">Home Mortgage Estimator</h4>
+                    <h4 className="text-xl font-semibold text-gray-900 group-hover:text-[#da1c5c] transition-colors">Home Mortgage Estimator</h4>
                     <span className="px-3 py-1 text-xs font-medium bg-green-100 text-green-800 rounded-full">Live</span>
                   </div>
                   <p className="text-gray-600 mb-4 leading-relaxed flex-grow">
@@ -651,7 +651,7 @@ export default function App() {
                       href="https://www.homemortgagecalculator.net/" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium text-sm transition-colors"
+                      className="inline-flex items-center gap-2 text-[#da1c5c] hover:text-[#c01a52] font-medium text-sm transition-colors"
                     >
                       View Project
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -666,10 +666,10 @@ export default function App() {
               {/* Macroaxis Project */}
               <div className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-500 hover:shadow-xl hover:-translate-y-2 hover:scale-[1.02] flex flex-col">
                 <div className="aspect-video overflow-hidden">
-                  <div className="h-full w-full bg-gradient-to-br from-purple-50 to-violet-100 flex items-center justify-center">
+                  <div className="h-full w-full bg-gradient-to-br from-[#262262]/20 to-[#262262]/10 flex items-center justify-center">
                     <div className="text-center p-8">
-                      <div className="w-16 h-16 mx-auto mb-4 bg-purple-100 rounded-full flex items-center justify-center">
-                        <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <div className="w-16 h-16 mx-auto mb-4 bg-[#262262]/20 rounded-full flex items-center justify-center">
+                        <svg className="w-8 h-8 text-[#262262]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                         </svg>
                       </div>
@@ -680,7 +680,7 @@ export default function App() {
                 </div>
                 <div className="p-6 flex flex-col flex-1">
                   <div className="flex items-center justify-between mb-3">
-                    <h4 className="text-xl font-semibold text-gray-900 group-hover:text-purple-600 transition-colors">Fintech Platform</h4>
+                    <h4 className="text-xl font-semibold text-gray-900 group-hover:text-[#262262] transition-colors">Fintech Platform</h4>
                     <span className="px-3 py-1 text-xs font-medium bg-green-100 text-green-800 rounded-full">Live</span>
                   </div>
                   <p className="text-gray-600 mb-4 leading-relaxed flex-grow">
@@ -700,7 +700,7 @@ export default function App() {
                       href="https://www.macroaxis.com" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-purple-600 hover:text-purple-700 font-medium text-sm transition-colors"
+                      className="inline-flex items-center gap-2 text-[#262262] hover:text-[#1a1a4a] font-medium text-sm transition-colors"
                     >
                       View Project
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -715,10 +715,10 @@ export default function App() {
               {/* Chosen Rooter Project */}
               <div className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-500 hover:shadow-xl hover:-translate-y-2 hover:scale-[1.02] flex flex-col">
                 <div className="aspect-video overflow-hidden">
-                  <div className="h-full w-full bg-gradient-to-br from-orange-50 to-red-100 flex items-center justify-center">
+                  <div className="h-full w-full bg-gradient-to-br from-[#da1c5c]/20 to-[#da1c5c]/10 flex items-center justify-center">
                     <div className="text-center p-8">
-                      <div className="w-16 h-16 mx-auto mb-4 bg-orange-100 rounded-full flex items-center justify-center">
-                        <svg className="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <div className="w-16 h-16 mx-auto mb-4 bg-[#da1c5c]/20 rounded-full flex items-center justify-center">
+                        <svg className="w-8 h-8 text-[#da1c5c]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
                         </svg>
                       </div>
@@ -729,7 +729,7 @@ export default function App() {
                 </div>
                 <div className="p-6 flex flex-col flex-1">
                   <div className="flex items-center justify-between mb-3">
-                    <h4 className="text-xl font-semibold text-gray-900 group-hover:text-orange-600 transition-colors">Chosen Rooter & Plumbing</h4>
+                    <h4 className="text-xl font-semibold text-gray-900 group-hover:text-[#da1c5c] transition-colors">Chosen Rooter & Plumbing</h4>
                     <span className="px-3 py-1 text-xs font-medium bg-green-100 text-green-800 rounded-full">Live</span>
                   </div>
                   <p className="text-gray-600 mb-4 leading-relaxed flex-grow">
@@ -747,7 +747,7 @@ export default function App() {
                       href="https://chosenrooter.com/" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-orange-600 hover:text-orange-700 font-medium text-sm transition-colors"
+                      className="inline-flex items-center gap-2 text-[#da1c5c] hover:text-[#c01a52] font-medium text-sm transition-colors"
                     >
                       View Project
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -801,8 +801,8 @@ export default function App() {
           <div className="flex flex-col gap-6 h-full">
             {/* Enhanced Features Grid */}
             <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
-              <div className="group relative rounded-lg border border-gray-200 bg-gradient-to-br from-blue-50 to-indigo-100 p-4 text-center transition-all duration-300 hover:shadow-md hover:-translate-y-1">
-                <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-blue-100 text-blue-600 transition-all duration-300 group-hover:scale-110">
+              <div className="group relative rounded-lg border border-gray-200 bg-gradient-to-br from-[#da1c5c]/10 to-[#da1c5c]/5 p-4 text-center transition-all duration-300 hover:shadow-md hover:-translate-y-1">
+                <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-[#da1c5c]/20 text-[#da1c5c] transition-all duration-300 group-hover:scale-110">
                   <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
@@ -811,8 +811,8 @@ export default function App() {
                 <p className="text-xs text-gray-600">Clear next steps</p>
               </div>
               
-              <div className="group relative rounded-lg border border-gray-200 bg-gradient-to-br from-green-50 to-emerald-100 p-4 text-center transition-all duration-300 hover:shadow-md hover:-translate-y-1">
-                <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-green-100 text-green-600 transition-all duration-300 group-hover:scale-110">
+              <div className="group relative rounded-lg border border-gray-200 bg-gradient-to-br from-[#fbb040]/10 to-[#fbb040]/5 p-4 text-center transition-all duration-300 hover:shadow-md hover:-translate-y-1">
+                <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-[#fbb040]/20 text-[#fbb040] transition-all duration-300 group-hover:scale-110">
                   <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
@@ -821,8 +821,8 @@ export default function App() {
                 <p className="text-xs text-gray-600">Sprint-based options</p>
               </div>
               
-              <div className="group relative rounded-lg border border-gray-200 bg-gradient-to-br from-purple-50 to-violet-100 p-4 text-center transition-all duration-300 hover:shadow-md hover:-translate-y-1">
-                <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-purple-100 text-purple-600 transition-all duration-300 group-hover:scale-110">
+              <div className="group relative rounded-lg border border-gray-200 bg-gradient-to-br from-[#262262]/10 to-[#262262]/5 p-4 text-center transition-all duration-300 hover:shadow-md hover:-translate-y-1">
+                <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-[#262262]/20 text-[#262262] transition-all duration-300 group-hover:scale-110">
                   <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
@@ -833,9 +833,9 @@ export default function App() {
             </div>
             
             {/* Additional Benefits */}
-            <div className="mt-0 rounded-lg border border-gray-200 bg-gradient-to-r from-gray-50 to-blue-50 p-4">
+            <div className="mt-0 rounded-lg border border-gray-200 bg-gradient-to-r from-gray-50 to-[#262262]/5 p-4">
               <div className="flex items-center justify-center gap-3">
-                <div className="flex h-8 w-12 items-center justify-center rounded-full bg-blue-100 text-blue-600">
+                <div className="flex h-8 w-12 items-center justify-center rounded-full bg-[#262262]/20 text-[#262262]">
                   <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
@@ -902,7 +902,7 @@ export default function App() {
                   <button 
                     type="submit" 
                     disabled={loading}
-                    className="rounded-md bg-green-50 px-5 py-2 text-sm font-medium text-green-600 hover:bg-green-300 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="rounded-md bg-[#da1c5c] px-5 py-2 text-sm font-medium text-white hover:bg-[#c01a52] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {loading ? 'Sending...' : 'Submit'}
                   </button>
@@ -913,10 +913,10 @@ export default function App() {
               </form>
             ) : (
               <div className="text-center">
-                <div className="mx-auto mb-3 inline-flex h-12 w-12 items-center justify-center rounded-full bg-gray-900 text-white"><Check/></div>
+                <div className="mx-auto mb-3 inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#262262] text-white"><Check/></div>
                 <h3 className="text-lg font-semibold">Thanks! We’ll be in touch shortly.</h3>
                 <p className="mt-2 text-sm text-gray-600">Want to talk now? Email <a className="underline" href="mailto:malkazevka@gmail.com">malkazevka@gmail.com</a>.</p>
-                <a href="#home" className="mt-6 inline-flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-4 py-2 text-sm hover:border-gray-300"><Arrow/> Back to top</a>
+                <a href="#home" className="mt-6 inline-flex items-center gap-2 rounded-xl border border-[#262262] bg-white px-4 py-2 text-sm text-[#262262] hover:border-[#1a1a4a] hover:bg-[#f8f9ff]"><Arrow/> Back to top</a>
               </div>
             )}
           </div>
