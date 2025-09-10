@@ -1052,20 +1052,22 @@ export default function App() {
                 <p className="text-xs text-gray-500">Prefer to call? <a className="underline" href="tel:+15074003910">(507) 400-3910</a></p>
               </form>
             ) : (
-              <div className="text-center">
-                <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="mx-auto mb-6 h-16 w-16 animate-pulse"/>
-                <h3 className="text-2xl font-bold text-[#262262] mb-3">Message Sent Successfully!</h3>
-                <p className="text-gray-600 mb-6">Thanks for reaching out! We'll review your project details and get back to you within 24 hours.</p>
-                <div className="bg-gradient-to-r from-[#70CBD0]/10 to-[#FFB700]/10 rounded-xl p-4 mb-6">
-                  <p className="text-sm text-gray-700 mb-2">Want to talk now?</p>
-                  <a className="inline-flex items-center gap-2 text-[#da1c5c] hover:text-[#c01a52] font-medium" href="tel:+15074003910">
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                    </svg>
-                    (507) 400-3910
-                  </a>
+              <div className="text-center flex flex-col h-full">
+                <div className="flex-grow">
+                  <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="mx-auto mb-6 h-16 w-16 animate-pulse"/>
+                  <h3 className="text-2xl font-bold text-[#262262] mb-3">Message Sent Successfully!</h3>
+                  <p className="text-gray-600 mb-6">Thanks for reaching out! We'll review your project details and get back to you within 24 hours.</p>
+                  <div className="bg-gradient-to-r from-[#70CBD0]/10 to-[#FFB700]/10 rounded-xl p-4 mb-6">
+                    <p className="text-sm text-gray-700 mb-2">Want to talk now?</p>
+                    <a className="inline-flex items-center gap-2 text-[#da1c5c] hover:text-[#c01a52] font-medium" href="tel:+15074003910">
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                      </svg>
+                      (507) 400-3910
+                    </a>
+                  </div>
                 </div>
-                <a href="#home" className="inline-flex items-center gap-2 rounded-xl border-2 border-[#262262] bg-white px-6 py-3 text-sm font-medium text-[#262262] hover:border-[#1a1a4a] hover:bg-[#f8f9ff] hover:-translate-y-1 transition-all duration-300">
+                <a href="#home" className="inline-flex items-center gap-2 rounded-xl border-2 border-[#262262] bg-white px-6 py-3 text-sm font-medium text-[#262262] hover:border-[#1a1a4a] hover:bg-[#f8f9ff] hover:-translate-y-1 transition-all duration-300 mt-auto">
                   <Arrow/> Back to top
                 </a>
               </div>
