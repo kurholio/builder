@@ -244,7 +244,7 @@ const SectionHeader = ({ eyebrow, title, subtitle, id }) => (
 
 const Card = ({ title, children, icon, className }) => (
   <div className={`group relative flex h-full flex-col rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:scale-[1.02] ${className || ''}`}>
-    <div className="mb-4 inline-flex h-12 w-12 items-center justify-center transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
+    <div className="mb-2 inline-flex h-16 w-16 items-center justify-center transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
       {icon}
     </div>
     <h3 className="text-lg font-semibold text-gray-900 transition-colors duration-300 group-hover:text-gray-700">{title}</h3>
@@ -412,9 +412,9 @@ export default function App() {
       {/* Value props */}
       <section className="border-y border-gray-100 bg-gray-50">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-4 py-12 sm:grid-cols-3">
-          <Card title="Clean Code" icon={<img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-8 w-8"/>} className="bg-red-50 animate-float" style={{animationDelay: '0s'}}>We write code that's readable, maintainable, and built to scale — ensuring smooth development and long-term stability.</Card>
-          <Card title="Bold Design" icon={<img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-8 w-8"/>} className="bg-blue-50 animate-float" style={{animationDelay: '1s'}}>Modern, intuitive, and tailored to create lasting impressions across devices and contexts.</Card>
-          <Card title="Real Connection" icon={<img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-8 w-8"/>} className="bg-green-50 animate-float" style={{animationDelay: '2s'}}>Genuine collaboration that turns your ideas into digital experiences people love.</Card>
+          <Card title="Clean Code" icon={<img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-12 w-12"/>} className="bg-red-50 animate-float" style={{animationDelay: '0s'}}>We write code that's readable, maintainable, and built to scale — ensuring smooth development and long-term stability.</Card>
+          <Card title="Bold Design" icon={<img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-12 w-12"/>} className="bg-blue-50 animate-float" style={{animationDelay: '1s'}}>Modern, intuitive, and tailored to create lasting impressions across devices and contexts.</Card>
+          <Card title="Real Connection" icon={<img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-12 w-12"/>} className="bg-green-50 animate-float" style={{animationDelay: '2s'}}>Genuine collaboration that turns your ideas into digital experiences people love.</Card>
         </div>
       </section>
 
