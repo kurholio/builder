@@ -643,7 +643,7 @@ export default function App() {
                     <span className="px-3 py-1 text-xs font-medium bg-green-100 text-green-800 rounded-full">Live</span>
                   </div>
                   <p className="text-gray-600 mb-4 leading-relaxed flex-grow">
-                    A comprehensive financial analytics platform providing investment research, portfolio analysis, 
+                    A comprehensive AI-powered financial analytics platform providing investment research, portfolio analysis, 
                     and market data tools for investors and financial professionals.
                   </p>
                   <div className="flex flex-wrap gap-2 mb-4">
