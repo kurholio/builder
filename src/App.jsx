@@ -1040,12 +1040,13 @@ export default function App() {
                 <p className="text-xs text-gray-500">Prefer to call? <a className="underline" href="tel:+1234567890">+1 (234) 567-890</a>
                 <div className="h-1"></div>
                 Prefer email? <a className="underline" href="mailto:malkazevka@gmail.com">malkazevka@gmail.com</a></p>
+                <p className="text-xs text-gray-400 mt-2">📞 <strong>Get your free Google Voice number:</strong> Go to voice.google.com, choose a number, and I'll update this form with your real number!</p>
               </form>
             ) : (
               <div className="text-center">
                 <div className="mx-auto mb-3 inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#262262] text-white"><Check/></div>
                 <h3 className="text-lg font-semibold text-[#262262]">Thanks! We'll be in touch shortly.</h3>
-                <p className="mt-2 text-sm text-gray-600">Want to talk now? Email <a className="underline" href="mailto:malkazevka@gmail.com">malkazevka@gmail.com</a>.</p>
+                <p className="mt-2 text-sm text-gray-600">Want to talk now? Email <a className="underline" href="mailto:malkazevka@gmail.com">malkazevka@gmail.com</a> or call <a className="underline" href="tel:+1234567890">+1 (234) 567-890</a>.</p>
                 <a href="#home" className="mt-6 inline-flex items-center gap-2 rounded-xl border border-[#262262] bg-white px-4 py-2 text-sm text-[#262262] hover:border-[#1a1a4a] hover:bg-[#f8f9ff]"><Arrow/> Back to top</a>
               </div>
             )}
