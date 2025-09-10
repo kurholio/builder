@@ -552,7 +552,7 @@ export default function App() {
             </div>
             
             {/* Main Content Card */}
-            <div className="rounded-2xl border border-[#262262]/20 bg-gradient-to-br from-[#262262]/5 to-[#da1c5c]/5 p-6 shadow-lg">
+            <div className="rounded-2xl border border-[#262262]/20 bg-gradient-to-br from-[#262262]/5 to-[#da1c5c]/5 p-6 shadow-lg flex-grow">
             <p className="text-gray-700 leading-relaxed">
               Our small but mighty team blends software development, graphic design, and marketing into a digital 
                 Swiss Army knife. We're the folks who actually build your product — no hand-offs, no support queues,
