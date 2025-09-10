@@ -381,7 +381,7 @@ export default function App() {
             <img 
               src="/lunaratechLogo.png" 
               alt="LunaraTech Logo" 
-              className="h-12 w-auto animate-pulse-slow"
+              className="h-12 w-auto"
             />
           </a>
           <nav className="hidden gap-6 text-sm text-gray-700 sm:flex">
