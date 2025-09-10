@@ -752,6 +752,7 @@ export default function App() {
                     <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded">Optimization</span>
                     <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded">Financial API</span>
                     <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded">Analytics</span>
+                    <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded">AWS</span>
                   </div>
                   <div className="flex items-center justify-between mt-auto">
                     <a 
@@ -846,7 +847,7 @@ export default function App() {
 
       {/* CTA / Contact */}
       
-      <section className="bg-gradient-to-br from-[#70CBD0]/10 to-[#FFB700]/5 py-16 sm:py-20" id="contact">
+      <section className="bg-gradient-to-br from-[#70CBD0]/15 to-[#FFB700]/10 py-16 sm:py-20" id="contact">
         <div className="mx-auto max-w-7xl px-4">
       <SectionHeader
               eyebrow=""
