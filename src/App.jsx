@@ -378,7 +378,11 @@ export default function App() {
       <header className="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-white/70 border-b border-gray-100">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:py-4">
           <a href="#home" className="flex items-center gap-2 font-semibold tracking-tight">
-            <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-[#262262] text-white animate-pulse-slow">L</span>
+            <img 
+              src="/lunaratechLogo.jpg" 
+              alt="LunaraTech Logo" 
+              className="h-8 w-auto animate-pulse-slow"
+            />
             LunaraTech
           </a>
           <nav className="hidden gap-6 text-sm text-gray-700 sm:flex">
