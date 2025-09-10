@@ -585,14 +585,14 @@ export default function App() {
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
                         </svg>
                       </div>
-                      <h4 className="text-lg font-semibold text-gray-900 mb-2">Mortgage Calculator</h4>
+                      <h4 className="text-lg font-semibold text-gray-900 mb-2">Mortgage Estimator</h4>
                       <p className="text-sm text-gray-600">Free & Easy to Use</p>
                     </div>
                   </div>
                 </div>
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-3">
-                    <h4 className="text-xl font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">Home Mortgage Calculator</h4>
+                    <h4 className="text-xl font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">Home Mortgage Estimator</h4>
                     <span className="px-3 py-1 text-xs font-medium bg-green-100 text-green-800 rounded-full">Live</span>
                   </div>
                   <p className="text-gray-600 mb-4 leading-relaxed">
@@ -639,7 +639,7 @@ export default function App() {
                 </div>
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-3">
-                    <h4 className="text-xl font-semibold text-gray-900 group-hover:text-purple-600 transition-colors">Macroaxis Financial Platform</h4>
+                    <h4 className="text-xl font-semibold text-gray-900 group-hover:text-purple-600 transition-colors">Fintech Platform</h4>
                     <span className="px-3 py-1 text-xs font-medium bg-green-100 text-green-800 rounded-full">Live</span>
                   </div>
                   <p className="text-gray-600 mb-4 leading-relaxed">
