@@ -384,7 +384,7 @@ export default function App() {
               className="h-12 w-auto"
             />
           </a>
-          <nav className="hidden gap-6 text-sm text-gray-700 sm:flex mt-4">
+          <nav className="hidden gap-6 text-sm text-gray-700 sm:flex mt-5">
             {navItems.map((n) => (
               <a key={n.href} href={n.href} className="hover:text-gray-900">{n.label}</a>
             ))}
