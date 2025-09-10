@@ -541,12 +541,23 @@ export default function App() {
           subtitle="A family-run boutique. Less boardroom, more creative kitchen table — with better snacks."
         />
         <div className="mx-auto mt-10 grid max-w-6xl grid-cols-1 gap-8 lg:grid-cols-2">
-          <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm h-full">
-            <p className="text-gray-700 leading-relaxed">
-              Our small but mighty team blends software development, graphic design, and marketing into a digital 
-              Swiss Army knife. We're the folks who actually build your product — no hand-offs, no support queues,
-               and definitely no "it works on my machine" excuses. 
-            </p>
+          <div className="flex flex-col gap-6">
+            {/* Team Image */}
+            <div className="rounded-lg overflow-hidden">
+              <img 
+                src="/niks1.png" 
+                alt="LunaraTech Team" 
+                className="w-full h-64 object-cover rounded-lg"
+              />
+            </div>
+            
+            {/* Main Content Card */}
+            <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+              <p className="text-gray-700 leading-relaxed">
+                Our small but mighty team blends software development, graphic design, and marketing into a digital 
+                Swiss Army knife. We're the folks who actually build your product — no hand-offs, no support queues,
+                 and definitely no "it works on my machine" excuses. 
+              </p>
            
             <div className="mt-8 grid grid-cols-3 gap-3">
               <div className="animate-gentle-bounce" style={{animationDelay: '0s', animationDuration: '2s', animationIterationCount: 'infinite'}}>
@@ -637,18 +648,12 @@ export default function App() {
                 })()}
               </div>
             </div>
-            <p className="mt-6 text-sm text-gray-600 leading-relaxed">
-              Think of us as your tech-savvy friend who happens to know how to make websites and mobile apps that don't break when someone sneezes at them.
-              We don't just build – we build digital empires that your competitors will envy.</p>
+              <p className="mt-6 text-sm text-gray-600 leading-relaxed">
+                Think of us as your tech-savvy friend who happens to know how to make websites and mobile apps that don't break when someone sneezes at them.
+                We don't just build – we build digital empires that your competitors will envy.</p>
+            </div>
           </div>
           <div className="flex flex-col gap-6 h-full">
-                          <div className="rounded-lg overflow-hidden">
-                <img 
-                  src="/niks1.png" 
-                  alt="LunaraTech Team" 
-                  className="w-full h-56 object-cover rounded-lg"
-                />
-              </div>
             <AboutCard title="What we do" color="navy">
               Modern websites and mobile apps that are intuitive, scalable, and deeply aligned with your brand's goals and audience. From e-commerce platforms to enterprise solutions, we build digital experiences that drive real business results.
             </AboutCard>
