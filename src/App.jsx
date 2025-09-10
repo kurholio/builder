@@ -969,11 +969,11 @@ export default function App() {
             </div>
             
             {/* niks3 Image - moved to left side for balance */}
-            <div className="rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+            <div className="rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 flex-grow">
               <img 
                 src="/niks3.png" 
                 alt="LunaraTech Team" 
-                className="w-full h-56 object-cover rounded-xl transition-transform duration-300 hover:scale-105"
+                className="w-full h-full object-cover rounded-xl transition-transform duration-300 hover:scale-105"
               />
             </div>
           </div>
@@ -1020,7 +1020,7 @@ export default function App() {
                   placeholder="What are you building?" 
                   required 
                 />
-                <div className="flex items-center justify-between pt-4 border-t border-gray-200">
+                <div className="flex items-center justify-between">
                   <label className="flex items-center gap-2 text-xs text-gray-500">
                     <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
                     We usually respond within a day
