@@ -374,7 +374,13 @@ export default function App() {
     setSent(true);
     } catch (error) {
       console.error('Error sending email:', error);
-      alert('Sorry, there was an error sending your message. Please try again or email us directly at malkazevka@gmail.com');
+      console.error('Error details:', {
+        serviceId,
+        templateId,
+        publicKey: publicKey.substring(0, 8) + '...',
+        error: error.message || error
+      });
+      alert(`Sorry, there was an error sending your message: ${error.message || 'Unknown error'}. Please try again or email us directly at malkazevka@gmail.com`);
     } finally {
       setLoading(false);
     }
