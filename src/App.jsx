@@ -278,7 +278,7 @@ const ServiceCard = ({ title, children, icon, className }) => (
 
 // Niche Cards - Modern with brand accents
 const NicheCard = ({ title, children, icon, className }) => (
-  <div className={`group relative flex h-full flex-col rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:scale-[1.02] hover:border-[#70CBD0] ${className || ''}`}>
+  <div className={`group relative flex h-full flex-col rounded-2xl border border-[#70CBD0]/30 bg-gradient-to-br from-[#70CBD0]/10 to-[#70CBD0]/5 p-6 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:scale-[1.02] hover:border-[#70CBD0] ${className || ''}`}>
     <div className="mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
       {icon}
     </div>
@@ -290,7 +290,7 @@ const NicheCard = ({ title, children, icon, className }) => (
 
 // Process Cards - Clean design with new color
 const ProcessCard = ({ title, children, step, className }) => (
-  <div className={`group relative flex h-full flex-col rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:scale-[1.02] hover:border-[#70CBD0] ${className || ''}`}>
+  <div className={`group relative flex h-full flex-col rounded-2xl border border-[#70CBD0]/30 bg-gradient-to-br from-[#70CBD0]/10 to-[#70CBD0]/5 p-6 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:scale-[1.02] hover:border-[#70CBD0] ${className || ''}`}>
     <div className="mb-2 text-xs font-medium uppercase tracking-wide text-[#70CBD0] group-hover:text-[#da1c5c] transition-colors duration-300">{step}</div>
     <h3 className="text-lg font-semibold text-[#262262] transition-colors duration-300 group-hover:text-[#70CBD0]">{title}</h3>
     <p className="mt-2 text-sm text-gray-600 leading-relaxed">{children}</p>
