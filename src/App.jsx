@@ -371,7 +371,7 @@ export default function App() {
         to_email: 'malkazevka@gmail.com'
       }, publicKey);
 
-      setSent(true);
+    setSent(true);
     } catch (error) {
       console.error('Error sending email:', error);
       alert('Sorry, there was an error sending your message. Please try again or email us directly at malkazevka@gmail.com');
@@ -553,11 +553,11 @@ export default function App() {
             
             {/* Main Content Card */}
             <div className="rounded-2xl border border-[#262262]/20 bg-gradient-to-br from-[#262262]/5 to-[#da1c5c]/5 p-6 shadow-lg">
-              <p className="text-gray-700 leading-relaxed">
-                Our small but mighty team blends software development, graphic design, and marketing into a digital 
+            <p className="text-gray-700 leading-relaxed">
+              Our small but mighty team blends software development, graphic design, and marketing into a digital 
                 Swiss Army knife. We're the folks who actually build your product — no hand-offs, no support queues,
-                 and definitely no "it works on my machine" excuses. 
-              </p>
+               and definitely no "it works on my machine" excuses. 
+            </p>
            
             <div className="mt-8 grid grid-cols-3 gap-3">
               <div className="animate-gentle-bounce" style={{animationDelay: '0s', animationDuration: '2s', animationIterationCount: 'infinite'}}>
@@ -648,11 +648,11 @@ export default function App() {
                 })()}
               </div>
             </div>
-              <p className="mt-6 text-sm text-gray-600 leading-relaxed">
-                Think of us as your tech-savvy friend who happens to know how to make websites and mobile apps that don't break when someone sneezes at them.
-                We don't just build – we build digital empires that your competitors will envy.</p>
+                          <p className="mt-6 text-sm text-gray-600 leading-relaxed">
+                            Think of us as your tech-savvy friend who happens to know how to make websites and mobile apps that don't break when someone sneezes at them.
+                            We don't just build – we build digital empires that your competitors will envy.</p>
             </div>
-          </div>
+                          </div>
           <div className="flex flex-col gap-6 h-full">
             <AboutCard title="What we do" color="navy">
               Modern websites and mobile apps that are intuitive, scalable, and deeply aligned with your brand's goals and audience. From e-commerce platforms to enterprise solutions, we build digital experiences that drive real business results.
@@ -663,15 +663,15 @@ export default function App() {
             <AboutCard title="Built on Collaboration" color="fuschia">
               Designers, developers, and strategists working side-by-side (literally). We listen, challenge, and support — every step of the way. This collaborative approach ensures every decision is informed by multiple perspectives and every solution is crafted with your success in mind.
             </AboutCard>
-          </div>
-        </div>
+              </div>
+            </div>
 
         {/* Latest Projects Subsection - Full Width */}
         <div className="mt-16">
           <div className="text-center mb-10">
             <h3 className="text-2xl font-semibold text-[#262262] mb-3">Latest Projects</h3>
             <p className="text-gray-600 max-w-2xl mx-auto">Real work, real results. See how we've helped businesses grow with modern web solutions.</p>
-          </div>
+            </div>
           <div className="mx-auto max-w-6xl grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 items-stretch">
               {/* Mortgage Calculator Project */}
               <div className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-500 hover:shadow-xl hover:-translate-y-2 hover:scale-[1.02] flex flex-col">
@@ -817,9 +817,9 @@ export default function App() {
                     <div className="text-xs text-gray-500">2025</div>
                   </div>
                 </div>
-              </div>
             </div>
           </div>
+        </div>
       </section>
 
       {/* Process */}
@@ -846,12 +846,12 @@ export default function App() {
 
       {/* CTA / Contact */}
       
-      <section className="px-4 py-16 sm:py-20" id="contact">
-
+      <section className="bg-gradient-to-br from-[#70CBD0]/10 to-[#FFB700]/5 py-16 sm:py-20" id="contact">
+        <div className="mx-auto max-w-7xl px-4">
       <SectionHeader
               eyebrow=""
-              title={"Let’s get to work"}
-              subtitle="Tell us about your project. We’ll reply with a quick plan, timeline, and budget."
+            title={"Let's get to work"}
+            subtitle="Tell us about your project. We'll reply with a quick plan, timeline, and budget."
             />
         <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 lg:grid-cols-2">
           <div className="flex flex-col gap-6 h-full">
@@ -975,6 +975,7 @@ export default function App() {
                 <a href="#home" className="mt-6 inline-flex items-center gap-2 rounded-xl border border-[#262262] bg-white px-4 py-2 text-sm text-[#262262] hover:border-[#1a1a4a] hover:bg-[#f8f9ff]"><Arrow/> Back to top</a>
               </div>
             )}
+          </div>
           </div>
           </div>
         </div>
