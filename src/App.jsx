@@ -448,16 +448,16 @@ export default function App() {
       </header>
 
       {/* Hero */}
-      <section id="home" className="relative bg-gradient-to-br from-[#70CBD0] to-[#70CBD0]/80">
+      <section id="home" className="relative bg-gradient-to-br from-[#70CBD0]/10 to-[#70CBD0]/5">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:py-24">
           <div className="mx-auto max-w-3xl text-center">
             
-            <h1 className="mt-15 text-4xl font-semibold tracking-tight text-white sm:text-6xl animate-pulse">Turn vision into velocity</h1>
-            <p className="mx-auto mt-10 max-w-2xl text-white/90 animate-fade-in">We craft clean code, bold design, and real connections. From idea to launch, we build experiences that scale, convert, and feel great to use.</p>
+            <h1 className="mt-15 text-4xl font-semibold tracking-tight text-[#262262] sm:text-6xl animate-pulse">Turn vision into velocity</h1>
+            <p className="mx-auto mt-10 max-w-2xl text-gray-600 animate-fade-in">We craft clean code, bold design, and real connections. From idea to launch, we build experiences that scale, convert, and feel great to use.</p>
             
             <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
               <a href="#contact" className="rounded-md bg-[#da1c5c] px-6 py-3 text-sm font-medium text-white hover:bg-[#c01a52] transition-all duration-300 hover:scale-105 ">Start a Project</a>
-              <a href="#services" className="rounded-md border-2 border-white bg-white/10 backdrop-blur-sm px-6 py-3 text-sm font-medium text-white hover:bg-white hover:text-[#70CBD0] transition-all duration-300 hover:scale-105">What we do</a>
+              <a href="#services" className="rounded-md border border-[#262262] bg-white px-6 py-3 text-sm font-medium text-[#262262] hover:border-[#1a1a4a] hover:bg-[#f8f9ff] transition-all duration-300 hover:scale-105">What we do</a>
             </div>
           </div>
         </div>
