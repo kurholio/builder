@@ -389,7 +389,7 @@ export default function App() {
               <a key={n.href} href={n.href} className="hover:text-gray-900">{n.label}</a>
             ))}
           </nav>
-          <a href="#contact" className="hidden rounded-md bg-[#da1c5c] px-4 py-2 text-sm font-medium text-white hover:bg-[#c01a52] transition-all duration-300 sm:inline-flex">Get Quote</a>
+          <a href="#contact" className="hidden rounded-md bg-[#fbb040] px-4 py-2 text-sm font-medium text-white hover:bg-[#e6a038] transition-all duration-300 sm:inline-flex mt-5">Get Quote</a>
         </div>
       </header>
 
