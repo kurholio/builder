@@ -552,7 +552,7 @@ export default function App() {
             </div>
             
             {/* Main Content Card */}
-            <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+            <div className="rounded-2xl border border-[#262262]/20 bg-gradient-to-br from-[#262262]/5 to-[#da1c5c]/5 p-6 shadow-lg">
               <p className="text-gray-700 leading-relaxed">
                 Our small but mighty team blends software development, graphic design, and marketing into a digital 
                 Swiss Army knife. We're the folks who actually build your product — no hand-offs, no support queues,
@@ -574,7 +574,7 @@ export default function App() {
               When we're not coding, we're probably arguing about whether pineapple belongs on pizza (it doesn't) or debating the best way to center a div (flexbox, obviously). But most importantly, we're the team that turns your "wouldn't it be cool if..." into "holy cow, this is amazing!"
             </p>
             {/* Cool Slideshow */}
-            <div className="mt-8 relative overflow-hidden rounded-lg bg-gradient-to-br from-[#70CBD0]/20 to-[#70CBD0]/10 p-6">
+            <div className="mt-8 relative overflow-hidden rounded-lg bg-gradient-to-br from-[#FFB700]/10 to-[#70CBD0]/10 p-6">
               <div className="relative h-36 sm:h-44">
                 {(() => {
                   const [currentSlide, setCurrentSlide] = React.useState(0);
