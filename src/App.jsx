@@ -540,8 +540,8 @@ export default function App() {
           title="Who we are"
           subtitle="A family-run boutique. Less boardroom, more creative kitchen table — with better snacks."
         />
-        <div className="mx-auto mt-10 grid max-w-6xl grid-cols-1 gap-8 lg:grid-cols-2">
-          <div className="flex flex-col gap-6">
+        <div className="mx-auto mt-10 grid max-w-6xl grid-cols-1 gap-8 lg:grid-cols-2 items-stretch">
+          <div className="flex flex-col gap-6 h-full">
             {/* Team Image */}
             <div className="rounded-lg overflow-hidden">
               <img 
