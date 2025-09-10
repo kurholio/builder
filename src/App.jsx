@@ -247,7 +247,7 @@ const ValueCard = ({ title, children, icon, className, color }) => {
   const colorClasses = {
     fuschia: "from-[#da1c5c]/10 to-[#da1c5c]/5 border-[#da1c5c]/20 hover:shadow-[#da1c5c]/20",
     navy: "from-[#262262]/10 to-[#262262]/5 border-[#262262]/20 hover:shadow-[#262262]/20", 
-    gold: "from-[#fbb040]/10 to-[#fbb040]/5 border-[#fbb040]/20 hover:shadow-[#fbb040]/20"
+    gold: "from-[#FFB700]/10 to-[#FFB700]/5 border-[#FFB700]/20 hover:shadow-[#FFB700]/20"
   };
   
   return (
@@ -257,7 +257,7 @@ const ValueCard = ({ title, children, icon, className, color }) => {
       </div>
       <h3 className="text-xl font-bold text-gray-900 transition-colors duration-300 group-hover:text-[#262262]">{title}</h3>
       <p className="mt-3 text-gray-700 leading-relaxed">{children}</p>
-      <div className="mt-6 h-1 w-12 bg-gradient-to-r from-[#da1c5c] to-[#fbb040] rounded-full transition-all duration-300 group-hover:w-20" />
+      <div className="mt-6 h-1 w-12 bg-gradient-to-r from-[#da1c5c] to-[#FFB700] rounded-full transition-all duration-300 group-hover:w-20" />
     </div>
   );
 };
@@ -270,7 +270,7 @@ const ServiceCard = ({ title, children, icon, className }) => (
     </div>
     <h3 className="text-lg font-semibold text-[#262262] transition-colors duration-300 group-hover:text-[#da1c5c]">{title}</h3>
     <p className="mt-2 text-sm text-gray-600 leading-relaxed">{children}</p>
-    <div className="mt-4 flex items-center text-[#fbb040] font-medium text-sm group-hover:text-[#da1c5c] transition-colors duration-300">
+    <div className="mt-4 flex items-center text-[#FFB700] font-medium text-sm group-hover:text-[#da1c5c] transition-colors duration-300">
       Learn more →
     </div>
   </div>
@@ -278,13 +278,13 @@ const ServiceCard = ({ title, children, icon, className }) => (
 
 // Niche Cards - Modern with brand accents
 const NicheCard = ({ title, children, icon, className }) => (
-  <div className={`group relative flex h-full flex-col rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:scale-[1.02] hover:border-[#fbb040] ${className || ''}`}>
-    <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-[#fbb040] to-[#da1c5c] text-white transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
+  <div className={`group relative flex h-full flex-col rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:scale-[1.02] hover:border-[#FFB700] ${className || ''}`}>
+    <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-[#FFB700] to-[#da1c5c] text-white transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
       {icon}
     </div>
     <h3 className="text-lg font-semibold text-[#262262] transition-colors duration-300 group-hover:text-[#da1c5c]">{title}</h3>
     <p className="mt-2 text-sm text-gray-600 leading-relaxed">{children}</p>
-    <div className="mt-4 h-0.5 w-8 bg-gradient-to-r from-[#fbb040] to-[#da1c5c] rounded-full transition-all duration-300 group-hover:w-12" />
+    <div className="mt-4 h-0.5 w-8 bg-gradient-to-r from-[#FFB700] to-[#da1c5c] rounded-full transition-all duration-300 group-hover:w-12" />
   </div>
 );
 
@@ -436,7 +436,7 @@ export default function App() {
               <a key={n.href} href={n.href} className="hover:text-gray-900">{n.label}</a>
             ))}
           </nav>
-          <a href="#contact" className="hidden rounded-md bg-[#fbb040] px-4 py-2 text-sm font-medium text-gray-900 hover:bg-[#e6a038] transition-all duration-300 sm:inline-flex mt-2">Get Quote</a>
+          <a href="#contact" className="hidden rounded-md bg-[#FFB700] px-4 py-2 text-sm font-medium text-gray-900 hover:bg-[#e6a038] transition-all duration-300 sm:inline-flex mt-2">Get Quote</a>
         </div>
       </header>
 
@@ -532,7 +532,7 @@ export default function App() {
                 <Stat className ="pl-0 pr-0 bg-gradient-to-br from-[#262262]/10 to-[#262262]/5 border-[#262262]/30" value="1" label="Tightly-Knit<br/>Team"/>
               </div>
               <div className="animate-gentle-bounce" style={{animationDelay: '3s', animationDuration: '1.8s', animationIterationCount: 'infinite'}}>
-                <Stat className ="pl-0 pr-0 bg-gradient-to-br from-[#fbb040]/10 to-[#fbb040]/5 border-[#fbb040]/30" value="3" label="Decades<br/>Combined"/>
+                <Stat className ="pl-0 pr-0 bg-gradient-to-br from-[#FFB700]/10 to-[#FFB700]/5 border-[#FFB700]/30" value="3" label="Decades<br/>Combined"/>
               </div>
             </div>
             <p className="mt-6 text-sm text-gray-600 leading-relaxed">
@@ -650,10 +650,10 @@ export default function App() {
               {/* Mortgage Calculator Project */}
               <div className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-500 hover:shadow-xl hover:-translate-y-2 hover:scale-[1.02] flex flex-col">
                 <div className="aspect-video overflow-hidden">
-                  <div className="h-full w-full bg-gradient-to-br from-[#fbb040]/20 to-[#fbb040]/10 flex items-center justify-center">
+                  <div className="h-full w-full bg-gradient-to-br from-[#FFB700]/20 to-[#FFB700]/10 flex items-center justify-center">
                     <div className="text-center p-8">
-                      <div className="w-16 h-16 mx-auto mb-4 bg-[#fbb040]/20 rounded-full flex items-center justify-center">
-                        <svg className="w-8 h-8 text-[#fbb040]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <div className="w-16 h-16 mx-auto mb-4 bg-[#FFB700]/20 rounded-full flex items-center justify-center">
+                        <svg className="w-8 h-8 text-[#FFB700]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
                         </svg>
                       </div>
@@ -842,8 +842,8 @@ export default function App() {
                 <p className="text-xs text-gray-600">Clear next steps</p>
               </div>
               
-              <div className="group relative rounded-lg border border-gray-200 bg-gradient-to-br from-[#fbb040]/10 to-[#fbb040]/5 p-4 text-center transition-all duration-300 hover:shadow-md hover:-translate-y-1">
-                <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-[#fbb040]/20 text-[#fbb040] transition-all duration-300 group-hover:scale-110">
+              <div className="group relative rounded-lg border border-gray-200 bg-gradient-to-br from-[#FFB700]/10 to-[#FFB700]/5 p-4 text-center transition-all duration-300 hover:shadow-md hover:-translate-y-1">
+                <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-[#FFB700]/20 text-[#FFB700] transition-all duration-300 group-hover:scale-110">
                   <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
