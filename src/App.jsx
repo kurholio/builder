@@ -659,15 +659,15 @@ export default function App() {
               
               <div className="mt-4 space-y-3">
                 <div className="flex items-start gap-3">
-                  <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-4 w-4 mt-1 flex-shrink-0"/>
+                  <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-6 w-6 mt-0.5 flex-shrink-0"/>
                   <span className="text-sm text-gray-600">Custom web applications built with React, Next.js, and modern frameworks</span>
                 </div>
                 <div className="flex items-start gap-3">
-                  <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-4 w-4 mt-1 flex-shrink-0"/>
+                  <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-6 w-6 mt-0.5 flex-shrink-0"/>
                   <span className="text-sm text-gray-600">Mobile apps for iOS and Android with native performance</span>
                 </div>
                 <div className="flex items-start gap-3">
-                  <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-4 w-4 mt-1 flex-shrink-0"/>
+                  <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-6 w-6 mt-0.5 flex-shrink-0"/>
                   <span className="text-sm text-gray-600">E-commerce platforms and enterprise solutions that scale</span>
                 </div>
               </div>
@@ -677,15 +677,15 @@ export default function App() {
               
               <div className="mt-4 space-y-3">
                 <div className="flex items-start gap-3">
-                  <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-4 w-4 mt-1 flex-shrink-0"/>
+                  <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-6 w-6 mt-0.5 flex-shrink-0"/>
                   <span className="text-sm text-gray-600">User-centered design process with wireframes and prototypes</span>
                 </div>
                 <div className="flex items-start gap-3">
-                  <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-4 w-4 mt-1 flex-shrink-0"/>
+                  <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-6 w-6 mt-0.5 flex-shrink-0"/>
                   <span className="text-sm text-gray-600">Agile development with continuous testing and iteration</span>
                 </div>
                 <div className="flex items-start gap-3">
-                  <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-4 w-4 mt-1 flex-shrink-0"/>
+                  <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-6 w-6 mt-0.5 flex-shrink-0"/>
                   <span className="text-sm text-gray-600">Performance optimization and security best practices</span>
                 </div>
               </div>
@@ -695,15 +695,15 @@ export default function App() {
               
               <div className="mt-4 space-y-3">
                 <div className="flex items-start gap-3">
-                  <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-4 w-4 mt-1 flex-shrink-0"/>
+                  <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-6 w-6 mt-0.5 flex-shrink-0"/>
                   <span className="text-sm text-gray-600">Regular check-ins and transparent communication throughout</span>
                 </div>
                 <div className="flex items-start gap-3">
-                  <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-4 w-4 mt-1 flex-shrink-0"/>
+                  <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-6 w-6 mt-0.5 flex-shrink-0"/>
                   <span className="text-sm text-gray-600">Cross-functional team approach with shared ownership</span>
                 </div>
                 <div className="flex items-start gap-3">
-                  <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-4 w-4 mt-1 flex-shrink-0"/>
+                  <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-6 w-6 mt-0.5 flex-shrink-0"/>
                   <span className="text-sm text-gray-600">Your feedback drives every decision and iteration</span>
                 </div>
               </div>
