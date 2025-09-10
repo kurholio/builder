@@ -656,12 +656,57 @@ export default function App() {
           <div className="flex flex-col gap-6 h-full">
             <AboutCard title="What we do" color="navy">
               Modern websites and mobile apps that are intuitive, scalable, and deeply aligned with your brand's goals and audience. From e-commerce platforms to enterprise solutions, we build digital experiences that drive real business results.
+              
+              <div className="mt-4 space-y-3">
+                <div className="flex items-start gap-3">
+                  <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-4 w-4 mt-1 flex-shrink-0"/>
+                  <span className="text-sm text-gray-600">Custom web applications built with React, Next.js, and modern frameworks</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-4 w-4 mt-1 flex-shrink-0"/>
+                  <span className="text-sm text-gray-600">Mobile apps for iOS and Android with native performance</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-4 w-4 mt-1 flex-shrink-0"/>
+                  <span className="text-sm text-gray-600">E-commerce platforms and enterprise solutions that scale</span>
+                </div>
+              </div>
             </AboutCard>
             <AboutCard title="How we do it" color="gold">
               Intentional design, clean development, and strategic thinking to turn bold ideas into products that connect and perform. We combine cutting-edge technology with time-tested methodologies to deliver solutions that scale with your growth.
+              
+              <div className="mt-4 space-y-3">
+                <div className="flex items-start gap-3">
+                  <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-4 w-4 mt-1 flex-shrink-0"/>
+                  <span className="text-sm text-gray-600">User-centered design process with wireframes and prototypes</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-4 w-4 mt-1 flex-shrink-0"/>
+                  <span className="text-sm text-gray-600">Agile development with continuous testing and iteration</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-4 w-4 mt-1 flex-shrink-0"/>
+                  <span className="text-sm text-gray-600">Performance optimization and security best practices</span>
+                </div>
+              </div>
             </AboutCard>
             <AboutCard title="Built on Collaboration" color="fuschia">
               Designers, developers, and strategists working side-by-side (literally). We listen, challenge, and support — every step of the way. This collaborative approach ensures every decision is informed by multiple perspectives and every solution is crafted with your success in mind.
+              
+              <div className="mt-4 space-y-3">
+                <div className="flex items-start gap-3">
+                  <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-4 w-4 mt-1 flex-shrink-0"/>
+                  <span className="text-sm text-gray-600">Regular check-ins and transparent communication throughout</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-4 w-4 mt-1 flex-shrink-0"/>
+                  <span className="text-sm text-gray-600">Cross-functional team approach with shared ownership</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-4 w-4 mt-1 flex-shrink-0"/>
+                  <span className="text-sm text-gray-600">Your feedback drives every decision and iteration</span>
+                </div>
+              </div>
             </AboutCard>
               </div>
             </div>
