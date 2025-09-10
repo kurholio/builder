@@ -644,12 +644,14 @@ export default function App() {
                   </div>
                   <p className="text-gray-600 mb-4 leading-relaxed flex-grow">
                     A comprehensive AI-powered financial analytics platform providing investment research, portfolio analysis, 
-                    and market data tools for investors and financial professionals.
+                    and market data tools for investors and financial professionals across hundreds of exchanges from over 60 countries.
                   </p>
                   <div className="flex flex-wrap gap-2 mb-4">
                     <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded">Java</span>
                     <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded">Spring</span>
-                    <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded">Financial Data</span>
+                    <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded">JavaScript</span>
+                    <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded">Optimization</span>
+                    <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded">Financial API</span>
                     <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded">Analytics</span>
                   </div>
                   <div className="flex items-center justify-between mt-auto">
