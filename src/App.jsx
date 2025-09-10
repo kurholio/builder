@@ -356,10 +356,10 @@ export default function App() {
     setLoading(true);
 
     try {
-      // EmailJS configuration
-      const serviceId = 'service_lunara'; // You'll need to create this in EmailJS
-      const templateId = 'template_contact'; // You'll need to create this in EmailJS
-      const publicKey = 'YOUR_EMAILJS_PUBLIC_KEY'; // You'll need to get this from EmailJS
+      // EmailJS configuration - Replace these with your actual values from EmailJS dashboard
+      const serviceId = 'YOUR_SERVICE_ID'; // Get from EmailJS → Services → Your Gmail service
+      const templateId = 'YOUR_TEMPLATE_ID'; // Get from EmailJS → Email Templates → Your template
+      const publicKey = 'YOUR_PUBLIC_KEY'; // Get from EmailJS → Account → General
 
       // Send email
       await emailjs.send(serviceId, templateId, {
