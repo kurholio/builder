@@ -244,7 +244,7 @@ const SectionHeader = ({ eyebrow, title, subtitle, id }) => (
 
 const Card = ({ title, children, icon, className }) => (
   <div className={`group relative flex h-full flex-col rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:scale-[1.02] ${className || ''}`}>
-    <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-gray-50 text-gray-700 ring-1 ring-gray-200 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
+    <div className="mb-4 inline-flex h-12 w-12 items-center justify-center transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
       {icon}
     </div>
     <h3 className="text-lg font-semibold text-gray-900 transition-colors duration-300 group-hover:text-gray-700">{title}</h3>
