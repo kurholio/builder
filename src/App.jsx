@@ -412,9 +412,9 @@ export default function App() {
       {/* Value props */}
       <section className="border-y border-gray-100 bg-gray-50">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-4 py-12 sm:grid-cols-3">
-          <Card title="Clean Code" icon={<Check/>} className="bg-red-50 animate-float" style={{animationDelay: '0s'}}>We write code that's readable, maintainable, and built to scale — ensuring smooth development and long-term stability.</Card>
-          <Card title="Bold Design" icon={<Star/>} className="bg-blue-50 animate-float" style={{animationDelay: '1s'}}>Modern, intuitive, and tailored to create lasting impressions across devices and contexts.</Card>
-          <Card title="Real Connection" icon={<Arrow/>} className="bg-green-50 animate-float" style={{animationDelay: '2s'}}>Genuine collaboration that turns your ideas into digital experiences people love.</Card>
+          <Card title="Clean Code" icon={<img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-8 w-8"/>} className="bg-red-50 animate-float" style={{animationDelay: '0s'}}>We write code that's readable, maintainable, and built to scale — ensuring smooth development and long-term stability.</Card>
+          <Card title="Bold Design" icon={<img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-8 w-8"/>} className="bg-blue-50 animate-float" style={{animationDelay: '1s'}}>Modern, intuitive, and tailored to create lasting impressions across devices and contexts.</Card>
+          <Card title="Real Connection" icon={<img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-8 w-8"/>} className="bg-green-50 animate-float" style={{animationDelay: '2s'}}>Genuine collaboration that turns your ideas into digital experiences people love.</Card>
         </div>
       </section>
 
