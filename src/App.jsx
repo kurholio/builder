@@ -325,11 +325,11 @@ const Card = ({ title, children, icon, className }) => (
 );
 
 const Input = (props) => (
-  <input {...props} className={`w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 shadow-sm focus:border-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-200 ${props.className||''}`} />
+  <input {...props} className={`w-full rounded-xl border-2 border-gray-200 bg-white/80 backdrop-blur-sm px-5 py-4 text-sm text-gray-900 placeholder:text-gray-500 shadow-sm transition-all duration-300 focus:border-[#da1c5c] focus:outline-none focus:ring-4 focus:ring-[#da1c5c]/20 focus:bg-white hover:border-gray-300 hover:shadow-md ${props.className||''}`} />
 );
 
 const Textarea = (props) => (
-  <textarea {...props} className={`w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 shadow-sm focus:border-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-200 ${props.className||''}`} />
+  <textarea {...props} className={`w-full rounded-xl border-2 border-gray-200 bg-white/80 backdrop-blur-sm px-5 py-4 text-sm text-gray-900 placeholder:text-gray-500 shadow-sm transition-all duration-300 focus:border-[#da1c5c] focus:outline-none focus:ring-4 focus:ring-[#da1c5c]/20 focus:bg-white hover:border-gray-300 hover:shadow-md resize-none ${props.className||''}`} />
 );
 
 export default function App() {
@@ -918,45 +918,48 @@ export default function App() {
             title={"Let's get to work"}
             subtitle="Tell us about your project. We'll reply with a quick plan, timeline, and budget."
             />
-        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 lg:grid-cols-2">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 lg:grid-cols-2 items-stretch">
           <div className="flex flex-col gap-6 h-full">
             {/* Enhanced Features Grid */}
             <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
-              <div className="group relative rounded-lg border border-gray-200 bg-gradient-to-br from-[#da1c5c]/10 to-[#da1c5c]/5 p-4 text-center transition-all duration-300 hover:shadow-md hover:-translate-y-1">
-                <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-[#da1c5c]/20 text-[#da1c5c] transition-all duration-300 group-hover:scale-110">
+              <div className="group relative rounded-xl border border-gray-200 bg-gradient-to-br from-[#da1c5c]/10 to-[#da1c5c]/5 p-4 text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-2 hover:scale-105">
+                <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-[#da1c5c]/20 to-[#da1c5c]/10 text-[#da1c5c] transition-all duration-300 group-hover:scale-110 group-hover:rotate-6">
                   <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
-                <h4 className="text-sm font-semibold text-gray-900 mb-1">Fast Response</h4>
+                <h4 className="text-sm font-semibold text-gray-900 mb-1 group-hover:text-[#da1c5c] transition-colors">Fast Response</h4>
                 <p className="text-xs text-gray-600">Clear next steps</p>
+                <div className="mt-2 h-0.5 w-8 bg-gradient-to-r from-[#da1c5c] to-[#FFB700] rounded-full mx-auto transition-all duration-300 group-hover:w-12" />
               </div>
               
-              <div className="group relative rounded-lg border border-gray-200 bg-gradient-to-br from-[#FFB700]/10 to-[#FFB700]/5 p-4 text-center transition-all duration-300 hover:shadow-md hover:-translate-y-1">
-                <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-[#FFB700]/20 text-[#FFB700] transition-all duration-300 group-hover:scale-110">
+              <div className="group relative rounded-xl border border-gray-200 bg-gradient-to-br from-[#FFB700]/10 to-[#FFB700]/5 p-4 text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-2 hover:scale-105">
+                <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-[#FFB700]/20 to-[#FFB700]/10 text-[#FFB700] transition-all duration-300 group-hover:scale-110 group-hover:rotate-6">
                   <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h4 className="text-sm font-semibold text-gray-900 mb-1">Fixed Pricing</h4>
+                <h4 className="text-sm font-semibold text-gray-900 mb-1 group-hover:text-[#FFB700] transition-colors">Fixed Pricing</h4>
                 <p className="text-xs text-gray-600">Sprint-based options</p>
+                <div className="mt-2 h-0.5 w-8 bg-gradient-to-r from-[#FFB700] to-[#70CBD0] rounded-full mx-auto transition-all duration-300 group-hover:w-12" />
               </div>
               
-              <div className="group relative rounded-lg border border-gray-200 bg-gradient-to-br from-[#262262]/10 to-[#262262]/5 p-4 text-center transition-all duration-300 hover:shadow-md hover:-translate-y-1">
-                <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-[#262262]/20 text-[#262262] transition-all duration-300 group-hover:scale-110">
+              <div className="group relative rounded-xl border border-gray-200 bg-gradient-to-br from-[#262262]/10 to-[#262262]/5 p-4 text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-2 hover:scale-105">
+                <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-[#262262]/20 to-[#262262]/10 text-[#262262] transition-all duration-300 group-hover:scale-110 group-hover:rotate-6">
                   <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h4 className="text-sm font-semibold text-gray-900 mb-1">No Jargon</h4>
+                <h4 className="text-sm font-semibold text-gray-900 mb-1 group-hover:text-[#262262] transition-colors">No Jargon</h4>
                 <p className="text-xs text-gray-600">Just outcomes</p>
+                <div className="mt-2 h-0.5 w-8 bg-gradient-to-r from-[#262262] to-[#da1c5c] rounded-full mx-auto transition-all duration-300 group-hover:w-12" />
               </div>
             </div>
             
             {/* Additional Benefits */}
-            <div className="mt-0 rounded-lg border border-gray-200 bg-gradient-to-r from-gray-50 to-[#262262]/5 p-4">
+            <div className="mt-0 rounded-xl border border-gray-200 bg-gradient-to-r from-gray-50 to-[#262262]/5 p-4 transition-all duration-300 hover:shadow-md hover:-translate-y-1">
               <div className="flex items-center justify-center gap-3">
-                <div className="flex h-8 w-12 items-center justify-center rounded-full bg-[#262262]/20 text-[#262262]">
+                <div className="flex h-8 w-12 items-center justify-center rounded-full bg-gradient-to-br from-[#262262]/20 to-[#262262]/10 text-[#262262]">
                   <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
@@ -966,18 +969,29 @@ export default function App() {
             </div>
             
             {/* niks3 Image - moved to left side for balance */}
-            <div className="rounded-lg overflow-hidden">
+            <div className="rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
               <img 
                 src="/niks3.png" 
                 alt="LunaraTech Team" 
-                className="w-full h-56 object-cover rounded-lg"
+                className="w-full h-56 object-cover rounded-xl transition-transform duration-300 hover:scale-105"
               />
             </div>
           </div>
           <div className="flex flex-col gap-6 mt-10 h-full">
-            <div className="rounded-2xl border border-gray-200 bg-gray-50 p-6 shadow-sm">
+            <div className="relative rounded-3xl border-2 border-gray-200 bg-gradient-to-br from-white to-gray-50 p-8 shadow-xl transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.02] flex-grow overflow-hidden">
+              {/* Floating decorative elements */}
+              <div className="absolute top-4 right-4 w-3 h-3 bg-gradient-to-r from-[#da1c5c] to-[#FFB700] rounded-full animate-pulse opacity-60"></div>
+              <div className="absolute bottom-6 left-6 w-2 h-2 bg-gradient-to-r from-[#70CBD0] to-[#262262] rounded-full animate-bounce opacity-40"></div>
+              <div className="absolute top-8 left-8 w-1.5 h-1.5 bg-gradient-to-r from-[#FFB700] to-[#da1c5c] rounded-full animate-ping opacity-30"></div>
+              
+              {/* Form header */}
+              <div className="mb-8 text-center">
+                <h3 className="text-2xl font-bold text-[#262262] mb-2">Let's Build Something Amazing</h3>
+                <p className="text-gray-600">Tell us about your project and we'll get back to you within 24 hours</p>
+              </div>
+              
             {!sent ? (
-              <form onSubmit={onSubmit} className="space-y-4">
+              <form onSubmit={onSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                   <Input 
                     name="name"
@@ -1015,25 +1029,32 @@ export default function App() {
                   placeholder="What are you building?" 
                   required 
                 />
-                <div className="flex items-center justify-between">
-                  <label className="flex items-center gap-2 text-xs text-gray-400">
-                   
+                <div className="flex items-center justify-between pt-4 border-t border-gray-200">
+                  <label className="flex items-center gap-2 text-xs text-gray-500">
+                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
                     We usually respond within a day
                   </label>
-                  <div className="flex gap-2">
+                  <div className="flex gap-3">
                     <button 
                       type="button"
                       onClick={resetForm}
-                      className="rounded-md border border-gray-300 bg-white px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 transition-all duration-300"
+                      className="rounded-xl border-2 border-gray-300 bg-white/80 backdrop-blur-sm px-6 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:border-gray-400 hover:shadow-md transition-all duration-300 hover:-translate-y-0.5"
                     >
                       Clear
                     </button>
                     <button 
                       type="submit" 
                       disabled={loading}
-                      className="rounded-md bg-[#da1c5c] px-5 py-2 text-sm font-medium text-white hover:bg-[#c01a52] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="rounded-xl bg-gradient-to-r from-[#da1c5c] to-[#c01a52] px-8 py-3 text-sm font-medium text-white shadow-lg hover:shadow-xl hover:-translate-y-1 hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:scale-100"
                     >
-                      {loading ? 'Sending...' : 'Submit'}
+                      {loading ? (
+                        <div className="flex items-center gap-2">
+                          <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                          Sending...
+                        </div>
+                      ) : (
+                        'Submit'
+                      )}
                     </button>
                   </div>
                 </div>
@@ -1041,10 +1062,23 @@ export default function App() {
               </form>
             ) : (
               <div className="text-center">
-                <div className="mx-auto mb-3 inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#262262] text-white"><Check/></div>
-                <h3 className="text-lg font-semibold text-[#262262]">Thanks! We'll be in touch shortly.</h3>
-                <p className="mt-2 text-sm text-gray-600">Want to talk now? Email <a className="underline" href="mailto:malkazevka@gmail.com">malkazevka@gmail.com</a> or call <a className="underline" href="tel:+15074003910">(507) 400-3910</a>.</p>
-                <a href="#home" className="mt-6 inline-flex items-center gap-2 rounded-xl border border-[#262262] bg-white px-4 py-2 text-sm text-[#262262] hover:border-[#1a1a4a] hover:bg-[#f8f9ff]"><Arrow/> Back to top</a>
+                <div className="mx-auto mb-6 inline-flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-[#da1c5c] to-[#FFB700] text-white shadow-lg animate-pulse">
+                  <Check/>
+                </div>
+                <h3 className="text-2xl font-bold text-[#262262] mb-3">Message Sent Successfully!</h3>
+                <p className="text-gray-600 mb-6">Thanks for reaching out! We'll review your project details and get back to you within 24 hours.</p>
+                <div className="bg-gradient-to-r from-[#70CBD0]/10 to-[#FFB700]/10 rounded-xl p-4 mb-6">
+                  <p className="text-sm text-gray-700 mb-2">Want to talk now?</p>
+                  <a className="inline-flex items-center gap-2 text-[#da1c5c] hover:text-[#c01a52] font-medium" href="tel:+15074003910">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                    (507) 400-3910
+                  </a>
+                </div>
+                <a href="#home" className="inline-flex items-center gap-2 rounded-xl border-2 border-[#262262] bg-white px-6 py-3 text-sm font-medium text-[#262262] hover:border-[#1a1a4a] hover:bg-[#f8f9ff] hover:-translate-y-1 transition-all duration-300">
+                  <Arrow/> Back to top
+                </a>
               </div>
             )}
           </div>
