@@ -546,7 +546,7 @@ export default function App() {
               When we're not coding, we're probably arguing about whether pineapple belongs on pizza (it doesn't) or debating the best way to center a div (flexbox, obviously). But most importantly, we're the team that turns your "wouldn't it be cool if..." into "holy cow, this is amazing!"
             </p>
             {/* Cool Slideshow */}
-            <div className="mt-8 relative overflow-hidden rounded-lg bg-gradient-to-br from-blue-50 to-indigo-100 p-6">
+            <div className="mt-8 relative overflow-hidden rounded-lg bg-gradient-to-br from-[#70CBD0]/20 to-[#70CBD0]/10 p-6">
               <div className="relative h-36 sm:h-44">
                 {(() => {
                   const [currentSlide, setCurrentSlide] = React.useState(0);
@@ -586,11 +586,11 @@ export default function App() {
                       {slides.map((slide, index) => (
                         <div
                           key={index}
-                          className={`absolute inset-0 flex flex-col justify-center transition-all duration-700 ease-in-out px-12 ${
-                            index === currentSlide ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
+                          className={`absolute inset-0 flex flex-col justify-center transition-all duration-1000 ease-in-out px-12 ${
+                            index === currentSlide ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
                           }`}
                         >
-                          <h4 className="text-lg font-semibold text-gray-900 mb-2 text-center">{slide.title}</h4>
+                          <h4 className="text-lg font-semibold text-[#262262] mb-2 text-center">{slide.title}</h4>
                           <p className="text-sm text-gray-700 text-center leading-relaxed">{slide.content}</p>
                         </div>
                       ))}
@@ -600,21 +600,21 @@ export default function App() {
                       {/* Navigation Arrows */}
                       <button
                         onClick={() => setCurrentSlide((prev) => (prev - 1 + 5) % 5)}
-                        className="absolute -left-2 top-1/2 transform -translate-y-1/2 w-8 h-8 bg-white/80 rounded-full flex items-center justify-center text-gray-600 hover:bg-white transition-all duration-300 shadow-sm"
+                        className="absolute -left-2 top-1/2 transform -translate-y-1/2 w-8 h-8 bg-white/90 rounded-full flex items-center justify-center text-[#70CBD0] hover:bg-white hover:text-[#262262] transition-all duration-300 shadow-md"
                       >
                         ←
                       </button>
                       <button
                         onClick={() => setCurrentSlide((prev) => (prev + 1) % 5)}
-                        className="absolute -right-2 top-1/2 transform -translate-y-1/2 w-8 h-8 bg-white/80 rounded-full flex items-center justify-center text-gray-600 hover:bg-white transition-all duration-300 shadow-sm"
+                        className="absolute -right-2 top-1/2 transform -translate-y-1/2 w-8 h-8 bg-white/90 rounded-full flex items-center justify-center text-[#70CBD0] hover:bg-white hover:text-[#262262] transition-all duration-300 shadow-md"
                       >
                         →
                       </button>
                       
                       {/* Floating Elements */}
-                      <div className="absolute top-2 right-2 w-3 h-3 bg-blue-400 rounded-full animate-pulse opacity-60"></div>
-                      <div className="absolute bottom-8 left-4 w-2 h-2 bg-indigo-400 rounded-full animate-bounce opacity-40"></div>
-                      <div className="absolute top-8 left-8 w-1.5 h-1.5 bg-purple-400 rounded-full animate-ping opacity-30"></div>
+                      <div className="absolute top-2 right-2 w-3 h-3 bg-[#70CBD0] rounded-full animate-pulse opacity-60"></div>
+                      <div className="absolute bottom-8 left-4 w-2 h-2 bg-[#da1c5c] rounded-full animate-bounce opacity-40"></div>
+                      <div className="absolute top-8 left-8 w-1.5 h-1.5 bg-[#FFB700] rounded-full animate-ping opacity-30"></div>
                     </>
                   );
                 })()}
