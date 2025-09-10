@@ -278,13 +278,23 @@ const ServiceCard = ({ title, children, icon, className }) => (
 
 // Niche Cards - Modern with brand accents
 const NicheCard = ({ title, children, icon, className }) => (
-  <div className={`group relative flex h-full flex-col rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:scale-[1.02] hover:border-[#FFB700] ${className || ''}`}>
-    <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-[#FFB700] to-[#da1c5c] text-white transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
+  <div className={`group relative flex h-full flex-col rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:scale-[1.02] hover:border-[#70CBD0] ${className || ''}`}>
+    <div className="mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
       {icon}
     </div>
-    <h3 className="text-lg font-semibold text-[#262262] transition-colors duration-300 group-hover:text-[#da1c5c]">{title}</h3>
+    <h3 className="text-lg font-semibold text-[#262262] transition-colors duration-300 group-hover:text-[#70CBD0]">{title}</h3>
     <p className="mt-2 text-sm text-gray-600 leading-relaxed">{children}</p>
-    <div className="mt-4 h-0.5 w-8 bg-gradient-to-r from-[#FFB700] to-[#da1c5c] rounded-full transition-all duration-300 group-hover:w-12" />
+    <div className="mt-4 h-0.5 w-8 bg-gradient-to-r from-[#70CBD0] to-[#da1c5c] rounded-full transition-all duration-300 group-hover:w-12" />
+  </div>
+);
+
+// Process Cards - Clean design with new color
+const ProcessCard = ({ title, children, step, className }) => (
+  <div className={`group relative flex h-full flex-col rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:scale-[1.02] hover:border-[#70CBD0] ${className || ''}`}>
+    <div className="mb-2 text-xs font-medium uppercase tracking-wide text-[#70CBD0] group-hover:text-[#da1c5c] transition-colors duration-300">{step}</div>
+    <h3 className="text-lg font-semibold text-[#262262] transition-colors duration-300 group-hover:text-[#70CBD0]">{title}</h3>
+    <p className="mt-2 text-sm text-gray-600 leading-relaxed">{children}</p>
+    <div className="mt-4 h-0.5 w-8 bg-gradient-to-r from-[#70CBD0] to-[#da1c5c] rounded-full transition-all duration-300 group-hover:w-12" />
   </div>
 );
 
@@ -800,7 +810,7 @@ export default function App() {
           title="Minus the jargon, plus the momentum"
           subtitle="We listen closely, design with purpose, and build with precision — so your site informs, converts, and grows."
         />
-        <div className="mx-auto mt-10 grid max-w-6xl grid-cols-1 gap-6 sm:grid-cols-3">
+        <div className="mx-auto mt-12 grid max-w-6xl grid-cols-1 gap-8 sm:grid-cols-3">
           {[
             {t:"Discover", d:"We align on goals, users, scope, and success metrics."},
             {t:"Design", d:"Wireframes → prototypes → beautiful, accessible UI."},
@@ -809,11 +819,7 @@ export default function App() {
             {t:"Drive", d:"Iterate with data: SEO, UX, and feature improvements."},
             {t:"Support", d:"We stay with you — updates, fixes, and new ideas."},
           ].map((s, i)=> (
-            <div key={s.t} className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
-              <div className="mb-2 text-xs font-medium uppercase tracking-wide text-gray-500">Step {i+1}</div>
-              <div className="text-lg font-semibold">{s.t}</div>
-              <p className="mt-2 text-sm text-gray-600">{s.d}</p>
-            </div>
+            <ProcessCard key={s.t} title={s.t} step={`Step ${i+1}`}>{s.d}</ProcessCard>
           ))}
         </div>
       </section>
