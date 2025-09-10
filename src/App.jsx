@@ -235,7 +235,7 @@ const SectionHeader = ({ eyebrow, title, subtitle, id }) => (
         {eyebrow}
       </div>
     )}
-    <h2 className="text-3xl font-semibold tracking-tight text-gray-900 sm:text-4xl">{title}</h2>
+    <h2 className="text-3xl font-semibold tracking-tight text-[#262262] sm:text-4xl">{title}</h2>
     {subtitle && (
       <p className="mt-3 text-gray-600">{subtitle}</p>
     )}
@@ -395,7 +395,7 @@ export default function App() {
         <div className="mx-auto max-w-7xl px-4 py-16 sm:py-24">
           <div className="mx-auto max-w-3xl text-center">
             
-            <h1 className="mt-15 text-4xl font-semibold tracking-tight sm:text-6xl animate-pulse">Turn vision into velocity</h1>
+            <h1 className="mt-15 text-4xl font-semibold tracking-tight text-[#262262] sm:text-6xl animate-pulse">Turn vision into velocity</h1>
             <p className="mx-auto mt-10 max-w-2xl text-gray-600 animate-fade-in">We craft clean code, bold design, and real connections. From idea to launch, we build experiences that scale, convert, and feel great to use.</p>
             
             <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
@@ -612,7 +612,7 @@ export default function App() {
         {/* Latest Projects Subsection - Full Width */}
         <div className="mt-16">
           <div className="text-center mb-10">
-            <h3 className="text-2xl font-semibold text-gray-900 mb-3">Latest Projects</h3>
+            <h3 className="text-2xl font-semibold text-[#262262] mb-3">Latest Projects</h3>
             <p className="text-gray-600 max-w-2xl mx-auto">Real work, real results. See how we've helped businesses grow with modern web solutions.</p>
           </div>
           <div className="mx-auto max-w-6xl grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 items-stretch">
@@ -914,7 +914,7 @@ export default function App() {
             ) : (
               <div className="text-center">
                 <div className="mx-auto mb-3 inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#262262] text-white"><Check/></div>
-                <h3 className="text-lg font-semibold">Thanks! We’ll be in touch shortly.</h3>
+                <h3 className="text-lg font-semibold text-[#262262]">Thanks! We'll be in touch shortly.</h3>
                 <p className="mt-2 text-sm text-gray-600">Want to talk now? Email <a className="underline" href="mailto:malkazevka@gmail.com">malkazevka@gmail.com</a>.</p>
                 <a href="#home" className="mt-6 inline-flex items-center gap-2 rounded-xl border border-[#262262] bg-white px-4 py-2 text-sm text-[#262262] hover:border-[#1a1a4a] hover:bg-[#f8f9ff]"><Arrow/> Back to top</a>
               </div>
