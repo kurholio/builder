@@ -265,11 +265,8 @@ const ValueCard = ({ title, children, icon, className, color }) => {
 // Services Cards - Clean with accent borders
 const ServiceCard = ({ title, children, icon, className }) => (
   <div className={`group relative flex h-full flex-col rounded-xl border-2 border-gray-200 bg-white p-6 shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:scale-[1.02] hover:border-[#262262] ${className || ''}`}>
-    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-[#262262] to-[#da1c5c] text-white transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
-      {icon}
-    </div>
-    <h3 className="text-lg font-semibold text-[#262262] transition-colors duration-300 group-hover:text-[#da1c5c]">{title}</h3>
-    <p className="mt-2 text-sm text-gray-600 leading-relaxed">{children}</p>
+    <h3 className="text-lg font-semibold text-[#262262] transition-colors duration-300 group-hover:text-[#da1c5c] mb-3">{title}</h3>
+    <p className="mt-2 text-sm text-gray-600 leading-relaxed flex-grow">{children}</p>
     <div className="mt-4 flex items-center text-[#FFB700] font-medium text-sm group-hover:text-[#da1c5c] transition-colors duration-300">
       Learn more →
     </div>
