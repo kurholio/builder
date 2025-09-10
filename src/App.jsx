@@ -368,7 +368,8 @@ export default function App() {
         company: formData.company,
         website: formData.website,
         message: formData.message,
-        to_email: 'malkazevka@gmail.com'
+        to_email: 'malkazevka@gmail.com',
+        reply_to: formData.email
       }, publicKey);
 
     setSent(true);
