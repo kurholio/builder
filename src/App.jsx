@@ -376,15 +376,15 @@ export default function App() {
       <main className="min-h-screen bg-white/95 backdrop-blur-sm text-gray-900 relative z-10">
         {/* Top nav */}
       <header className="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-white/70 border-b border-gray-100">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:py-4">
+        <div className="mx-auto flex max-w-7xl items-start justify-between px-4 py-3 sm:py-4">
           <a href="#home" className="flex items-center">
             <img 
               src="/lunaratechLogo.png" 
               alt="LunaraTech Logo" 
-              className="h-8 w-auto"
+              className="h-10 w-auto"
             />
           </a>
-          <nav className="hidden gap-6 text-sm text-gray-700 sm:flex">
+          <nav className="hidden gap-6 text-sm text-gray-700 sm:flex mt-1">
             {navItems.map((n) => (
               <a key={n.href} href={n.href} className="hover:text-gray-900">{n.label}</a>
             ))}
