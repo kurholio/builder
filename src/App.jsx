@@ -500,7 +500,7 @@ export default function App() {
       </section>
 
       {/* Services */}
-      <section className="border-y border-gray-100 bg-gradient-to-br from-white to-gray-50 px-4 py-16 sm:py-20" id="services">
+      <section className="border-y border-gray-100 bg-gradient-to-br from-[#70CBD0]/10 to-[#70CBD0]/5 px-4 py-16 sm:py-20" id="services">
         <SectionHeader
           eyebrow=""
           title="From concept to launch — and beyond"
@@ -682,6 +682,7 @@ export default function App() {
                     <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded">React</span>
                     <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded">JavaScript</span>
                     <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded">Financial Tools</span>
+                    <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded">Note JS</span>
                     <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded">Responsive Design</span>
                   </div>
                   <div className="flex items-center justify-between mt-auto">
@@ -777,6 +778,8 @@ export default function App() {
                   <div className="flex flex-wrap gap-2 mb-4">
                     <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded">WordPress</span>
                     <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded">PHP</span>
+                    <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded">HTML</span>
+                    <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded">CSS</span>
                     <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded">Local Business</span>
                     <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded">SEO</span>
                   </div>
