@@ -574,9 +574,9 @@ export default function App() {
             <h3 className="text-2xl font-semibold text-gray-900 mb-3">Latest Projects</h3>
             <p className="text-gray-600 max-w-2xl mx-auto">Real work, real results. See how we've helped businesses grow with modern web solutions.</p>
           </div>
-          <div className="mx-auto max-w-6xl grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mx-auto max-w-6xl grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 items-stretch">
               {/* Mortgage Calculator Project */}
-              <div className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-500 hover:shadow-xl hover:-translate-y-2 hover:scale-[1.02]">
+              <div className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-500 hover:shadow-xl hover:-translate-y-2 hover:scale-[1.02] flex flex-col">
                 <div className="aspect-video overflow-hidden">
                   <div className="h-full w-full bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">
                     <div className="text-center p-8">
@@ -590,7 +590,7 @@ export default function App() {
                     </div>
                   </div>
                 </div>
-                <div className="p-6 flex flex-col h-full">
+                <div className="p-6 flex flex-col flex-1">
                   <div className="flex items-center justify-between mb-3">
                     <h4 className="text-xl font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">Home Mortgage Estimator</h4>
                     <span className="px-3 py-1 text-xs font-medium bg-green-100 text-green-800 rounded-full">Live</span>
@@ -623,7 +623,7 @@ export default function App() {
               </div>
 
               {/* Macroaxis Project */}
-              <div className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-500 hover:shadow-xl hover:-translate-y-2 hover:scale-[1.02]">
+              <div className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-500 hover:shadow-xl hover:-translate-y-2 hover:scale-[1.02] flex flex-col">
                 <div className="aspect-video overflow-hidden">
                   <div className="h-full w-full bg-gradient-to-br from-purple-50 to-violet-100 flex items-center justify-center">
                     <div className="text-center p-8">
@@ -637,7 +637,7 @@ export default function App() {
                     </div>
                   </div>
                 </div>
-                <div className="p-6 flex flex-col h-full">
+                <div className="p-6 flex flex-col flex-1">
                   <div className="flex items-center justify-between mb-3">
                     <h4 className="text-xl font-semibold text-gray-900 group-hover:text-purple-600 transition-colors">Fintech Platform</h4>
                     <span className="px-3 py-1 text-xs font-medium bg-green-100 text-green-800 rounded-full">Live</span>
@@ -670,7 +670,7 @@ export default function App() {
               </div>
 
               {/* Chosen Rooter Project */}
-              <div className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-500 hover:shadow-xl hover:-translate-y-2 hover:scale-[1.02]">
+              <div className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-500 hover:shadow-xl hover:-translate-y-2 hover:scale-[1.02] flex flex-col">
                 <div className="aspect-video overflow-hidden">
                   <div className="h-full w-full bg-gradient-to-br from-orange-50 to-red-100 flex items-center justify-center">
                     <div className="text-center p-8">
@@ -684,7 +684,7 @@ export default function App() {
                     </div>
                   </div>
                 </div>
-                <div className="p-6 flex flex-col h-full">
+                <div className="p-6 flex flex-col flex-1">
                   <div className="flex items-center justify-between mb-3">
                     <h4 className="text-xl font-semibold text-gray-900 group-hover:text-orange-600 transition-colors">Chosen Rooter & Plumbing</h4>
                     <span className="px-3 py-1 text-xs font-medium bg-green-100 text-green-800 rounded-full">Live</span>
