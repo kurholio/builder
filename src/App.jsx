@@ -586,8 +586,8 @@ export default function App() {
                       {slides.map((slide, index) => (
                         <div
                           key={index}
-                          className={`absolute inset-0 flex flex-col justify-center transition-all duration-1000 ease-in-out px-12 ${
-                            index === currentSlide ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+                          className={`absolute inset-0 flex flex-col justify-center transition-all duration-1500 ease-in-out px-12 ${
+                            index === currentSlide ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
                           }`}
                         >
                           <h4 className="text-lg font-semibold text-[#262262] mb-2 text-center">{slide.title}</h4>
