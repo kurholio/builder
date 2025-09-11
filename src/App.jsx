@@ -1,5 +1,14 @@
 import React, { useState, useEffect } from "react";
 import emailjs from '@emailjs/browser';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+
+// Import service pages
+import WebsiteDevelopment from './services/WebsiteDevelopment';
+import UIPrototyping from './services/UIPrototyping';
+import GraphicDesign from './services/GraphicDesign';
+import HostingDeployment from './services/HostingDeployment';
+import MaintenanceSupport from './services/MaintenanceSupport';
+import Accessibility from './services/Accessibility';
 
 // Single-file, preview-ready React landing page
 // Theme: clean, airy, white with soft accents
@@ -263,14 +272,14 @@ const ValueCard = ({ title, children, icon, className, color }) => {
 };
 
 // Services Cards - Clean with accent borders
-const ServiceCard = ({ title, children, icon, className }) => (
-  <div className={`group relative flex h-full flex-col rounded-xl border-2 border-gray-200 bg-white p-6 shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:scale-[1.02] hover:border-[#262262] ${className || ''}`}>
+const ServiceCard = ({ title, children, icon, className, link }) => (
+  <Link to={link} className={`group relative flex h-full flex-col rounded-xl border-2 border-gray-200 bg-white p-6 shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:scale-[1.02] hover:border-[#262262] ${className || ''}`}>
     <h3 className="text-lg font-semibold text-[#262262] transition-colors duration-300 group-hover:text-[#da1c5c] mb-3">{title}</h3>
     <p className="mt-2 text-sm text-gray-600 leading-relaxed flex-grow">{children}</p>
     <div className="mt-4 flex items-center text-[#FFB700] font-medium text-sm group-hover:text-[#da1c5c] transition-colors duration-300">
       Learn more →
     </div>
-  </div>
+  </Link>
 );
 
 // Niche Cards - Modern with brand accents
@@ -460,10 +469,13 @@ export default function App() {
   ];
 
   return (
-    <>
-      <AnimatedBackground />
-      <FloatingPattern />
-      <main className="min-h-screen bg-white/95 backdrop-blur-sm text-gray-900 relative z-10">
+    <Router>
+      <Routes>
+        <Route path="/" element={
+          <>
+            <AnimatedBackground />
+            <FloatingPattern />
+            <main className="min-h-screen bg-white/95 backdrop-blur-sm text-gray-900 relative z-10">
         {/* Top nav */}
       <header className="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-white/90 border-b border-gray-100">
         <div className="mx-auto flex max-w-7xl items-start justify-between px-4 py-3 sm:py-4">
@@ -543,12 +555,12 @@ export default function App() {
           subtitle="Design, development, hosting, and ongoing support for a seamless digital experience."
         />
         <div className="mx-auto mt-12 grid max-w-7xl grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          <ServiceCard title="Website Development" icon={<Check/>}>Fast, scalable, user-friendly websites using modern frameworks — crafted to meet your goals and delight users.</ServiceCard>
-          <ServiceCard title="UI Prototyping" icon={<Check/>}>Interactive wireframes and prototypes to validate flows and align stakeholders before build.</ServiceCard>
-          <ServiceCard title="Graphic Design" icon={<Check/>}>Pixel-perfect UI aligned to your brand for a consistent, engaging experience.</ServiceCard>
-          <ServiceCard title="Hosting & Deployment" icon={<Check/>}>Secure, scalable hosting and smooth deployments — your site stays fast and reliable.</ServiceCard>
-          <ServiceCard title="Maintenance & Support" icon={<Check/>}>Reliable updates, monitoring, and feature rollouts to keep you growing.</ServiceCard>
-          <ServiceCard title="Accessibility" icon={<Check/>}>WCAG/ADA-minded design for inclusivity, compliance, and better UX for everyone.</ServiceCard>
+          <ServiceCard title="Website Development" icon={<Check/>} link="/website-development">Fast, scalable, user-friendly websites using modern frameworks — crafted to meet your goals and delight users.</ServiceCard>
+          <ServiceCard title="UI Prototyping" icon={<Check/>} link="/ui-prototyping">Interactive wireframes and prototypes to validate flows and align stakeholders before build.</ServiceCard>
+          <ServiceCard title="Graphic Design" icon={<Check/>} link="/graphic-design">Pixel-perfect UI aligned to your brand for a consistent, engaging experience.</ServiceCard>
+          <ServiceCard title="Hosting & Deployment" icon={<Check/>} link="/hosting-deployment">Secure, scalable hosting and smooth deployments — your site stays fast and reliable.</ServiceCard>
+          <ServiceCard title="Maintenance & Support" icon={<Check/>} link="/maintenance-support">Reliable updates, monitoring, and feature rollouts to keep you growing.</ServiceCard>
+          <ServiceCard title="Accessibility" icon={<Check/>} link="/accessibility">WCAG/ADA-minded design for inclusivity, compliance, and better UX for everyone.</ServiceCard>
         </div>
       </section>
 
@@ -1089,7 +1101,16 @@ export default function App() {
           </div>
         </div>
       </footer>
-    </main>
-    </>
+            </main>
+          </>
+        } />
+        <Route path="/website-development" element={<WebsiteDevelopment />} />
+        <Route path="/ui-prototyping" element={<UIPrototyping />} />
+        <Route path="/graphic-design" element={<GraphicDesign />} />
+        <Route path="/hosting-deployment" element={<HostingDeployment />} />
+        <Route path="/maintenance-support" element={<MaintenanceSupport />} />
+        <Route path="/accessibility" element={<Accessibility />} />
+      </Routes>
+    </Router>
   );
 }
