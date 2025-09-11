@@ -110,7 +110,7 @@ const WebsiteDevelopment = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <Link to="/" className="flex items-center group">
-              <img src="/lunaratechLogo.png" alt="LunaraTech Logo" className="h-10 w-auto group-hover:scale-110 transition-transform duration-300"/>
+              <img src="/lunaratechLogo.png" alt="LunaraTech Logo" className="h-12 w-auto group-hover:scale-110 transition-transform duration-300"/>
             </Link>
             <Link
               to="/"
