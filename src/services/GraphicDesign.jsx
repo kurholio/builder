@@ -213,7 +213,7 @@ const GraphicDesign = () => {
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="group text-center">
+            <div className="group bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 text-center">
               <div className="w-16 h-16 mx-auto mb-6 bg-white rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300">
                 <RefreshCw className="h-8 w-8 text-[#da1c5c]" />
               </div>
@@ -221,7 +221,7 @@ const GraphicDesign = () => {
               <p className="text-gray-600">Every element follows your brand guidelines for a cohesive visual identity across all touchpoints.</p>
             </div>
             
-            <div className="group text-center">
+            <div className="group bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 text-center">
               <div className="w-16 h-16 mx-auto mb-6 bg-white rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300">
                 <Target className="h-8 w-8 text-[#70CBD0]" />
               </div>
@@ -229,7 +229,7 @@ const GraphicDesign = () => {
               <p className="text-gray-600">Designs that are intuitive and user-friendly, ensuring optimal user experience and engagement.</p>
             </div>
             
-            <div className="group text-center">
+            <div className="group bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 text-center">
               <div className="w-16 h-16 mx-auto mb-6 bg-white rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300">
                 <Sparkles className="h-8 w-8 text-[#FFB700]" />
               </div>
@@ -237,7 +237,7 @@ const GraphicDesign = () => {
               <p className="text-gray-600">Cutting-edge design trends with timeless appeal, creating memorable and impactful visual experiences.</p>
             </div>
             
-            <div className="group text-center">
+            <div className="group bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 text-center">
               <div className="w-16 h-16 mx-auto mb-6 bg-white rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300">
                 <Heart className="h-8 w-8 text-[#262262]" />
               </div>
