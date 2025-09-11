@@ -283,7 +283,7 @@ const HostingDeployment = () => {
           <div className="grid md:grid-cols-3 gap-8">
             <div className="group bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 text-center">
               <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-[#da1c5c] to-[#FFB700] rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                <BarChart className="h-8 w-8 text-white" />
+                <BarChart className="h-16 w-16 text-white" />
               </div>
               <h3 className="text-xl font-semibold text-[#262262] mb-2">Performance Metrics</h3>
               <p className="text-gray-600">CPU, memory, and network monitoring with real-time alerts and detailed analytics.</p>
@@ -291,7 +291,7 @@ const HostingDeployment = () => {
             
             <div className="group bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 text-center">
               <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-[#70CBD0] to-[#262262] rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                <Shield className="h-8 w-8 text-white" />
+                <Shield className="h-16 w-16 text-white" />
               </div>
               <h3 className="text-xl font-semibold text-[#262262] mb-2">Smart Alerts</h3>
               <p className="text-gray-600">Proactive notifications for issues with intelligent filtering and escalation procedures.</p>
@@ -299,7 +299,7 @@ const HostingDeployment = () => {
             
             <div className="group bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 text-center">
               <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-[#FFB700] to-[#da1c5c] rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                <Zap className="h-8 w-8 text-white" />
+                <Zap className="h-16 w-16 text-white" />
               </div>
               <h3 className="text-xl font-semibold text-[#262262] mb-2">Analytics</h3>
               <p className="text-gray-600">Detailed insights and reporting with historical data and trend analysis.</p>
