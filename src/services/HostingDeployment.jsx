@@ -11,38 +11,57 @@ const HostingDeployment = () => {
     // Simulate uptime counter
     const interval = setInterval(() => {
       setUptime(prev => Math.min(99.99, prev + 0.01));
-    }, 1000);
+    }, 2000);
     return () => clearInterval(interval);
   }, []);
+
+  // Icon components matching landing page style
+  const Check = () => (
+    <svg viewBox="0 0 24 24" aria-hidden className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+  );
+  const Cloud = () => (
+    <svg viewBox="0 0 24 24" aria-hidden className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
+    </svg>
+  );
+  const Shield = () => (
+    <svg viewBox="0 0 24 24" aria-hidden className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+    </svg>
+  );
+  const Zap = () => (
+    <svg viewBox="0 0 24 24" aria-hidden className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <polygon points="13,2 3,14 12,14 11,22 21,10 12,10 13,2"/>
+    </svg>
+  );
+  const BarChart = () => (
+    <svg viewBox="0 0 24 24" aria-hidden className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <line x1="12" y1="20" x2="12" y2="10"/>
+      <line x1="18" y1="20" x2="18" y2="4"/>
+      <line x1="6" y1="20" x2="6" y2="16"/>
+    </svg>
+  );
 
   const hostingFeatures = [
     {
       title: "Cloud Infrastructure",
-      description: "AWS, Google Cloud, and Azure hosting with auto-scaling",
-      icon: "☁️",
-      color: "from-[#da1c5c] to-[#FFB700]",
-      specs: ["99.9% Uptime", "Auto-scaling", "Global CDN", "Load Balancing"]
+      description: "AWS, Google Cloud, and Azure hosting with auto-scaling and global CDN distribution",
+      icon: <Cloud />
     },
     {
       title: "Security & SSL",
-      description: "Automatic SSL certificates and DDoS protection",
-      icon: "🔒",
-      color: "from-[#70CBD0] to-[#262262]",
-      specs: ["SSL Certificates", "DDoS Protection", "Firewall", "Monitoring"]
+      description: "Automatic SSL certificates and DDoS protection to keep your site safe",
+      icon: <Shield />
     },
     {
       title: "Performance",
-      description: "Caching, compression, and CDN optimization",
-      icon: "⚡",
-      color: "from-[#FFB700] to-[#da1c5c]",
-      specs: ["CDN", "Caching", "Compression", "Optimization"]
+      description: "Caching, compression, and CDN optimization for lightning-fast load times",
+      icon: <Zap />
     },
     {
       title: "Monitoring",
-      description: "24/7 monitoring and alerting systems",
-      icon: "📊",
-      color: "from-[#262262] to-[#70CBD0]",
-      specs: ["Real-time Monitoring", "Alerts", "Logs", "Analytics"]
+      description: "24/7 monitoring and alerting systems for proactive issue detection",
+      icon: <BarChart />
     }
   ];
 
@@ -91,35 +110,32 @@ const HostingDeployment = () => {
         </div>
       </nav>
 
-      {/* Hero Section with Infrastructure Theme */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#262262]/5 to-[#70CBD0]/5"></div>
-        
-        {/* Animated Grid Background */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="grid grid-cols-12 gap-4 h-full">
-            {Array.from({ length: 48 }).map((_, i) => (
-              <div key={i} className="bg-[#262262] rounded animate-pulse" style={{ animationDelay: `${i * 0.1}s` }}></div>
-            ))}
-          </div>
-        </div>
-        
+      {/* Hero Section */}
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8">
         <div className="relative max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <div className={`transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-              <h1 className="text-6xl md:text-8xl font-bold text-[#262262] mb-6">
+              <h1 className="text-5xl md:text-6xl font-bold text-[#262262] mb-6">
                 Hosting & Deployment
               </h1>
-              <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+              <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-8">
                 Secure, scalable hosting and smooth deployments — your site stays fast and reliable.
               </p>
+              <div className="max-w-3xl mx-auto text-gray-600 leading-relaxed">
+                <p className="mb-4">
+                  Our hosting and deployment services ensure your applications are always available, performant, and secure. We leverage enterprise-grade cloud infrastructure to provide reliable hosting solutions that scale with your business needs.
+                </p>
+                <p>
+                  From initial setup to ongoing maintenance, we handle all aspects of your hosting infrastructure. Our team monitors your applications 24/7, performs regular updates, and ensures optimal performance through continuous optimization.
+                </p>
+              </div>
             </div>
           </div>
 
           {/* Infrastructure Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20">
             {infrastructureStats.map((stat, index) => (
-              <div key={index} className="bg-white rounded-2xl p-6 shadow-lg text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+              <div key={index} className="bg-white rounded-xl p-6 shadow-md text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                 <div className={`text-3xl font-bold ${stat.color} mb-2`}>{stat.value}</div>
                 <div className="text-gray-600 font-medium">{stat.label}</div>
               </div>
@@ -132,28 +148,29 @@ const HostingDeployment = () => {
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-[#262262] mb-4">Hosting Solutions</h2>
-            <p className="text-xl text-gray-600">Enterprise-grade infrastructure for your applications</p>
+            <h2 className="text-3xl font-semibold tracking-tight text-[#262262] sm:text-4xl mb-4">Hosting Solutions</h2>
+            <p className="text-xl text-gray-600 mb-8">Enterprise-grade infrastructure for your applications</p>
+            <div className="max-w-3xl mx-auto text-gray-600 leading-relaxed">
+              <p className="mb-4">
+                We provide comprehensive hosting solutions that combine reliability, performance, and security. Our infrastructure is built on industry-leading cloud platforms and includes advanced features like auto-scaling, load balancing, and global CDN distribution.
+              </p>
+              <p>
+                Our hosting services are designed to handle everything from small websites to large-scale enterprise applications. We ensure 99.9% uptime, fast response times, and robust security measures to keep your applications running smoothly.
+              </p>
+            </div>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {hostingFeatures.map((feature, index) => (
-              <div key={index} className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-2 border-transparent hover:border-[#70CBD0]">
-                <div className="text-center mb-4">
-                  <div className={`w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r ${feature.color} flex items-center justify-center text-2xl group-hover:scale-110 transition-transform duration-300`}>
+              <div key={index} className="group bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                <div className="mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
+                  <div className="text-[#da1c5c]">
                     {feature.icon}
                   </div>
-                  <h3 className="text-xl font-bold text-[#262262] mb-2">{feature.title}</h3>
-                  <p className="text-gray-600 text-sm mb-4">{feature.description}</p>
                 </div>
-                <ul className="space-y-2">
-                  {feature.specs.map((spec, specIndex) => (
-                    <li key={specIndex} className="flex items-center text-sm text-gray-600">
-                      <div className="w-2 h-2 bg-[#70CBD0] rounded-full mr-3"></div>
-                      {spec}
-                    </li>
-                  ))}
-                </ul>
+                <h3 className="text-lg font-semibold text-[#262262] transition-colors duration-300 group-hover:text-[#da1c5c] mb-3">{feature.title}</h3>
+                <p className="text-sm text-gray-600 leading-relaxed flex-grow">{feature.description}</p>
+                <div className="mt-4 h-1 w-12 bg-gradient-to-r from-[#da1c5c] to-[#FFB700] rounded-full transition-all duration-300 group-hover:w-20" />
               </div>
             ))}
           </div>
@@ -164,8 +181,16 @@ const HostingDeployment = () => {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white/50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-[#262262] mb-4">Deployment Process</h2>
-            <p className="text-xl text-gray-600">Streamlined deployment workflows for reliable releases</p>
+            <h2 className="text-3xl font-semibold tracking-tight text-[#262262] sm:text-4xl mb-4">Deployment Process</h2>
+            <p className="text-xl text-gray-600 mb-8">Streamlined deployment workflows for reliable releases</p>
+            <div className="max-w-3xl mx-auto text-gray-600 leading-relaxed">
+              <p className="mb-4">
+                Our deployment process is designed to minimize downtime and ensure smooth releases. We use automated CI/CD pipelines that include testing, building, and deployment stages to catch issues early and maintain code quality.
+              </p>
+              <p>
+                From environment setup to production deployment, we handle all aspects of the deployment process. Our team ensures proper configuration, security measures, and monitoring are in place before going live.
+              </p>
+            </div>
           </div>
           
           <div className="grid lg:grid-cols-2 gap-12">
@@ -175,22 +200,22 @@ const HostingDeployment = () => {
                 <button
                   key={index}
                   onClick={() => setActiveTab(index)}
-                  className={`w-full text-left p-6 rounded-2xl transition-all duration-300 ${
+                  className={`w-full text-left p-6 rounded-xl transition-all duration-300 ${
                     activeTab === index
-                      ? 'bg-[#262262] text-white shadow-xl scale-105'
-                      : 'bg-white text-gray-700 hover:bg-gray-50 shadow-lg hover:shadow-xl'
+                      ? 'bg-[#262262] text-white shadow-xl'
+                      : 'bg-white text-gray-700 hover:bg-gray-50 shadow-md hover:shadow-lg'
                   }`}
                 >
-                  <h3 className="text-xl font-bold mb-2">{tab.title}</h3>
+                  <h3 className="text-xl font-semibold mb-2">{tab.title}</h3>
                   <p className="text-sm opacity-80">{tab.description}</p>
                 </button>
               ))}
             </div>
             
             {/* Tab Content */}
-            <div className="bg-white rounded-2xl p-8 shadow-xl">
+            <div className="bg-white rounded-xl p-8 shadow-lg">
               <div className="mb-6">
-                <h3 className="text-2xl font-bold text-[#262262] mb-2">
+                <h3 className="text-2xl font-semibold text-[#262262] mb-2">
                   {deploymentTabs[activeTab].title}
                 </h3>
                 <p className="text-gray-600">{deploymentTabs[activeTab].description}</p>
@@ -199,11 +224,7 @@ const HostingDeployment = () => {
               <div className="space-y-4">
                 {deploymentTabs[activeTab].steps.map((step, stepIndex) => (
                   <div key={stepIndex} className="flex items-center space-x-4">
-                    <div className={`w-8 h-8 rounded-full flex items-center justify-center text-white font-bold text-sm ${
-                      stepIndex === 0 ? 'bg-[#da1c5c]' :
-                      stepIndex === 1 ? 'bg-[#70CBD0]' :
-                      stepIndex === 2 ? 'bg-[#FFB700]' : 'bg-[#262262]'
-                    }`}>
+                    <div className="w-8 h-8 rounded-full flex items-center justify-center text-white font-bold text-sm bg-gradient-to-r from-[#da1c5c] to-[#FFB700]">
                       {stepIndex + 1}
                     </div>
                     <span className="text-gray-700 font-medium">{step}</span>
@@ -219,11 +240,19 @@ const HostingDeployment = () => {
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-[#262262] mb-4">Technology Stack</h2>
-            <p className="text-xl text-gray-600">Modern tools and platforms for reliable hosting</p>
+            <h2 className="text-3xl font-semibold tracking-tight text-[#262262] sm:text-4xl mb-4">Technology Stack</h2>
+            <p className="text-xl text-gray-600 mb-8">Modern tools and platforms for reliable hosting</p>
+            <div className="max-w-3xl mx-auto text-gray-600 leading-relaxed">
+              <p className="mb-4">
+                We use industry-leading technologies and platforms to ensure your applications are hosted on reliable, scalable infrastructure. Our technology stack includes cloud providers, containerization tools, and monitoring solutions.
+              </p>
+              <p>
+                Our team stays current with the latest hosting technologies and best practices to provide you with the most effective solutions. We choose technologies based on your specific requirements and long-term scalability needs.
+              </p>
+            </div>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               { name: "AWS", description: "Amazon Web Services", icon: "☁️", features: ["EC2", "S3", "CloudFront", "RDS"] },
               { name: "Docker", description: "Containerization", icon: "🐳", features: ["Containers", "Orchestration", "Scaling", "Deployment"] },
@@ -232,17 +261,17 @@ const HostingDeployment = () => {
               { name: "Redis", description: "Caching Layer", icon: "🔴", features: ["In-Memory Cache", "Session Storage", "Pub/Sub", "Persistence"] },
               { name: "PostgreSQL", description: "Database", icon: "🐘", features: ["ACID Compliance", "Scalability", "Backup", "Replication"] }
             ].map((tech, index) => (
-              <div key={index} className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+              <div key={index} className="group bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                 <div className="text-center mb-4">
                   <div className="text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">
                     {tech.icon}
                   </div>
-                  <h3 className="text-xl font-bold text-[#262262] mb-2">{tech.name}</h3>
+                  <h3 className="text-xl font-semibold text-[#262262] mb-2">{tech.name}</h3>
                   <p className="text-gray-600 text-sm">{tech.description}</p>
                 </div>
                 <div className="grid grid-cols-2 gap-2">
                   {tech.features.map((feature, featureIndex) => (
-                    <div key={featureIndex} className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded text-center">
+                    <div key={featureIndex} className="text-xs bg-gray-100 text-gray-700 px-3 py-2 rounded text-center">
                       {feature}
                     </div>
                   ))}
@@ -257,33 +286,41 @@ const HostingDeployment = () => {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#262262]/5 to-[#da1c5c]/5">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-[#262262] mb-4">Real-time Monitoring</h2>
-            <p className="text-xl text-gray-600">24/7 monitoring and alerting for your infrastructure</p>
+            <h2 className="text-3xl font-semibold tracking-tight text-[#262262] sm:text-4xl mb-4">Real-time Monitoring</h2>
+            <p className="text-xl text-gray-600 mb-8">24/7 monitoring and alerting for your infrastructure</p>
+            <div className="max-w-3xl mx-auto text-gray-600 leading-relaxed">
+              <p className="mb-4">
+                Our monitoring services provide comprehensive visibility into your application's performance and health. We track key metrics, set up alerts, and provide detailed reports to help you understand your system's behavior.
+              </p>
+              <p>
+                With real-time monitoring, we can quickly identify and resolve issues before they impact your users. Our monitoring dashboard provides insights into performance trends, resource usage, and system health.
+              </p>
+            </div>
           </div>
           
-          <div className="bg-white rounded-2xl p-8 shadow-2xl">
+          <div className="bg-white rounded-xl p-8 shadow-lg">
             <div className="grid md:grid-cols-3 gap-8">
               <div className="text-center">
-                <div className="w-24 h-24 mx-auto mb-4 bg-gradient-to-r from-[#da1c5c] to-[#FFB700] rounded-full flex items-center justify-center">
-                  <span className="text-2xl text-white">📊</span>
+                <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-[#da1c5c] to-[#FFB700] rounded-full flex items-center justify-center">
+                  <BarChart className="h-8 w-8 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-[#262262] mb-2">Performance Metrics</h3>
+                <h3 className="text-xl font-semibold text-[#262262] mb-2">Performance Metrics</h3>
                 <p className="text-gray-600">CPU, memory, and network monitoring</p>
               </div>
               
               <div className="text-center">
-                <div className="w-24 h-24 mx-auto mb-4 bg-gradient-to-r from-[#70CBD0] to-[#262262] rounded-full flex items-center justify-center">
-                  <span className="text-2xl text-white">🔔</span>
+                <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-[#70CBD0] to-[#262262] rounded-full flex items-center justify-center">
+                  <Shield className="h-8 w-8 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-[#262262] mb-2">Smart Alerts</h3>
+                <h3 className="text-xl font-semibold text-[#262262] mb-2">Smart Alerts</h3>
                 <p className="text-gray-600">Proactive notifications for issues</p>
               </div>
               
               <div className="text-center">
-                <div className="w-24 h-24 mx-auto mb-4 bg-gradient-to-r from-[#FFB700] to-[#da1c5c] rounded-full flex items-center justify-center">
-                  <span className="text-2xl text-white">📈</span>
+                <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-[#FFB700] to-[#da1c5c] rounded-full flex items-center justify-center">
+                  <Zap className="h-8 w-8 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-[#262262] mb-2">Analytics</h3>
+                <h3 className="text-xl font-semibold text-[#262262] mb-2">Analytics</h3>
                 <p className="text-gray-600">Detailed insights and reporting</p>
               </div>
             </div>
@@ -294,12 +331,9 @@ const HostingDeployment = () => {
       {/* CTA Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="relative bg-gradient-to-r from-[#262262] to-[#70CBD0] rounded-3xl p-12 text-white overflow-hidden">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-16 translate-x-16"></div>
-            <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full translate-y-12 -translate-x-12"></div>
-            
+          <div className="relative bg-gradient-to-r from-[#262262] to-[#70CBD0] rounded-2xl p-12 text-white overflow-hidden">
             <div className="relative text-center">
-              <h2 className="text-4xl font-bold mb-4">Ready for Reliable Hosting?</h2>
+              <h2 className="text-3xl font-bold mb-4">Ready for Reliable Hosting?</h2>
               <p className="text-xl mb-8 opacity-90">Let's deploy your project with enterprise-grade hosting and support.</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link 

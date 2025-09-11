@@ -11,17 +11,69 @@ const MaintenanceSupport = () => {
     // Simulate ticket counter
     const interval = setInterval(() => {
       setTicketCount(prev => prev + 1);
-    }, 2000);
+    }, 3000);
     return () => clearInterval(interval);
   }, []);
+
+  // Icon components matching landing page style
+  const Check = () => (
+    <svg viewBox="0 0 24 24" aria-hidden className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+  );
+  const Eye = () => (
+    <svg viewBox="0 0 24 24" aria-hidden className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M1 12s4-8 7-8 7 8 7 8-4 8-7 8-7-8-7-8z"/>
+      <circle cx="12" cy="12" r="3"/>
+    </svg>
+  );
+  const RefreshCw = () => (
+    <svg viewBox="0 0 24 24" aria-hidden className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="23,4 23,10 17,10"/>
+      <polyline points="1,20 1,14 7,14"/>
+      <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/>
+    </svg>
+  );
+  const Rocket = () => (
+    <svg viewBox="0 0 24 24" aria-hidden className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/>
+      <path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/>
+      <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/>
+      <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/>
+    </svg>
+  );
+  const Wrench = () => (
+    <svg viewBox="0 0 24 24" aria-hidden className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+    </svg>
+  );
+
+  const supportServices = [
+    {
+      title: "24/7 Monitoring",
+      description: "Continuous monitoring of your application performance and uptime",
+      icon: <Eye />
+    },
+    {
+      title: "Regular Updates",
+      description: "Scheduled updates for security patches and feature enhancements",
+      icon: <RefreshCw />
+    },
+    {
+      title: "Feature Development",
+      description: "Ongoing development of new features based on user feedback",
+      icon: <Rocket />
+    },
+    {
+      title: "Technical Support",
+      description: "Expert technical support for any issues or questions",
+      icon: <Wrench />
+    }
+  ];
 
   const supportTiers = [
     {
       name: "Basic",
       price: "$299",
       period: "/month",
-      icon: "📧",
-      color: "from-[#da1c5c] to-[#FFB700]",
       features: ["Email Support", "Basic Monitoring", "Monthly Updates", "Documentation"],
       popular: false
     },
@@ -29,8 +81,6 @@ const MaintenanceSupport = () => {
       name: "Premium",
       price: "$599",
       period: "/month",
-      icon: "📞",
-      color: "from-[#70CBD0] to-[#262262]",
       features: ["Phone + Email Support", "24/7 Monitoring", "Weekly Updates", "Priority Response"],
       popular: true
     },
@@ -38,41 +88,8 @@ const MaintenanceSupport = () => {
       name: "Enterprise",
       price: "$999",
       period: "/month",
-      icon: "🏢",
-      color: "from-[#FFB700] to-[#da1c5c]",
       features: ["Dedicated Support", "Real-time Monitoring", "Daily Updates", "On-site Support"],
       popular: false
-    }
-  ];
-
-  const supportServices = [
-    {
-      title: "24/7 Monitoring",
-      description: "Continuous monitoring of your application performance and uptime",
-      icon: "👁️",
-      color: "from-[#da1c5c] to-[#FFB700]",
-      metrics: ["99.9% Uptime", "Real-time Alerts", "Performance Tracking", "Error Monitoring"]
-    },
-    {
-      title: "Regular Updates",
-      description: "Scheduled updates for security patches and feature enhancements",
-      icon: "🔄",
-      color: "from-[#70CBD0] to-[#262262]",
-      metrics: ["Security Patches", "Feature Updates", "Bug Fixes", "Performance Improvements"]
-    },
-    {
-      title: "Feature Development",
-      description: "Ongoing development of new features based on user feedback",
-      icon: "🚀",
-      color: "from-[#FFB700] to-[#da1c5c]",
-      metrics: ["New Features", "UI Improvements", "API Enhancements", "Integration Updates"]
-    },
-    {
-      title: "Technical Support",
-      description: "Expert technical support for any issues or questions",
-      icon: "🛠️",
-      color: "from-[#262262] to-[#70CBD0]",
-      metrics: ["Bug Fixes", "Troubleshooting", "Code Reviews", "Best Practices"]
     }
   ];
 
@@ -103,32 +120,32 @@ const MaintenanceSupport = () => {
         </div>
       </nav>
 
-      {/* Hero Section with Support Theme */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#FFB700]/5 to-[#da1c5c]/5"></div>
-        
-        {/* Support Icons Animation */}
-        <div className="absolute top-20 left-10 text-4xl animate-bounce">🛠️</div>
-        <div className="absolute top-40 right-20 text-3xl animate-pulse">📞</div>
-        <div className="absolute bottom-20 left-1/4 text-2xl animate-ping">💬</div>
-        <div className="absolute top-60 right-1/3 text-3xl animate-bounce">⚡</div>
-        
+      {/* Hero Section */}
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8">
         <div className="relative max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <div className={`transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-              <h1 className="text-6xl md:text-8xl font-bold text-[#262262] mb-6">
+              <h1 className="text-5xl md:text-6xl font-bold text-[#262262] mb-6">
                 Maintenance & Support
               </h1>
-              <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+              <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-8">
                 Reliable updates, monitoring, and feature rollouts to keep you growing.
               </p>
+              <div className="max-w-3xl mx-auto text-gray-600 leading-relaxed">
+                <p className="mb-4">
+                  Our maintenance and support services ensure your applications remain secure, performant, and up-to-date. We provide comprehensive support that covers everything from routine maintenance to emergency response and feature development.
+                </p>
+                <p>
+                  With 24/7 monitoring and proactive maintenance, we help prevent issues before they impact your users. Our support team is always available to address any concerns and keep your applications running smoothly.
+                </p>
+              </div>
             </div>
           </div>
 
           {/* Support Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20">
             {supportStats.map((stat, index) => (
-              <div key={index} className="bg-white rounded-2xl p-6 shadow-lg text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+              <div key={index} className="bg-white rounded-xl p-6 shadow-md text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                 <div className={`text-3xl font-bold ${stat.color} mb-2`}>{stat.value}</div>
                 <div className="text-gray-600 font-medium">{stat.label}</div>
               </div>
@@ -141,28 +158,29 @@ const MaintenanceSupport = () => {
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-[#262262] mb-4">Support Services</h2>
-            <p className="text-xl text-gray-600">Comprehensive support to keep your application running smoothly</p>
+            <h2 className="text-3xl font-semibold tracking-tight text-[#262262] sm:text-4xl mb-4">Support Services</h2>
+            <p className="text-xl text-gray-600 mb-8">Comprehensive support to keep your application running smoothly</p>
+            <div className="max-w-3xl mx-auto text-gray-600 leading-relaxed">
+              <p className="mb-4">
+                Our support services are designed to provide peace of mind and ensure your applications continue to deliver value to your business. We offer multiple levels of support to match your specific needs and budget.
+              </p>
+              <p>
+                From basic monitoring to dedicated support teams, we have solutions that scale with your business. Our experienced support professionals are available around the clock to address any issues and keep your systems running optimally.
+              </p>
+            </div>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {supportServices.map((service, index) => (
-              <div key={index} className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-2 border-transparent hover:border-[#FFB700]">
-                <div className="text-center mb-4">
-                  <div className={`w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r ${service.color} flex items-center justify-center text-2xl group-hover:scale-110 transition-transform duration-300`}>
+              <div key={index} className="group bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                <div className="mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
+                  <div className="text-[#FFB700]">
                     {service.icon}
                   </div>
-                  <h3 className="text-xl font-bold text-[#262262] mb-2">{service.title}</h3>
-                  <p className="text-gray-600 text-sm mb-4">{service.description}</p>
                 </div>
-                <ul className="space-y-2">
-                  {service.metrics.map((metric, metricIndex) => (
-                    <li key={metricIndex} className="flex items-center text-sm text-gray-600">
-                      <div className="w-2 h-2 bg-[#FFB700] rounded-full mr-3"></div>
-                      {metric}
-                    </li>
-                  ))}
-                </ul>
+                <h3 className="text-lg font-semibold text-[#262262] transition-colors duration-300 group-hover:text-[#da1c5c] mb-3">{service.title}</h3>
+                <p className="text-sm text-gray-600 leading-relaxed flex-grow">{service.description}</p>
+                <div className="mt-4 h-1 w-12 bg-gradient-to-r from-[#FFB700] to-[#da1c5c] rounded-full transition-all duration-300 group-hover:w-20" />
               </div>
             ))}
           </div>
@@ -173,13 +191,21 @@ const MaintenanceSupport = () => {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white/50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-[#262262] mb-4">Support Tiers</h2>
-            <p className="text-xl text-gray-600">Choose the support level that fits your needs</p>
+            <h2 className="text-3xl font-semibold tracking-tight text-[#262262] sm:text-4xl mb-4">Support Tiers</h2>
+            <p className="text-xl text-gray-600 mb-8">Choose the support level that fits your needs</p>
+            <div className="max-w-3xl mx-auto text-gray-600 leading-relaxed">
+              <p className="mb-4">
+                We offer flexible support tiers to accommodate different business needs and budgets. Each tier includes specific features and response times designed to provide the right level of support for your application.
+              </p>
+              <p>
+                Our support tiers are designed to scale with your business, allowing you to upgrade or downgrade as your needs change. All tiers include our core monitoring and maintenance services with varying levels of support and response times.
+              </p>
+            </div>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
             {supportTiers.map((tier, index) => (
-              <div key={index} className={`relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 ${
+              <div key={index} className={`relative bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 ${
                 tier.popular ? 'border-2 border-[#FFB700] scale-105' : 'border-2 border-transparent'
               }`}>
                 {tier.popular && (
@@ -191,10 +217,7 @@ const MaintenanceSupport = () => {
                 )}
                 
                 <div className="text-center mb-6">
-                  <div className={`w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r ${tier.color} flex items-center justify-center text-2xl`}>
-                    {tier.icon}
-                  </div>
-                  <h3 className="text-2xl font-bold text-[#262262] mb-2">{tier.name}</h3>
+                  <h3 className="text-2xl font-semibold text-[#262262] mb-2">{tier.name}</h3>
                   <div className="text-4xl font-bold text-[#262262] mb-1">
                     {tier.price}
                     <span className="text-lg text-gray-500">{tier.period}</span>
@@ -204,11 +227,7 @@ const MaintenanceSupport = () => {
                 <ul className="space-y-3 mb-8">
                   {tier.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-center text-gray-600">
-                      <div className="w-5 h-5 bg-[#FFB700] rounded-full flex items-center justify-center mr-3">
-                        <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                        </svg>
-                      </div>
+                      <Check className="w-5 h-5 text-[#FFB700] mr-3" />
                       {feature}
                     </li>
                   ))}
@@ -231,37 +250,41 @@ const MaintenanceSupport = () => {
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-[#262262] mb-4">How We Support You</h2>
-            <p className="text-xl text-gray-600">Our systematic approach to providing exceptional support</p>
+            <h2 className="text-3xl font-semibold tracking-tight text-[#262262] sm:text-4xl mb-4">How We Support You</h2>
+            <p className="text-xl text-gray-600 mb-8">Our systematic approach to providing exceptional support</p>
+            <div className="max-w-3xl mx-auto text-gray-600 leading-relaxed">
+              <p className="mb-4">
+                Our support process is designed to ensure quick resolution of issues while maintaining high service quality. We follow a structured approach that prioritizes critical issues and provides clear communication throughout the resolution process.
+              </p>
+              <p>
+                From initial issue detection to final resolution, our support team works efficiently to minimize downtime and ensure your applications continue to serve your users effectively. We provide regular updates and detailed reports on all support activities.
+              </p>
+            </div>
           </div>
           
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
               {[
-                { step: "1", title: "Issue Detection", description: "Proactive monitoring identifies issues before they impact users", icon: "🔍" },
-                { step: "2", title: "Rapid Response", description: "Quick response and initial assessment of the issue", icon: "⚡" },
-                { step: "3", title: "Resolution", description: "Expert team works to resolve the issue efficiently", icon: "🛠️" },
-                { step: "4", title: "Prevention", description: "Implement measures to prevent similar issues in the future", icon: "🛡️" }
+                { step: "1", title: "Issue Detection", description: "Proactive monitoring identifies issues before they impact users", icon: <Eye /> },
+                { step: "2", title: "Rapid Response", description: "Quick response and initial assessment of the issue", icon: <RefreshCw /> },
+                { step: "3", title: "Resolution", description: "Expert team works to resolve the issue efficiently", icon: <Wrench /> },
+                { step: "4", title: "Prevention", description: "Implement measures to prevent similar issues in the future", icon: <Rocket /> }
               ].map((step, index) => (
                 <div key={index} className="flex items-start space-x-4 group">
-                  <div className={`w-12 h-12 rounded-full bg-gradient-to-r ${
-                    index === 0 ? 'from-[#da1c5c] to-[#FFB700]' :
-                    index === 1 ? 'from-[#70CBD0] to-[#262262]' :
-                    index === 2 ? 'from-[#FFB700] to-[#da1c5c]' : 'from-[#262262] to-[#70CBD0]'
-                  } flex items-center justify-center text-white font-bold group-hover:scale-110 transition-transform duration-300`}>
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold bg-gradient-to-r from-[#FFB700] to-[#da1c5c] group-hover:scale-110 transition-transform duration-300">
                     {step.step}
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-[#262262] mb-2">{step.title}</h3>
+                    <h3 className="text-xl font-semibold text-[#262262] mb-2">{step.title}</h3>
                     <p className="text-gray-600">{step.description}</p>
                   </div>
                 </div>
               ))}
             </div>
             
-            <div className="bg-white rounded-2xl p-8 shadow-xl">
+            <div className="bg-white rounded-xl p-8 shadow-lg">
               <img src="/services/man-working-desk-medium-shot.jpg" alt="Support Team" className="w-full h-64 object-cover rounded-xl mb-6"/>
-              <h3 className="text-2xl font-bold text-[#262262] mb-4">Our Support Team</h3>
+              <h3 className="text-2xl font-semibold text-[#262262] mb-4">Our Support Team</h3>
               <p className="text-gray-600 mb-4">
                 Experienced developers and support specialists dedicated to keeping your application running smoothly.
               </p>
@@ -284,30 +307,44 @@ const MaintenanceSupport = () => {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#262262]/5 to-[#da1c5c]/5">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-[#262262] mb-4">Why Choose Our Support?</h2>
-            <p className="text-xl text-gray-600">The benefits of having reliable technical support</p>
+            <h2 className="text-3xl font-semibold tracking-tight text-[#262262] sm:text-4xl mb-4">Why Choose Our Support?</h2>
+            <p className="text-xl text-gray-600 mb-8">The benefits of having reliable technical support</p>
+            <div className="max-w-3xl mx-auto text-gray-600 leading-relaxed">
+              <p className="mb-4">
+                Our support services provide more than just issue resolution—they offer peace of mind and ensure your applications continue to deliver value to your business. With our comprehensive support, you can focus on growing your business while we handle the technical details.
+              </p>
+              <p>
+                Our support team's expertise and dedication result in faster issue resolution, improved system reliability, and better overall performance. This translates to better user experiences and increased business success.
+              </p>
+            </div>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 text-center">
-              <div className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">⚡</div>
-              <h3 className="text-2xl font-bold text-[#262262] mb-4">Fast Response</h3>
+            <div className="group bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 text-center">
+              <div className="w-16 h-16 bg-gradient-to-r from-[#da1c5c] to-[#FFB700] rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                ⚡
+              </div>
+              <h3 className="text-xl font-semibold text-[#262262] mb-4">Fast Response</h3>
               <p className="text-gray-600 mb-4">Average response time under 2 hours for critical issues</p>
               <div className="text-3xl font-bold text-[#da1c5c]">2 hours</div>
               <p className="text-sm text-gray-500">Response time</p>
             </div>
             
-            <div className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 text-center">
-              <div className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">🛡️</div>
-              <h3 className="text-2xl font-bold text-[#262262] mb-4">Proactive Monitoring</h3>
+            <div className="group bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 text-center">
+              <div className="w-16 h-16 bg-gradient-to-r from-[#70CBD0] to-[#262262] rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                🛡️
+              </div>
+              <h3 className="text-xl font-semibold text-[#262262] mb-4">Proactive Monitoring</h3>
               <p className="text-gray-600 mb-4">We catch issues before they impact your users</p>
               <div className="text-3xl font-bold text-[#70CBD0]">99.9%</div>
               <p className="text-sm text-gray-500">Uptime guarantee</p>
             </div>
             
-            <div className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 text-center">
-              <div className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">📈</div>
-              <h3 className="text-2xl font-bold text-[#262262] mb-4">Growth Focused</h3>
+            <div className="group bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 text-center">
+              <div className="w-16 h-16 bg-gradient-to-r from-[#FFB700] to-[#da1c5c] rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                📈
+              </div>
+              <h3 className="text-xl font-semibold text-[#262262] mb-4">Growth Focused</h3>
               <p className="text-gray-600 mb-4">Support that scales with your business needs</p>
               <div className="text-3xl font-bold text-[#FFB700]">100%</div>
               <p className="text-sm text-gray-500">Scalable</p>
@@ -319,12 +356,9 @@ const MaintenanceSupport = () => {
       {/* CTA Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="relative bg-gradient-to-r from-[#FFB700] to-[#da1c5c] rounded-3xl p-12 text-white overflow-hidden">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-16 translate-x-16"></div>
-            <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full translate-y-12 -translate-x-12"></div>
-            
+          <div className="relative bg-gradient-to-r from-[#FFB700] to-[#da1c5c] rounded-2xl p-12 text-white overflow-hidden">
             <div className="relative text-center">
-              <h2 className="text-4xl font-bold mb-4">Need Reliable Support?</h2>
+              <h2 className="text-3xl font-bold mb-4">Need Reliable Support?</h2>
               <p className="text-xl mb-8 opacity-90">Let's keep your application running smoothly with our comprehensive support services.</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link 
