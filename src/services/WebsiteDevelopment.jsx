@@ -2,72 +2,106 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const WebsiteDevelopment = () => {
-  const [activeFeature, setActiveFeature] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     setIsVisible(true);
-    const interval = setInterval(() => {
-      setActiveFeature(prev => (prev + 1) % 4);
-    }, 4000);
-    return () => clearInterval(interval);
   }, []);
 
-  // Icon components matching landing page style
+  // Icon components matching landing page exactly
+  const Icon = ({ children }) => (
+    <svg viewBox="0 0 24 24" aria-hidden className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      {children}
+    </svg>
+  );
+
   const Check = () => (
     <svg viewBox="0 0 24 24" aria-hidden className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
   );
+
   const Code = () => (
-    <svg viewBox="0 0 24 24" aria-hidden className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <Icon>
       <polyline points="16,18 22,12 16,6"/>
       <polyline points="8,6 2,12 8,18"/>
-    </svg>
+    </Icon>
   );
+
   const Globe = () => (
-    <svg viewBox="0 0 24 24" aria-hidden className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <Icon>
       <circle cx="12" cy="12" r="10"/>
       <line x1="2" y1="12" x2="22" y2="12"/>
       <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-    </svg>
+    </Icon>
   );
+
   const Smartphone = () => (
-    <svg viewBox="0 0 24 24" aria-hidden className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <Icon>
       <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
       <line x1="12" y1="18" x2="12.01" y2="18"/>
-    </svg>
+    </Icon>
   );
 
-  const features = [
-    {
-      title: "Modern Frameworks",
-      description: "React, Next.js, Vue.js, and Angular for lightning-fast, scalable applications that deliver exceptional user experiences.",
-      icon: <Code />
-    },
-    {
-      title: "E-commerce Solutions",
-      description: "Complete online stores with secure payment processing, inventory management, and customer analytics to drive sales growth.",
-      icon: <Globe />
-    },
-    {
-      title: "Enterprise Applications",
-      description: "Scalable applications handling thousands of users and complex workflows with enterprise-grade security and performance.",
-      icon: <Check />
-    },
-    {
-      title: "Mobile-First Design",
-      description: "Responsive designs that work perfectly on all devices and screen sizes, ensuring optimal user experience everywhere.",
-      icon: <Smartphone />
-    }
-  ];
+  const Zap = () => (
+    <Icon>
+      <polygon points="13,2 3,14 12,14 11,22 21,10 12,10 13,2"/>
+    </Icon>
+  );
 
-  const technologies = [
-    { name: "React", level: 95 },
-    { name: "Next.js", level: 90 },
-    { name: "Node.js", level: 88 },
-    { name: "TypeScript", level: 85 },
-    { name: "AWS", level: 92 },
-    { name: "Docker", level: 80 }
-  ];
+  const Shield = () => (
+    <Icon>
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+    </Icon>
+  );
+
+  const Arrow = () => (
+    <svg viewBox="0 0 24 24" aria-hidden className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+  );
+
+  // Card components matching landing page exactly
+  const ServiceCard = ({ title, children, icon, className }) => (
+    <div className={`group relative flex h-full flex-col rounded-xl border-2 border-gray-200 bg-white p-6 shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:scale-[1.02] hover:border-[#262262] ${className || ''}`}>
+      <div className="mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
+        <div className="text-[#da1c5c]">
+          {icon}
+        </div>
+      </div>
+      <h3 className="text-lg font-semibold text-[#262262] transition-colors duration-300 group-hover:text-[#da1c5c] mb-3">{title}</h3>
+      <p className="mt-2 text-sm text-gray-600 leading-relaxed flex-grow">{children}</p>
+      <div className="mt-4 h-1 w-12 bg-gradient-to-r from-[#da1c5c] to-[#FFB700] rounded-full transition-all duration-300 group-hover:w-20" />
+    </div>
+  );
+
+  const ProcessCard = ({ title, children, step, className }) => (
+    <div className={`group relative flex h-full flex-col rounded-2xl border border-[#70CBD0]/30 bg-gradient-to-br from-[#70CBD0]/10 to-[#70CBD0]/5 p-6 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:scale-[1.02] hover:border-[#70CBD0] ${className || ''}`}>
+      <div className="mb-2 text-xs font-medium uppercase tracking-wide text-[#70CBD0] group-hover:text-[#da1c5c] transition-colors duration-300">{step}</div>
+      <h3 className="text-lg font-semibold text-[#262262] transition-colors duration-300 group-hover:text-[#70CBD0]">{title}</h3>
+      <p className="mt-2 text-sm text-gray-600 leading-relaxed">{children}</p>
+      <div className="mt-4 h-0.5 w-8 bg-gradient-to-r from-[#70CBD0] to-[#da1c5c] rounded-full transition-all duration-300 group-hover:w-12" />
+    </div>
+  );
+
+  const AboutCard = ({ title, children, color, className }) => {
+    const colorClasses = {
+      fuschia: "from-[#da1c5c]/15 to-[#da1c5c]/5 border-[#da1c5c]/20 hover:shadow-[#da1c5c]/20 hover:border-[#da1c5c]/40",
+      navy: "from-[#262262]/15 to-[#262262]/5 border-[#262262]/20 hover:shadow-[#262262]/20 hover:border-[#262262]/40", 
+      gold: "from-[#FFB700]/15 to-[#FFB700]/5 border-[#FFB700]/20 hover:shadow-[#FFB700]/20 hover:border-[#FFB700]/40"
+    };
+    
+    return (
+      <div className={`group relative flex h-full flex-col rounded-2xl border-2 bg-gradient-to-br p-6 shadow-lg transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.02] ${colorClasses[color]} ${className || ''}`}>
+        <h3 className="text-lg font-semibold text-[#262262] transition-colors duration-300 group-hover:text-[#da1c5c] mb-3">{title}</h3>
+        <p className="text-sm text-gray-700 leading-relaxed flex-grow">{children}</p>
+        <div className="mt-4 h-1 w-12 bg-gradient-to-r from-[#da1c5c] to-[#FFB700] rounded-full transition-all duration-300 group-hover:w-20" />
+      </div>
+    );
+  };
+
+  const Stat = ({ value, label, className }) => (
+    <div className={`rounded-2xl border-2 p-6 text-center shadow-lg transition-all duration-500 hover:shadow-xl hover:-translate-y-2 hover:scale-105 ${className || 'bg-white border-gray-200'}`}>
+      <div className="text-4xl font-bold tracking-tight transition-all duration-300 hover:text-[#262262]">{value}</div>
+      <div className="mt-2 text-sm text-gray-600 leading-tight">{label}</div>
+    </div>
+  );
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#70CBD0]/10 to-[#70CBD0]/5">
@@ -100,37 +134,33 @@ const WebsiteDevelopment = () => {
               <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-8">
                 Fast, scalable, user-friendly websites using modern frameworks — crafted to meet your goals and delight users.
               </p>
-              <div className="max-w-3xl mx-auto text-gray-600 leading-relaxed">
-                <p className="mb-4">
-                  At LunaraTech, we specialize in creating custom web applications that drive business growth. Our development team combines cutting-edge technologies with proven methodologies to deliver solutions that not only meet your current needs but scale with your business.
-                </p>
-                <p>
-                  From responsive websites to complex enterprise applications, we ensure every project is built with performance, security, and user experience as top priorities. Our expertise spans across modern JavaScript frameworks, cloud infrastructure, and mobile-first design principles.
-                </p>
-              </div>
             </div>
+          </div>
+
+          {/* Content Cards */}
+          <div className="grid lg:grid-cols-2 gap-8 mb-20">
+            <AboutCard color="navy" title="Our Expertise">
+              At LunaraTech, we specialize in creating custom web applications that drive business growth. Our development team combines cutting-edge technologies with proven methodologies to deliver solutions that not only meet your current needs but scale with your business.
+            </AboutCard>
+            <AboutCard color="gold" title="Technology Focus">
+              From responsive websites to complex enterprise applications, we ensure every project is built with performance, security, and user experience as top priorities. Our expertise spans across modern JavaScript frameworks, cloud infrastructure, and mobile-first design principles.
+            </AboutCard>
           </div>
 
           {/* Features Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
-            {features.map((feature, index) => (
-              <div 
-                key={index}
-                className={`group relative flex h-full flex-col rounded-xl border-2 border-gray-200 bg-white p-6 shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:scale-[1.02] hover:border-[#262262] ${
-                  activeFeature === index ? 'border-[#da1c5c]' : ''
-                }`}
-                onClick={() => setActiveFeature(index)}
-              >
-                <div className="mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
-                  <div className="text-[#da1c5c]">
-                    {feature.icon}
-                  </div>
-                </div>
-                <h3 className="text-lg font-semibold text-[#262262] transition-colors duration-300 group-hover:text-[#da1c5c] mb-3">{feature.title}</h3>
-                <p className="text-sm text-gray-600 leading-relaxed flex-grow">{feature.description}</p>
-                <div className="mt-4 h-1 w-12 bg-gradient-to-r from-[#da1c5c] to-[#FFB700] rounded-full transition-all duration-300 group-hover:w-20" />
-              </div>
-            ))}
+            <ServiceCard title="Modern Frameworks" icon={<Code />}>
+              React, Next.js, Vue.js, and Angular for lightning-fast, scalable applications that deliver exceptional user experiences.
+            </ServiceCard>
+            <ServiceCard title="E-commerce Solutions" icon={<Globe />}>
+              Complete online stores with secure payment processing, inventory management, and customer analytics to drive sales growth.
+            </ServiceCard>
+            <ServiceCard title="Enterprise Applications" icon={<Shield />}>
+              Scalable applications handling thousands of users and complex workflows with enterprise-grade security and performance.
+            </ServiceCard>
+            <ServiceCard title="Mobile-First Design" icon={<Smartphone />}>
+              Responsive designs that work perfectly on all devices and screen sizes, ensuring optimal user experience everywhere.
+            </ServiceCard>
           </div>
         </div>
       </section>
@@ -141,18 +171,26 @@ const WebsiteDevelopment = () => {
           <div className="text-center mb-16">
             <h2 className="text-3xl font-semibold tracking-tight text-[#262262] sm:text-4xl mb-4">Our Technology Stack</h2>
             <p className="text-xl text-gray-600 mb-8">Cutting-edge technologies for modern web development</p>
-            <div className="max-w-3xl mx-auto text-gray-600 leading-relaxed">
-              <p className="mb-4">
-                We stay at the forefront of web development by leveraging the latest technologies and frameworks. Our team is proficient in React, Next.js, Vue.js, and Angular for frontend development, while Node.js, Python, and Go power our backend solutions.
-              </p>
-              <p>
-                For deployment and infrastructure, we rely on AWS, Google Cloud, and Azure to ensure scalability and reliability. Our development process includes automated testing, continuous integration, and containerization with Docker for consistent deployments.
-              </p>
-            </div>
+          </div>
+          
+          <div className="grid lg:grid-cols-2 gap-8 mb-16">
+            <AboutCard color="fuschia" title="Frontend Technologies">
+              We stay at the forefront of web development by leveraging the latest technologies and frameworks. Our team is proficient in React, Next.js, Vue.js, and Angular for frontend development, ensuring optimal performance and user experience.
+            </AboutCard>
+            <AboutCard color="navy" title="Backend & Infrastructure">
+              For deployment and infrastructure, we rely on AWS, Google Cloud, and Azure to ensure scalability and reliability. Our development process includes automated testing, continuous integration, and containerization with Docker for consistent deployments.
+            </AboutCard>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {technologies.map((tech, index) => (
+            {[
+              { name: "React", level: 95 },
+              { name: "Next.js", level: 90 },
+              { name: "Node.js", level: 88 },
+              { name: "TypeScript", level: 85 },
+              { name: "AWS", level: 92 },
+              { name: "Docker", level: 80 }
+            ].map((tech, index) => (
               <div key={index} className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                 <div className="flex justify-between items-center mb-4">
                   <h3 className="text-lg font-semibold text-[#262262]">{tech.name}</h3>
@@ -176,33 +214,30 @@ const WebsiteDevelopment = () => {
           <div className="text-center mb-16">
             <h2 className="text-3xl font-semibold tracking-tight text-[#262262] sm:text-4xl mb-4">Our Development Process</h2>
             <p className="text-xl text-gray-600 mb-8">A systematic approach to delivering exceptional web applications</p>
-            <div className="max-w-3xl mx-auto text-gray-600 leading-relaxed">
-              <p className="mb-4">
-                Our proven development methodology ensures every project is delivered on time, within budget, and exceeds expectations. We follow industry best practices including agile development, test-driven development, and continuous integration.
-              </p>
-              <p>
-                From initial concept to final deployment, we maintain clear communication, regular updates, and thorough testing at every stage. Our process is designed to minimize risks while maximizing the value delivered to your business.
-              </p>
-            </div>
+          </div>
+          
+          <div className="grid lg:grid-cols-2 gap-8 mb-16">
+            <AboutCard color="gold" title="Methodology">
+              Our proven development methodology ensures every project is delivered on time, within budget, and exceeds expectations. We follow industry best practices including agile development, test-driven development, and continuous integration.
+            </AboutCard>
+            <AboutCard color="fuschia" title="Quality Assurance">
+              From initial concept to final deployment, we maintain clear communication, regular updates, and thorough testing at every stage. Our process is designed to minimize risks while maximizing the value delivered to your business.
+            </AboutCard>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { step: "01", title: "Discovery & Planning", description: "Understanding your business goals, target audience, and technical requirements through comprehensive analysis." },
-              { step: "02", title: "Design & Prototyping", description: "Creating wireframes, mockups, and interactive prototypes to visualize the user experience and functionality." },
-              { step: "03", title: "Development & Testing", description: "Building the application using modern frameworks with continuous testing and quality assurance." },
-              { step: "04", title: "Launch & Optimization", description: "Deploying to production with monitoring, performance optimization, and ongoing maintenance support." }
-            ].map((step, index) => (
-              <div key={index} className="group bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                <div className="mb-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-[#da1c5c] to-[#FFB700] rounded-full flex items-center justify-center text-white font-bold text-lg mb-4">
-                    {step.step}
-                  </div>
-                  <h3 className="text-lg font-semibold text-[#262262] mb-2">{step.title}</h3>
-                  <p className="text-sm text-gray-600 leading-relaxed">{step.description}</p>
-                </div>
-              </div>
-            ))}
+            <ProcessCard step="01" title="Discovery & Planning">
+              Understanding your business goals, target audience, and technical requirements through comprehensive analysis and stakeholder interviews.
+            </ProcessCard>
+            <ProcessCard step="02" title="Design & Prototyping">
+              Creating wireframes, mockups, and interactive prototypes to visualize the user experience and functionality before development begins.
+            </ProcessCard>
+            <ProcessCard step="03" title="Development & Testing">
+              Building the application using modern frameworks with continuous testing, code reviews, and quality assurance throughout the process.
+            </ProcessCard>
+            <ProcessCard step="04" title="Launch & Optimization">
+              Deploying to production with comprehensive monitoring, performance optimization, and ongoing maintenance support for long-term success.
+            </ProcessCard>
           </div>
         </div>
       </section>
@@ -213,14 +248,15 @@ const WebsiteDevelopment = () => {
           <div className="text-center mb-16">
             <h2 className="text-3xl font-semibold tracking-tight text-[#262262] sm:text-4xl mb-4">Recent Projects</h2>
             <p className="text-xl text-gray-600 mb-8">See what we've built for our clients</p>
-            <div className="max-w-3xl mx-auto text-gray-600 leading-relaxed">
-              <p className="mb-4">
-                Our portfolio showcases a diverse range of successful web development projects across various industries. From e-commerce platforms to enterprise applications, each project demonstrates our commitment to quality, innovation, and client satisfaction.
-              </p>
-              <p>
-                We take pride in delivering solutions that not only meet technical requirements but also drive real business results. Our clients consistently report improved user engagement, increased conversions, and enhanced operational efficiency.
-              </p>
-            </div>
+          </div>
+          
+          <div className="grid lg:grid-cols-2 gap-8 mb-16">
+            <AboutCard color="navy" title="Portfolio Diversity">
+              Our portfolio showcases a diverse range of successful web development projects across various industries. From e-commerce platforms to enterprise applications, each project demonstrates our commitment to quality, innovation, and client satisfaction.
+            </AboutCard>
+            <AboutCard color="gold" title="Business Results">
+              We take pride in delivering solutions that not only meet technical requirements but also drive real business results. Our clients consistently report improved user engagement, increased conversions, and enhanced operational efficiency.
+            </AboutCard>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -274,6 +310,23 @@ const WebsiteDevelopment = () => {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-semibold tracking-tight text-[#262262] sm:text-4xl mb-4">Why Choose LunaraTech</h2>
+            <p className="text-xl text-gray-600 mb-8">Proven results and expertise in web development</p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <Stat value="50+" label="Projects Delivered" />
+            <Stat value="99.9%" label="Uptime Guarantee" />
+            <Stat value="< 2s" label="Average Load Time" />
+            <Stat value="100%" label="Client Satisfaction" />
           </div>
         </div>
       </section>

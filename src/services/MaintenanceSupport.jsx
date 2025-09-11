@@ -2,103 +2,102 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const MaintenanceSupport = () => {
-  const [activeSupport, setActiveSupport] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
-  const [ticketCount, setTicketCount] = useState(0);
 
   useEffect(() => {
     setIsVisible(true);
-    // Simulate ticket counter
-    const interval = setInterval(() => {
-      setTicketCount(prev => prev + 1);
-    }, 3000);
-    return () => clearInterval(interval);
   }, []);
 
-  // Icon components matching landing page style
+  // Icon components matching landing page exactly
+  const Icon = ({ children }) => (
+    <svg viewBox="0 0 24 24" aria-hidden className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      {children}
+    </svg>
+  );
+
   const Check = () => (
     <svg viewBox="0 0 24 24" aria-hidden className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
   );
+
   const Eye = () => (
-    <svg viewBox="0 0 24 24" aria-hidden className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <Icon>
       <path d="M1 12s4-8 7-8 7 8 7 8-4 8-7 8-7-8-7-8z"/>
       <circle cx="12" cy="12" r="3"/>
-    </svg>
+    </Icon>
   );
+
   const RefreshCw = () => (
-    <svg viewBox="0 0 24 24" aria-hidden className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <Icon>
       <polyline points="23,4 23,10 17,10"/>
       <polyline points="1,20 1,14 7,14"/>
       <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/>
-    </svg>
+    </Icon>
   );
+
   const Rocket = () => (
-    <svg viewBox="0 0 24 24" aria-hidden className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <Icon>
       <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/>
       <path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/>
       <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/>
       <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/>
-    </svg>
+    </Icon>
   );
+
   const Wrench = () => (
-    <svg viewBox="0 0 24 24" aria-hidden className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <Icon>
       <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
-    </svg>
+    </Icon>
   );
 
-  const supportServices = [
-    {
-      title: "24/7 Monitoring",
-      description: "Continuous monitoring of your application performance and uptime",
-      icon: <Eye />
-    },
-    {
-      title: "Regular Updates",
-      description: "Scheduled updates for security patches and feature enhancements",
-      icon: <RefreshCw />
-    },
-    {
-      title: "Feature Development",
-      description: "Ongoing development of new features based on user feedback",
-      icon: <Rocket />
-    },
-    {
-      title: "Technical Support",
-      description: "Expert technical support for any issues or questions",
-      icon: <Wrench />
-    }
-  ];
+  const Arrow = () => (
+    <svg viewBox="0 0 24 24" aria-hidden className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+  );
 
-  const supportTiers = [
-    {
-      name: "Basic",
-      price: "$299",
-      period: "/month",
-      features: ["Email Support", "Basic Monitoring", "Monthly Updates", "Documentation"],
-      popular: false
-    },
-    {
-      name: "Premium",
-      price: "$599",
-      period: "/month",
-      features: ["Phone + Email Support", "24/7 Monitoring", "Weekly Updates", "Priority Response"],
-      popular: true
-    },
-    {
-      name: "Enterprise",
-      price: "$999",
-      period: "/month",
-      features: ["Dedicated Support", "Real-time Monitoring", "Daily Updates", "On-site Support"],
-      popular: false
-    }
-  ];
+  // Card components matching landing page exactly
+  const ServiceCard = ({ title, children, icon, className }) => (
+    <div className={`group relative flex h-full flex-col rounded-xl border-2 border-gray-200 bg-white p-6 shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:scale-[1.02] hover:border-[#262262] ${className || ''}`}>
+      <div className="mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
+        <div className="text-[#FFB700]">
+          {icon}
+        </div>
+      </div>
+      <h3 className="text-lg font-semibold text-[#262262] transition-colors duration-300 group-hover:text-[#da1c5c] mb-3">{title}</h3>
+      <p className="mt-2 text-sm text-gray-600 leading-relaxed flex-grow">{children}</p>
+      <div className="mt-4 h-1 w-12 bg-gradient-to-r from-[#FFB700] to-[#da1c5c] rounded-full transition-all duration-300 group-hover:w-20" />
+    </div>
+  );
 
-  const supportStats = [
-    { label: "Response Time", value: "< 2 hours", color: "text-[#da1c5c]" },
-    { label: "Uptime", value: "99.9%", color: "text-[#70CBD0]" },
-    { label: "Tickets Resolved", value: `${ticketCount}+`, color: "text-[#FFB700]" },
-    { label: "Client Satisfaction", value: "98%", color: "text-[#262262]" }
-  ];
+  const ProcessCard = ({ title, children, step, className }) => (
+    <div className={`group relative flex h-full flex-col rounded-2xl border border-[#70CBD0]/30 bg-gradient-to-br from-[#70CBD0]/10 to-[#70CBD0]/5 p-6 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:scale-[1.02] hover:border-[#70CBD0] ${className || ''}`}>
+      <div className="mb-2 text-xs font-medium uppercase tracking-wide text-[#70CBD0] group-hover:text-[#da1c5c] transition-colors duration-300">{step}</div>
+      <h3 className="text-lg font-semibold text-[#262262] transition-colors duration-300 group-hover:text-[#70CBD0]">{title}</h3>
+      <p className="mt-2 text-sm text-gray-600 leading-relaxed">{children}</p>
+      <div className="mt-4 h-0.5 w-8 bg-gradient-to-r from-[#70CBD0] to-[#da1c5c] rounded-full transition-all duration-300 group-hover:w-12" />
+    </div>
+  );
+
+  const AboutCard = ({ title, children, color, className }) => {
+    const colorClasses = {
+      fuschia: "from-[#da1c5c]/15 to-[#da1c5c]/5 border-[#da1c5c]/20 hover:shadow-[#da1c5c]/20 hover:border-[#da1c5c]/40",
+      navy: "from-[#262262]/15 to-[#262262]/5 border-[#262262]/20 hover:shadow-[#262262]/20 hover:border-[#262262]/40", 
+      gold: "from-[#FFB700]/15 to-[#FFB700]/5 border-[#FFB700]/20 hover:shadow-[#FFB700]/20 hover:border-[#FFB700]/40"
+    };
+    
+    return (
+      <div className={`group relative flex h-full flex-col rounded-2xl border-2 bg-gradient-to-br p-6 shadow-lg transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.02] ${colorClasses[color]} ${className || ''}`}>
+        <h3 className="text-lg font-semibold text-[#262262] transition-colors duration-300 group-hover:text-[#da1c5c] mb-3">{title}</h3>
+        <p className="text-sm text-gray-700 leading-relaxed flex-grow">{children}</p>
+        <div className="mt-4 h-1 w-12 bg-gradient-to-r from-[#da1c5c] to-[#FFB700] rounded-full transition-all duration-300 group-hover:w-20" />
+      </div>
+    );
+  };
+
+  const Stat = ({ value, label, className }) => (
+    <div className={`rounded-2xl border-2 p-6 text-center shadow-lg transition-all duration-500 hover:shadow-xl hover:-translate-y-2 hover:scale-105 ${className || 'bg-white border-gray-200'}`}>
+      <div className="text-4xl font-bold tracking-tight transition-all duration-300 hover:text-[#262262]">{value}</div>
+      <div className="mt-2 text-sm text-gray-600 leading-tight">{label}</div>
+    </div>
+  );
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#70CBD0]/10 to-[#70CBD0]/5">
@@ -131,25 +130,25 @@ const MaintenanceSupport = () => {
               <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-8">
                 Reliable updates, monitoring, and feature rollouts to keep you growing.
               </p>
-              <div className="max-w-3xl mx-auto text-gray-600 leading-relaxed">
-                <p className="mb-4">
-                  Our maintenance and support services ensure your applications remain secure, performant, and up-to-date. We provide comprehensive support that covers everything from routine maintenance to emergency response and feature development.
-                </p>
-                <p>
-                  With 24/7 monitoring and proactive maintenance, we help prevent issues before they impact your users. Our support team is always available to address any concerns and keep your applications running smoothly.
-                </p>
-              </div>
             </div>
+          </div>
+
+          {/* Content Cards */}
+          <div className="grid lg:grid-cols-2 gap-8 mb-20">
+            <AboutCard color="navy" title="Comprehensive Support">
+              Our maintenance and support services ensure your applications remain secure, performant, and up-to-date. We provide comprehensive support that covers everything from routine maintenance to emergency response and feature development.
+            </AboutCard>
+            <AboutCard color="gold" title="Proactive Monitoring">
+              With 24/7 monitoring and proactive maintenance, we help prevent issues before they impact your users. Our support team is always available to address any concerns and keep your applications running smoothly.
+            </AboutCard>
           </div>
 
           {/* Support Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20">
-            {supportStats.map((stat, index) => (
-              <div key={index} className="bg-white rounded-xl p-6 shadow-md text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                <div className={`text-3xl font-bold ${stat.color} mb-2`}>{stat.value}</div>
-                <div className="text-gray-600 font-medium">{stat.label}</div>
-              </div>
-            ))}
+            <Stat value="< 2 hours" label="Response Time" />
+            <Stat value="99.9%" label="Uptime Guarantee" />
+            <Stat value="500+" label="Tickets Resolved" />
+            <Stat value="98%" label="Client Satisfaction" />
           </div>
         </div>
       </section>
@@ -160,29 +159,30 @@ const MaintenanceSupport = () => {
           <div className="text-center mb-16">
             <h2 className="text-3xl font-semibold tracking-tight text-[#262262] sm:text-4xl mb-4">Support Services</h2>
             <p className="text-xl text-gray-600 mb-8">Comprehensive support to keep your application running smoothly</p>
-            <div className="max-w-3xl mx-auto text-gray-600 leading-relaxed">
-              <p className="mb-4">
-                Our support services are designed to provide peace of mind and ensure your applications continue to deliver value to your business. We offer multiple levels of support to match your specific needs and budget.
-              </p>
-              <p>
-                From basic monitoring to dedicated support teams, we have solutions that scale with your business. Our experienced support professionals are available around the clock to address any issues and keep your systems running optimally.
-              </p>
-            </div>
+          </div>
+          
+          <div className="grid lg:grid-cols-2 gap-8 mb-16">
+            <AboutCard color="fuschia" title="Multi-Level Support">
+              Our support services are designed to provide peace of mind and ensure your applications continue to deliver value to your business. We offer multiple levels of support to match your specific needs and budget.
+            </AboutCard>
+            <AboutCard color="navy" title="Expert Team">
+              From basic monitoring to dedicated support teams, we have solutions that scale with your business. Our experienced support professionals are available around the clock to address any issues and keep your systems running optimally.
+            </AboutCard>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {supportServices.map((service, index) => (
-              <div key={index} className="group bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                <div className="mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
-                  <div className="text-[#FFB700]">
-                    {service.icon}
-                  </div>
-                </div>
-                <h3 className="text-lg font-semibold text-[#262262] transition-colors duration-300 group-hover:text-[#da1c5c] mb-3">{service.title}</h3>
-                <p className="text-sm text-gray-600 leading-relaxed flex-grow">{service.description}</p>
-                <div className="mt-4 h-1 w-12 bg-gradient-to-r from-[#FFB700] to-[#da1c5c] rounded-full transition-all duration-300 group-hover:w-20" />
-              </div>
-            ))}
+            <ServiceCard title="24/7 Monitoring" icon={<Eye />}>
+              Continuous monitoring of your application performance and uptime with real-time alerts and proactive issue detection.
+            </ServiceCard>
+            <ServiceCard title="Regular Updates" icon={<RefreshCw />}>
+              Scheduled updates for security patches and feature enhancements to keep your application current and secure.
+            </ServiceCard>
+            <ServiceCard title="Feature Development" icon={<Rocket />}>
+              Ongoing development of new features based on user feedback and business requirements for continuous improvement.
+            </ServiceCard>
+            <ServiceCard title="Technical Support" icon={<Wrench />}>
+              Expert technical support for any issues or questions with rapid response times and comprehensive solutions.
+            </ServiceCard>
           </div>
         </div>
       </section>
@@ -193,18 +193,23 @@ const MaintenanceSupport = () => {
           <div className="text-center mb-16">
             <h2 className="text-3xl font-semibold tracking-tight text-[#262262] sm:text-4xl mb-4">Support Tiers</h2>
             <p className="text-xl text-gray-600 mb-8">Choose the support level that fits your needs</p>
-            <div className="max-w-3xl mx-auto text-gray-600 leading-relaxed">
-              <p className="mb-4">
-                We offer flexible support tiers to accommodate different business needs and budgets. Each tier includes specific features and response times designed to provide the right level of support for your application.
-              </p>
-              <p>
-                Our support tiers are designed to scale with your business, allowing you to upgrade or downgrade as your needs change. All tiers include our core monitoring and maintenance services with varying levels of support and response times.
-              </p>
-            </div>
+          </div>
+          
+          <div className="grid lg:grid-cols-2 gap-8 mb-16">
+            <AboutCard color="gold" title="Flexible Options">
+              We offer flexible support tiers to accommodate different business needs and budgets. Each tier includes specific features and response times designed to provide the right level of support for your application.
+            </AboutCard>
+            <AboutCard color="fuschia" title="Scalable Solutions">
+              Our support tiers are designed to scale with your business, allowing you to upgrade or downgrade as your needs change. All tiers include our core monitoring and maintenance services with varying levels of support and response times.
+            </AboutCard>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
-            {supportTiers.map((tier, index) => (
+            {[
+              { name: "Basic", price: "$299", period: "/month", features: ["Email Support", "Basic Monitoring", "Monthly Updates", "Documentation"], popular: false },
+              { name: "Premium", price: "$599", period: "/month", features: ["Phone + Email Support", "24/7 Monitoring", "Weekly Updates", "Priority Response"], popular: true },
+              { name: "Enterprise", price: "$999", period: "/month", features: ["Dedicated Support", "Real-time Monitoring", "Daily Updates", "On-site Support"], popular: false }
+            ].map((tier, index) => (
               <div key={index} className={`relative bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 ${
                 tier.popular ? 'border-2 border-[#FFB700] scale-105' : 'border-2 border-transparent'
               }`}>
@@ -252,14 +257,15 @@ const MaintenanceSupport = () => {
           <div className="text-center mb-16">
             <h2 className="text-3xl font-semibold tracking-tight text-[#262262] sm:text-4xl mb-4">How We Support You</h2>
             <p className="text-xl text-gray-600 mb-8">Our systematic approach to providing exceptional support</p>
-            <div className="max-w-3xl mx-auto text-gray-600 leading-relaxed">
-              <p className="mb-4">
-                Our support process is designed to ensure quick resolution of issues while maintaining high service quality. We follow a structured approach that prioritizes critical issues and provides clear communication throughout the resolution process.
-              </p>
-              <p>
-                From initial issue detection to final resolution, our support team works efficiently to minimize downtime and ensure your applications continue to serve your users effectively. We provide regular updates and detailed reports on all support activities.
-              </p>
-            </div>
+          </div>
+          
+          <div className="grid lg:grid-cols-2 gap-8 mb-16">
+            <AboutCard color="navy" title="Structured Process">
+              Our support process is designed to ensure quick resolution of issues while maintaining high service quality. We follow a structured approach that prioritizes critical issues and provides clear communication throughout the resolution process.
+            </AboutCard>
+            <AboutCard color="gold" title="Transparent Communication">
+              From initial issue detection to final resolution, our support team works efficiently to minimize downtime and ensure your applications continue to serve your users effectively. We provide regular updates and detailed reports on all support activities.
+            </AboutCard>
           </div>
           
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -309,14 +315,15 @@ const MaintenanceSupport = () => {
           <div className="text-center mb-16">
             <h2 className="text-3xl font-semibold tracking-tight text-[#262262] sm:text-4xl mb-4">Why Choose Our Support?</h2>
             <p className="text-xl text-gray-600 mb-8">The benefits of having reliable technical support</p>
-            <div className="max-w-3xl mx-auto text-gray-600 leading-relaxed">
-              <p className="mb-4">
-                Our support services provide more than just issue resolution—they offer peace of mind and ensure your applications continue to deliver value to your business. With our comprehensive support, you can focus on growing your business while we handle the technical details.
-              </p>
-              <p>
-                Our support team's expertise and dedication result in faster issue resolution, improved system reliability, and better overall performance. This translates to better user experiences and increased business success.
-              </p>
-            </div>
+          </div>
+          
+          <div className="grid lg:grid-cols-2 gap-8 mb-16">
+            <AboutCard color="fuschia" title="Peace of Mind">
+              Our support services provide more than just issue resolution—they offer peace of mind and ensure your applications continue to deliver value to your business. With our comprehensive support, you can focus on growing your business while we handle the technical details.
+            </AboutCard>
+            <AboutCard color="navy" title="Proven Results">
+              Our support team's expertise and dedication result in faster issue resolution, improved system reliability, and better overall performance. This translates to better user experiences and increased business success.
+            </AboutCard>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
@@ -349,6 +356,23 @@ const MaintenanceSupport = () => {
               <div className="text-3xl font-bold text-[#FFB700]">100%</div>
               <p className="text-sm text-gray-500">Scalable</p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-semibold tracking-tight text-[#262262] sm:text-4xl mb-4">Our Support Performance</h2>
+            <p className="text-xl text-gray-600 mb-8">Proven results in maintenance and support services</p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <Stat value="< 2 hours" label="Average Response" />
+            <Stat value="99.9%" label="Uptime SLA" />
+            <Stat value="500+" label="Issues Resolved" />
+            <Stat value="98%" label="Client Satisfaction" />
           </div>
         </div>
       </section>

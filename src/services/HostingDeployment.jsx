@@ -2,93 +2,98 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const HostingDeployment = () => {
-  const [activeTab, setActiveTab] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
-  const [uptime, setUptime] = useState(99.9);
 
   useEffect(() => {
     setIsVisible(true);
-    // Simulate uptime counter
-    const interval = setInterval(() => {
-      setUptime(prev => Math.min(99.99, prev + 0.01));
-    }, 2000);
-    return () => clearInterval(interval);
   }, []);
 
-  // Icon components matching landing page style
+  // Icon components matching landing page exactly
+  const Icon = ({ children }) => (
+    <svg viewBox="0 0 24 24" aria-hidden className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      {children}
+    </svg>
+  );
+
   const Check = () => (
     <svg viewBox="0 0 24 24" aria-hidden className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
   );
+
   const Cloud = () => (
-    <svg viewBox="0 0 24 24" aria-hidden className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <Icon>
       <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
-    </svg>
+    </Icon>
   );
+
   const Shield = () => (
-    <svg viewBox="0 0 24 24" aria-hidden className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <Icon>
       <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-    </svg>
+    </Icon>
   );
+
   const Zap = () => (
-    <svg viewBox="0 0 24 24" aria-hidden className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <Icon>
       <polygon points="13,2 3,14 12,14 11,22 21,10 12,10 13,2"/>
-    </svg>
+    </Icon>
   );
+
   const BarChart = () => (
-    <svg viewBox="0 0 24 24" aria-hidden className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <Icon>
       <line x1="12" y1="20" x2="12" y2="10"/>
       <line x1="18" y1="20" x2="18" y2="4"/>
       <line x1="6" y1="20" x2="6" y2="16"/>
-    </svg>
+    </Icon>
   );
 
-  const hostingFeatures = [
-    {
-      title: "Cloud Infrastructure",
-      description: "AWS, Google Cloud, and Azure hosting with auto-scaling and global CDN distribution",
-      icon: <Cloud />
-    },
-    {
-      title: "Security & SSL",
-      description: "Automatic SSL certificates and DDoS protection to keep your site safe",
-      icon: <Shield />
-    },
-    {
-      title: "Performance",
-      description: "Caching, compression, and CDN optimization for lightning-fast load times",
-      icon: <Zap />
-    },
-    {
-      title: "Monitoring",
-      description: "24/7 monitoring and alerting systems for proactive issue detection",
-      icon: <BarChart />
-    }
-  ];
+  const Arrow = () => (
+    <svg viewBox="0 0 24 24" aria-hidden className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+  );
 
-  const deploymentTabs = [
-    {
-      title: "Environment Setup",
-      description: "Configure development, staging, and production environments",
-      steps: ["Server Configuration", "Database Setup", "Environment Variables", "Security Configuration"]
-    },
-    {
-      title: "CI/CD Pipeline",
-      description: "Automated testing and deployment workflows",
-      steps: ["Code Integration", "Automated Testing", "Build Process", "Deployment"]
-    },
-    {
-      title: "Monitoring & Maintenance",
-      description: "Ongoing monitoring and maintenance services",
-      steps: ["Performance Monitoring", "Security Updates", "Backup Management", "Scaling"]
-    }
-  ];
+  // Card components matching landing page exactly
+  const ServiceCard = ({ title, children, icon, className }) => (
+    <div className={`group relative flex h-full flex-col rounded-xl border-2 border-gray-200 bg-white p-6 shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:scale-[1.02] hover:border-[#262262] ${className || ''}`}>
+      <div className="mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
+        <div className="text-[#da1c5c]">
+          {icon}
+        </div>
+      </div>
+      <h3 className="text-lg font-semibold text-[#262262] transition-colors duration-300 group-hover:text-[#da1c5c] mb-3">{title}</h3>
+      <p className="mt-2 text-sm text-gray-600 leading-relaxed flex-grow">{children}</p>
+      <div className="mt-4 h-1 w-12 bg-gradient-to-r from-[#da1c5c] to-[#FFB700] rounded-full transition-all duration-300 group-hover:w-20" />
+    </div>
+  );
 
-  const infrastructureStats = [
-    { label: "Uptime", value: `${uptime.toFixed(2)}%`, color: "text-[#da1c5c]" },
-    { label: "Response Time", value: "< 100ms", color: "text-[#70CBD0]" },
-    { label: "Global CDN", value: "200+ Locations", color: "text-[#FFB700]" },
-    { label: "Support", value: "24/7", color: "text-[#262262]" }
-  ];
+  const ProcessCard = ({ title, children, step, className }) => (
+    <div className={`group relative flex h-full flex-col rounded-2xl border border-[#70CBD0]/30 bg-gradient-to-br from-[#70CBD0]/10 to-[#70CBD0]/5 p-6 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:scale-[1.02] hover:border-[#70CBD0] ${className || ''}`}>
+      <div className="mb-2 text-xs font-medium uppercase tracking-wide text-[#70CBD0] group-hover:text-[#da1c5c] transition-colors duration-300">{step}</div>
+      <h3 className="text-lg font-semibold text-[#262262] transition-colors duration-300 group-hover:text-[#70CBD0]">{title}</h3>
+      <p className="mt-2 text-sm text-gray-600 leading-relaxed">{children}</p>
+      <div className="mt-4 h-0.5 w-8 bg-gradient-to-r from-[#70CBD0] to-[#da1c5c] rounded-full transition-all duration-300 group-hover:w-12" />
+    </div>
+  );
+
+  const AboutCard = ({ title, children, color, className }) => {
+    const colorClasses = {
+      fuschia: "from-[#da1c5c]/15 to-[#da1c5c]/5 border-[#da1c5c]/20 hover:shadow-[#da1c5c]/20 hover:border-[#da1c5c]/40",
+      navy: "from-[#262262]/15 to-[#262262]/5 border-[#262262]/20 hover:shadow-[#262262]/20 hover:border-[#262262]/40", 
+      gold: "from-[#FFB700]/15 to-[#FFB700]/5 border-[#FFB700]/20 hover:shadow-[#FFB700]/20 hover:border-[#FFB700]/40"
+    };
+    
+    return (
+      <div className={`group relative flex h-full flex-col rounded-2xl border-2 bg-gradient-to-br p-6 shadow-lg transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.02] ${colorClasses[color]} ${className || ''}`}>
+        <h3 className="text-lg font-semibold text-[#262262] transition-colors duration-300 group-hover:text-[#da1c5c] mb-3">{title}</h3>
+        <p className="text-sm text-gray-700 leading-relaxed flex-grow">{children}</p>
+        <div className="mt-4 h-1 w-12 bg-gradient-to-r from-[#da1c5c] to-[#FFB700] rounded-full transition-all duration-300 group-hover:w-20" />
+      </div>
+    );
+  };
+
+  const Stat = ({ value, label, className }) => (
+    <div className={`rounded-2xl border-2 p-6 text-center shadow-lg transition-all duration-500 hover:shadow-xl hover:-translate-y-2 hover:scale-105 ${className || 'bg-white border-gray-200'}`}>
+      <div className="text-4xl font-bold tracking-tight transition-all duration-300 hover:text-[#262262]">{value}</div>
+      <div className="mt-2 text-sm text-gray-600 leading-tight">{label}</div>
+    </div>
+  );
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#70CBD0]/10 to-[#70CBD0]/5">
@@ -121,25 +126,25 @@ const HostingDeployment = () => {
               <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-8">
                 Secure, scalable hosting and smooth deployments — your site stays fast and reliable.
               </p>
-              <div className="max-w-3xl mx-auto text-gray-600 leading-relaxed">
-                <p className="mb-4">
-                  Our hosting and deployment services ensure your applications are always available, performant, and secure. We leverage enterprise-grade cloud infrastructure to provide reliable hosting solutions that scale with your business needs.
-                </p>
-                <p>
-                  From initial setup to ongoing maintenance, we handle all aspects of your hosting infrastructure. Our team monitors your applications 24/7, performs regular updates, and ensures optimal performance through continuous optimization.
-                </p>
-              </div>
             </div>
+          </div>
+
+          {/* Content Cards */}
+          <div className="grid lg:grid-cols-2 gap-8 mb-20">
+            <AboutCard color="navy" title="Enterprise Infrastructure">
+              Our hosting and deployment services ensure your applications are always available, performant, and secure. We leverage enterprise-grade cloud infrastructure to provide reliable hosting solutions that scale with your business needs.
+            </AboutCard>
+            <AboutCard color="gold" title="Comprehensive Support">
+              From initial setup to ongoing maintenance, we handle all aspects of your hosting infrastructure. Our team monitors your applications 24/7, performs regular updates, and ensures optimal performance through continuous optimization.
+            </AboutCard>
           </div>
 
           {/* Infrastructure Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20">
-            {infrastructureStats.map((stat, index) => (
-              <div key={index} className="bg-white rounded-xl p-6 shadow-md text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                <div className={`text-3xl font-bold ${stat.color} mb-2`}>{stat.value}</div>
-                <div className="text-gray-600 font-medium">{stat.label}</div>
-              </div>
-            ))}
+            <Stat value="99.9%" label="Uptime Guarantee" />
+            <Stat value="< 100ms" label="Response Time" />
+            <Stat value="200+" label="Global CDN Locations" />
+            <Stat value="24/7" label="Support Available" />
           </div>
         </div>
       </section>
@@ -150,29 +155,30 @@ const HostingDeployment = () => {
           <div className="text-center mb-16">
             <h2 className="text-3xl font-semibold tracking-tight text-[#262262] sm:text-4xl mb-4">Hosting Solutions</h2>
             <p className="text-xl text-gray-600 mb-8">Enterprise-grade infrastructure for your applications</p>
-            <div className="max-w-3xl mx-auto text-gray-600 leading-relaxed">
-              <p className="mb-4">
-                We provide comprehensive hosting solutions that combine reliability, performance, and security. Our infrastructure is built on industry-leading cloud platforms and includes advanced features like auto-scaling, load balancing, and global CDN distribution.
-              </p>
-              <p>
-                Our hosting services are designed to handle everything from small websites to large-scale enterprise applications. We ensure 99.9% uptime, fast response times, and robust security measures to keep your applications running smoothly.
-              </p>
-            </div>
+          </div>
+          
+          <div className="grid lg:grid-cols-2 gap-8 mb-16">
+            <AboutCard color="fuschia" title="Cloud Infrastructure">
+              We provide comprehensive hosting solutions that combine reliability, performance, and security. Our infrastructure is built on industry-leading cloud platforms and includes advanced features like auto-scaling, load balancing, and global CDN distribution.
+            </AboutCard>
+            <AboutCard color="navy" title="Performance Focus">
+              Our hosting services are designed to handle everything from small websites to large-scale enterprise applications. We ensure 99.9% uptime, fast response times, and robust security measures to keep your applications running smoothly.
+            </AboutCard>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {hostingFeatures.map((feature, index) => (
-              <div key={index} className="group bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                <div className="mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
-                  <div className="text-[#da1c5c]">
-                    {feature.icon}
-                  </div>
-                </div>
-                <h3 className="text-lg font-semibold text-[#262262] transition-colors duration-300 group-hover:text-[#da1c5c] mb-3">{feature.title}</h3>
-                <p className="text-sm text-gray-600 leading-relaxed flex-grow">{feature.description}</p>
-                <div className="mt-4 h-1 w-12 bg-gradient-to-r from-[#da1c5c] to-[#FFB700] rounded-full transition-all duration-300 group-hover:w-20" />
-              </div>
-            ))}
+            <ServiceCard title="Cloud Infrastructure" icon={<Cloud />}>
+              AWS, Google Cloud, and Azure hosting with auto-scaling and global CDN distribution for optimal performance worldwide.
+            </ServiceCard>
+            <ServiceCard title="Security & SSL" icon={<Shield />}>
+              Automatic SSL certificates and DDoS protection to keep your site safe and secure from threats and attacks.
+            </ServiceCard>
+            <ServiceCard title="Performance" icon={<Zap />}>
+              Caching, compression, and CDN optimization for lightning-fast load times and exceptional user experience.
+            </ServiceCard>
+            <ServiceCard title="Monitoring" icon={<BarChart />}>
+              24/7 monitoring and alerting systems for proactive issue detection and rapid response to any problems.
+            </ServiceCard>
           </div>
         </div>
       </section>
@@ -183,55 +189,30 @@ const HostingDeployment = () => {
           <div className="text-center mb-16">
             <h2 className="text-3xl font-semibold tracking-tight text-[#262262] sm:text-4xl mb-4">Deployment Process</h2>
             <p className="text-xl text-gray-600 mb-8">Streamlined deployment workflows for reliable releases</p>
-            <div className="max-w-3xl mx-auto text-gray-600 leading-relaxed">
-              <p className="mb-4">
-                Our deployment process is designed to minimize downtime and ensure smooth releases. We use automated CI/CD pipelines that include testing, building, and deployment stages to catch issues early and maintain code quality.
-              </p>
-              <p>
-                From environment setup to production deployment, we handle all aspects of the deployment process. Our team ensures proper configuration, security measures, and monitoring are in place before going live.
-              </p>
-            </div>
           </div>
           
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* Tab Navigation */}
-            <div className="space-y-4">
-              {deploymentTabs.map((tab, index) => (
-                <button
-                  key={index}
-                  onClick={() => setActiveTab(index)}
-                  className={`w-full text-left p-6 rounded-xl transition-all duration-300 ${
-                    activeTab === index
-                      ? 'bg-[#262262] text-white shadow-xl'
-                      : 'bg-white text-gray-700 hover:bg-gray-50 shadow-md hover:shadow-lg'
-                  }`}
-                >
-                  <h3 className="text-xl font-semibold mb-2">{tab.title}</h3>
-                  <p className="text-sm opacity-80">{tab.description}</p>
-                </button>
-              ))}
-            </div>
-            
-            {/* Tab Content */}
-            <div className="bg-white rounded-xl p-8 shadow-lg">
-              <div className="mb-6">
-                <h3 className="text-2xl font-semibold text-[#262262] mb-2">
-                  {deploymentTabs[activeTab].title}
-                </h3>
-                <p className="text-gray-600">{deploymentTabs[activeTab].description}</p>
-              </div>
-              
-              <div className="space-y-4">
-                {deploymentTabs[activeTab].steps.map((step, stepIndex) => (
-                  <div key={stepIndex} className="flex items-center space-x-4">
-                    <div className="w-8 h-8 rounded-full flex items-center justify-center text-white font-bold text-sm bg-gradient-to-r from-[#da1c5c] to-[#FFB700]">
-                      {stepIndex + 1}
-                    </div>
-                    <span className="text-gray-700 font-medium">{step}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
+          <div className="grid lg:grid-cols-2 gap-8 mb-16">
+            <AboutCard color="gold" title="Automated Workflows">
+              Our deployment process is designed to minimize downtime and ensure smooth releases. We use automated CI/CD pipelines that include testing, building, and deployment stages to catch issues early and maintain code quality.
+            </AboutCard>
+            <AboutCard color="fuschia" title="Comprehensive Setup">
+              From environment setup to production deployment, we handle all aspects of the deployment process. Our team ensures proper configuration, security measures, and monitoring are in place before going live.
+            </AboutCard>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <ProcessCard step="01" title="Environment Setup">
+              Configure development, staging, and production environments with proper security and performance optimization.
+            </ProcessCard>
+            <ProcessCard step="02" title="CI/CD Pipeline">
+              Automated testing and deployment workflows that ensure code quality and smooth releases without manual intervention.
+            </ProcessCard>
+            <ProcessCard step="03" title="Security Configuration">
+              Implement security measures, SSL certificates, and access controls to protect your application and data.
+            </ProcessCard>
+            <ProcessCard step="04" title="Monitoring & Maintenance">
+              Ongoing monitoring and maintenance services to ensure optimal performance and rapid issue resolution.
+            </ProcessCard>
           </div>
         </div>
       </section>
@@ -242,14 +223,15 @@ const HostingDeployment = () => {
           <div className="text-center mb-16">
             <h2 className="text-3xl font-semibold tracking-tight text-[#262262] sm:text-4xl mb-4">Technology Stack</h2>
             <p className="text-xl text-gray-600 mb-8">Modern tools and platforms for reliable hosting</p>
-            <div className="max-w-3xl mx-auto text-gray-600 leading-relaxed">
-              <p className="mb-4">
-                We use industry-leading technologies and platforms to ensure your applications are hosted on reliable, scalable infrastructure. Our technology stack includes cloud providers, containerization tools, and monitoring solutions.
-              </p>
-              <p>
-                Our team stays current with the latest hosting technologies and best practices to provide you with the most effective solutions. We choose technologies based on your specific requirements and long-term scalability needs.
-              </p>
-            </div>
+          </div>
+          
+          <div className="grid lg:grid-cols-2 gap-8 mb-16">
+            <AboutCard color="navy" title="Industry Standards">
+              We use industry-leading technologies and platforms to ensure your applications are hosted on reliable, scalable infrastructure. Our technology stack includes cloud providers, containerization tools, and monitoring solutions.
+            </AboutCard>
+            <AboutCard color="gold" title="Continuous Innovation">
+              Our team stays current with the latest hosting technologies and best practices to provide you with the most effective solutions. We choose technologies based on your specific requirements and long-term scalability needs.
+            </AboutCard>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -288,14 +270,15 @@ const HostingDeployment = () => {
           <div className="text-center mb-16">
             <h2 className="text-3xl font-semibold tracking-tight text-[#262262] sm:text-4xl mb-4">Real-time Monitoring</h2>
             <p className="text-xl text-gray-600 mb-8">24/7 monitoring and alerting for your infrastructure</p>
-            <div className="max-w-3xl mx-auto text-gray-600 leading-relaxed">
-              <p className="mb-4">
-                Our monitoring services provide comprehensive visibility into your application's performance and health. We track key metrics, set up alerts, and provide detailed reports to help you understand your system's behavior.
-              </p>
-              <p>
-                With real-time monitoring, we can quickly identify and resolve issues before they impact your users. Our monitoring dashboard provides insights into performance trends, resource usage, and system health.
-              </p>
-            </div>
+          </div>
+          
+          <div className="grid lg:grid-cols-2 gap-8 mb-16">
+            <AboutCard color="fuschia" title="Comprehensive Monitoring">
+              Our monitoring services provide comprehensive visibility into your application's performance and health. We track key metrics, set up alerts, and provide detailed reports to help you understand your system's behavior.
+            </AboutCard>
+            <AboutCard color="navy" title="Proactive Management">
+              With real-time monitoring, we can quickly identify and resolve issues before they impact your users. Our monitoring dashboard provides insights into performance trends, resource usage, and system health.
+            </AboutCard>
           </div>
           
           <div className="bg-white rounded-xl p-8 shadow-lg">
@@ -305,7 +288,7 @@ const HostingDeployment = () => {
                   <BarChart className="h-8 w-8 text-white" />
                 </div>
                 <h3 className="text-xl font-semibold text-[#262262] mb-2">Performance Metrics</h3>
-                <p className="text-gray-600">CPU, memory, and network monitoring</p>
+                <p className="text-gray-600">CPU, memory, and network monitoring with real-time alerts and detailed analytics.</p>
               </div>
               
               <div className="text-center">
@@ -313,7 +296,7 @@ const HostingDeployment = () => {
                   <Shield className="h-8 w-8 text-white" />
                 </div>
                 <h3 className="text-xl font-semibold text-[#262262] mb-2">Smart Alerts</h3>
-                <p className="text-gray-600">Proactive notifications for issues</p>
+                <p className="text-gray-600">Proactive notifications for issues with intelligent filtering and escalation procedures.</p>
               </div>
               
               <div className="text-center">
@@ -321,9 +304,26 @@ const HostingDeployment = () => {
                   <Zap className="h-8 w-8 text-white" />
                 </div>
                 <h3 className="text-xl font-semibold text-[#262262] mb-2">Analytics</h3>
-                <p className="text-gray-600">Detailed insights and reporting</p>
+                <p className="text-gray-600">Detailed insights and reporting with historical data and trend analysis.</p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-semibold tracking-tight text-[#262262] sm:text-4xl mb-4">Our Hosting Performance</h2>
+            <p className="text-xl text-gray-600 mb-8">Proven reliability and performance metrics</p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <Stat value="99.9%" label="Uptime SLA" />
+            <Stat value="< 100ms" label="Average Response" />
+            <Stat value="24/7" label="Support Coverage" />
+            <Stat value="100%" label="Client Satisfaction" />
           </div>
         </div>
       </section>
