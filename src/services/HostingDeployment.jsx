@@ -235,17 +235,17 @@ const HostingDeployment = () => {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { name: "AWS", description: "Amazon Web Services", icon: "☁️", features: ["EC2", "S3", "CloudFront", "RDS"] },
-              { name: "Docker", description: "Containerization", icon: "🐳", features: ["Containers", "Orchestration", "Scaling", "Deployment"] },
-              { name: "Kubernetes", description: "Container Orchestration", icon: "⚙️", features: ["Auto-scaling", "Load Balancing", "Service Mesh", "Monitoring"] },
-              { name: "Nginx", description: "Web Server", icon: "🌐", features: ["Load Balancing", "SSL Termination", "Caching", "Compression"] },
-              { name: "Redis", description: "Caching Layer", icon: "🔴", features: ["In-Memory Cache", "Session Storage", "Pub/Sub", "Persistence"] },
-              { name: "PostgreSQL", description: "Database", icon: "🐘", features: ["ACID Compliance", "Scalability", "Backup", "Replication"] }
+              { name: "AWS", description: "Amazon Web Services", features: ["EC2", "S3", "CloudFront", "RDS"] },
+              { name: "Docker", description: "Containerization", features: ["Containers", "Orchestration", "Scaling", "Deployment"] },
+              { name: "Kubernetes", description: "Container Orchestration", features: ["Auto-scaling", "Load Balancing", "Service Mesh", "Monitoring"] },
+              { name: "Nginx", description: "Web Server", features: ["Load Balancing", "SSL Termination", "Caching", "Compression"] },
+              { name: "Redis", description: "Caching Layer", features: ["In-Memory Cache", "Session Storage", "Pub/Sub", "Persistence"] },
+              { name: "PostgreSQL", description: "Database", features: ["ACID Compliance", "Scalability", "Backup", "Replication"] }
             ].map((tech, index) => (
               <div key={index} className="group bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                 <div className="text-center mb-4">
-                  <div className="text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">
-                    {tech.icon}
+                  <div className="w-16 h-16 mx-auto mb-4 bg-white rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300">
+                    <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-8 w-8" />
                   </div>
                   <h3 className="text-xl font-semibold text-[#262262] mb-2">{tech.name}</h3>
                   <p className="text-gray-600 text-sm">{tech.description}</p>

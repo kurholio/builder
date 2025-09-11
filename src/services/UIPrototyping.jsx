@@ -262,8 +262,8 @@ const UIPrototyping = () => {
           
           <div className="grid md:grid-cols-3 gap-8">
             <div className="group bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 text-center">
-              <div className="w-16 h-16 bg-gradient-to-r from-[#da1c5c] to-[#FFB700] rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                💰
+              <div className="w-16 h-16 mx-auto mb-4 bg-white rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300">
+                <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-8 w-8" />
               </div>
               <h3 className="text-xl font-semibold text-[#262262] mb-4">Save Money</h3>
               <p className="text-gray-600 mb-4">Identify issues early and avoid expensive changes during development</p>
@@ -272,8 +272,8 @@ const UIPrototyping = () => {
             </div>
             
             <div className="group bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 text-center">
-              <div className="w-16 h-16 bg-gradient-to-r from-[#70CBD0] to-[#262262] rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                ⏱️
+              <div className="w-16 h-16 mx-auto mb-4 bg-white rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300">
+                <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-8 w-8" />
               </div>
               <h3 className="text-xl font-semibold text-[#262262] mb-4">Save Time</h3>
               <p className="text-gray-600 mb-4">Faster development cycles with clear direction and fewer revisions</p>
@@ -282,8 +282,8 @@ const UIPrototyping = () => {
             </div>
             
             <div className="group bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 text-center">
-              <div className="w-16 h-16 bg-gradient-to-r from-[#FFB700] to-[#da1c5c] rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                🎯
+              <div className="w-16 h-16 mx-auto mb-4 bg-white rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300">
+                <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-8 w-8" />
               </div>
               <h3 className="text-xl font-semibold text-[#262262] mb-4">Better UX</h3>
               <p className="text-gray-600 mb-4">User-tested designs that deliver exceptional user experiences</p>
