@@ -328,7 +328,7 @@ const MaintenanceSupport = () => {
           <div className="grid md:grid-cols-3 gap-8">
             <div className="group bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 text-center">
               <div className="w-16 h-16 mx-auto mb-4 bg-white rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300">
-                <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-8 w-8" />
+                <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-16 w-16" />
               </div>
               <h3 className="text-xl font-semibold text-[#262262] mb-4">Fast Response</h3>
               <p className="text-gray-600 mb-4">Average response time under 2 hours for critical issues</p>
@@ -338,7 +338,7 @@ const MaintenanceSupport = () => {
             
             <div className="group bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 text-center">
               <div className="w-16 h-16 mx-auto mb-4 bg-white rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300">
-                <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-8 w-8" />
+                <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-16 w-16" />
               </div>
               <h3 className="text-xl font-semibold text-[#262262] mb-4">Proactive Monitoring</h3>
               <p className="text-gray-600 mb-4">We catch issues before they impact your users</p>
@@ -348,7 +348,7 @@ const MaintenanceSupport = () => {
             
             <div className="group bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 text-center">
               <div className="w-16 h-16 mx-auto mb-4 bg-white rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300">
-                <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-8 w-8" />
+                <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-16 w-16" />
               </div>
               <h3 className="text-xl font-semibold text-[#262262] mb-4">Growth Focused</h3>
               <p className="text-gray-600 mb-4">Support that scales with your business needs</p>

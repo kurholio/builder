@@ -263,7 +263,7 @@ const UIPrototyping = () => {
           <div className="grid md:grid-cols-3 gap-8">
             <div className="group bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 text-center">
               <div className="w-16 h-16 mx-auto mb-4 bg-white rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300">
-                <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-8 w-8" />
+                <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-16 w-16" />
               </div>
               <h3 className="text-xl font-semibold text-[#262262] mb-4">Save Money</h3>
               <p className="text-gray-600 mb-4">Identify issues early and avoid expensive changes during development</p>
@@ -273,7 +273,7 @@ const UIPrototyping = () => {
             
             <div className="group bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 text-center">
               <div className="w-16 h-16 mx-auto mb-4 bg-white rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300">
-                <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-8 w-8" />
+                <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-16 w-16" />
               </div>
               <h3 className="text-xl font-semibold text-[#262262] mb-4">Save Time</h3>
               <p className="text-gray-600 mb-4">Faster development cycles with clear direction and fewer revisions</p>
@@ -283,7 +283,7 @@ const UIPrototyping = () => {
             
             <div className="group bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 text-center">
               <div className="w-16 h-16 mx-auto mb-4 bg-white rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300">
-                <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-8 w-8" />
+                <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-16 w-16" />
               </div>
               <h3 className="text-xl font-semibold text-[#262262] mb-4">Better UX</h3>
               <p className="text-gray-600 mb-4">User-tested designs that deliver exceptional user experiences</p>
