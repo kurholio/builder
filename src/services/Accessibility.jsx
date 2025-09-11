@@ -54,6 +54,47 @@ const Accessibility = () => {
     <svg viewBox="0 0 24 24" aria-hidden className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
   );
 
+  const Bot = () => (
+    <Icon>
+      <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+      <circle cx="12" cy="5" r="2"/>
+      <path d="M12 7v4"/>
+      <line x1="8" y1="16" x2="8" y2="16"/>
+      <line x1="16" y1="16" x2="16" y2="16"/>
+    </Icon>
+  );
+
+  const User = () => (
+    <Icon>
+      <circle cx="12" cy="8" r="4"/>
+      <path d="M4 22a8 8 0 0 1 16 0"/>
+    </Icon>
+  );
+
+  const Globe = () => (
+    <Icon>
+      <circle cx="12" cy="12" r="10"/>
+      <line x1="2" y1="12" x2="22" y2="12"/>
+      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+    </Icon>
+  );
+
+  const Scale = () => (
+    <Icon>
+      <path d="M16 2l4 4-4 4"/>
+      <path d="M8 2l-4 4 4 4"/>
+      <path d="M12 6v8"/>
+      <path d="M8 14l4 4 4-4"/>
+    </Icon>
+  );
+
+  const TrendingUp = () => (
+    <Icon>
+      <polyline points="22,7 13.5,15.5 8.5,10.5 2,17"/>
+      <polyline points="16,7 22,7 22,13"/>
+    </Icon>
+  );
+
   // Card components matching landing page exactly
   const ServiceCard = ({ title, children, icon, className }) => (
     <div className={`group relative flex h-full flex-col rounded-xl border-2 border-gray-200 bg-white p-6 shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:scale-[1.02] hover:border-[#262262] ${className || ''}`}>
@@ -106,9 +147,8 @@ const Accessibility = () => {
       <nav className="bg-white/80 backdrop-blur-sm border-b border-gray-200 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <Link to="/" className="flex items-center space-x-3 group">
+            <Link to="/" className="flex items-center group">
               <img src="/lunaratechLogo.png" alt="LunaraTech Logo" className="h-10 w-auto group-hover:scale-110 transition-transform duration-300"/>
-              <span className="text-xl font-bold text-[#262262] group-hover:text-[#da1c5c] transition-colors duration-300">LunaraTech</span>
             </Link>
             <Link 
               to="/" 
@@ -227,14 +267,16 @@ const Accessibility = () => {
           
           <div className="grid lg:grid-cols-3 gap-8">
             {[
-              { title: "Automated Testing", description: "Tools that automatically scan for accessibility issues", tools: ["axe-core", "WAVE", "Lighthouse", "Pa11y"] },
-              { title: "Manual Testing", description: "Human evaluation of accessibility features", tools: ["Keyboard Testing", "Screen Reader Testing", "Color Contrast Analysis", "User Testing"] },
-              { title: "User Testing", description: "Testing with real users who have disabilities", tools: ["Focus Groups", "Usability Testing", "Feedback Collection", "Iterative Improvement"] }
+              { title: "Automated Testing", description: "Tools that automatically scan for accessibility issues", tools: ["axe-core", "WAVE", "Lighthouse", "Pa11y"], icon: <Bot /> },
+              { title: "Manual Testing", description: "Human evaluation of accessibility features", tools: ["Keyboard Testing", "Screen Reader Testing", "Color Contrast Analysis", "User Testing"], icon: <User /> },
+              { title: "User Testing", description: "Testing with real users who have disabilities", tools: ["Focus Groups", "Usability Testing", "Feedback Collection", "Iterative Improvement"], icon: <Users /> }
             ].map((method, index) => (
               <div key={index} className="group bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                 <div className="text-center mb-6">
-                  <div className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                    {index === 0 ? '🤖' : index === 1 ? '👤' : '👥'}
+                  <div className="w-16 h-16 mx-auto mb-4 bg-white rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300">
+                    <div className="text-[#70CBD0]">
+                      {method.icon}
+                    </div>
                   </div>
                   <h3 className="text-2xl font-semibold text-[#262262] mb-2">{method.title}</h3>
                   <p className="text-gray-600">{method.description}</p>
@@ -272,8 +314,8 @@ const Accessibility = () => {
           
           <div className="grid md:grid-cols-3 gap-8">
             <div className="group bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 text-center">
-              <div className="w-16 h-16 bg-gradient-to-r from-[#da1c5c] to-[#FFB700] rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                🌍
+              <div className="w-16 h-16 mx-auto mb-4 bg-white rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300">
+                <Globe className="h-8 w-8 text-[#da1c5c]" />
               </div>
               <h3 className="text-xl font-semibold text-[#262262] mb-4">Inclusive Design</h3>
               <p className="text-gray-600 mb-4">Design that works for everyone, regardless of ability</p>
@@ -282,8 +324,8 @@ const Accessibility = () => {
             </div>
             
             <div className="group bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 text-center">
-              <div className="w-16 h-16 bg-gradient-to-r from-[#70CBD0] to-[#262262] rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                ⚖️
+              <div className="w-16 h-16 mx-auto mb-4 bg-white rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300">
+                <Scale className="h-8 w-8 text-[#70CBD0]" />
               </div>
               <h3 className="text-xl font-semibold text-[#262262] mb-4">Legal Compliance</h3>
               <p className="text-gray-600 mb-4">Meet ADA and WCAG requirements to avoid legal issues</p>
@@ -292,8 +334,8 @@ const Accessibility = () => {
             </div>
             
             <div className="group bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 text-center">
-              <div className="w-16 h-16 bg-gradient-to-r from-[#FFB700] to-[#da1c5c] rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                📈
+              <div className="w-16 h-16 mx-auto mb-4 bg-white rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300">
+                <TrendingUp className="h-8 w-8 text-[#FFB700]" />
               </div>
               <h3 className="text-xl font-semibold text-[#262262] mb-4">Better UX</h3>
               <p className="text-gray-600 mb-4">Accessible design improves user experience for everyone</p>

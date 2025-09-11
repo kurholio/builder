@@ -59,6 +59,35 @@ const GraphicDesign = () => {
     <svg viewBox="0 0 24 24" aria-hidden className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
   );
 
+  const RefreshCw = () => (
+    <Icon>
+      <polyline points="23,4 23,10 17,10"/>
+      <polyline points="1,20 1,14 7,14"/>
+      <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/>
+    </Icon>
+  );
+
+  const Target = () => (
+    <Icon>
+      <circle cx="12" cy="12" r="10"/>
+      <circle cx="12" cy="12" r="6"/>
+      <circle cx="12" cy="12" r="2"/>
+    </Icon>
+  );
+
+  const Sparkles = () => (
+    <Icon>
+      <path d="M12 3l1.5 3 3 1.5-3 1.5-1.5 3-1.5-3L7 7.5 10 6z"/>
+      <path d="M18 13l.8 1.6L20 15l-1.2.4L18 17l-.8-1.6L16 15l1.2-.4z"/>
+    </Icon>
+  );
+
+  const Heart = () => (
+    <Icon>
+      <path d="M20.8 8.6a5.5 5.5 0 0 0-9.8-3.6 5.5 5.5 0 1 0-7.8 7.8L11 20l7.8-7.8a5.5 5.5 0 0 0 2-3.6Z"/>
+    </Icon>
+  );
+
   // Card components matching landing page exactly
   const ServiceCard = ({ title, children, icon, className }) => (
     <div className={`group relative flex h-full flex-col rounded-xl border-2 border-gray-200 bg-white p-6 shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:scale-[1.02] hover:border-[#262262] ${className || ''}`}>
@@ -111,9 +140,8 @@ const GraphicDesign = () => {
       <nav className="bg-white/80 backdrop-blur-sm border-b border-gray-200 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <Link to="/" className="flex items-center space-x-3 group">
+            <Link to="/" className="flex items-center group">
               <img src="/lunaratechLogo.png" alt="LunaraTech Logo" className="h-10 w-auto group-hover:scale-110 transition-transform duration-300"/>
-              <span className="text-xl font-bold text-[#262262] group-hover:text-[#da1c5c] transition-colors duration-300">LunaraTech</span>
             </Link>
             <Link 
               to="/" 
@@ -186,32 +214,32 @@ const GraphicDesign = () => {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="group text-center">
-              <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-[#da1c5c] to-[#FFB700] rounded-full flex items-center justify-center text-3xl group-hover:scale-110 transition-transform duration-300">
-                🔄
+              <div className="w-16 h-16 mx-auto mb-6 bg-white rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300">
+                <RefreshCw className="h-8 w-8 text-[#da1c5c]" />
               </div>
               <h3 className="text-xl font-semibold text-[#262262] mb-3">Consistency</h3>
               <p className="text-gray-600">Every element follows your brand guidelines for a cohesive visual identity across all touchpoints.</p>
             </div>
             
             <div className="group text-center">
-              <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-[#70CBD0] to-[#262262] rounded-full flex items-center justify-center text-3xl group-hover:scale-110 transition-transform duration-300">
-                👆
+              <div className="w-16 h-16 mx-auto mb-6 bg-white rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300">
+                <Target className="h-8 w-8 text-[#70CBD0]" />
               </div>
               <h3 className="text-xl font-semibold text-[#262262] mb-3">Usability</h3>
               <p className="text-gray-600">Designs that are intuitive and user-friendly, ensuring optimal user experience and engagement.</p>
             </div>
             
             <div className="group text-center">
-              <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-[#FFB700] to-[#da1c5c] rounded-full flex items-center justify-center text-3xl group-hover:scale-110 transition-transform duration-300">
-                ✨
+              <div className="w-16 h-16 mx-auto mb-6 bg-white rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300">
+                <Sparkles className="h-8 w-8 text-[#FFB700]" />
               </div>
               <h3 className="text-xl font-semibold text-[#262262] mb-3">Innovation</h3>
               <p className="text-gray-600">Cutting-edge design trends with timeless appeal, creating memorable and impactful visual experiences.</p>
             </div>
             
             <div className="group text-center">
-              <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-[#262262] to-[#70CBD0] rounded-full flex items-center justify-center text-3xl group-hover:scale-110 transition-transform duration-300">
-                ♿
+              <div className="w-16 h-16 mx-auto mb-6 bg-white rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300">
+                <Heart className="h-8 w-8 text-[#262262]" />
               </div>
               <h3 className="text-xl font-semibold text-[#262262] mb-3">Accessibility</h3>
               <p className="text-gray-600">Inclusive design that works for everyone, ensuring your brand reaches the widest possible audience.</p>
