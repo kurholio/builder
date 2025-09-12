@@ -300,9 +300,9 @@ const GraphicDesign = () => {
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+            <Link to="/graphic-design" className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
               <div className="h-48 bg-gradient-to-br from-[#da1c5c] to-[#FFB700] flex items-center justify-center">
-                <Palette className="h-16 w-16 text-white" />
+                <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-20 w-20" />
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-[#262262] mb-2">E-commerce Brand</h3>
@@ -315,11 +315,11 @@ const GraphicDesign = () => {
                   ))}
                 </div>
               </div>
-            </div>
+            </Link>
             
-            <div className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+            <Link to="/ui-prototyping" className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
               <div className="h-48 bg-gradient-to-br from-[#70CBD0] to-[#262262] flex items-center justify-center">
-                <Monitor className="h-16 w-16 text-white" />
+                <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-20 w-20" />
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-[#262262] mb-2">Mobile App UI</h3>
@@ -332,11 +332,11 @@ const GraphicDesign = () => {
                   ))}
                 </div>
               </div>
-            </div>
+            </Link>
             
-            <div className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+            <Link to="/graphic-design" className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
               <div className="h-48 bg-gradient-to-br from-[#FFB700] to-[#da1c5c] flex items-center justify-center">
-                <FileText className="h-16 w-16 text-white" />
+                <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-20 w-20" />
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-[#262262] mb-2">Marketing Campaign</h3>
@@ -349,7 +349,7 @@ const GraphicDesign = () => {
                   ))}
                 </div>
               </div>
-            </div>
+            </Link>
           </div>
         </div>
       </section>

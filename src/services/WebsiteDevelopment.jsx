@@ -259,9 +259,9 @@ const WebsiteDevelopment = () => {
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+            <Link to="/website-development" className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
               <div className="h-48 bg-gradient-to-br from-[#da1c5c] to-[#FFB700] flex items-center justify-center">
-                <Globe className="h-16 w-16 text-white" />
+                <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-20 w-20" />
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-[#262262] mb-2">Fintech Platform</h3>
@@ -274,11 +274,11 @@ const WebsiteDevelopment = () => {
                   ))}
                 </div>
               </div>
-            </div>
+            </Link>
             
-            <div className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+            <Link to="/website-development" className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
               <div className="h-48 bg-gradient-to-br from-[#70CBD0] to-[#262262] flex items-center justify-center">
-                <Smartphone className="h-16 w-16 text-white" />
+                <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-20 w-20" />
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-[#262262] mb-2">Real Estate Portal</h3>
@@ -291,11 +291,11 @@ const WebsiteDevelopment = () => {
                   ))}
                 </div>
               </div>
-            </div>
+            </Link>
             
-            <div className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+            <Link to="/website-development" className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
               <div className="h-48 bg-gradient-to-br from-[#FFB700] to-[#da1c5c] flex items-center justify-center">
-                <Code className="h-16 w-16 text-white" />
+                <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-20 w-20" />
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-[#262262] mb-2">E-commerce Store</h3>
@@ -308,7 +308,7 @@ const WebsiteDevelopment = () => {
                   ))}
                 </div>
               </div>
-            </div>
+            </Link>
           </div>
         </div>
       </section>
