@@ -203,48 +203,67 @@ const MaintenanceSupport = () => {
             </AboutCard>
           </div>
           
-          <div className="bg-white rounded-xl p-8 shadow-lg">
-            <div className="grid md:grid-cols-3 gap-8">
-              <div>
-                <h3 className="text-xl font-semibold text-[#262262] mb-6 flex items-center">
-                  <div className="w-6 h-6 rounded-full bg-[#da1c5c] mr-3"></div>
-                  Basic Support
-                </h3>
-                <ul className="space-y-3">
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-l-4 border-[#da1c5c] relative overflow-hidden">
+              {/* Decorative corner element */}
+              <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-[#da1c5c] to-[#FFB700] opacity-10 rounded-bl-full"></div>
+              
+              <div className="relative z-10">
+                <div className="flex items-center mb-6">
+                  <div className="w-12 h-12 rounded-full bg-[#da1c5c] flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                    <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-7 w-7" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-[#262262]">Basic Support</h3>
+                </div>
+                <ul className="space-y-4">
                   {["Email Support", "Basic Monitoring", "Monthly Updates", "Documentation"].map((service, index) => (
-                    <li key={index} className="flex items-center text-gray-600">
-                      <div className="w-4 h-4 rounded-full bg-[#da1c5c] mr-3"></div>
-                      {service}
+                    <li key={index} className="flex items-center text-gray-600 group/item">
+                      <div className="w-3 h-3 rounded-full bg-[#da1c5c] mr-4 group-hover/item:scale-125 transition-transform duration-300"></div>
+                      <span className="group-hover/item:text-[#262262] transition-colors duration-300">{service}</span>
                     </li>
                   ))}
                 </ul>
               </div>
+            </div>
+            
+            <div className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-l-4 border-[#70CBD0] relative overflow-hidden">
+              {/* Decorative corner element */}
+              <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-[#70CBD0] to-[#262262] opacity-10 rounded-bl-full"></div>
               
-              <div>
-                <h3 className="text-xl font-semibold text-[#262262] mb-6 flex items-center">
-                  <div className="w-6 h-6 rounded-full bg-[#70CBD0] mr-3"></div>
-                  Premium Support
-                </h3>
-                <ul className="space-y-3">
+              <div className="relative z-10">
+                <div className="flex items-center mb-6">
+                  <div className="w-12 h-12 rounded-full bg-[#70CBD0] flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                    <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-7 w-7" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-[#262262]">Premium Support</h3>
+                </div>
+                <ul className="space-y-4">
                   {["Phone + Email Support", "24/7 Monitoring", "Weekly Updates", "Priority Response"].map((service, index) => (
-                    <li key={index} className="flex items-center text-gray-600">
-                      <div className="w-4 h-4 rounded-full bg-[#70CBD0] mr-3"></div>
-                      {service}
+                    <li key={index} className="flex items-center text-gray-600 group/item">
+                      <div className="w-3 h-3 rounded-full bg-[#70CBD0] mr-4 group-hover/item:scale-125 transition-transform duration-300"></div>
+                      <span className="group-hover/item:text-[#262262] transition-colors duration-300">{service}</span>
                     </li>
                   ))}
                 </ul>
               </div>
+            </div>
+            
+            <div className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-l-4 border-[#FFB700] relative overflow-hidden">
+              {/* Decorative corner element */}
+              <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-[#FFB700] to-[#da1c5c] opacity-10 rounded-bl-full"></div>
               
-              <div>
-                <h3 className="text-xl font-semibold text-[#262262] mb-6 flex items-center">
-                  <div className="w-6 h-6 rounded-full bg-[#FFB700] mr-3"></div>
-                  Enterprise Support
-                </h3>
-                <ul className="space-y-3">
+              <div className="relative z-10">
+                <div className="flex items-center mb-6">
+                  <div className="w-12 h-12 rounded-full bg-[#FFB700] flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                    <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-7 w-7" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-[#262262]">Enterprise Support</h3>
+                </div>
+                <ul className="space-y-4">
                   {["Dedicated Support", "Real-time Monitoring", "Daily Updates", "On-site Support"].map((service, index) => (
-                    <li key={index} className="flex items-center text-gray-600">
-                      <div className="w-4 h-4 rounded-full bg-[#FFB700] mr-3"></div>
-                      {service}
+                    <li key={index} className="flex items-center text-gray-600 group/item">
+                      <div className="w-3 h-3 rounded-full bg-[#FFB700] mr-4 group-hover/item:scale-125 transition-transform duration-300"></div>
+                      <span className="group-hover/item:text-[#262262] transition-colors duration-300">{service}</span>
                     </li>
                   ))}
                 </ul>
