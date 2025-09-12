@@ -110,12 +110,12 @@ const HostingDeployment = () => {
             />
           </Link>
           <nav className="hidden gap-6 text-sm text-gray-700 sm:flex mt-5">
-            <Link to="/" className="hover:text-gray-900">Home</Link>
-            <Link to="/" className="hover:text-gray-900">Niches</Link>
-            <Link to="/" className="hover:text-gray-900">Services</Link>
-            <Link to="/" className="hover:text-gray-900">About</Link>
-            <Link to="/" className="hover:text-gray-900">Process</Link>
-            <Link to="/" className="hover:text-gray-900">Contact</Link>
+            <a href="/#home" className="hover:text-gray-900">Home</a>
+            <a href="/#niches" className="hover:text-gray-900">Niches</a>
+            <a href="/#services" className="hover:text-gray-900">Services</a>
+            <a href="/#about" className="hover:text-gray-900">About</a>
+            <a href="/#process" className="hover:text-gray-900">Process</a>
+            <a href="/#contact" className="hover:text-gray-900">Contact</a>
           </nav>
           <Link to="/" className="hidden rounded-md bg-[#FFB700] px-4 py-2 text-sm font-medium text-gray-900 hover:bg-[#e6a038] transition-all duration-300 sm:inline-flex mt-2">Get Quote</Link>
         </div>
