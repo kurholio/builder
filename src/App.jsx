@@ -976,7 +976,7 @@ export default function App() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <span className="text-sm font-medium text-gray-700">Professional team with 10+ years of experience</span>
+                <span className="text-sm font-medium text-gray-700">Expert team delivering cutting-edge solutions</span>
               </div>
             </div>
             
