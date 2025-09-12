@@ -110,7 +110,7 @@ const HostingDeployment = () => {
             />
           </Link>
           <nav className="hidden gap-6 text-sm text-gray-700 sm:flex mt-5">
-            <a href="/#home" onClick={() => window.location.href = '/#home'} className="hover:text-gray-900">Home</a>
+            <a href="/" onClick={() => window.location.href = '/'} className="hover:text-gray-900">Home</a>
             <a href="/#niches" onClick={() => window.location.href = '/#niches'} className="hover:text-gray-900">Niches</a>
             <a href="/#services" onClick={() => window.location.href = '/#services'} className="hover:text-gray-900">Services</a>
             <a href="/#about" onClick={() => window.location.href = '/#about'} className="hover:text-gray-900">About</a>
