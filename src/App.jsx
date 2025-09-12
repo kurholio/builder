@@ -521,7 +521,7 @@ export default function App() {
       </section>
 
       {/* Niches */}
-      <section className="px-4 py-16 sm:py-20 mt-20" id="niches">
+      <section className="px-4 py-16 sm:py-20 mt-32" id="niches">
         <SectionHeader
           eyebrow=""
           title="Niches that work for your world"
@@ -548,7 +548,7 @@ export default function App() {
       </section>
 
       {/* Services */}
-      <section className="border-y border-gray-100 bg-gradient-to-br from-[#70CBD0]/10 to-[#70CBD0]/5 px-4 py-16 sm:py-20 mt-20" id="services">
+      <section className="border-y border-gray-100 bg-gradient-to-br from-[#70CBD0]/10 to-[#70CBD0]/5 px-4 py-16 sm:py-20 mt-32" id="services">
         <SectionHeader
           eyebrow=""
           title="From concept to launch — and beyond"
@@ -565,7 +565,7 @@ export default function App() {
       </section>
 
       {/* About */}
-      <section className="px-4 py-16 sm:py-20 mt-20" id="about">
+      <section className="px-4 py-16 sm:py-20 mt-32" id="about">
         <SectionHeader
           eyebrow=""
           title="Who we are"
@@ -900,7 +900,7 @@ export default function App() {
       </section>
 
       {/* Process */}
-      <section className="border-y border-gray-100 bg-gray-50 px-4 py-16 sm:py-20 mt-20" id="process">
+      <section className="border-y border-gray-100 bg-gray-50 px-4 py-16 sm:py-20 mt-32" id="process">
         <SectionHeader
           eyebrow=""
           title="Minus the jargon, plus the momentum"
@@ -923,7 +923,7 @@ export default function App() {
 
       {/* CTA / Contact */}
       
-      <section className="bg-gradient-to-br from-[#70CBD0]/15 to-[#FFB700]/10 py-16 sm:py-20 mt-20" id="contact">
+      <section className="bg-gradient-to-br from-[#70CBD0]/15 to-[#FFB700]/10 py-16 sm:py-20 mt-32" id="contact">
         <div className="mx-auto max-w-7xl px-4">
       <SectionHeader
               eyebrow=""
