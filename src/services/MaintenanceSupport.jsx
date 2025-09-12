@@ -186,69 +186,6 @@ const MaintenanceSupport = () => {
         </div>
       </section>
 
-      {/* Support Tiers Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white/50 backdrop-blur-sm">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-semibold tracking-tight text-[#262262] sm:text-4xl mb-4">Support Tiers</h2>
-            <p className="text-xl text-gray-600 mb-8">Choose the support level that fits your needs</p>
-          </div>
-          
-          <div className="grid lg:grid-cols-2 gap-8 mb-16">
-            <AboutCard color="gold" title="Flexible Options">
-              We offer flexible support tiers to accommodate different business needs and budgets. Each tier includes specific features and response times designed to provide the right level of support for your application.
-            </AboutCard>
-            <AboutCard color="fuschia" title="Scalable Solutions">
-              Our support tiers are designed to scale with your business, allowing you to upgrade or downgrade as your needs change. All tiers include our core monitoring and maintenance services with varying levels of support and response times.
-            </AboutCard>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              { name: "Basic", price: "$299", period: "/month", features: ["Email Support", "Basic Monitoring", "Monthly Updates", "Documentation"], popular: false },
-              { name: "Premium", price: "$599", period: "/month", features: ["Phone + Email Support", "24/7 Monitoring", "Weekly Updates", "Priority Response"], popular: true },
-              { name: "Enterprise", price: "$999", period: "/month", features: ["Dedicated Support", "Real-time Monitoring", "Daily Updates", "On-site Support"], popular: false }
-            ].map((tier, index) => (
-              <div key={index} className={`relative bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 ${
-                tier.popular ? 'border-2 border-[#FFB700] scale-105' : 'border-2 border-transparent'
-              }`}>
-                {tier.popular && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-[#FFB700] text-white px-4 py-2 rounded-full text-sm font-semibold">
-                      Most Popular
-                    </span>
-                  </div>
-                )}
-                
-                <div className="text-center mb-6">
-                  <h3 className="text-2xl font-semibold text-[#262262] mb-2">{tier.name}</h3>
-                  <div className="text-4xl font-bold text-[#262262] mb-1">
-                    {tier.price}
-                    <span className="text-lg text-gray-500">{tier.period}</span>
-                  </div>
-                </div>
-                
-                <ul className="space-y-3 mb-8">
-                  {tier.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center text-gray-600">
-                      <Check className="w-5 h-5 text-[#FFB700] mr-3" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-                
-                <button className={`w-full py-3 rounded-xl font-semibold transition-all duration-300 ${
-                  tier.popular 
-                    ? 'bg-[#FFB700] text-[#262262] hover:bg-[#FFB700]/90' 
-                    : 'bg-[#262262] text-white hover:bg-[#262262]/90'
-                }`}>
-                  Choose Plan
-                </button>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Support Process Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
@@ -270,14 +207,14 @@ const MaintenanceSupport = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
               {[
-                { step: "1", title: "Issue Detection", description: "Proactive monitoring identifies issues before they impact users", icon: <Eye /> },
-                { step: "2", title: "Rapid Response", description: "Quick response and initial assessment of the issue", icon: <RefreshCw /> },
-                { step: "3", title: "Resolution", description: "Expert team works to resolve the issue efficiently", icon: <Wrench /> },
-                { step: "4", title: "Prevention", description: "Implement measures to prevent similar issues in the future", icon: <Rocket /> }
+                { title: "Issue Detection", description: "Proactive monitoring identifies issues before they impact users", color: "bg-[#da1c5c]" },
+                { title: "Rapid Response", description: "Quick response and initial assessment of the issue", color: "bg-[#70CBD0]" },
+                { title: "Resolution", description: "Expert team works to resolve the issue efficiently", color: "bg-[#FFB700]" },
+                { title: "Prevention", description: "Implement measures to prevent similar issues in the future", color: "bg-[#262262]" }
               ].map((step, index) => (
                 <div key={index} className="flex items-start space-x-4 group">
-                  <div className="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold bg-gradient-to-r from-[#FFB700] to-[#da1c5c] group-hover:scale-110 transition-transform duration-300">
-                    {step.step}
+                  <div className={`w-16 h-16 rounded-full flex items-center justify-center ${step.color} group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                    <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-8 w-8" />
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold text-[#262262] mb-2">{step.title}</h3>
