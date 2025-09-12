@@ -143,6 +143,16 @@ const GraphicDesign = () => {
             <Link to="/" className="flex items-center group">
               <img src="/lunaratechLogo.png" alt="LunaraTech Logo" className="h-12 w-auto group-hover:scale-110 transition-transform duration-300"/>
             </Link>
+            
+            {/* Navigation Menu */}
+            <div className="hidden md:flex items-center space-x-8">
+              <a href="/#about" className="text-gray-700 hover:text-[#da1c5c] transition-colors duration-300 font-medium">About</a>
+              <a href="/#services" className="text-gray-700 hover:text-[#da1c5c] transition-colors duration-300 font-medium">Services</a>
+              <a href="/#niches" className="text-gray-700 hover:text-[#da1c5c] transition-colors duration-300 font-medium">Niches</a>
+              <a href="/#process" className="text-gray-700 hover:text-[#da1c5c] transition-colors duration-300 font-medium">Process</a>
+              <a href="/#contact" className="text-gray-700 hover:text-[#da1c5c] transition-colors duration-300 font-medium">Contact</a>
+            </div>
+            
             <Link
               to="/"
               className="rounded-md bg-[#FFB700] px-4 py-2 text-sm font-medium text-gray-900 hover:bg-[#e6a038] transition-all duration-300"
