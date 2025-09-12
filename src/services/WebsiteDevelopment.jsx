@@ -190,9 +190,11 @@ const WebsiteDevelopment = () => {
               { name: "AWS", level: 92 },
               { name: "Docker", level: 80 },
               { name: "GraphQL", level: 82 },
+              { name: "REST", level: 90 },
               { name: "Redis", level: 78 },
               { name: "Elasticsearch", level: 75 },
               { name: "GCP", level: 85 },
+              { name: "Azure", level: 83 },
               { name: "Kotlin", level: 80 },
               { name: "Java", level: 88 },
               { name: "Vue.js", level: 83 }
