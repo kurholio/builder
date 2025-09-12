@@ -221,23 +221,52 @@ const Accessibility = () => {
           
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { level: "A", title: "WCAG Level A", description: "Basic accessibility requirements including keyboard navigation and alternative text", requirements: ["Keyboard Navigation", "Alternative Text", "Color Contrast", "Semantic HTML"] },
-              { level: "AA", title: "WCAG Level AA", description: "Enhanced accessibility with color contrast, focus indicators, and screen reader support", requirements: ["Color Contrast 4.5:1", "Focus Indicators", "Screen Reader Support", "Resizable Text"] },
-              { level: "AAA", title: "WCAG Level AAA", description: "Highest level of accessibility with advanced features and comprehensive support", requirements: ["Color Contrast 7:1", "Sign Language", "Extended Audio Description", "No Timing"] }
+              { 
+                level: "A", 
+                title: "WCAG Level A", 
+                description: "Basic accessibility requirements including keyboard navigation and alternative text", 
+                requirements: ["Keyboard Navigation", "Alternative Text", "Color Contrast", "Semantic HTML"],
+                color: "from-[#da1c5c] to-[#FFB700]",
+                borderColor: "border-[#da1c5c]",
+                accentColor: "text-[#da1c5c]"
+              },
+              { 
+                level: "AA", 
+                title: "WCAG Level AA", 
+                description: "Enhanced accessibility with color contrast, focus indicators, and screen reader support", 
+                requirements: ["Color Contrast 4.5:1", "Focus Indicators", "Screen Reader Support", "Resizable Text"],
+                color: "from-[#70CBD0] to-[#262262]",
+                borderColor: "border-[#70CBD0]",
+                accentColor: "text-[#70CBD0]"
+              },
+              { 
+                level: "AAA", 
+                title: "WCAG Level AAA", 
+                description: "Highest level of accessibility with advanced features and comprehensive support", 
+                requirements: ["Color Contrast 7:1", "Sign Language", "Extended Audio Description", "No Timing"],
+                color: "from-[#FFB700] to-[#da1c5c]",
+                borderColor: "border-[#FFB700]",
+                accentColor: "text-[#FFB700]"
+              }
             ].map((standard, index) => (
-              <div key={index} className="group bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                <div className="text-center mb-6">
-                  <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-[#70CBD0] to-[#da1c5c] flex items-center justify-center text-2xl font-bold text-white group-hover:scale-110 transition-transform duration-300">
+              <div key={index} className={`group bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-l-4 ${standard.borderColor} relative overflow-hidden`}>
+                {/* Decorative corner element */}
+                <div className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-br ${standard.color} opacity-5 rounded-bl-full`}></div>
+                
+                <div className="text-center mb-6 relative z-10">
+                  <div className={`w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br ${standard.color} flex items-center justify-center text-2xl font-bold text-white group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
                     {standard.level}
                   </div>
                   <h3 className="text-xl font-semibold text-[#262262] mb-2">{standard.title}</h3>
                   <p className="text-gray-600">{standard.description}</p>
                 </div>
                 
-                <ul className="space-y-3">
+                <ul className="space-y-3 relative z-10">
                   {standard.requirements.map((requirement, reqIndex) => (
                     <li key={reqIndex} className="flex items-center text-gray-600">
-                      <Check className="w-5 h-5 text-[#70CBD0] mr-3" />
+                      <div className={`w-6 h-6 rounded-full bg-gradient-to-br ${standard.color} flex items-center justify-center mr-3 group-hover:scale-110 transition-transform duration-300`}>
+                        <Check className="w-3 h-3 text-white" />
+                      </div>
                       {requirement}
                     </li>
                   ))}
