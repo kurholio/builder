@@ -258,57 +258,153 @@ const WebsiteDevelopment = () => {
             </AboutCard>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Link to="/website-development" className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-              <div className="h-48 bg-gradient-to-br from-[#da1c5c] to-[#FFB700] flex items-center justify-center">
-                <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-20 w-20" />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-[#262262] mb-2">Fintech Platform</h3>
-                <p className="text-gray-600 mb-4">Modern banking application with real-time transactions and advanced security features.</p>
-                <div className="flex flex-wrap gap-2">
-                  {['React', 'Node.js', 'PostgreSQL', 'AWS'].map(tech => (
-                    <span key={tech} className="px-3 py-1 bg-[#70CBD0]/20 text-[#262262] rounded-full text-sm">
-                      {tech}
-                    </span>
-                  ))}
+          <div className="mx-auto max-w-6xl grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 items-stretch">
+            {/* Mortgage Calculator Project */}
+            <div className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-500 hover:shadow-xl hover:-translate-y-2 hover:scale-[1.02] flex flex-col">
+              <div className="aspect-video overflow-hidden">
+                <div className="h-full w-full bg-gradient-to-br from-[#FFB700]/20 to-[#FFB700]/10 flex items-center justify-center">
+                  <div className="text-center p-8">
+                    <div className="w-16 h-16 mx-auto mb-4 bg-[#FFB700]/20 rounded-full flex items-center justify-center">
+                      <svg className="w-8 h-8 text-[#FFB700]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                      </svg>
+                    </div>
+                    <h4 className="text-lg font-semibold text-gray-900 mb-2">Mortgage Estimator</h4>
+                    <p className="text-sm text-gray-600">Free & Easy to Use</p>
+                  </div>
                 </div>
               </div>
-            </Link>
-            
-            <Link to="/website-development" className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-              <div className="h-48 bg-gradient-to-br from-[#70CBD0] to-[#262262] flex items-center justify-center">
-                <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-20 w-20" />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-[#262262] mb-2">Real Estate Portal</h3>
-                <p className="text-gray-600 mb-4">Property listing platform with advanced search functionality and virtual tour integration.</p>
-                <div className="flex flex-wrap gap-2">
-                  {['Next.js', 'TypeScript', 'MongoDB', 'Vercel'].map(tech => (
-                    <span key={tech} className="px-3 py-1 bg-[#FFB700]/20 text-[#262262] rounded-full text-sm">
-                      {tech}
-                    </span>
-                  ))}
+              <div className="p-6 flex flex-col flex-1">
+                <div className="flex items-center justify-between mb-3">
+                  <h4 className="text-xl font-semibold text-gray-900 group-hover:text-[#da1c5c] transition-colors">Home Mortgage Estimator</h4>
+                  <span className="px-3 py-1 text-xs font-medium bg-green-100 text-green-800 rounded-full">Live</span>
+                </div>
+                <p className="text-gray-600 mb-4 leading-relaxed flex-grow">
+                  A comprehensive mortgage calculator that helps users estimate monthly payments, view detailed amortization schedules, 
+                  and analyze home loans including PMI, property tax, and insurance costs.
+                </p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded">React</span>
+                  <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded">JavaScript</span>
+                  <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded">Financial Tools</span>
+                  <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded">Note JS</span>
+                  <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded">Responsive Design</span>
+                </div>
+                <div className="flex items-center justify-between mt-auto">
+                  <a 
+                    href="https://www.homemortgagecalculator.net/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-[#da1c5c] hover:text-[#c01a52] font-medium text-sm transition-colors"
+                  >
+                    View Project
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                  <div className="text-xs text-gray-500">2025</div>
                 </div>
               </div>
-            </Link>
-            
-            <Link to="/website-development" className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-              <div className="h-48 bg-gradient-to-br from-[#FFB700] to-[#da1c5c] flex items-center justify-center">
-                <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-20 w-20" />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-[#262262] mb-2">E-commerce Store</h3>
-                <p className="text-gray-600 mb-4">Full-featured online store with payment processing and inventory management.</p>
-                <div className="flex flex-wrap gap-2">
-                  {['Vue.js', 'Laravel', 'MySQL', 'Docker'].map(tech => (
-                    <span key={tech} className="px-3 py-1 bg-[#262262]/20 text-[#262262] rounded-full text-sm">
-                      {tech}
-                    </span>
-                  ))}
+            </div>
+
+            {/* Macroaxis Project */}
+            <div className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-500 hover:shadow-xl hover:-translate-y-2 hover:scale-[1.02] flex flex-col">
+              <div className="aspect-video overflow-hidden">
+                <div className="h-full w-full bg-gradient-to-br from-[#262262]/20 to-[#262262]/10 flex items-center justify-center">
+                  <div className="text-center p-8">
+                    <div className="w-16 h-16 mx-auto mb-4 bg-[#262262]/20 rounded-full flex items-center justify-center">
+                      <svg className="w-8 h-8 text-[#262262]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                      </svg>
+                    </div>
+                    <h4 className="text-lg font-semibold text-gray-900 mb-2">Macroaxis</h4>
+                    <p className="text-sm text-gray-600">Financial Analytics Platform</p>
+                  </div>
                 </div>
               </div>
-            </Link>
+              <div className="p-6 flex flex-col flex-1">
+                <div className="flex items-center justify-between mb-3">
+                  <h4 className="text-xl font-semibold text-gray-900 group-hover:text-[#262262] transition-colors">Fintech Platform</h4>
+                  <span className="px-3 py-1 text-xs font-medium bg-green-100 text-green-800 rounded-full">Live</span>
+                </div>
+                <p className="text-gray-600 mb-4 leading-relaxed flex-grow">
+                  A comprehensive AI-powered financial analytics platform providing investment research, portfolio analysis, 
+                  and market data tools for investors and financial professionals across hundreds of exchanges from over 60 countries.
+                </p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded">Java</span>
+                  <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded">Spring</span>
+                  <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded">JavaScript</span>
+                  <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded">Optimization</span>
+                  <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded">Financial API</span>
+                  <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded">Analytics</span>
+                  <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded">AWS</span>
+                </div>
+                <div className="flex items-center justify-between mt-auto">
+                  <a 
+                    href="https://www.macroaxis.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-[#262262] hover:text-[#1a1a4a] font-medium text-sm transition-colors"
+                  >
+                    View Project
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                  <div className="text-xs text-gray-500">2025</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Chosen Rooter Project */}
+            <div className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-500 hover:shadow-xl hover:-translate-y-2 hover:scale-[1.02] flex flex-col">
+              <div className="aspect-video overflow-hidden">
+                <div className="h-full w-full bg-gradient-to-br from-[#da1c5c]/20 to-[#da1c5c]/10 flex items-center justify-center">
+                  <div className="text-center p-8">
+                    <div className="w-16 h-16 mx-auto mb-4 bg-[#da1c5c]/20 rounded-full flex items-center justify-center">
+                      <svg className="w-8 h-8 text-[#da1c5c]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                      </svg>
+                    </div>
+                    <h4 className="text-lg font-semibold text-gray-900 mb-2">Chosen Rooter</h4>
+                    <p className="text-sm text-gray-600">Plumbing Services</p>
+                  </div>
+                </div>
+              </div>
+              <div className="p-6 flex flex-col flex-1">
+                <div className="flex items-center justify-between mb-3">
+                  <h4 className="text-xl font-semibold text-gray-900 group-hover:text-[#da1c5c] transition-colors">Chosen Rooter & Plumbing</h4>
+                  <span className="px-3 py-1 text-xs font-medium bg-green-100 text-green-800 rounded-full">Live</span>
+                </div>
+                <p className="text-gray-600 mb-4 leading-relaxed flex-grow">
+                  San Francisco's top plumbing company providing emergency plumbing services, drain cleaning, 
+                  water heater repairs, and comprehensive plumbing solutions throughout the Bay Area.
+                </p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded">WordPress</span>
+                  <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded">PHP</span>
+                  <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded">HTML</span>
+                  <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded">CSS</span>
+                  <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded">Local Business</span>
+                  <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded">SEO</span>
+                </div>
+                <div className="flex items-center justify-between mt-auto">
+                  <a 
+                    href="https://chosenrooter.com/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-[#da1c5c] hover:text-[#c01a52] font-medium text-sm transition-colors"
+                  >
+                    View Project
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                  <div className="text-xs text-gray-500">2025</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
