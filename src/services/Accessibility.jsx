@@ -254,7 +254,7 @@ const Accessibility = () => {
                 <div className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-br ${standard.color} opacity-5 rounded-bl-full`}></div>
                 
                 <div className="text-center mb-6 relative z-10">
-                  <div className={`w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br ${standard.color} flex items-center justify-center text-2xl font-bold text-white group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                  <div className={`w-20 h-20 mx-auto mb-4 rounded-full ${standard.accentColor.replace('text-', 'bg-')} flex items-center justify-center text-2xl font-bold text-white group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
                     {standard.level}
                   </div>
                   <h3 className="text-xl font-semibold text-[#262262] mb-2">{standard.title}</h3>
@@ -264,8 +264,7 @@ const Accessibility = () => {
                 <ul className="space-y-3 relative z-10">
                   {standard.requirements.map((requirement, reqIndex) => (
                     <li key={reqIndex} className="flex items-center text-gray-600">
-                      <div className={`w-6 h-6 rounded-full bg-gradient-to-br ${standard.color} flex items-center justify-center mr-3 group-hover:scale-110 transition-transform duration-300`}>
-                        <Check className="w-3 h-3 text-white" />
+                      <div className={`w-6 h-6 rounded-full ${standard.accentColor.replace('text-', 'bg-')} mr-3 group-hover:scale-110 transition-transform duration-300`}>
                       </div>
                       {requirement}
                     </li>
