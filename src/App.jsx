@@ -479,19 +479,19 @@ export default function App() {
         {/* Top nav */}
       <header className="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-white/90 border-b border-gray-100">
         <div className="mx-auto flex max-w-7xl items-start justify-between px-4 py-3 sm:py-4">
-          <a href="/" className="flex items-center">
+          <Link to="/" className="flex items-center">
             <img 
               src="/lunaratechLogo.png" 
               alt="LunaraTech Logo" 
               className="h-12 w-auto"
             />
-          </a>
+          </Link>
           <nav className="hidden gap-6 text-sm text-gray-700 sm:flex mt-5">
             {navItems.map((n) => (
-              <a key={n.href} href={n.href} className="hover:text-gray-900">{n.label}</a>
+              <Link key={n.href} to={n.href} className="hover:text-gray-900">{n.label}</Link>
             ))}
           </nav>
-          <a href="/" className="hidden rounded-md bg-[#FFB700] px-4 py-2 text-sm font-medium text-gray-900 hover:bg-[#e6a038] transition-all duration-300 sm:inline-flex mt-2">Get Quote</a>
+          <Link to="/" className="hidden rounded-md bg-[#FFB700] px-4 py-2 text-sm font-medium text-gray-900 hover:bg-[#e6a038] transition-all duration-300 sm:inline-flex mt-2">Get Quote</Link>
         </div>
       </header>
 
@@ -504,8 +504,8 @@ export default function App() {
             <p className="mx-auto mt-10 max-w-2xl text-gray-600 animate-fade-in">We craft clean code, bold design, and real connections. From idea to launch, we build experiences that scale, convert, and feel great to use.</p>
             
             <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-              <a href="/" className="rounded-md bg-[#da1c5c] px-6 py-3 text-sm font-medium text-white hover:bg-[#c01a52] transition-all duration-300 hover:scale-105 ">Start a Project</a>
-              <a href="/" className="rounded-md border border-[#262262] bg-white px-6 py-3 text-sm font-medium text-[#262262] hover:border-[#1a1a4a] hover:bg-[#f8f9ff] transition-all duration-300 hover:scale-105">What we do</a>
+              <Link to="/" className="rounded-md bg-[#da1c5c] px-6 py-3 text-sm font-medium text-white hover:bg-[#c01a52] transition-all duration-300 hover:scale-105 ">Start a Project</Link>
+              <Link to="/" className="rounded-md border border-[#262262] bg-white px-6 py-3 text-sm font-medium text-[#262262] hover:border-[#1a1a4a] hover:bg-[#f8f9ff] transition-all duration-300 hover:scale-105">What we do</Link>
             </div>
           </div>
         </div>
@@ -1079,9 +1079,9 @@ export default function App() {
                     </a>
                   </div>
                 </div>
-                <a href="/" className="inline-flex items-center gap-2 rounded-xl border-2 border-[#262262] bg-white px-6 py-3 text-sm font-medium text-[#262262] hover:border-[#1a1a4a] hover:bg-[#f8f9ff] hover:-translate-y-1 transition-all duration-300 mt-auto mx-auto">
+                <Link to="/" className="inline-flex items-center gap-2 rounded-xl border-2 border-[#262262] bg-white px-6 py-3 text-sm font-medium text-[#262262] hover:border-[#1a1a4a] hover:bg-[#f8f9ff] hover:-translate-y-1 transition-all duration-300 mt-auto mx-auto">
                   <Arrow/> Back to top
-                </a>
+                </Link>
               </div>
             )}
           </div>
@@ -1095,9 +1095,9 @@ export default function App() {
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 py-8 sm:flex-row">
           <div className="text-sm text-gray-600">© {new Date().getFullYear()} LunaraTech. All rights reserved.</div>
           <div className="flex items-center gap-4 text-sm text-gray-600">
-            <a href="/" className="hover:text-gray-900">Services</a>
-            <a href="/" className="hover:text-gray-900">About</a>
-            <a href="/" className="hover:text-gray-900">Contact</a>
+            <Link to="/" className="hover:text-gray-900">Services</Link>
+            <Link to="/" className="hover:text-gray-900">About</Link>
+            <Link to="/" className="hover:text-gray-900">Contact</Link>
           </div>
         </div>
       </footer>
