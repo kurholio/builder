@@ -154,14 +154,14 @@ const Accessibility = () => {
             />
           </Link>
           <nav className="hidden gap-6 text-sm text-gray-700 sm:flex mt-5">
-            <a href="/#home" className="hover:text-gray-900">Home</a>
-            <a href="/#niches" className="hover:text-gray-900">Niches</a>
-            <a href="/#services" className="hover:text-gray-900">Services</a>
-            <a href="/#about" className="hover:text-gray-900">About</a>
-            <a href="/#process" className="hover:text-gray-900">Process</a>
-            <a href="/#contact" className="hover:text-gray-900">Contact</a>
+            <a href="/" className="hover:text-gray-900">Home</a>
+            <a href="/" className="hover:text-gray-900">Niches</a>
+            <a href="/" className="hover:text-gray-900">Services</a>
+            <a href="/" className="hover:text-gray-900">About</a>
+            <a href="/" className="hover:text-gray-900">Process</a>
+            <a href="/" className="hover:text-gray-900">Contact</a>
           </nav>
-          <a href="/#contact" className="hidden rounded-md bg-[#FFB700] px-4 py-2 text-sm font-medium text-gray-900 hover:bg-[#e6a038] transition-all duration-300 sm:inline-flex mt-2">Get Quote</a>
+          <a href="/" className="hidden rounded-md bg-[#FFB700] px-4 py-2 text-sm font-medium text-gray-900 hover:bg-[#e6a038] transition-all duration-300 sm:inline-flex mt-2">Get Quote</a>
         </div>
       </header>
 
