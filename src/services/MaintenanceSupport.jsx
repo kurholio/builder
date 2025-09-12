@@ -186,6 +186,73 @@ const MaintenanceSupport = () => {
         </div>
       </section>
 
+      {/* Support Services Overview Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white/50 backdrop-blur-sm">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-semibold tracking-tight text-[#262262] sm:text-4xl mb-4">What's Included in Our Support</h2>
+            <p className="text-xl text-gray-600 mb-8">Comprehensive support services to keep your application running smoothly</p>
+          </div>
+          
+          <div className="grid lg:grid-cols-2 gap-8 mb-16">
+            <AboutCard color="navy" title="Complete Coverage">
+              Our support services cover all aspects of your application maintenance, from basic monitoring to advanced technical support. We ensure your application remains secure, performant, and up-to-date at all times.
+            </AboutCard>
+            <AboutCard color="gold" title="Flexible Options">
+              We offer flexible support options that can be customized to meet your specific needs and budget. Whether you need basic monitoring or comprehensive support, we have solutions that work for your business.
+            </AboutCard>
+          </div>
+          
+          <div className="bg-white rounded-xl p-8 shadow-lg">
+            <div className="grid md:grid-cols-3 gap-8">
+              <div>
+                <h3 className="text-xl font-semibold text-[#262262] mb-6 flex items-center">
+                  <div className="w-6 h-6 rounded-full bg-[#da1c5c] mr-3"></div>
+                  Basic Support
+                </h3>
+                <ul className="space-y-3">
+                  {["Email Support", "Basic Monitoring", "Monthly Updates", "Documentation"].map((service, index) => (
+                    <li key={index} className="flex items-center text-gray-600">
+                      <div className="w-4 h-4 rounded-full bg-[#da1c5c] mr-3"></div>
+                      {service}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              
+              <div>
+                <h3 className="text-xl font-semibold text-[#262262] mb-6 flex items-center">
+                  <div className="w-6 h-6 rounded-full bg-[#70CBD0] mr-3"></div>
+                  Premium Support
+                </h3>
+                <ul className="space-y-3">
+                  {["Phone + Email Support", "24/7 Monitoring", "Weekly Updates", "Priority Response"].map((service, index) => (
+                    <li key={index} className="flex items-center text-gray-600">
+                      <div className="w-4 h-4 rounded-full bg-[#70CBD0] mr-3"></div>
+                      {service}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              
+              <div>
+                <h3 className="text-xl font-semibold text-[#262262] mb-6 flex items-center">
+                  <div className="w-6 h-6 rounded-full bg-[#FFB700] mr-3"></div>
+                  Enterprise Support
+                </h3>
+                <ul className="space-y-3">
+                  {["Dedicated Support", "Real-time Monitoring", "Daily Updates", "On-site Support"].map((service, index) => (
+                    <li key={index} className="flex items-center text-gray-600">
+                      <div className="w-4 h-4 rounded-full bg-[#FFB700] mr-3"></div>
+                      {service}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Support Process Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
