@@ -209,10 +209,7 @@ const MaintenanceSupport = () => {
               <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-[#da1c5c] to-[#FFB700] opacity-10 rounded-bl-full"></div>
               
               <div className="relative z-10">
-                <div className="flex items-center mb-6">
-                  <div className="w-12 h-12 rounded-full bg-[#da1c5c] flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                    <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-7 w-7" />
-                  </div>
+                <div className="mb-6">
                   <h3 className="text-xl font-semibold text-[#262262]">Basic Support</h3>
                 </div>
                 <ul className="space-y-4">
@@ -231,10 +228,7 @@ const MaintenanceSupport = () => {
               <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-[#70CBD0] to-[#262262] opacity-10 rounded-bl-full"></div>
               
               <div className="relative z-10">
-                <div className="flex items-center mb-6">
-                  <div className="w-12 h-12 rounded-full bg-[#70CBD0] flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                    <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-7 w-7" />
-                  </div>
+                <div className="mb-6">
                   <h3 className="text-xl font-semibold text-[#262262]">Premium Support</h3>
                 </div>
                 <ul className="space-y-4">
@@ -253,10 +247,7 @@ const MaintenanceSupport = () => {
               <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-[#FFB700] to-[#da1c5c] opacity-10 rounded-bl-full"></div>
               
               <div className="relative z-10">
-                <div className="flex items-center mb-6">
-                  <div className="w-12 h-12 rounded-full bg-[#FFB700] flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                    <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-7 w-7" />
-                  </div>
+                <div className="mb-6">
                   <h3 className="text-xl font-semibold text-[#262262]">Enterprise Support</h3>
                 </div>
                 <ul className="space-y-4">
