@@ -179,21 +179,24 @@ const UIPrototyping = () => {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { name: "Figma", description: "Collaborative design tool", features: ["Real-time collaboration", "Component libraries", "Auto-layout"] },
-              { name: "Adobe XD", description: "Professional prototyping", features: ["Voice prototyping", "Responsive design", "Developer handoff"] },
-              { name: "Principle", description: "Animation and interaction", features: ["Micro-interactions", "Timeline editing", "Export options"] },
-              { name: "InVision", description: "Design workflow platform", features: ["Design systems", "User testing", "Feedback collection"] }
+              { name: "Figma", description: "Collaborative design tool", features: ["Real-time collaboration", "Component libraries", "Auto-layout"], color: "from-[#da1c5c] to-[#FFB700]", borderColor: "border-[#da1c5c]" },
+              { name: "Adobe XD", description: "Professional prototyping", features: ["Voice prototyping", "Responsive design", "Developer handoff"], color: "from-[#70CBD0] to-[#262262]", borderColor: "border-[#70CBD0]" },
+              { name: "Principle", description: "Animation and interaction", features: ["Micro-interactions", "Timeline editing", "Export options"], color: "from-[#FFB700] to-[#da1c5c]", borderColor: "border-[#FFB700]" },
+              { name: "InVision", description: "Design workflow platform", features: ["Design systems", "User testing", "Feedback collection"], color: "from-[#262262] to-[#70CBD0]", borderColor: "border-[#262262]" }
             ].map((tool, index) => (
-              <div key={index} className="group bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                <div className="text-center mb-4">
-                  <h3 className="text-lg font-semibold text-[#262262] mb-2">{tool.name}</h3>
+              <div key={index} className={`group bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-l-4 ${tool.borderColor} relative overflow-hidden`}>
+                {/* Decorative corner element */}
+                <div className={`absolute top-0 right-0 w-16 h-16 bg-gradient-to-br ${tool.color} opacity-10 rounded-bl-full`}></div>
+                
+                <div className="text-center mb-4 relative z-10">
+                  <h3 className="text-lg font-semibold text-[#262262] mb-2 group-hover:text-[#da1c5c] transition-colors duration-300">{tool.name}</h3>
                   <p className="text-gray-600 text-sm mb-4">{tool.description}</p>
                 </div>
-                <ul className="space-y-2">
+                <ul className="space-y-3 relative z-10">
                   {tool.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center text-sm text-gray-600">
-                      <Check className="w-4 h-4 text-[#70CBD0] mr-2" />
-                      {feature}
+                    <li key={featureIndex} className="flex items-center text-sm text-gray-600 group/item">
+                      <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${tool.color} mr-3 group-hover/item:scale-125 transition-transform duration-300`}></div>
+                      <span className="group-hover/item:text-[#262262] transition-colors duration-300">{feature}</span>
                     </li>
                   ))}
                 </ul>

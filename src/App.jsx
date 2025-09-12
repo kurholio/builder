@@ -598,7 +598,7 @@ export default function App() {
                 <Stat className ="pl-0 pr-0 bg-gradient-to-br from-[#262262]/10 to-[#262262]/5" value="1" label="Tightly-Knit<br/>Team"/>
               </div>
               <div className="animate-gentle-bounce" style={{animationDelay: '3s', animationDuration: '1.8s', animationIterationCount: 'infinite'}}>
-                <Stat className ="pl-0 pr-0 bg-gradient-to-br from-[#FFB700]/10 to-[#FFB700]/5" value="3" label="Decades<br/>Combined"/>
+                <Stat className ="pl-0 pr-0 bg-gradient-to-br from-[#FFB700]/10 to-[#FFB700]/5" value="3" label="Decades<br/>of Experience"/>
               </div>
             </div>
             <p className="mt-6 text-sm text-gray-600 leading-relaxed">
