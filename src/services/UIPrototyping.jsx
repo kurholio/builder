@@ -6,6 +6,8 @@ const UIPrototyping = () => {
 
   useEffect(() => {
     setIsVisible(true);
+    // Scroll to top when component mounts
+    window.scrollTo(0, 0);
   }, []);
 
   // Icon components matching landing page exactly
