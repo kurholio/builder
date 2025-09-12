@@ -188,7 +188,14 @@ const WebsiteDevelopment = () => {
               { name: "Node.js", level: 88 },
               { name: "TypeScript", level: 85 },
               { name: "AWS", level: 92 },
-              { name: "Docker", level: 80 }
+              { name: "Docker", level: 80 },
+              { name: "GraphQL", level: 82 },
+              { name: "Redis", level: 78 },
+              { name: "Elasticsearch", level: 75 },
+              { name: "GCP", level: 85 },
+              { name: "Kotlin", level: 80 },
+              { name: "Java", level: 88 },
+              { name: "Vue.js", level: 83 }
             ].map((tech, index) => (
               <div key={index} className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                 <div className="flex justify-between items-center mb-4">
