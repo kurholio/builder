@@ -105,31 +105,26 @@ const UIPrototyping = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#70CBD0]/10 to-[#70CBD0]/5">
       {/* Navigation */}
-      <nav className="bg-white/80 backdrop-blur-sm border-b border-gray-200 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
-            <Link to="/" className="flex items-center group">
-              <img src="/lunaratechLogo.png" alt="LunaraTech Logo" className="h-12 w-auto group-hover:scale-110 transition-transform duration-300"/>
-            </Link>
-            
-            {/* Navigation Menu */}
-            <div className="hidden md:flex items-center space-x-8">
-              <a href="/#about" className="text-gray-700 hover:text-[#da1c5c] transition-colors duration-300 font-medium">About</a>
-              <a href="/#services" className="text-gray-700 hover:text-[#da1c5c] transition-colors duration-300 font-medium">Services</a>
-              <a href="/#niches" className="text-gray-700 hover:text-[#da1c5c] transition-colors duration-300 font-medium">Niches</a>
-              <a href="/#process" className="text-gray-700 hover:text-[#da1c5c] transition-colors duration-300 font-medium">Process</a>
-              <a href="/#contact" className="text-gray-700 hover:text-[#da1c5c] transition-colors duration-300 font-medium">Contact</a>
-            </div>
-            
-            <Link
-              to="/"
-              className="rounded-md bg-[#FFB700] px-4 py-2 text-sm font-medium text-gray-900 hover:bg-[#e6a038] transition-all duration-300"
-            >
-              Back to Home
-            </Link>
-          </div>
+      <header className="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-white/90 border-b border-gray-100">
+        <div className="mx-auto flex max-w-7xl items-start justify-between px-4 py-3 sm:py-4">
+          <Link to="/" className="flex items-center">
+            <img 
+              src="/lunaratechLogo.png" 
+              alt="LunaraTech Logo" 
+              className="h-12 w-auto"
+            />
+          </Link>
+          <nav className="hidden gap-6 text-sm text-gray-700 sm:flex mt-5">
+            <a href="/#home" className="hover:text-gray-900">Home</a>
+            <a href="/#niches" className="hover:text-gray-900">Niches</a>
+            <a href="/#services" className="hover:text-gray-900">Services</a>
+            <a href="/#about" className="hover:text-gray-900">About</a>
+            <a href="/#process" className="hover:text-gray-900">Process</a>
+            <a href="/#contact" className="hover:text-gray-900">Contact</a>
+          </nav>
+          <a href="/#contact" className="hidden rounded-md bg-[#FFB700] px-4 py-2 text-sm font-medium text-gray-900 hover:bg-[#e6a038] transition-all duration-300 sm:inline-flex mt-2">Get Quote</a>
         </div>
-      </nav>
+      </header>
 
       {/* Hero Section */}
       <section className="relative py-20 px-4 sm:px-6 lg:px-8">
