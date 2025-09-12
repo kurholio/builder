@@ -156,12 +156,12 @@ const Accessibility = () => {
             />
           </Link>
           <nav className="hidden gap-6 text-sm text-gray-700 sm:flex mt-5">
-            <a href="/" onClick={(e) => { e.preventDefault(); window.location.href = '/#home'; }} className="hover:text-gray-900">Home</a>
-            <a href="/" onClick={(e) => { e.preventDefault(); window.location.href = '/#niches'; }} className="hover:text-gray-900">Niches</a>
-            <a href="/" onClick={(e) => { e.preventDefault(); window.location.href = '/#services'; }} className="hover:text-gray-900">Services</a>
-            <a href="/" onClick={(e) => { e.preventDefault(); window.location.href = '/#about'; }} className="hover:text-gray-900">About</a>
-            <a href="/" onClick={(e) => { e.preventDefault(); window.location.href = '/#process'; }} className="hover:text-gray-900">Process</a>
-            <a href="/" onClick={(e) => { e.preventDefault(); window.location.href = '/#contact'; }} className="hover:text-gray-900">Contact</a>
+            <a href="/#home" onClick={() => window.location.href = '/#home'} className="hover:text-gray-900">Home</a>
+            <a href="/#niches" onClick={() => window.location.href = '/#niches'} className="hover:text-gray-900">Niches</a>
+            <a href="/#services" onClick={() => window.location.href = '/#services'} className="hover:text-gray-900">Services</a>
+            <a href="/#about" onClick={() => window.location.href = '/#about'} className="hover:text-gray-900">About</a>
+            <a href="/#process" onClick={() => window.location.href = '/#process'} className="hover:text-gray-900">Process</a>
+            <a href="/#contact" onClick={() => window.location.href = '/#contact'} className="hover:text-gray-900">Contact</a>
           </nav>
           <Link to="/" className="hidden rounded-md bg-[#FFB700] px-4 py-2 text-sm font-medium text-gray-900 hover:bg-[#e6a038] transition-all duration-300 sm:inline-flex mt-2">Get Quote</Link>
         </div>
