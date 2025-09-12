@@ -691,15 +691,15 @@ export default function App() {
               <div className="mt-4 space-y-3">
                 <div className="flex items-center gap-3">
                   <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-8 w-8 flex-shrink-0"/>
-                  <span className="text-sm text-gray-600">Custom web applications built with React, Next.js, and modern frameworks</span>
+                  <span className="text-sm text-gray-600">Custom web applications built with React, Next.js, utilizing Java, Kotlin, and cloud infrastructure across AWS, GCP, and Azure</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-8 w-8 flex-shrink-0"/>
-                  <span className="text-sm text-gray-600">Mobile apps for iOS and Android with native performance</span>
+                  <span className="text-sm text-gray-600">Mobile apps for iOS and Android using modern frameworks and native architecture</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-8 w-8 flex-shrink-0"/>
-                  <span className="text-sm text-gray-600">E-commerce platforms and enterprise solutions that scale</span>
+                  <span className="text-sm text-gray-600">E-commerce platforms and enterprise solutions that scale against modern requirements</span>
                 </div>
               </div>
             </AboutCard>
