@@ -213,8 +213,8 @@ const MaintenanceSupport = () => {
                 { title: "Prevention", description: "Implement measures to prevent similar issues in the future", color: "bg-[#262262]" }
               ].map((step, index) => (
                 <div key={index} className="flex items-start space-x-4 group">
-                  <div className={`w-20 h-20 rounded-full flex items-center justify-center ${step.color} group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
-                    <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-12 w-12" />
+                  <div className={`w-20 h-20 rounded-full flex items-center justify-center ${step.color} group-hover:scale-110 transition-transform duration-300 shadow-lg p-2`}>
+                    <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-16 w-16" />
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold text-[#262262] mb-2">{step.title}</h3>
