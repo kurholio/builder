@@ -109,13 +109,13 @@ const UIPrototyping = () => {
       {/* Navigation */}
       <header className="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-white/90 border-b border-gray-100">
         <div className="mx-auto flex max-w-7xl items-start justify-between px-4 py-3 sm:py-4">
-          <Link to="/" className="flex items-center">
+          <a href="/" onClick={() => window.location.href = '/'} className="flex items-center">
             <img 
               src="/lunaratechLogo.png" 
               alt="LunaraTech Logo" 
               className="h-12 w-auto"
             />
-          </Link>
+          </a>
           <nav className="hidden gap-6 text-sm text-gray-700 sm:flex mt-5">
             <a href="/" onClick={() => window.location.href = '/'} className="hover:text-gray-900">Home</a>
             <a href="/#niches" onClick={() => window.location.href = '/#niches'} className="hover:text-gray-900">Niches</a>
