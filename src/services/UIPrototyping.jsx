@@ -188,14 +188,14 @@ const UIPrototyping = () => {
                 {/* Decorative corner element */}
                 <div className={`absolute top-0 right-0 w-16 h-16 bg-gradient-to-br ${tool.color} opacity-10 rounded-bl-full`}></div>
                 
-                <div className="text-center mb-4 relative z-10">
+                <div className="mb-4 relative z-10">
                   <h3 className="text-lg font-semibold text-[#262262] mb-2 group-hover:text-[#da1c5c] transition-colors duration-300">{tool.name}</h3>
                   <p className="text-gray-600 text-sm mb-4">{tool.description}</p>
                 </div>
                 <ul className="space-y-3 relative z-10">
                   {tool.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-center text-sm text-gray-600 group/item">
-                      <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${tool.color} mr-3 group-hover/item:scale-125 transition-transform duration-300`}></div>
+                      <div className={`w-3 h-3 rounded-full ${tool.borderColor.replace('border-', 'bg-')} mr-3 group-hover/item:scale-125 transition-transform duration-300`}></div>
                       <span className="group-hover/item:text-[#262262] transition-colors duration-300">{feature}</span>
                     </li>
                   ))}
