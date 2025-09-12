@@ -212,11 +212,11 @@ const MaintenanceSupport = () => {
                 <div className="mb-6">
                   <h3 className="text-xl font-semibold text-[#262262]">Basic Support</h3>
                 </div>
-                <ul className="space-y-4">
+                <ul className="space-y-5">
                   {["Email Support", "Basic Monitoring", "Monthly Updates", "Documentation"].map((service, index) => (
-                    <li key={index} className="flex items-center text-gray-600 group/item">
-                      <div className="w-3 h-3 rounded-full bg-[#da1c5c] mr-4 group-hover/item:scale-125 transition-transform duration-300"></div>
-                      <span className="group-hover/item:text-[#262262] transition-colors duration-300">{service}</span>
+                    <li key={index} className="flex items-center text-gray-700 group/item">
+                      <div className="w-4 h-4 rounded-full bg-[#da1c5c] mr-4 group-hover/item:scale-125 transition-transform duration-300"></div>
+                      <span className="text-base font-medium group-hover/item:text-[#262262] transition-colors duration-300">{service}</span>
                     </li>
                   ))}
                 </ul>
@@ -231,11 +231,11 @@ const MaintenanceSupport = () => {
                 <div className="mb-6">
                   <h3 className="text-xl font-semibold text-[#262262]">Premium Support</h3>
                 </div>
-                <ul className="space-y-4">
+                <ul className="space-y-5">
                   {["Phone + Email Support", "24/7 Monitoring", "Weekly Updates", "Priority Response"].map((service, index) => (
-                    <li key={index} className="flex items-center text-gray-600 group/item">
-                      <div className="w-3 h-3 rounded-full bg-[#70CBD0] mr-4 group-hover/item:scale-125 transition-transform duration-300"></div>
-                      <span className="group-hover/item:text-[#262262] transition-colors duration-300">{service}</span>
+                    <li key={index} className="flex items-center text-gray-700 group/item">
+                      <div className="w-4 h-4 rounded-full bg-[#70CBD0] mr-4 group-hover/item:scale-125 transition-transform duration-300"></div>
+                      <span className="text-base font-medium group-hover/item:text-[#262262] transition-colors duration-300">{service}</span>
                     </li>
                   ))}
                 </ul>
@@ -250,11 +250,11 @@ const MaintenanceSupport = () => {
                 <div className="mb-6">
                   <h3 className="text-xl font-semibold text-[#262262]">Enterprise Support</h3>
                 </div>
-                <ul className="space-y-4">
+                <ul className="space-y-5">
                   {["Dedicated Support", "Real-time Monitoring", "Daily Updates", "On-site Support"].map((service, index) => (
-                    <li key={index} className="flex items-center text-gray-600 group/item">
-                      <div className="w-3 h-3 rounded-full bg-[#FFB700] mr-4 group-hover/item:scale-125 transition-transform duration-300"></div>
-                      <span className="group-hover/item:text-[#262262] transition-colors duration-300">{service}</span>
+                    <li key={index} className="flex items-center text-gray-700 group/item">
+                      <div className="w-4 h-4 rounded-full bg-[#FFB700] mr-4 group-hover/item:scale-125 transition-transform duration-300"></div>
+                      <span className="text-base font-medium group-hover/item:text-[#262262] transition-colors duration-300">{service}</span>
                     </li>
                   ))}
                 </ul>
