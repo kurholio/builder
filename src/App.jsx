@@ -15,10 +15,10 @@ import Accessibility from './services/Accessibility';
 // Tailwind is available by default in this environment
 // Icons: inline SVG (black & white, lightweight, fully scalable)
 
-// Animated Background Component
-const AnimatedBackground = () => {
+// Enhanced Planet-like Animated Background Component
+const ExodusAnimatedBackground = () => {
   useEffect(() => {
-    const canvas = document.getElementById('animated-bg');
+    const canvas = document.getElementById('exodus-bg');
     if (!canvas) {
       return;
     }
@@ -35,25 +35,295 @@ const AnimatedBackground = () => {
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
     
-    // Simple visible animation
+    // Create planet-like objects array
+    const planets = [];
+    const numPlanets = 40; // Much more planets for density
+    
+    // Color palette for planets
+    const colors = [
+      '#70CBD0', '#FFB700', '#da1c5c', '#262262', 
+      '#8B5CF6', '#10B981', '#F59E0B', '#EF4444',
+      '#06B6D4', '#84CC16', '#F97316', '#EC4899'
+    ];
+    
+    // Initialize planets with more variety and random movement patterns
+    for (let i = 0; i < numPlanets; i++) {
+      // More varied sizes - some very small, some very large
+      const size = Math.random() < 0.3 ? 
+        Math.random() * 30 + 10 : // 30% small planets
+        Math.random() * 140 + 50; // 70% larger planets
+      
+      // Create more random movement patterns
+      const movementType = Math.random();
+      const baseSpeed = Math.random() * 1.5 + 0.5; // Random base speed
+      
+      planets.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        size: size,
+        baseSize: size,
+        rotation: Math.random() * Math.PI * 2,
+        rotationSpeed: (Math.random() - 0.5) * 0.06,
+        speedX: (Math.random() - 0.5) * baseSpeed,
+        speedY: (Math.random() - 0.5) * baseSpeed,
+        opacity: Math.random() * 0.4 + 0.2,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        pulsePhase: Math.random() * Math.PI * 2,
+        orbitRadius: Math.random() * 120 + 30,
+        orbitSpeed: (Math.random() - 0.5) * 0.03,
+        orbitCenterX: Math.random() * canvas.width,
+        orbitCenterY: Math.random() * canvas.height,
+        hasOrbit: movementType < 0.3, // 30% have orbital motion
+        glowIntensity: Math.random() * 0.5 + 0.2,
+        type: Math.random() > 0.3 ? 'planet' : 'star',
+        // New random movement properties
+        movementType: movementType,
+        directionChange: Math.random() * 0.05 + 0.01, // How often direction changes (slower)
+        lastDirectionChange: 0,
+        currentDirection: Math.random() * Math.PI * 2,
+        speedVariation: Math.random() * 0.8 + 0.2, // Speed variation factor
+        driftX: (Math.random() - 0.5) * 0.3, // Random drift
+        driftY: (Math.random() - 0.5) * 0.3,
+        // Add different movement behaviors
+        behaviorType: Math.floor(Math.random() * 3), // 0: slow drift, 1: medium wander, 2: fast explore
+        wanderRadius: Math.random() * 100 + 50, // For wandering behavior
+        wanderCenterX: Math.random() * canvas.width,
+        wanderCenterY: Math.random() * canvas.height
+      });
+    }
+    
+    // Add smaller particles
+    const particles = [];
+    const numParticles = 80; // More particles for atmosphere
+    for (let i = 0; i < numParticles; i++) {
+      const particleSpeed = Math.random() * 1.2 + 0.3; // Random speed
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        size: Math.random() * 4 + 1,
+        speedX: (Math.random() - 0.5) * particleSpeed,
+        speedY: (Math.random() - 0.5) * particleSpeed,
+        opacity: Math.random() * 0.3 + 0.1,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        pulsePhase: Math.random() * Math.PI * 2,
+        // Random movement properties for particles
+        directionChange: Math.random() * 0.03 + 0.01,
+        lastDirectionChange: 0,
+        currentDirection: Math.random() * Math.PI * 2,
+        speedVariation: Math.random() * 0.6 + 0.4,
+        driftX: (Math.random() - 0.5) * 0.4,
+        driftY: (Math.random() - 0.5) * 0.4
+      });
+    }
+    
     let time = 0;
     const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
-      // Draw moving circles
-      for (let i = 0; i < 20; i++) {
-        const x = (canvas.width / 2) + Math.cos(time + i * 0.5) * 100;
-        const y = (canvas.height / 2) + Math.sin(time + i * 0.3) * 80;
-        const size = 5 + Math.sin(time + i) * 3;
+      try {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
         
-        ctx.beginPath();
-        ctx.arc(x, y, size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(59, 130, 246, ${0.3 + Math.sin(time + i) * 0.2})`; // Blue with varying opacity
-        ctx.fill();
+        // Update and draw planets
+        planets.forEach((planet, index) => {
+          // Random movement patterns
+          if (planet.hasOrbit) {
+            // Orbital motion with random drifting
+            planet.orbitCenterX += planet.driftX + (Math.random() - 0.5) * 0.2;
+            planet.orbitCenterY += planet.driftY + (Math.random() - 0.5) * 0.2;
+            planet.x = planet.orbitCenterX + Math.cos(time * planet.orbitSpeed + index) * planet.orbitRadius;
+            planet.y = planet.orbitCenterY + Math.sin(time * planet.orbitSpeed + index) * planet.orbitRadius;
+          } else {
+            // Different movement behaviors based on behaviorType
+            if (planet.behaviorType === 0) {
+              // Slow drift - very gentle movement
+              if (time - planet.lastDirectionChange > planet.directionChange) {
+                planet.currentDirection += (Math.random() - 0.5) * 0.1; // Very gradual turns
+                planet.lastDirectionChange = time;
+              }
+              const moveX = Math.cos(planet.currentDirection) * planet.speedX * 0.3;
+              const moveY = Math.sin(planet.currentDirection) * planet.speedY * 0.3;
+              planet.x += moveX;
+              planet.y += moveY;
+              
+            } else if (planet.behaviorType === 1) {
+              // Medium wander - around a center point
+              const distanceFromCenter = Math.sqrt(
+                Math.pow(planet.x - planet.wanderCenterX, 2) + 
+                Math.pow(planet.y - planet.wanderCenterY, 2)
+              );
+              
+              if (distanceFromCenter > planet.wanderRadius) {
+                // Move back toward center
+                const angleToCenter = Math.atan2(
+                  planet.wanderCenterY - planet.y, 
+                  planet.wanderCenterX - planet.x
+                );
+                planet.currentDirection = angleToCenter;
+              } else if (time - planet.lastDirectionChange > planet.directionChange) {
+                // Random wander within radius
+                planet.currentDirection += (Math.random() - 0.5) * 0.3;
+                planet.lastDirectionChange = time;
+              }
+              
+              const moveX = Math.cos(planet.currentDirection) * planet.speedX;
+              const moveY = Math.sin(planet.currentDirection) * planet.speedY;
+              planet.x += moveX;
+              planet.y += moveY;
+              
+            } else {
+              // Fast explore - more dynamic movement
+              if (time - planet.lastDirectionChange > planet.directionChange) {
+                const targetDirection = Math.random() * Math.PI * 2;
+                const directionDiff = targetDirection - planet.currentDirection;
+                planet.currentDirection += directionDiff * 0.2; // Faster turns
+                planet.lastDirectionChange = time;
+                
+                const targetSpeed = Math.random() * planet.speedVariation;
+                planet.speedX = (Math.random() - 0.5) * targetSpeed;
+                planet.speedY = (Math.random() - 0.5) * targetSpeed;
+              }
+              
+              const turbulenceX = (Math.random() - 0.5) * 0.3;
+              const turbulenceY = (Math.random() - 0.5) * 0.3;
+              
+              const moveX = Math.cos(planet.currentDirection) * planet.speedX + turbulenceX;
+              const moveY = Math.sin(planet.currentDirection) * planet.speedY + turbulenceY;
+              
+              planet.x += moveX;
+              planet.y += moveY;
+            }
+          }
+          
+          planet.rotation += planet.rotationSpeed;
+          planet.pulsePhase += 0.02;
+          
+          // Smooth wrap around screen - no bouncing
+          if (planet.x > canvas.width + planet.size) planet.x = -planet.size;
+          if (planet.x < -planet.size) planet.x = canvas.width + planet.size;
+          if (planet.y > canvas.height + planet.size) planet.y = -planet.size;
+          if (planet.y < -planet.size) planet.y = canvas.height + planet.size;
+          
+          // Calculate pulsing size and opacity with more dramatic effect
+          const pulseSize = Math.max(5, planet.baseSize + Math.sin(planet.pulsePhase) * 25); // Larger size variation
+          const pulseOpacity = Math.max(0, Math.min(1, planet.opacity + Math.sin(planet.pulsePhase + index) * 0.25)); // More opacity variation
+          
+          ctx.save();
+          ctx.translate(planet.x, planet.y);
+          ctx.rotate(planet.rotation);
+          ctx.globalAlpha = Math.max(0, Math.min(1, pulseOpacity));
+          
+          if (planet.type === 'star') {
+            // Draw star shape
+            ctx.beginPath();
+            const spikes = 8;
+            const outerRadius = pulseSize;
+            const innerRadius = pulseSize * 0.4;
+            
+            for (let i = 0; i < spikes * 2; i++) {
+              const angle = (i * Math.PI) / spikes;
+              const radius = i % 2 === 0 ? outerRadius : innerRadius;
+              const x = Math.cos(angle) * radius;
+              const y = Math.sin(angle) * radius;
+              if (i === 0) {
+                ctx.moveTo(x, y);
+              } else {
+                ctx.lineTo(x, y);
+              }
+            }
+            ctx.closePath();
+            ctx.fillStyle = planet.color;
+            ctx.fill();
+          } else {
+            // Draw planet with gradient
+            const gradient = ctx.createRadialGradient(0, 0, 0, 0, 0, pulseSize);
+            gradient.addColorStop(0, planet.color);
+            gradient.addColorStop(0.7, planet.color + '80');
+            gradient.addColorStop(1, planet.color + '40');
+            
+            ctx.beginPath();
+            ctx.arc(0, 0, pulseSize, 0, Math.PI * 2);
+            ctx.fillStyle = gradient;
+            ctx.fill();
+            
+            // Add glow effect
+            ctx.shadowColor = planet.color;
+            ctx.shadowBlur = planet.glowIntensity * 30;
+            ctx.beginPath();
+            ctx.arc(0, 0, pulseSize * 0.8, 0, Math.PI * 2);
+            ctx.fillStyle = planet.color + '60';
+            ctx.fill();
+            ctx.shadowBlur = 0;
+          }
+          
+          ctx.restore();
+        });
+        
+        // Update and draw particles
+        particles.forEach((particle, index) => {
+          // Fluid movement for particles
+          if (time - particle.lastDirectionChange > particle.directionChange) {
+            // Gradual direction change
+            const targetDirection = Math.random() * Math.PI * 2;
+            const directionDiff = targetDirection - particle.currentDirection;
+            particle.currentDirection += directionDiff * 0.15; // Slightly faster turn for particles
+            particle.lastDirectionChange = time;
+            
+            // Gradual speed change
+            const targetSpeed = Math.random() * particle.speedVariation;
+            particle.speedX = (Math.random() - 0.5) * targetSpeed;
+            particle.speedY = (Math.random() - 0.5) * targetSpeed;
+          }
+          
+          // Add more turbulence for particles (they're smaller, so more affected by "wind")
+          const turbulenceX = (Math.random() - 0.5) * 0.3;
+          const turbulenceY = (Math.random() - 0.5) * 0.3;
+          
+          // Move with current direction plus turbulence
+          const moveX = Math.cos(particle.currentDirection) * particle.speedX + turbulenceX;
+          const moveY = Math.sin(particle.currentDirection) * particle.speedY + turbulenceY;
+          
+          particle.x += moveX;
+          particle.y += moveY;
+          particle.pulsePhase += 0.03;
+          
+          // Wrap around screen
+          if (particle.x > canvas.width) particle.x = 0;
+          if (particle.x < 0) particle.x = canvas.width;
+          if (particle.y > canvas.height) particle.y = 0;
+          if (particle.y < 0) particle.y = canvas.height;
+          
+          const pulseSize = Math.max(0.5, particle.size + Math.sin(particle.pulsePhase) * 3); // More size variation
+          const pulseOpacity = Math.max(0, Math.min(1, particle.opacity + Math.sin(particle.pulsePhase + index) * 0.2)); // More opacity variation
+          
+          ctx.beginPath();
+          ctx.arc(particle.x, particle.y, pulseSize, 0, Math.PI * 2);
+          ctx.fillStyle = particle.color + Math.floor(pulseOpacity * 255).toString(16).padStart(2, '0');
+          ctx.fill();
+        });
+        
+        // Add connection lines between nearby planets
+        for (let i = 0; i < planets.length; i++) {
+          for (let j = i + 1; j < planets.length; j++) {
+            const dx = planets[i].x - planets[j].x;
+            const dy = planets[i].y - planets[j].y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            
+            if (distance < 250) { // Increased connection distance
+              ctx.beginPath();
+              ctx.moveTo(planets[i].x, planets[i].y);
+              ctx.lineTo(planets[j].x, planets[j].y);
+              ctx.strokeStyle = `rgba(112, 203, 208, ${0.08 * (1 - distance / 250)})`; // Slightly more subtle
+              ctx.lineWidth = 0.8; // Thinner lines
+              ctx.stroke();
+            }
+          }
+        }
+        
+        time += 0.01; // Moderate speed for better random movement visibility
+        animationId = requestAnimationFrame(animate);
+      } catch (error) {
+        console.error('Animation error:', error);
+        // Continue animation even if there's an error
+        animationId = requestAnimationFrame(animate);
       }
-      
-      time += 0.02;
-      animationId = requestAnimationFrame(animate);
     };
     
     animate();
@@ -66,77 +336,77 @@ const AnimatedBackground = () => {
   
   return (
     <canvas
-      id="animated-bg"
+      id="exodus-bg"
       className="fixed inset-0 pointer-events-none z-0"
       style={{ background: 'transparent' }}
     />
   );
 };
 
-// Floating Geometric Pattern Overlay
-const FloatingPattern = () => {
-  useEffect(() => {
-    const canvas = document.getElementById('floating-pattern');
-    if (!canvas) {
-      return;
-    }
-    
-    const ctx = canvas.getContext('2d');
-    let animationId;
-    
-    const resizeCanvas = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-    
-    resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
-    
-    // Simple floating shapes
-    let time = 0;
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
-      // Draw floating triangles
-      for (let i = 0; i < 8; i++) {
-        const x = (canvas.width / 4) + Math.cos(time + i * 0.8) * 150;
-        const y = (canvas.height / 4) + Math.sin(time + i * 0.6) * 120;
-        const size = 15 + Math.sin(time + i * 0.5) * 8;
-        
-        ctx.save();
-        ctx.translate(x, y);
-        ctx.rotate(time + i * 0.3);
-        
-        ctx.beginPath();
-        ctx.moveTo(0, -size);
-        ctx.lineTo(size * 0.866, size * 0.5);
-        ctx.lineTo(-size * 0.866, size * 0.5);
-        ctx.closePath();
-        ctx.strokeStyle = `rgba(147, 51, 234, ${0.4 + Math.sin(time + i) * 0.2})`; // Purple with varying opacity
-        ctx.lineWidth = 2;
-        ctx.stroke();
-        
-        ctx.restore();
-      }
-      
-      time += 0.015;
-      animationId = requestAnimationFrame(animate);
-    };
-    
-    animate();
-    
-    return () => {
-      cancelAnimationFrame(animationId);
-      window.removeEventListener('resize', resizeCanvas);
-    };
-  }, []);
-  
+// Enhanced Gradient Overlay Component
+const GradientOverlay = () => {
   return (
-    <canvas
-      id="floating-pattern"
-      className="fixed inset-0 pointer-events-none z-0"
-      style={{ background: 'transparent' }}
-    />
+    <div className="fixed inset-0 pointer-events-none z-10">
+      {/* Animated radial gradients */}
+      <div 
+        className="absolute inset-0 opacity-40 animate-exodus-pulse"
+        style={{
+          background: `
+            radial-gradient(circle at 20% 30%, rgba(112, 203, 208, 0.25) 0%, transparent 60%), 
+            radial-gradient(circle at 80% 70%, rgba(255, 183, 0, 0.25) 0%, transparent 60%), 
+            radial-gradient(circle at 50% 20%, rgba(139, 92, 246, 0.2) 0%, transparent 50%),
+            radial-gradient(circle at 30% 80%, rgba(236, 72, 153, 0.2) 0%, transparent 50%)
+          `
+        }}
+      />
+      
+      {/* Dynamic linear gradients */}
+      <div 
+        className="absolute inset-0 opacity-30 animate-exodus-float"
+        style={{
+          background: `
+            linear-gradient(135deg, rgba(112, 203, 208, 0.15) 0%, transparent 40%), 
+            linear-gradient(45deg, transparent 60%, rgba(255, 183, 0, 0.15) 100%),
+            linear-gradient(225deg, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+            linear-gradient(315deg, transparent 70%, rgba(236, 72, 153, 0.1) 100%)
+          `
+        }}
+      />
+      
+      {/* Animated gradient waves */}
+      <div 
+        className="absolute inset-0 opacity-20 animate-exodus-glow"
+        style={{
+          background: `
+            conic-gradient(from 0deg at 25% 25%, rgba(112, 203, 208, 0.1), transparent, rgba(255, 183, 0, 0.1), transparent, rgba(139, 92, 246, 0.1), transparent),
+            conic-gradient(from 180deg at 75% 75%, rgba(236, 72, 153, 0.1), transparent, rgba(16, 185, 129, 0.1), transparent, rgba(245, 158, 11, 0.1), transparent)
+          `
+        }}
+      />
+      
+      {/* Subtle noise texture with animation */}
+      <div 
+        className="absolute inset-0 opacity-10 animate-pulse"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+          backgroundSize: '200px 200px',
+          animation: 'pulse 4s ease-in-out infinite'
+        }}
+      />
+      
+      {/* Additional animated overlay */}
+      <div 
+        className="absolute inset-0 opacity-15"
+        style={{
+          background: `
+            radial-gradient(ellipse at 10% 10%, rgba(112, 203, 208, 0.3) 0%, transparent 70%),
+            radial-gradient(ellipse at 90% 90%, rgba(255, 183, 0, 0.3) 0%, transparent 70%),
+            radial-gradient(ellipse at 50% 50%, rgba(38, 34, 98, 0.2) 0%, transparent 80%)
+          `,
+          animation: 'exodusFloat 6s ease-in-out infinite'
+        }}
+      />
+    </div>
   );
 };
 
@@ -352,6 +622,29 @@ export default function App() {
     message: ''
   });
 
+  // Google Analytics integration
+  React.useEffect(() => {
+    // Load Google Analytics script
+    const script1 = document.createElement('script');
+    script1.async = true;
+    script1.src = 'https://www.googletagmanager.com/gtag/js?id=G-Y9LZTSGPKL';
+    document.head.appendChild(script1);
+
+    // Initialize Google Analytics
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', 'G-Y9LZTSGPKL');
+
+    return () => {
+      // Cleanup if needed
+      if (script1.parentNode) {
+        script1.parentNode.removeChild(script1);
+      }
+    };
+  }, []);
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     console.log(`Form field ${name} changed to:`, value);
@@ -436,6 +729,20 @@ export default function App() {
         0%, 100% { transform: translateY(0px); }
         50% { transform: translateY(-8px); }
       }
+      @keyframes exodusFloat {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        25% { transform: translateY(-10px) rotate(1deg); }
+        50% { transform: translateY(-5px) rotate(0deg); }
+        75% { transform: translateY(-15px) rotate(-1deg); }
+      }
+      @keyframes exodusPulse {
+        0%, 100% { transform: scale(1); opacity: 0.3; }
+        50% { transform: scale(1.1); opacity: 0.6; }
+      }
+      @keyframes exodusGlow {
+        0%, 100% { box-shadow: 0 0 20px rgba(112, 203, 208, 0.3); }
+        50% { box-shadow: 0 0 40px rgba(112, 203, 208, 0.6), 0 0 60px rgba(255, 183, 0, 0.3); }
+      }
       .animate-fade-in {
         animation: fadeIn 1s ease-out;
       }
@@ -453,6 +760,15 @@ export default function App() {
       }
       .animate-slide-in-right {
         animation: slideInRight 0.8s ease-out;
+      }
+      .animate-exodus-float {
+        animation: exodusFloat 4s ease-in-out infinite;
+      }
+      .animate-exodus-pulse {
+        animation: exodusPulse 3s ease-in-out infinite;
+      }
+      .animate-exodus-glow {
+        animation: exodusGlow 2s ease-in-out infinite;
       }
     `;
     document.head.appendChild(style);
@@ -473,9 +789,9 @@ export default function App() {
       <Routes>
         <Route path="/" element={
           <>
-            <AnimatedBackground />
-            <FloatingPattern />
-            <main className="min-h-screen bg-white/95 backdrop-blur-sm text-gray-900 relative z-10">
+            <ExodusAnimatedBackground />
+            <GradientOverlay />
+            <main className="min-h-screen bg-white/95 backdrop-blur-sm text-gray-900 relative z-20">
         {/* Top nav */}
       <header className="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-white/90 border-b border-gray-100">
         <div className="mx-auto flex max-w-7xl items-start justify-between px-4 py-3 sm:py-4">
@@ -496,19 +812,77 @@ export default function App() {
       </header>
 
       {/* Hero */}
-      <section id="home" className="relative bg-gradient-to-br from-[#70CBD0]/10 to-[#70CBD0]/5">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:py-24">
-          <div className="mx-auto max-w-3xl text-center">
+      <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Enhanced background with multiple animated layers */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#70CBD0]/10 via-white to-[#FFB700]/10 animate-exodus-pulse" />
+        <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-[#262262]/8 to-transparent animate-exodus-float" />
+        <div className="absolute inset-0 bg-gradient-to-bl from-[#8B5CF6]/5 via-transparent to-[#EC4899]/5 animate-exodus-glow" />
+        
+        {/* Content */}
+        <div className="relative z-30 mx-auto max-w-7xl px-4 py-16 sm:py-24">
+          <div className="mx-auto max-w-4xl text-center">
             
-            <h1 className="mt-15 text-4xl font-semibold tracking-tight text-[#262262] sm:text-6xl animate-pulse">Turn vision into velocity</h1>
-            <p className="mx-auto mt-10 max-w-2xl text-gray-600 animate-fade-in">We craft clean code, bold design, and real connections. From idea to launch, we build experiences that scale, convert, and feel great to use.</p>
+            <h1 className="mt-15 text-4xl font-bold tracking-tight sm:text-7xl animate-pulse">
+              <span className="text-[#262262]">Turn</span>{' '}
+              <span className="text-[#70CBD0]">vision</span>{' '}
+              <span className="text-[#da1c5c]">into</span>{' '}
+              <span className="text-[#FFB700]">velocity</span>
+            </h1>
+            <p className="mx-auto mt-10 max-w-3xl text-lg text-gray-600 animate-fade-in leading-relaxed">
+              We craft clean code, bold design, and real connections. From idea to launch, we build experiences that scale, convert, and feel great to use.
+            </p>
             
-            <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-              <a href="#contact" className="rounded-md bg-[#da1c5c] px-6 py-3 text-sm font-medium text-white hover:bg-[#c01a52] transition-all duration-300 hover:scale-105 ">Start a Project</a>
-              <a href="#services" className="rounded-md border border-[#262262] bg-white px-6 py-3 text-sm font-medium text-[#262262] hover:border-[#1a1a4a] hover:bg-[#f8f9ff] transition-all duration-300 hover:scale-105">What we do</a>
+            <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
+              <a href="#contact" className="group relative rounded-xl bg-gradient-to-r from-[#da1c5c] to-[#c01a52] px-8 py-4 text-sm font-semibold text-white hover:from-[#c01a52] hover:to-[#b0184a] transition-all duration-300 hover:scale-105 hover:shadow-xl shadow-lg">
+                <span className="relative z-10">Start a Project</span>
+                <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-[#da1c5c] to-[#c01a52] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </a>
+              <a href="#services" className="group relative rounded-xl border-2 border-[#262262] bg-white/80 backdrop-blur-sm px-8 py-4 text-sm font-semibold text-[#262262] hover:border-[#1a1a4a] hover:bg-[#f8f9ff] transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                <span className="relative z-10">What we do</span>
+                <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-[#70CBD0]/10 to-[#FFB700]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </a>
             </div>
+            
           </div>
         </div>
+        
+        {/* Enhanced floating decorative elements - larger and more dynamic */}
+        <div className="absolute top-20 left-10 w-8 h-8 bg-gradient-to-br from-[#70CBD0]/40 to-[#70CBD0]/20 rounded-full animate-exodus-float shadow-lg" style={{animationDelay: '0s'}} />
+        <div className="absolute top-40 right-20 w-12 h-12 bg-gradient-to-br from-[#FFB700]/40 to-[#FFB700]/20 rounded-full animate-exodus-pulse shadow-lg" style={{animationDelay: '1s'}} />
+        <div className="absolute bottom-40 left-20 w-6 h-6 bg-gradient-to-br from-[#da1c5c]/40 to-[#da1c5c]/20 rounded-full animate-exodus-float shadow-lg" style={{animationDelay: '2s'}} />
+        <div className="absolute bottom-20 right-10 w-10 h-10 bg-gradient-to-br from-[#262262]/40 to-[#262262]/20 rounded-full animate-exodus-pulse shadow-lg" style={{animationDelay: '0.5s'}} />
+        
+        {/* Additional floating shapes - more variety */}
+        <div className="absolute top-60 left-1/4 w-4 h-4 bg-gradient-to-br from-[#8B5CF6]/30 to-[#8B5CF6]/10 rounded-full animate-exodus-float" style={{animationDelay: '1.5s'}} />
+        <div className="absolute top-80 right-1/3 w-6 h-6 bg-gradient-to-br from-[#10B981]/30 to-[#10B981]/10 rounded-full animate-exodus-pulse" style={{animationDelay: '2.5s'}} />
+        <div className="absolute bottom-60 right-1/4 w-4 h-4 bg-gradient-to-br from-[#F59E0B]/30 to-[#F59E0B]/10 rounded-full animate-exodus-float" style={{animationDelay: '3s'}} />
+        <div className="absolute bottom-80 left-1/3 w-8 h-8 bg-gradient-to-br from-[#EC4899]/30 to-[#EC4899]/10 rounded-full animate-exodus-pulse" style={{animationDelay: '0.8s'}} />
+        
+        {/* More floating elements for density */}
+        <div className="absolute top-32 left-1/3 w-3 h-3 bg-[#06B6D4]/25 rounded-full animate-exodus-float" style={{animationDelay: '2.2s'}} />
+        <div className="absolute top-72 right-1/4 w-5 h-5 bg-[#84CC16]/25 rounded-full animate-exodus-pulse" style={{animationDelay: '1.8s'}} />
+        <div className="absolute bottom-32 left-1/2 w-4 h-4 bg-[#F97316]/25 rounded-full animate-exodus-float" style={{animationDelay: '3.5s'}} />
+        <div className="absolute bottom-72 right-1/2 w-3 h-3 bg-[#EF4444]/25 rounded-full animate-exodus-pulse" style={{animationDelay: '1.2s'}} />
+        
+        {/* Large background orbs */}
+        <div className="absolute top-10 left-1/2 w-32 h-32 bg-gradient-to-br from-[#70CBD0]/10 to-transparent rounded-full animate-exodus-float blur-sm" style={{animationDelay: '0s', animationDuration: '8s'}} />
+        <div className="absolute bottom-10 right-1/2 w-40 h-40 bg-gradient-to-br from-[#FFB700]/10 to-transparent rounded-full animate-exodus-pulse blur-sm" style={{animationDelay: '2s', animationDuration: '10s'}} />
+        <div className="absolute top-1/2 left-10 w-24 h-24 bg-gradient-to-br from-[#8B5CF6]/8 to-transparent rounded-full animate-exodus-glow blur-sm" style={{animationDelay: '4s', animationDuration: '12s'}} />
+        <div className="absolute top-1/2 right-10 w-28 h-28 bg-gradient-to-br from-[#EC4899]/8 to-transparent rounded-full animate-exodus-float blur-sm" style={{animationDelay: '6s', animationDuration: '9s'}} />
+        
+        {/* Additional floating bubbles for more density */}
+        <div className="absolute top-1/4 left-1/3 w-6 h-6 bg-[#10B981]/20 rounded-full animate-exodus-float" style={{animationDelay: '1.2s'}} />
+        <div className="absolute top-3/4 right-1/3 w-4 h-4 bg-[#F59E0B]/20 rounded-full animate-exodus-pulse" style={{animationDelay: '2.8s'}} />
+        <div className="absolute top-1/3 right-1/4 w-5 h-5 bg-[#06B6D4]/20 rounded-full animate-exodus-float" style={{animationDelay: '3.2s'}} />
+        <div className="absolute bottom-1/3 left-1/4 w-3 h-3 bg-[#84CC16]/20 rounded-full animate-exodus-pulse" style={{animationDelay: '1.8s'}} />
+        <div className="absolute top-2/3 left-2/3 w-4 h-4 bg-[#F97316]/20 rounded-full animate-exodus-float" style={{animationDelay: '4.1s'}} />
+        <div className="absolute bottom-1/4 right-2/3 w-5 h-5 bg-[#EF4444]/20 rounded-full animate-exodus-pulse" style={{animationDelay: '2.5s'}} />
+        
+        {/* Extra small floating dots */}
+        <div className="absolute top-16 left-1/2 w-2 h-2 bg-[#70CBD0]/15 rounded-full animate-exodus-float" style={{animationDelay: '0.5s'}} />
+        <div className="absolute top-24 right-1/2 w-1.5 h-1.5 bg-[#FFB700]/15 rounded-full animate-exodus-pulse" style={{animationDelay: '1.5s'}} />
+        <div className="absolute bottom-16 left-1/2 w-2 h-2 bg-[#da1c5c]/15 rounded-full animate-exodus-float" style={{animationDelay: '3.5s'}} />
+        <div className="absolute bottom-24 right-1/2 w-1.5 h-1.5 bg-[#262262]/15 rounded-full animate-exodus-pulse" style={{animationDelay: '2.2s'}} />
       </section>
 
       {/* Value props */}
