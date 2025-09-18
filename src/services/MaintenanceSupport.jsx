@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import SEOHead from '../components/SEOHead';
 
 const MaintenanceSupport = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -100,30 +103,31 @@ const MaintenanceSupport = () => {
       <div className="mt-2 text-sm text-gray-600 leading-tight">{label}</div>
     </div>
   );
+  const maintenancesupportStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Website Maintenance & Support Services",
+    "description": "Keep your website running smoothly with our comprehensive maintenance and support services. Updates, security, backups, and 24/7 technical support.",
+    "provider": {
+        "@type": "Organization",
+        "name": "LunaraTech",
+        "url": "https://lunaratech.com"
+    },
+    "serviceType": "Website Maintenance & Support Services",
+    "areaServed": "United States",
+    "url": "https://lunaratech.com/maintenance-support"
+};
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#70CBD0]/10 to-[#70CBD0]/5">
-      {/* Navigation */}
-      <header className="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-white/90 border-b border-gray-100">
-        <div className="mx-auto flex max-w-7xl items-start justify-between px-4 py-3 sm:py-4">
-          <a href="/" onClick={() => window.location.href = '/'} className="flex items-center">
-            <img 
-              src="/lunaratechLogo.png" 
-              alt="LunaraTech Logo" 
-              className="h-12 w-auto"
-            />
-          </a>
-          <nav className="hidden gap-6 text-sm text-gray-700 sm:flex mt-5">
-            <a href="/" onClick={() => window.location.href = '/'} className="hover:text-gray-900">Home</a>
-            <a href="/#niches" onClick={() => window.location.href = '/#niches'} className="hover:text-gray-900">Niches</a>
-            <a href="/#services" onClick={() => window.location.href = '/#services'} className="hover:text-gray-900">Services</a>
-            <a href="/#about" onClick={() => window.location.href = '/#about'} className="hover:text-gray-900">About</a>
-            <a href="/#process" onClick={() => window.location.href = '/#process'} className="hover:text-gray-900">Process</a>
-            <a href="/#contact" onClick={() => window.location.href = '/#contact'} className="hover:text-gray-900">Contact</a>
-          </nav>
-          <Link to="/" className="hidden rounded-md bg-[#FFB700] px-4 py-2 text-sm font-medium text-gray-900 hover:bg-[#e6a038] transition-all duration-300 sm:inline-flex mt-2">Get Quote</Link>
-        </div>
-      </header>
+      <SEOHead 
+        title="Website Maintenance & Support Services"
+        description="Keep your website running smoothly with our comprehensive maintenance and support services. Updates, security, backups, and 24/7 technical support."
+        keywords="website maintenance, web support, technical support, website updates, security updates, backup services, website monitoring, maintenance plans"
+        canonicalUrl="https://lunaratech.com/maintenance-support"
+        structuredData={maintenancesupportStructuredData}
+      />
+      <Header />
 
       {/* Hero Section */}
       <section className="relative py-20 px-4 sm:px-6 lg:px-8">
@@ -149,13 +153,6 @@ const MaintenanceSupport = () => {
             </AboutCard>
           </div>
 
-          {/* Support Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20">
-            <Stat value="< 2 hours" label="Response Time" />
-            <Stat value="99.9%" label="Uptime Guarantee" />
-            <Stat value="500+" label="Tickets Resolved" />
-            <Stat value="98%" label="Client Satisfaction" />
-          </div>
         </div>
       </section>
 
@@ -314,16 +311,6 @@ const MaintenanceSupport = () => {
               <p className="text-gray-600 mb-4">
                 Experienced developers and support specialists dedicated to keeping your application running smoothly.
               </p>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-[#da1c5c]">5+</div>
-                  <div className="text-sm text-gray-600">Years Experience</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-[#70CBD0]">24/7</div>
-                  <div className="text-sm text-gray-600">Availability</div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -388,12 +375,6 @@ const MaintenanceSupport = () => {
             <p className="text-xl text-gray-600 mb-8">Proven results in maintenance and support services</p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <Stat value="< 2 hours" label="Average Response" />
-            <Stat value="99.9%" label="Uptime SLA" />
-            <Stat value="500+" label="Issues Resolved" />
-            <Stat value="98%" label="Client Satisfaction" />
-          </div>
         </div>
       </section>
 
@@ -406,7 +387,7 @@ const MaintenanceSupport = () => {
               <p className="text-xl mb-8 opacity-90">Let's keep your application running smoothly with our comprehensive support services.</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link 
-                  to="/#contact" 
+                  to="/contact" 
                   className="bg-white text-[#262262] px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 hover:scale-105 transition-all duration-300 shadow-lg"
                 >
                   Get Started
@@ -422,6 +403,8 @@ const MaintenanceSupport = () => {
           </div>
         </div>
       </section>
+      
+      <Footer />
     </div>
   );
 };

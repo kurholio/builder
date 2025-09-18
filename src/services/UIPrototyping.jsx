@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import SEOHead from '../components/SEOHead';
 
 const UIPrototyping = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -103,30 +106,31 @@ const UIPrototyping = () => {
       <div className="mt-2 text-sm text-gray-600 leading-tight">{label}</div>
     </div>
   );
+  const uiprototypingStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "UI/UX Prototyping & Design Services",
+    "description": "Create stunning user interfaces with our professional UI/UX prototyping services. Interactive prototypes, user testing, and design systems for better user experiences.",
+    "provider": {
+        "@type": "Organization",
+        "name": "LunaraTech",
+        "url": "https://lunaratech.com"
+    },
+    "serviceType": "UI/UX Prototyping & Design Services",
+    "areaServed": "United States",
+    "url": "https://lunaratech.com/ui-prototyping"
+};
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#70CBD0]/10 to-[#70CBD0]/5">
-      {/* Navigation */}
-      <header className="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-white/90 border-b border-gray-100">
-        <div className="mx-auto flex max-w-7xl items-start justify-between px-4 py-3 sm:py-4">
-          <a href="/" onClick={() => window.location.href = '/'} className="flex items-center">
-            <img 
-              src="/lunaratechLogo.png" 
-              alt="LunaraTech Logo" 
-              className="h-12 w-auto"
-            />
-          </a>
-          <nav className="hidden gap-6 text-sm text-gray-700 sm:flex mt-5">
-            <a href="/" onClick={() => window.location.href = '/'} className="hover:text-gray-900">Home</a>
-            <a href="/#niches" onClick={() => window.location.href = '/#niches'} className="hover:text-gray-900">Niches</a>
-            <a href="/#services" onClick={() => window.location.href = '/#services'} className="hover:text-gray-900">Services</a>
-            <a href="/#about" onClick={() => window.location.href = '/#about'} className="hover:text-gray-900">About</a>
-            <a href="/#process" onClick={() => window.location.href = '/#process'} className="hover:text-gray-900">Process</a>
-            <a href="/#contact" onClick={() => window.location.href = '/#contact'} className="hover:text-gray-900">Contact</a>
-          </nav>
-          <Link to="/" className="hidden rounded-md bg-[#FFB700] px-4 py-2 text-sm font-medium text-gray-900 hover:bg-[#e6a038] transition-all duration-300 sm:inline-flex mt-2">Get Quote</Link>
-        </div>
-      </header>
+      <SEOHead 
+        title="UI/UX Prototyping & Design Services"
+        description="Create stunning user interfaces with our professional UI/UX prototyping services. Interactive prototypes, user testing, and design systems for better user experiences."
+        keywords="UI prototyping, UX design, user interface design, interactive prototypes, user experience, design systems, wireframing, mockups, UI/UX services"
+        canonicalUrl="https://lunaratech.com/ui-prototyping"
+        structuredData={uiprototypingStructuredData}
+      />
+      <Header />
 
       {/* Hero Section */}
       <section className="relative py-20 px-4 sm:px-6 lg:px-8">
@@ -184,29 +188,30 @@ const UIPrototyping = () => {
             </AboutCard>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 gap-6">
             {[
-              { name: "Figma", description: "Collaborative design tool", features: ["Real-time collaboration", "Component libraries", "Auto-layout"], color: "from-[#da1c5c] to-[#FFB700]", borderColor: "border-[#da1c5c]" },
-              { name: "Adobe XD", description: "Professional prototyping", features: ["Voice prototyping", "Responsive design", "Developer handoff"], color: "from-[#70CBD0] to-[#262262]", borderColor: "border-[#70CBD0]" },
-              { name: "Principle", description: "Animation and interaction", features: ["Micro-interactions", "Timeline editing", "Export options"], color: "from-[#FFB700] to-[#da1c5c]", borderColor: "border-[#FFB700]" },
-              { name: "InVision", description: "Design workflow platform", features: ["Design systems", "User testing", "Feedback collection"], color: "from-[#262262] to-[#70CBD0]", borderColor: "border-[#262262]" }
+              { name: "Figma", description: "Collaborative design tool", features: ["Real-time collaboration", "Component libraries", "Auto-layout"], color: "from-[#da1c5c] to-[#FFB700]", borderColor: "border-[#da1c5c]", hoverColor: "hover:border-[#da1c5c]/20" },
+              { name: "Adobe XD", description: "Professional prototyping", features: ["Voice prototyping", "Responsive design", "Developer handoff"], color: "from-[#70CBD0] to-[#262262]", borderColor: "border-[#70CBD0]", hoverColor: "hover:border-[#70CBD0]/20" },
+              { name: "Principle", description: "Animation and interaction", features: ["Micro-interactions", "Timeline editing", "Export options"], color: "from-[#FFB700] to-[#da1c5c]", borderColor: "border-[#FFB700]", hoverColor: "hover:border-[#FFB700]/20" },
+              { name: "InVision", description: "Design workflow platform", features: ["Design systems", "User testing", "Feedback collection"], color: "from-[#262262] to-[#70CBD0]", borderColor: "border-[#262262]", hoverColor: "hover:border-[#262262]/20" }
             ].map((tool, index) => (
-              <div key={index} className={`group bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-l-4 ${tool.borderColor} relative overflow-hidden`}>
-                {/* Decorative corner element */}
-                <div className={`absolute top-0 right-0 w-16 h-16 bg-gradient-to-br ${tool.color} opacity-10 rounded-bl-full`}></div>
-                
-                <div className="mb-4 relative z-10">
-                  <h3 className="text-lg font-semibold text-[#262262] mb-2 group-hover:text-[#da1c5c] transition-colors duration-300">{tool.name}</h3>
-                  <p className="text-gray-600 text-sm mb-4">{tool.description}</p>
+              <div key={index} className={`group bg-gradient-to-br ${tool.color}/5 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border ${tool.borderColor}/20 ${tool.hoverColor} relative overflow-hidden`}>
+                <div className="flex items-start space-x-6">
+                  <div className={`flex-shrink-0 w-20 h-20 bg-gradient-to-br ${tool.color} rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300`}>
+                    <img src="/lunaratechIcon.png" alt={tool.name} className="h-12 w-12" />
+                  </div>
+                  <div className="flex-grow min-w-0">
+                    <h3 className="text-2xl font-bold text-[#262262] mb-2 group-hover:text-[#da1c5c] transition-colors duration-300">{tool.name}</h3>
+                    <p className="text-gray-600 mb-4 text-lg">{tool.description}</p>
+                    <div className="flex flex-wrap gap-3">
+                      {tool.features.map((feature, featureIndex) => (
+                        <span key={featureIndex} className={`px-3 py-1 ${tool.borderColor.replace('border-', 'bg-')}/10 ${tool.borderColor.replace('border-', 'text-')} text-sm font-medium rounded-full`}>
+                          {feature}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
                 </div>
-                <ul className="space-y-3 relative z-10">
-                  {tool.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center text-sm text-gray-600 group/item">
-                      <div className={`w-3 h-3 rounded-full ${tool.borderColor.replace('border-', 'bg-')} mr-3 group-hover/item:scale-125 transition-transform duration-300`}></div>
-                      <span className="group-hover/item:text-[#262262] transition-colors duration-300">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
               </div>
             ))}
           </div>
@@ -330,7 +335,7 @@ const UIPrototyping = () => {
               <p className="text-xl mb-8 opacity-90">Let's bring your vision to life with interactive prototypes that wow stakeholders.</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link 
-                  to="/#contact" 
+                  to="/contact" 
                   className="bg-white text-[#262262] px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 hover:scale-105 transition-all duration-300 shadow-lg"
                 >
                   Get Started
@@ -346,6 +351,8 @@ const UIPrototyping = () => {
           </div>
         </div>
       </section>
+      
+      <Footer />
     </div>
   );
 };

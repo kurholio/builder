@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import emailjs from '@emailjs/browser';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 
 // Import service pages
 import WebsiteDevelopment from './services/WebsiteDevelopment';
@@ -9,6 +9,21 @@ import GraphicDesign from './services/GraphicDesign';
 import HostingDeployment from './services/HostingDeployment';
 import MaintenanceSupport from './services/MaintenanceSupport';
 import Accessibility from './services/Accessibility';
+
+// Import niche pages
+import PlumbingWebsiteDesign from './services/PlumbingWebsiteDesign';
+import RestaurantWebsiteDesign from './services/RestaurantWebsiteDesign';
+import EcommerceWebsiteDevelopment from './services/EcommerceWebsiteDevelopment';
+import LandscapingWebsiteDesign from './services/LandscapingWebsiteDesign';
+import WellnessWebsiteDesign from './services/WellnessWebsiteDesign';
+import ContractorWebsiteDesign from './services/ContractorWebsiteDesign';
+import RealEstateWebsiteDesign from './services/RealEstateWebsiteDesign';
+import NonprofitWebsiteDesign from './services/NonprofitWebsiteDesign';
+import EducationWebsiteDesign from './services/EducationWebsiteDesign';
+import EventsWebsiteDesign from './services/EventsWebsiteDesign';
+import PersonalWebsiteDesign from './services/PersonalWebsiteDesign';
+import CustomWebsiteDevelopment from './services/CustomWebsiteDevelopment';
+import Contact from './services/Contact';
 
 // Single-file, preview-ready React landing page
 // Theme: clean, airy, white with soft accents
@@ -553,15 +568,15 @@ const ServiceCard = ({ title, children, icon, className, link }) => (
 );
 
 // Niche Cards - Modern with brand accents
-const NicheCard = ({ title, children, icon, className }) => (
-  <div className={`group relative flex h-full flex-col rounded-2xl border border-[#70CBD0]/30 bg-gradient-to-br from-[#70CBD0]/10 to-[#70CBD0]/5 p-6 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:scale-[1.02] hover:border-[#70CBD0] ${className || ''}`}>
+const NicheCard = ({ title, children, icon, className, link }) => (
+  <Link to={link || "#"} className={`group relative flex h-full flex-col rounded-2xl border border-[#70CBD0]/30 bg-gradient-to-br from-[#70CBD0]/10 to-[#70CBD0]/5 p-6 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:scale-[1.02] hover:border-[#70CBD0] block ${className || ''}`}>
     <div className="mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
       {icon}
     </div>
     <h3 className="text-lg font-semibold text-[#262262] transition-colors duration-300 group-hover:text-[#70CBD0]">{title}</h3>
     <p className="mt-2 text-sm text-gray-600 leading-relaxed">{children}</p>
     <div className="mt-4 h-0.5 w-8 bg-gradient-to-r from-[#70CBD0] to-[#da1c5c] rounded-full transition-all duration-300 group-hover:w-12" />
-  </div>
+  </Link>
 );
 
 // Process Cards - Clean design with new color
@@ -585,7 +600,7 @@ const AboutCard = ({ title, children, color, className }) => {
   return (
     <div className={`group relative flex h-full flex-col rounded-2xl border-2 bg-gradient-to-br p-6 shadow-lg transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.02] ${colorClasses[color]} ${className || ''}`}>
       <h3 className="text-lg font-semibold text-[#262262] transition-colors duration-300 group-hover:text-[#da1c5c] mb-3">{title}</h3>
-      <p className="text-sm text-gray-700 leading-relaxed flex-grow">{children}</p>
+      <div className="text-sm text-gray-700 leading-relaxed flex-grow">{children}</div>
       <div className="mt-4 h-1 w-12 bg-gradient-to-r from-[#da1c5c] to-[#FFB700] rounded-full transition-all duration-300 group-hover:w-20" />
     </div>
   );
@@ -612,15 +627,37 @@ const Textarea = (props) => (
 );
 
 export default function App() {
-  const [sent, setSent] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    company: '',
-    website: '',
-    message: ''
-  });
+
+  // Simple anchor scrolling for remaining sections
+  React.useEffect(() => {
+    const scrollToHash = () => {
+      const hash = window.location.hash;
+      if (hash) {
+        const element = document.querySelector(hash);
+        if (element) {
+          const headerHeight = 80;
+          const elementPosition = element.offsetTop - headerHeight;
+          
+          window.scrollTo({
+            top: Math.max(0, elementPosition),
+            behavior: 'smooth'
+          });
+        }
+      }
+    };
+
+    // Handle hash changes for remaining sections
+    window.addEventListener('hashchange', scrollToHash);
+    window.addEventListener('popstate', scrollToHash);
+    
+    // Initial attempt
+    scrollToHash();
+
+    return () => {
+      window.removeEventListener('hashchange', scrollToHash);
+      window.removeEventListener('popstate', scrollToHash);
+    };
+  }, []);
 
   // Google Analytics integration
   React.useEffect(() => {
@@ -645,61 +682,43 @@ export default function App() {
     };
   }, []);
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    console.log(`Form field ${name} changed to:`, value);
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
+  // Handle hash changes and browser navigation
+  React.useEffect(() => {
+    const scrollToAnchor = () => {
+      const hash = window.location.hash;
+      if (hash) {
+        const element = document.querySelector(hash);
+        if (element) {
+          const headerHeight = 80;
+          const elementPosition = element.offsetTop - headerHeight;
+          
+          window.scrollTo({
+            top: Math.max(0, elementPosition),
+            behavior: 'smooth'
+          });
+        }
+      }
+    };
 
-  const resetForm = () => {
-    setFormData({
-      name: '',
-      email: '',
-      company: '',
-      website: '',
-      message: ''
-    });
-    setSent(false);
-  };
+    // Handle hash changes (same page navigation)
+    const handleHashChange = () => {
+      setTimeout(scrollToAnchor, 50);
+    };
+    window.addEventListener('hashchange', handleHashChange);
 
-  const onSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
+    // Handle popstate (browser back/forward)
+    const handlePopState = () => {
+      setTimeout(scrollToAnchor, 50);
+    };
+    window.addEventListener('popstate', handlePopState);
 
-    try {
-      // EmailJS configuration - Replace these with your actual values from EmailJS dashboard
-      const serviceId = 'service_email_malkazevka'; // Get from EmailJS → Services → Your Gmail service
-      const templateId = 'template_7tqsqw9'; // Get from EmailJS → Email Templates → Your template
-      const publicKey = 'zVz2a3ivQo6s7kZ47'; // Get from EmailJS → Account → General
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange);
+      window.removeEventListener('popstate', handlePopState);
+    };
+  }, []);
 
-      // Send email
-      await emailjs.send(serviceId, templateId, {
-        from_name: formData.name,
-        from_email: formData.email,
-        company: formData.company,
-        website: formData.website,
-        message: formData.message,
-        to_email: 'malkazevka@gmail.com',
-        reply_to: formData.email
-      }, publicKey);
 
-    setSent(true);
-    } catch (error) {
-      console.error('Error sending email:', error);
-      console.error('Error details:', {
-        serviceId,
-        templateId,
-        publicKey: publicKey.substring(0, 8) + '...',
-        error: error.message || error
-      });
-      alert(`Sorry, there was an error sending your message: ${error.message || 'Unknown error'}. Please try again or email us directly at malkazevka@gmail.com`);
-    } finally {
-      setLoading(false);
-    }
-  };
 
   // Add custom CSS animations
   React.useEffect(() => {
@@ -781,14 +800,63 @@ export default function App() {
     { href: "#services", label: "Services" },
     { href: "#about", label: "About" },
     { href: "#process", label: "Process" },
-    { href: "#contact", label: "Contact" },
+    { href: "/contact", label: "Contact" },
   ];
 
   return (
-    <Router>
+    <HelmetProvider>
+      <Router>
       <Routes>
         <Route path="/" element={
           <>
+            <script type="application/ld+json">
+              {JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                "name": "LunaraTech",
+                "url": "https://lunaratech.com",
+                "logo": "https://lunaratech.com/lunaratechLogo.png",
+                "description": "Professional website development and digital solutions company specializing in custom websites, e-commerce, and digital marketing for businesses across all industries.",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressCountry": "US"
+                },
+                "contactPoint": {
+                  "@type": "ContactPoint",
+                  "telephone": "+1-507-400-3910",
+                  "contactType": "customer service",
+                  "availableLanguage": "English"
+                },
+                "sameAs": ["https://lunaratech.com"],
+                "hasOfferCatalog": {
+                  "@type": "OfferCatalog",
+                  "name": "Web Development Services",
+                  "itemListElement": [
+                    {
+                      "@type": "Offer",
+                      "itemOffered": {
+                        "@type": "Service",
+                        "name": "Website Development"
+                      }
+                    },
+                    {
+                      "@type": "Offer",
+                      "itemOffered": {
+                        "@type": "Service",
+                        "name": "E-commerce Development"
+                      }
+                    },
+                    {
+                      "@type": "Offer",
+                      "itemOffered": {
+                        "@type": "Service",
+                        "name": "UI/UX Design"
+                      }
+                    }
+                  ]
+                }
+              })}
+            </script>
             <ExodusAnimatedBackground />
             <GradientOverlay />
             <main className="min-h-screen bg-white/95 backdrop-blur-sm text-gray-900 relative z-20">
@@ -807,7 +875,7 @@ export default function App() {
               <a key={n.href} href={n.href} className="hover:text-gray-900">{n.label}</a>
             ))}
           </nav>
-          <a href="#contact" className="hidden rounded-md bg-[#FFB700] px-4 py-2 text-sm font-medium text-gray-900 hover:bg-[#e6a038] transition-all duration-300 sm:inline-flex mt-2">Get Quote</a>
+          <a href="/contact" className="hidden rounded-md bg-[#FFB700] px-4 py-2 text-sm font-medium text-gray-900 hover:bg-[#e6a038] transition-all duration-300 sm:inline-flex mt-2">Get Quote</a>
         </div>
       </header>
 
@@ -833,7 +901,7 @@ export default function App() {
             </p>
             
             <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
-              <a href="#contact" className="group relative rounded-xl bg-gradient-to-r from-[#da1c5c] to-[#c01a52] px-8 py-4 text-sm font-semibold text-white hover:from-[#c01a52] hover:to-[#b0184a] transition-all duration-300 hover:scale-105 hover:shadow-xl shadow-lg">
+              <a href="/contact" className="group relative rounded-xl bg-gradient-to-r from-[#da1c5c] to-[#c01a52] px-8 py-4 text-sm font-semibold text-white hover:from-[#c01a52] hover:to-[#b0184a] transition-all duration-300 hover:scale-105 hover:shadow-xl shadow-lg">
                 <span className="relative z-10">Start a Project</span>
                 <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-[#da1c5c] to-[#c01a52] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </a>
@@ -903,20 +971,20 @@ export default function App() {
         />
         <div className="mx-auto mt-10 grid max-w-7xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {[
-            {t:"Plumbing", d:"Fast, functional sites with service highlights, testimonials, and simple booking.", icon:<Faucet/>},
-            {t:"Landscaping", d:"Showcase projects with beautiful, responsive portfolios for outdoor services.", icon:<Leaf/>},
-            {t:"Wellness", d:"Calm design, booking systems, and storytelling that builds trust.", icon:<Heart/>},
-            {t:"eCommerce", d:"Scalable stores with streamlined navigation, secure checkout, and conversion-focused UX.", icon:<Cart/>},
-            {t:"Contractors", d:"Lead-driving sites that highlight expertise and portfolios.", icon:<Hammer/>},
-            {t:"Restaurants", d:"Menus, reservations, delivery integrations — sites that whet appetites.", icon:<Utensils/>},
-            {t:"Real Estate", d:"Custom listings, MLS integrations, and smart lead capture.", icon:<HomeIco/>},
-            {t:"Nonprofit", d:"Donation tools, volunteer signups, and compelling impact visuals.", icon:<HandHeart/>},
-            {t:"Education", d:"Websites for schools and e-learning with scheduling and content delivery.", icon:<Book/>},
-            {t:"Events", d:"Speaker bios, registration, schedules, and live-stream integrations.", icon:<Calendar/>},
-            {t:"Personal", d:"Creators, coaches, influencers — elevate your brand and grow your audience.", icon:<UserIco/>},
-            {t:"Custom", d:"Have a unique vision? We’ll build it from the ground up for your goals.", icon:<Sparkles/>},
+            {t:"Plumbing", d:"Fast, functional sites with service highlights, testimonials, and simple booking.", icon:<Faucet/>, link:"/plumbing-website-design"},
+            {t:"Landscaping", d:"Showcase projects with beautiful, responsive portfolios for outdoor services.", icon:<Leaf/>, link:"/landscaping-website-design"},
+            {t:"Wellness", d:"Calm design, booking systems, and storytelling that builds trust.", icon:<Heart/>, link:"/wellness-website-design"},
+            {t:"eCommerce", d:"Scalable stores with streamlined navigation, secure checkout, and conversion-focused UX.", icon:<Cart/>, link:"/ecommerce-website-development"},
+            {t:"Contractors", d:"Lead-driving sites that highlight expertise and portfolios.", icon:<Hammer/>, link:"/contractor-website-design"},
+            {t:"Restaurants", d:"Menus, reservations, delivery integrations — sites that whet appetites.", icon:<Utensils/>, link:"/restaurant-website-design"},
+            {t:"Real Estate", d:"Custom listings, MLS integrations, and smart lead capture.", icon:<HomeIco/>, link:"/real-estate-website-design"},
+            {t:"Nonprofit", d:"Donation tools, volunteer signups, and compelling impact visuals.", icon:<HandHeart/>, link:"/nonprofit-website-design"},
+            {t:"Education", d:"Websites for schools and e-learning with scheduling and content delivery.", icon:<Book/>, link:"/education-website-design"},
+            {t:"Events", d:"Speaker bios, registration, schedules, and live-stream integrations.", icon:<Calendar/>, link:"/events-website-design"},
+            {t:"Personal", d:"Creators, coaches, influencers — elevate your brand and grow your audience.", icon:<UserIco/>, link:"/personal-website-design"},
+            {t:"Custom", d:"Have a unique vision? We'll build it from the ground up for your goals.", icon:<Sparkles/>, link:"/custom-website-development"},
           ].map((i, index)=> (
-            <NicheCard key={i.t} title={i.t} icon={i.icon} className="animate-float" style={{animationDelay: `${index * 0.1}s`}}>{i.d}</NicheCard>
+            <NicheCard key={i.t} title={i.t} icon={i.icon} link={i.link} className="animate-float" style={{animationDelay: `${index * 0.1}s`}}>{i.d}</NicheCard>
           ))}
         </div>
       </section>
@@ -1295,174 +1363,6 @@ export default function App() {
       </section>
 
 
-      {/* CTA / Contact */}
-      
-      <section className="bg-gradient-to-br from-[#70CBD0]/15 to-[#FFB700]/10 py-16 sm:py-20" id="contact" style={{paddingTop: '8rem'}}>
-        <div className="mx-auto max-w-7xl px-4">
-      <SectionHeader
-              eyebrow=""
-            title={"Let's get to work"}
-            subtitle="Tell us about your project. We'll reply with a quick plan, timeline, and budget."
-            />
-        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 lg:grid-cols-2 items-stretch mt-12">
-          <div className="flex flex-col gap-6 h-full">
-            {/* Enhanced Features Grid */}
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-              <div className="group relative rounded-xl border border-gray-200 bg-gradient-to-br from-[#da1c5c]/10 to-[#da1c5c]/5 p-4 text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-2 hover:scale-105">
-                <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-[#da1c5c]/20 to-[#da1c5c]/10 text-[#da1c5c] transition-all duration-300 group-hover:scale-110 group-hover:rotate-6">
-                  <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                </div>
-                <h4 className="text-sm font-semibold text-gray-900 mb-1 group-hover:text-[#da1c5c] transition-colors">Fast Response</h4>
-                <p className="text-xs text-gray-600">Clear next steps</p>
-                <div className="mt-2 h-0.5 w-8 bg-gradient-to-r from-[#da1c5c] to-[#FFB700] rounded-full mx-auto transition-all duration-300 group-hover:w-12" />
-              </div>
-              
-              <div className="group relative rounded-xl border border-gray-200 bg-gradient-to-br from-[#FFB700]/10 to-[#FFB700]/5 p-4 text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-2 hover:scale-105">
-                <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-[#FFB700]/20 to-[#FFB700]/10 text-[#FFB700] transition-all duration-300 group-hover:scale-110 group-hover:rotate-6">
-                  <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <h4 className="text-sm font-semibold text-gray-900 mb-1 group-hover:text-[#FFB700] transition-colors">Fixed Pricing</h4>
-                <p className="text-xs text-gray-600">Sprint-based options</p>
-                <div className="mt-2 h-0.5 w-8 bg-gradient-to-r from-[#FFB700] to-[#70CBD0] rounded-full mx-auto transition-all duration-300 group-hover:w-12" />
-              </div>
-              
-              <div className="group relative rounded-xl border border-gray-200 bg-gradient-to-br from-[#262262]/10 to-[#262262]/5 p-4 text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-2 hover:scale-105">
-                <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-[#262262]/20 to-[#262262]/10 text-[#262262] transition-all duration-300 group-hover:scale-110 group-hover:rotate-6">
-                  <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <h4 className="text-sm font-semibold text-gray-900 mb-1 group-hover:text-[#262262] transition-colors">No Jargon</h4>
-                <p className="text-xs text-gray-600">Just outcomes</p>
-                <div className="mt-2 h-0.5 w-8 bg-gradient-to-r from-[#262262] to-[#da1c5c] rounded-full mx-auto transition-all duration-300 group-hover:w-12" />
-              </div>
-            </div>
-            
-            {/* Additional Benefits */}
-            <div className="mt-0 rounded-xl border border-gray-200 bg-gradient-to-r from-gray-50 to-[#262262]/5 p-4 transition-all duration-300 hover:shadow-md hover:-translate-y-1">
-              <div className="flex items-center justify-center gap-3">
-                <div className="flex h-8 w-12 items-center justify-center rounded-full bg-gradient-to-br from-[#262262]/20 to-[#262262]/10 text-[#262262]">
-                  <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <span className="text-sm font-medium text-gray-700">Expert team delivering cutting-edge solutions</span>
-              </div>
-            </div>
-            
-            {/* niks3 Image - moved to left side for balance */}
-            <div className="rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 flex-grow">
-              <img 
-                src="/niks3.png" 
-                alt="LunaraTech Team" 
-                className="w-full h-full object-cover rounded-xl transition-transform duration-300 hover:scale-105"
-              />
-            </div>
-          </div>
-          <div className="flex flex-col gap-6 h-full">
-            <div className="relative rounded-3xl border-2 border-gray-200 bg-gradient-to-br from-white to-gray-50 p-8 shadow-xl transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.02] flex-grow overflow-hidden">
-              
-              
-            {!sent ? (
-              <form onSubmit={onSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                  <Input 
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    placeholder="Your name" 
-                    required 
-                  />
-                  <Input 
-                    name="email"
-                    type="email" 
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    placeholder="Email" 
-                    required 
-                  />
-                </div>
-                <Input 
-                  name="company"
-                  value={formData.company}
-                  onChange={handleInputChange}
-                  placeholder="Company / Organization" 
-                />
-                <Input 
-                  name="website"
-                  value={formData.website}
-                  onChange={handleInputChange}
-                  placeholder="Website (optional)" 
-                />
-                <Textarea 
-                  name="message"
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  rows={5} 
-                  placeholder="What are you building?" 
-                  required 
-                />
-                <div className="flex items-center justify-between">
-                  <label className="flex items-center gap-2 text-xs text-gray-500">
-                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                    We usually respond within a day
-                  </label>
-                  <div className="flex gap-3">
-                    <button 
-                      type="button"
-                      onClick={resetForm}
-                      className="rounded-xl border-2 border-gray-300 bg-white/80 backdrop-blur-sm px-6 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:border-gray-400 hover:shadow-md transition-all duration-300 hover:-translate-y-0.5"
-                    >
-                      Clear
-                    </button>
-                    <button 
-                      type="submit" 
-                      disabled={loading}
-                      className="rounded-xl bg-gradient-to-r from-[#da1c5c] to-[#c01a52] px-8 py-3 text-sm font-medium text-white shadow-lg hover:shadow-xl hover:-translate-y-1 hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:scale-100"
-                    >
-                      {loading ? (
-                        <div className="flex items-center gap-2">
-                          <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                          Sending...
-                        </div>
-                      ) : (
-                        'Submit'
-                      )}
-                    </button>
-                  </div>
-                </div>
-                <p className="text-xs text-gray-500">Prefer to call? <a className="underline" href="tel:+15074003910">(507) 400-3910</a></p>
-              </form>
-            ) : (
-              <div className="text-center flex flex-col h-full">
-                <div className="flex-grow">
-                  <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="mx-auto mb-6 h-16 w-16 animate-pulse"/>
-                  <h3 className="text-2xl font-bold text-[#262262] mb-3">Message Sent Successfully!</h3>
-                  <p className="text-gray-600 mb-6">Thanks for reaching out! We'll review your project details and get back to you within 24 hours.</p>
-                  <div className="bg-gradient-to-r from-[#70CBD0]/10 to-[#FFB700]/10 rounded-xl p-4 mb-6 text-center">
-                    <p className="text-sm text-gray-700 mb-2">Want to talk now?</p>
-                    <a className="inline-flex items-center gap-2 text-[#da1c5c] hover:text-[#c01a52] font-medium justify-center" href="tel:+15074003910">
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                      </svg>
-                      (507) 400-3910
-                    </a>
-                  </div>
-                </div>
-                <a href="#home" className="inline-flex items-center gap-2 rounded-xl border-2 border-[#262262] bg-white px-6 py-3 text-sm font-medium text-[#262262] hover:border-[#1a1a4a] hover:bg-[#f8f9ff] hover:-translate-y-1 transition-all duration-300 mt-auto mx-auto">
-                  <Arrow/> Back to top
-                </a>
-              </div>
-            )}
-          </div>
-          </div>
-          </div>
-        </div>
-      </section>
 
       {/* Footer */}
       <footer className="border-t border-gray-100 bg-gray-50">
@@ -1471,11 +1371,57 @@ export default function App() {
           <div className="flex items-center gap-4 text-sm text-gray-600">
             <a href="#services" className="hover:text-gray-900">Services</a>
             <a href="#about" className="hover:text-gray-900">About</a>
-            <a href="#contact" className="hover:text-gray-900">Contact</a>
+            <a href="/contact" className="hover:text-gray-900">Contact</a>
           </div>
         </div>
       </footer>
             </main>
+            
+            {/* Hidden SEO Content for Search Engines */}
+            <div className="sr-only">
+              <h1>LunaraTech - Professional Website Development & Digital Solutions</h1>
+              <p>Transform your business with custom website development, e-commerce solutions, and digital marketing services. We specialize in creating professional websites for restaurants, contractors, healthcare providers, and businesses across all industries.</p>
+              
+              <h2>Our Services</h2>
+              <ul>
+                <li>Custom Website Development - Responsive, mobile-optimized websites</li>
+                <li>E-commerce Development - Online stores with payment processing</li>
+                <li>UI/UX Design - User-friendly interface design and prototyping</li>
+                <li>Graphic Design - Logo design, branding, and marketing materials</li>
+                <li>Hosting & Deployment - Reliable web hosting and deployment services</li>
+                <li>Website Maintenance - Ongoing support and updates</li>
+                <li>Accessibility Services - ADA-compliant website design</li>
+              </ul>
+              
+              <h2>Industry Specializations</h2>
+              <ul>
+                <li>Restaurant Website Design - Online ordering and menu integration</li>
+                <li>Plumbing Website Design - Emergency service websites</li>
+                <li>Contractor Website Design - Construction and home improvement</li>
+                <li>Real Estate Website Design - Property listings and agent websites</li>
+                <li>Healthcare Website Design - Medical practice websites</li>
+                <li>E-commerce Development - Online store solutions</li>
+                <li>Nonprofit Website Design - Charity and organization websites</li>
+                <li>Education Website Design - School and learning websites</li>
+                <li>Events Website Design - Event planning and management</li>
+                <li>Personal Website Design - Portfolio and professional websites</li>
+                <li>Custom Website Development - Bespoke web solutions</li>
+              </ul>
+              
+              <h2>Why Choose LunaraTech?</h2>
+              <ul>
+                <li>Professional web development services</li>
+                <li>Mobile-responsive design</li>
+                <li>SEO optimization</li>
+                <li>Fast loading times</li>
+                <li>Secure hosting</li>
+                <li>24/7 support</li>
+                <li>Free consultation and quote</li>
+                <li>Proven track record with 100+ businesses</li>
+              </ul>
+              
+              <p>Contact us today at (507) 400-3910 or visit our website for a free consultation and quote. We're here to help your business succeed online with professional website development and digital marketing solutions.</p>
+            </div>
           </>
         } />
         <Route path="/website-development" element={<WebsiteDevelopment />} />
@@ -1484,7 +1430,23 @@ export default function App() {
         <Route path="/hosting-deployment" element={<HostingDeployment />} />
         <Route path="/maintenance-support" element={<MaintenanceSupport />} />
         <Route path="/accessibility" element={<Accessibility />} />
+        <Route path="/contact" element={<Contact />} />
+        
+        {/* Niche Pages */}
+        <Route path="/plumbing-website-design" element={<PlumbingWebsiteDesign />} />
+        <Route path="/restaurant-website-design" element={<RestaurantWebsiteDesign />} />
+        <Route path="/ecommerce-website-development" element={<EcommerceWebsiteDevelopment />} />
+        <Route path="/landscaping-website-design" element={<LandscapingWebsiteDesign />} />
+        <Route path="/wellness-website-design" element={<WellnessWebsiteDesign />} />
+        <Route path="/contractor-website-design" element={<ContractorWebsiteDesign />} />
+        <Route path="/real-estate-website-design" element={<RealEstateWebsiteDesign />} />
+        <Route path="/nonprofit-website-design" element={<NonprofitWebsiteDesign />} />
+        <Route path="/education-website-design" element={<EducationWebsiteDesign />} />
+        <Route path="/events-website-design" element={<EventsWebsiteDesign />} />
+        <Route path="/personal-website-design" element={<PersonalWebsiteDesign />} />
+        <Route path="/custom-website-development" element={<CustomWebsiteDevelopment />} />
       </Routes>
-    </Router>
+      </Router>
+    </HelmetProvider>
   );
 }

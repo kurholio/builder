@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import SEOHead from '../components/SEOHead';
 
 const GraphicDesign = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -135,30 +138,31 @@ const GraphicDesign = () => {
       <div className="mt-2 text-sm text-gray-600 leading-tight">{label}</div>
     </div>
   );
+  const graphicdesignStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Professional Graphic Design Services",
+    "description": "Elevate your brand with professional graphic design services. Logo design, branding, marketing materials, and visual identity solutions for businesses.",
+    "provider": {
+        "@type": "Organization",
+        "name": "LunaraTech",
+        "url": "https://lunaratech.com"
+    },
+    "serviceType": "Professional Graphic Design Services",
+    "areaServed": "United States",
+    "url": "https://lunaratech.com/graphic-design"
+};
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#70CBD0]/10 to-[#70CBD0]/5">
-      {/* Navigation */}
-      <header className="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-white/90 border-b border-gray-100">
-        <div className="mx-auto flex max-w-7xl items-start justify-between px-4 py-3 sm:py-4">
-          <a href="/" onClick={() => window.location.href = '/'} className="flex items-center">
-            <img 
-              src="/lunaratechLogo.png" 
-              alt="LunaraTech Logo" 
-              className="h-12 w-auto"
-            />
-          </a>
-          <nav className="hidden gap-6 text-sm text-gray-700 sm:flex mt-5">
-            <a href="/" onClick={() => window.location.href = '/'} className="hover:text-gray-900">Home</a>
-            <a href="/#niches" onClick={() => window.location.href = '/#niches'} className="hover:text-gray-900">Niches</a>
-            <a href="/#services" onClick={() => window.location.href = '/#services'} className="hover:text-gray-900">Services</a>
-            <a href="/#about" onClick={() => window.location.href = '/#about'} className="hover:text-gray-900">About</a>
-            <a href="/#process" onClick={() => window.location.href = '/#process'} className="hover:text-gray-900">Process</a>
-            <a href="/#contact" onClick={() => window.location.href = '/#contact'} className="hover:text-gray-900">Contact</a>
-          </nav>
-          <Link to="/" className="hidden rounded-md bg-[#FFB700] px-4 py-2 text-sm font-medium text-gray-900 hover:bg-[#e6a038] transition-all duration-300 sm:inline-flex mt-2">Get Quote</Link>
-        </div>
-      </header>
+      <SEOHead 
+        title="Professional Graphic Design Services"
+        description="Elevate your brand with professional graphic design services. Logo design, branding, marketing materials, and visual identity solutions for businesses."
+        keywords="graphic design, logo design, branding, visual identity, marketing materials, brand design, creative design services, professional graphics"
+        canonicalUrl="https://lunaratech.com/graphic-design"
+        structuredData={graphicdesignStructuredData}
+      />
+      <Header />
 
       {/* Hero Section */}
       <section className="relative py-20 px-4 sm:px-6 lg:px-8">
@@ -387,7 +391,7 @@ const GraphicDesign = () => {
               <p className="text-xl mb-8 opacity-90">Let's create stunning visuals that tell your story and engage your audience.</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link 
-                  to="/#contact" 
+                  to="/contact" 
                   className="bg-white text-[#262262] px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 hover:scale-105 transition-all duration-300 shadow-lg"
                 >
                   Get Started
@@ -403,6 +407,8 @@ const GraphicDesign = () => {
           </div>
         </div>
       </section>
+      
+      <Footer />
     </div>
   );
 };

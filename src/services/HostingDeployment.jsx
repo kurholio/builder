@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import SEOHead from '../components/SEOHead';
 
 const HostingDeployment = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -96,30 +99,31 @@ const HostingDeployment = () => {
       <div className="mt-2 text-sm text-gray-600 leading-tight">{label}</div>
     </div>
   );
+  const hostingdeploymentStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Website Hosting & Deployment Services",
+    "description": "Reliable website hosting and deployment solutions. Fast, secure, and scalable hosting with 99.9% uptime guarantee for your business website.",
+    "provider": {
+        "@type": "Organization",
+        "name": "LunaraTech",
+        "url": "https://lunaratech.com"
+    },
+    "serviceType": "Website Hosting & Deployment Services",
+    "areaServed": "United States",
+    "url": "https://lunaratech.com/hosting-deployment"
+};
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#70CBD0]/10 to-[#70CBD0]/5">
-      {/* Navigation */}
-      <header className="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-white/90 border-b border-gray-100">
-        <div className="mx-auto flex max-w-7xl items-start justify-between px-4 py-3 sm:py-4">
-          <a href="/" onClick={() => window.location.href = '/'} className="flex items-center">
-            <img 
-              src="/lunaratechLogo.png" 
-              alt="LunaraTech Logo" 
-              className="h-12 w-auto"
-            />
-          </a>
-          <nav className="hidden gap-6 text-sm text-gray-700 sm:flex mt-5">
-            <a href="/" onClick={() => window.location.href = '/'} className="hover:text-gray-900">Home</a>
-            <a href="/#niches" onClick={() => window.location.href = '/#niches'} className="hover:text-gray-900">Niches</a>
-            <a href="/#services" onClick={() => window.location.href = '/#services'} className="hover:text-gray-900">Services</a>
-            <a href="/#about" onClick={() => window.location.href = '/#about'} className="hover:text-gray-900">About</a>
-            <a href="/#process" onClick={() => window.location.href = '/#process'} className="hover:text-gray-900">Process</a>
-            <a href="/#contact" onClick={() => window.location.href = '/#contact'} className="hover:text-gray-900">Contact</a>
-          </nav>
-          <Link to="/" className="hidden rounded-md bg-[#FFB700] px-4 py-2 text-sm font-medium text-gray-900 hover:bg-[#e6a038] transition-all duration-300 sm:inline-flex mt-2">Get Quote</Link>
-        </div>
-      </header>
+      <SEOHead 
+        title="Website Hosting & Deployment Services"
+        description="Reliable website hosting and deployment solutions. Fast, secure, and scalable hosting with 99.9% uptime guarantee for your business website."
+        keywords="website hosting, web hosting, deployment services, cloud hosting, VPS hosting, domain management, SSL certificates, website maintenance"
+        canonicalUrl="https://lunaratech.com/hosting-deployment"
+        structuredData={hostingdeploymentStructuredData}
+      />
+      <Header />
 
       {/* Hero Section */}
       <section className="relative py-20 px-4 sm:px-6 lg:px-8">
@@ -145,13 +149,6 @@ const HostingDeployment = () => {
             </AboutCard>
           </div>
 
-          {/* Infrastructure Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20">
-            <Stat value="99.9%" label="Uptime Guarantee" />
-            <Stat value="< 100ms" label="Response Time" />
-            <Stat value="200+" label="Global CDN Locations" />
-            <Stat value="24/7" label="Support Available" />
-          </div>
         </div>
       </section>
 
@@ -323,12 +320,6 @@ const HostingDeployment = () => {
             <p className="text-xl text-gray-600 mb-8">Proven reliability and performance metrics</p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <Stat value="99.9%" label="Uptime SLA" />
-            <Stat value="< 100ms" label="Average Response" />
-            <Stat value="24/7" label="Support Coverage" />
-            <Stat value="100%" label="Client Satisfaction" />
-          </div>
         </div>
       </section>
 
@@ -341,7 +332,7 @@ const HostingDeployment = () => {
               <p className="text-xl mb-8 opacity-90">Let's deploy your project with enterprise-grade hosting and support.</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link 
-                  to="/#contact" 
+                  to="/contact" 
                   className="bg-white text-[#262262] px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 hover:scale-105 transition-all duration-300 shadow-lg"
                 >
                   Get Started
@@ -357,6 +348,8 @@ const HostingDeployment = () => {
           </div>
         </div>
       </section>
+      
+      <Footer />
     </div>
   );
 };
