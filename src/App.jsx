@@ -332,7 +332,7 @@ const ExodusAnimatedBackground = () => {
           }
         }
         
-        time += 0.01; // Moderate speed for better random movement visibility
+        time += 0.005; // Reduced from 0.01 to 0.005 (slower, more settled animation)
         animationId = requestAnimationFrame(animate);
       } catch (error) {
         console.error('Animation error:', error);
@@ -718,6 +718,300 @@ export default function App() {
     };
   }, []);
 
+  // Animated background for hero section only
+  React.useEffect(() => {
+    const canvas = document.getElementById('exodus-bg-hero');
+    if (!canvas) {
+      return;
+    }
+    
+    const ctx = canvas.getContext('2d');
+    let animationId;
+    
+    // Set canvas size
+    const resizeCanvas = () => {
+      const container = canvas.parentElement;
+      if (container) {
+        canvas.width = container.offsetWidth;
+        canvas.height = container.offsetHeight;
+      }
+    };
+    
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+    
+    // Create planet-like objects array
+    const planets = [];
+    const numPlanets = 40;
+    
+    // Color palette for planets
+    const colors = [
+      '#70CBD0', '#FFB700', '#da1c5c', '#262262', 
+      '#8B5CF6', '#10B981', '#F59E0B', '#EF4444',
+      '#06B6D4', '#84CC16', '#F97316', '#EC4899'
+    ];
+    
+    // Initialize planets
+    for (let i = 0; i < numPlanets; i++) {
+      const size = Math.random() < 0.3 ? 
+        Math.random() * 30 + 10 : 
+        Math.random() * 140 + 50;
+      
+      const movementType = Math.random();
+      const baseSpeed = Math.random() * 0.6 + 0.2; // Reduced from 1.5+0.5 to 0.6+0.2
+      
+      planets.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        size: size,
+        baseSize: size,
+        rotation: Math.random() * Math.PI * 2,
+        rotationSpeed: (Math.random() - 0.5) * 0.02, // Reduced from 0.06 to 0.02
+        speedX: (Math.random() - 0.5) * baseSpeed,
+        speedY: (Math.random() - 0.5) * baseSpeed,
+        opacity: Math.random() * 0.15 + 0.08, // Reduced from 0.4+0.2 to 0.15+0.08 (much more subtle)
+        color: colors[Math.floor(Math.random() * colors.length)],
+        pulsePhase: Math.random() * Math.PI * 2,
+        orbitRadius: Math.random() * 120 + 30,
+        orbitSpeed: (Math.random() - 0.5) * 0.01, // Reduced from 0.03 to 0.01
+        orbitCenterX: Math.random() * canvas.width,
+        orbitCenterY: Math.random() * canvas.height,
+        hasOrbit: movementType < 0.3,
+        glowIntensity: Math.random() * 0.2 + 0.1, // Reduced from 0.5+0.2 to 0.2+0.1 (less glow)
+        type: Math.random() > 0.3 ? 'planet' : 'star',
+        movementType: movementType,
+        directionChange: Math.random() * 0.1 + 0.05, // Increased from 0.05+0.01 to 0.1+0.05 (slower direction changes)
+        lastDirectionChange: 0,
+        currentDirection: Math.random() * Math.PI * 2,
+        speedVariation: Math.random() * 0.5 + 0.3, // Reduced variation
+        driftX: (Math.random() - 0.5) * 0.15, // Reduced from 0.3 to 0.15
+        driftY: (Math.random() - 0.5) * 0.15, // Reduced from 0.3 to 0.15
+        behaviorType: Math.floor(Math.random() * 3),
+        wanderRadius: Math.random() * 100 + 50,
+        wanderCenterX: Math.random() * canvas.width,
+        wanderCenterY: Math.random() * canvas.height
+      });
+    }
+    
+    // Add smaller particles
+    const particles = [];
+    const numParticles = 80;
+    for (let i = 0; i < numParticles; i++) {
+      const particleSpeed = Math.random() * 0.5 + 0.15; // Reduced from 1.2+0.3 to 0.5+0.15
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        size: Math.random() * 4 + 1,
+        speedX: (Math.random() - 0.5) * particleSpeed,
+        speedY: (Math.random() - 0.5) * particleSpeed,
+        opacity: Math.random() * 0.15 + 0.05, // Reduced from 0.3+0.1 to 0.15+0.05 (much more subtle)
+        color: colors[Math.floor(Math.random() * colors.length)],
+        pulsePhase: Math.random() * Math.PI * 2,
+        directionChange: Math.random() * 0.08 + 0.05, // Increased from 0.03+0.01 to 0.08+0.05 (slower changes)
+        lastDirectionChange: 0,
+        currentDirection: Math.random() * Math.PI * 2,
+        speedVariation: Math.random() * 0.4 + 0.3, // Reduced variation
+        driftX: (Math.random() - 0.5) * 0.2, // Reduced from 0.4 to 0.2
+        driftY: (Math.random() - 0.5) * 0.2 // Reduced from 0.4 to 0.2
+      });
+    }
+    
+    let time = 0;
+    const animate = () => {
+      try {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        // Update and draw planets (same logic as ExodusAnimatedBackground)
+        planets.forEach((planet, index) => {
+          if (planet.hasOrbit) {
+            planet.orbitCenterX += planet.driftX + (Math.random() - 0.5) * 0.2;
+            planet.orbitCenterY += planet.driftY + (Math.random() - 0.5) * 0.2;
+            planet.x = planet.orbitCenterX + Math.cos(time * planet.orbitSpeed + index) * planet.orbitRadius;
+            planet.y = planet.orbitCenterY + Math.sin(time * planet.orbitSpeed + index) * planet.orbitRadius;
+          } else {
+            if (planet.behaviorType === 0) {
+              if (time - planet.lastDirectionChange > planet.directionChange) {
+                planet.currentDirection += (Math.random() - 0.5) * 0.1;
+                planet.lastDirectionChange = time;
+              }
+              const moveX = Math.cos(planet.currentDirection) * planet.speedX * 0.3;
+              const moveY = Math.sin(planet.currentDirection) * planet.speedY * 0.3;
+              planet.x += moveX;
+              planet.y += moveY;
+            } else if (planet.behaviorType === 1) {
+              const distanceFromCenter = Math.sqrt(
+                Math.pow(planet.x - planet.wanderCenterX, 2) + 
+                Math.pow(planet.y - planet.wanderCenterY, 2)
+              );
+              
+              if (distanceFromCenter > planet.wanderRadius) {
+                const angleToCenter = Math.atan2(
+                  planet.wanderCenterY - planet.y, 
+                  planet.wanderCenterX - planet.x
+                );
+                planet.currentDirection = angleToCenter;
+              } else if (time - planet.lastDirectionChange > planet.directionChange) {
+                planet.currentDirection += (Math.random() - 0.5) * 0.3;
+                planet.lastDirectionChange = time;
+              }
+              
+              const moveX = Math.cos(planet.currentDirection) * planet.speedX;
+              const moveY = Math.sin(planet.currentDirection) * planet.speedY;
+              planet.x += moveX;
+              planet.y += moveY;
+            } else {
+              if (time - planet.lastDirectionChange > planet.directionChange) {
+                const targetDirection = Math.random() * Math.PI * 2;
+                const directionDiff = targetDirection - planet.currentDirection;
+                planet.currentDirection += directionDiff * 0.1; // Reduced from 0.2 to 0.1 (slower turns)
+                planet.lastDirectionChange = time;
+                
+                const targetSpeed = Math.random() * planet.speedVariation;
+                planet.speedX = (Math.random() - 0.5) * targetSpeed;
+                planet.speedY = (Math.random() - 0.5) * targetSpeed;
+              }
+              
+              const turbulenceX = (Math.random() - 0.5) * 0.1; // Reduced from 0.3 to 0.1
+              const turbulenceY = (Math.random() - 0.5) * 0.1; // Reduced from 0.3 to 0.1
+              
+              const moveX = Math.cos(planet.currentDirection) * planet.speedX + turbulenceX;
+              const moveY = Math.sin(planet.currentDirection) * planet.speedY + turbulenceY;
+              
+              planet.x += moveX;
+              planet.y += moveY;
+            }
+          }
+          
+          planet.rotation += planet.rotationSpeed;
+          planet.pulsePhase += 0.01; // Reduced from 0.02 to 0.01 (slower pulsing)
+          
+          if (planet.x > canvas.width + planet.size) planet.x = -planet.size;
+          if (planet.x < -planet.size) planet.x = canvas.width + planet.size;
+          if (planet.y > canvas.height + planet.size) planet.y = -planet.size;
+          if (planet.y < -planet.size) planet.y = canvas.height + planet.size;
+          
+          const pulseSize = Math.max(5, planet.baseSize + Math.sin(planet.pulsePhase) * 25);
+          const pulseOpacity = Math.max(0, Math.min(1, planet.opacity + Math.sin(planet.pulsePhase + index) * 0.25));
+          
+          ctx.save();
+          ctx.translate(planet.x, planet.y);
+          ctx.rotate(planet.rotation);
+          ctx.globalAlpha = Math.max(0, Math.min(1, pulseOpacity));
+          
+          if (planet.type === 'star') {
+            ctx.beginPath();
+            const spikes = 8;
+            const outerRadius = pulseSize;
+            const innerRadius = pulseSize * 0.4;
+            
+            for (let i = 0; i < spikes * 2; i++) {
+              const angle = (i * Math.PI) / spikes;
+              const radius = i % 2 === 0 ? outerRadius : innerRadius;
+              const x = Math.cos(angle) * radius;
+              const y = Math.sin(angle) * radius;
+              if (i === 0) {
+                ctx.moveTo(x, y);
+              } else {
+                ctx.lineTo(x, y);
+              }
+            }
+            ctx.closePath();
+            ctx.fillStyle = planet.color + '40'; // Added transparency '40' (was opaque)
+            ctx.fill();
+          } else {
+            const gradient = ctx.createRadialGradient(0, 0, 0, 0, 0, pulseSize);
+            gradient.addColorStop(0, planet.color + '40'); // Added transparency '40' (was opaque)
+            gradient.addColorStop(0.7, planet.color + '30'); // Reduced from '80' to '30'
+            gradient.addColorStop(1, planet.color + '15'); // Reduced from '40' to '15'
+            
+            ctx.beginPath();
+            ctx.arc(0, 0, pulseSize, 0, Math.PI * 2);
+            ctx.fillStyle = gradient;
+            ctx.fill();
+            
+            ctx.shadowColor = planet.color;
+            ctx.shadowBlur = planet.glowIntensity * 15; // Reduced from 30 to 15
+            ctx.beginPath();
+            ctx.arc(0, 0, pulseSize * 0.8, 0, Math.PI * 2);
+            ctx.fillStyle = planet.color + '30'; // Reduced from '60' to '30'
+            ctx.fill();
+            ctx.shadowBlur = 0;
+          }
+          
+          ctx.restore();
+        });
+        
+        // Update and draw particles
+        particles.forEach((particle, index) => {
+          if (time - particle.lastDirectionChange > particle.directionChange) {
+            const targetDirection = Math.random() * Math.PI * 2;
+            const directionDiff = targetDirection - particle.currentDirection;
+            particle.currentDirection += directionDiff * 0.08; // Reduced from 0.15 to 0.08 (slower turns)
+            particle.lastDirectionChange = time;
+            
+            const targetSpeed = Math.random() * particle.speedVariation;
+            particle.speedX = (Math.random() - 0.5) * targetSpeed;
+            particle.speedY = (Math.random() - 0.5) * targetSpeed;
+          }
+          
+          const turbulenceX = (Math.random() - 0.5) * 0.1; // Reduced from 0.3 to 0.1
+          const turbulenceY = (Math.random() - 0.5) * 0.1; // Reduced from 0.3 to 0.1
+          
+          const moveX = Math.cos(particle.currentDirection) * particle.speedX + turbulenceX;
+          const moveY = Math.sin(particle.currentDirection) * particle.speedY + turbulenceY;
+          
+          particle.x += moveX;
+          particle.y += moveY;
+          particle.pulsePhase += 0.015; // Reduced from 0.03 to 0.015 (slower pulsing)
+          
+          if (particle.x > canvas.width) particle.x = 0;
+          if (particle.x < 0) particle.x = canvas.width;
+          if (particle.y > canvas.height) particle.y = 0;
+          if (particle.y < 0) particle.y = canvas.height;
+          
+          const pulseSize = Math.max(0.5, particle.size + Math.sin(particle.pulsePhase) * 3);
+          const pulseOpacity = Math.max(0, Math.min(1, particle.opacity + Math.sin(particle.pulsePhase + index) * 0.1)); // Reduced from 0.2 to 0.1 (less variation)
+          
+          ctx.beginPath();
+          ctx.arc(particle.x, particle.y, pulseSize, 0, Math.PI * 2);
+          ctx.fillStyle = particle.color + Math.floor(pulseOpacity * 255).toString(16).padStart(2, '0');
+          ctx.fill();
+        });
+        
+        // Connection lines between nearby planets
+        for (let i = 0; i < planets.length; i++) {
+          for (let j = i + 1; j < planets.length; j++) {
+            const dx = planets[i].x - planets[j].x;
+            const dy = planets[i].y - planets[j].y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            
+            if (distance < 250) {
+              ctx.beginPath();
+              ctx.moveTo(planets[i].x, planets[i].y);
+              ctx.lineTo(planets[j].x, planets[j].y);
+              ctx.strokeStyle = `rgba(112, 203, 208, ${0.03 * (1 - distance / 250)})`; // Reduced from 0.08 to 0.03 (more subtle)
+              ctx.lineWidth = 0.5; // Reduced from 0.8 to 0.5 (thinner lines)
+              ctx.stroke();
+            }
+          }
+        }
+        
+        time += 0.005; // Reduced from 0.01 to 0.005 (slower, more settled animation)
+        animationId = requestAnimationFrame(animate);
+      } catch (error) {
+        console.error('Animation error:', error);
+        animationId = requestAnimationFrame(animate);
+      }
+    };
+    
+    animate();
+    
+    return () => {
+      cancelAnimationFrame(animationId);
+      window.removeEventListener('resize', resizeCanvas);
+    };
+  }, []);
+
 
 
   // Add custom CSS animations
@@ -856,32 +1150,52 @@ export default function App() {
                 }
               })}
             </script>
-            <ExodusAnimatedBackground />
             <GradientOverlay />
             <main className="min-h-screen bg-white/95 backdrop-blur-sm text-gray-900 relative z-20">
-        {/* Top nav */}
-      <header className="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-white/90 border-b border-gray-100">
-        <div className="mx-auto flex max-w-7xl items-start justify-between px-4 py-3 sm:py-4">
-          <a href="#home" className="flex items-center">
-            <img 
-              src="/lunaratechLogo.png" 
-              alt="LunaraTech Logo" 
-              className="h-12 w-auto"
+        {/* Wrapper for header and hero with animated background */}
+        <div className="relative overflow-hidden">
+          {/* Animated background for header and hero sections only */}
+          <div className="absolute inset-0 pointer-events-none z-0" style={{height: 'calc(100vh + 80px)'}}>
+            <canvas
+              id="exodus-bg-hero"
+              className="absolute inset-0 pointer-events-none z-0"
+              style={{ background: 'transparent' }}
             />
-          </a>
-          <nav className="hidden gap-6 text-sm text-gray-700 sm:flex mt-5">
-            {navItems.map((n) => (
-              <a key={n.href} href={n.href} className="hover:text-gray-900">{n.label}</a>
-            ))}
-          </nav>
-          <a href="/contact" className="hidden rounded-md bg-[#FFB700] px-4 py-2 text-sm font-medium text-gray-900 hover:bg-[#e6a038] transition-all duration-300 sm:inline-flex mt-2">Get Quote</a>
-        </div>
-      </header>
+          </div>
+          
+          {/* Top nav */}
+          <header className="sticky top-0 z-40 backdrop-blur-sm bg-transparent relative overflow-hidden">
+            {/* Background image for header */}
+            <div 
+              className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20 z-0 pointer-events-none"
+              style={{backgroundImage: 'url(/lunara-background.jpg)'}}
+            />
+            <div className="mx-auto flex max-w-7xl items-start justify-between px-4 py-3 sm:py-4 relative z-10">
+              <a href="#home" className="flex items-center">
+                <img 
+                  src="/lunaratechLogo.png" 
+                  alt="LunaraTech Logo" 
+                  className="h-12 w-auto"
+                />
+              </a>
+              <nav className="hidden gap-6 text-sm text-gray-700 sm:flex mt-5">
+                {navItems.map((n) => (
+                  <a key={n.href} href={n.href} className="hover:text-gray-900">{n.label}</a>
+                ))}
+              </nav>
+              <a href="/contact" className="hidden rounded-md bg-[#FFB700] px-4 py-2 text-sm font-medium text-gray-900 hover:bg-[#e6a038] transition-all duration-300 sm:inline-flex mt-2">Get Quote</a>
+            </div>
+          </header>
 
-      {/* Hero */}
-      <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+          {/* Hero */}
+          <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Background image - barely visible */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20 z-0"
+          style={{backgroundImage: 'url(/lunara-background.jpg)'}}
+        />
         {/* Enhanced background with multiple animated layers */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#70CBD0]/10 via-white to-[#FFB700]/10 animate-exodus-pulse" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#70CBD0]/10 via-white to-[#FFB700]/10 animate-exodus-pulse z-10" />
         <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-[#262262]/8 to-transparent animate-exodus-float" />
         <div className="absolute inset-0 bg-gradient-to-bl from-[#8B5CF6]/5 via-transparent to-[#EC4899]/5 animate-exodus-glow" />
         
@@ -951,6 +1265,7 @@ export default function App() {
         <div className="absolute bottom-16 left-1/2 w-2 h-2 bg-[#da1c5c]/15 rounded-full animate-exodus-float" style={{animationDelay: '3.5s'}} />
         <div className="absolute bottom-24 right-1/2 w-1.5 h-1.5 bg-[#262262]/15 rounded-full animate-exodus-pulse" style={{animationDelay: '2.2s'}} />
       </section>
+        </div>
 
       {/* Value props */}
       <section className="border-y border-gray-100 bg-gradient-to-br from-gray-50 to-white">
