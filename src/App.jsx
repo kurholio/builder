@@ -955,9 +955,9 @@ export default function App() {
       {/* Value props */}
       <section className="border-y border-gray-100 bg-gradient-to-br from-gray-50 to-white">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-4 py-16 sm:grid-cols-3">
-          <ValueCard title="Clean Code" icon={<img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-12 w-12"/>} color="fuschia" className="animate-float" style={{animationDelay: '0s'}}>We write code that's readable, maintainable, and built to scale — ensuring smooth development and long-term stability.</ValueCard>
-          <ValueCard title="Bold Design" icon={<img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-12 w-12"/>} color="navy" className="animate-float" style={{animationDelay: '1s'}}>Modern, intuitive, and tailored to create lasting impressions across devices and contexts.</ValueCard>
-          <ValueCard title="Real Connection" icon={<img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-12 w-12"/>} color="gold" className="animate-float" style={{animationDelay: '2s'}}>Genuine collaboration that turns your ideas into digital experiences people love.</ValueCard>
+          <ValueCard title="Clean Code" icon={<img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-20 w-20"/>} color="fuschia" className="animate-float" style={{animationDelay: '0s'}}>We write code that's readable, maintainable, and built to scale — ensuring smooth development and long-term stability.</ValueCard>
+          <ValueCard title="Bold Design" icon={<img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-20 w-20"/>} color="navy" className="animate-float" style={{animationDelay: '1s'}}>Modern, intuitive, and tailored to create lasting impressions across devices and contexts.</ValueCard>
+          <ValueCard title="Real Connection" icon={<img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-20 w-20"/>} color="gold" className="animate-float" style={{animationDelay: '2s'}}>Genuine collaboration that turns your ideas into digital experiences people love.</ValueCard>
         </div>
       </section>
 
@@ -1131,15 +1131,15 @@ export default function App() {
               
               <div className="mt-4 space-y-3">
                 <div className="flex items-center gap-3">
-                  <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-8 w-8 flex-shrink-0"/>
+                  <img src="/lunaratechIcon2.png" alt="LunaraTech Icon" className="h-12 w-12 flex-shrink-0"/>
                   <span className="text-sm text-gray-600">Custom web applications built with React, Next.js, Java, Kotlin, and cloud infrastructure across AWS, GCP, and Azure</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-8 w-8 flex-shrink-0"/>
+                  <img src="/lunaratechIcon2.png" alt="LunaraTech Icon" className="h-12 w-12 flex-shrink-0"/>
                   <span className="text-sm text-gray-600">Mobile apps for iOS and Android using modern frameworks, microservices, and native architecture</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-8 w-8 flex-shrink-0"/>
+                  <img src="/lunaratechIcon2.png" alt="LunaraTech Icon" className="h-12 w-12 flex-shrink-0"/>
                   <span className="text-sm text-gray-600">E-commerce platforms and enterprise solutions that scale against modern requirements</span>
                 </div>
               </div>
@@ -1149,15 +1149,15 @@ export default function App() {
               
               <div className="mt-4 space-y-3">
                 <div className="flex items-center gap-3">
-                  <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-8 w-8 flex-shrink-0"/>
+                  <img src="/lunaratechIcon2.png" alt="LunaraTech Icon" className="h-12 w-12 flex-shrink-0"/>
                   <span className="text-sm text-gray-600">User-centered design process with wireframes and prototypes</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-8 w-8 flex-shrink-0"/>
+                  <img src="/lunaratechIcon2.png" alt="LunaraTech Icon" className="h-12 w-12 flex-shrink-0"/>
                   <span className="text-sm text-gray-600">Agile development with continuous testing and iteration</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-8 w-8 flex-shrink-0"/>
+                  <img src="/lunaratechIcon2.png" alt="LunaraTech Icon" className="h-12 w-12 flex-shrink-0"/>
                   <span className="text-sm text-gray-600">Performance optimization and security best practices</span>
                 </div>
               </div>
@@ -1167,15 +1167,15 @@ export default function App() {
               
               <div className="mt-4 space-y-3">
                 <div className="flex items-center gap-3">
-                  <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-8 w-8 flex-shrink-0"/>
+                  <img src="/lunaratechIcon2.png" alt="LunaraTech Icon" className="h-12 w-12 flex-shrink-0"/>
                   <span className="text-sm text-gray-600">Regular check-ins and transparent communication throughout</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-8 w-8 flex-shrink-0"/>
+                  <img src="/lunaratechIcon2.png" alt="LunaraTech Icon" className="h-12 w-12 flex-shrink-0"/>
                   <span className="text-sm text-gray-600">Cross-functional team approach with shared ownership</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-8 w-8 flex-shrink-0"/>
+                  <img src="/lunaratechIcon2.png" alt="LunaraTech Icon" className="h-12 w-12 flex-shrink-0"/>
                   <span className="text-sm text-gray-600">Your feedback drives every decision and iteration</span>
                 </div>
               </div>
