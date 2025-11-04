@@ -516,7 +516,7 @@ const Sparkles = () => (
 );
 
 const Stat = ({ value, label, className }) => (
-  <div className={`rounded-2xl border-2 p-6 text-center shadow-lg transition-all duration-500 hover:shadow-xl hover:-translate-y-2 hover:scale-105 ${className || 'bg-white border-gray-200'}`}>
+  <div className={`rounded-2xl border-2 p-6 text-center transition-all duration-500 hover:-translate-y-2 hover:scale-105 ${className || 'bg-white border-gray-200'}`}>
     <div className="text-4xl font-bold tracking-tight transition-all duration-300 hover:text-[#262262] animate-pulse-slow">{value}</div>
     <div className="mt-2 text-sm text-gray-600 leading-tight" dangerouslySetInnerHTML={{ __html: label }} />
   </div>
@@ -539,13 +539,13 @@ const SectionHeader = ({ eyebrow, title, subtitle, id }) => (
 // Value Props Cards - Gradient with brand colors
 const ValueCard = ({ title, children, icon, className, color }) => {
   const colorClasses = {
-    fuschia: "from-[#da1c5c]/10 to-[#da1c5c]/5 border-[#da1c5c]/20 hover:shadow-[#da1c5c]/20",
-    navy: "from-[#262262]/10 to-[#262262]/5 border-[#262262]/20 hover:shadow-[#262262]/20", 
-    gold: "from-[#FFB700]/10 to-[#FFB700]/5 border-[#FFB700]/20 hover:shadow-[#FFB700]/20"
+    fuschia: "from-[#da1c5c]/10 to-[#da1c5c]/5 border-[#da1c5c]/20",
+    navy: "from-[#262262]/10 to-[#262262]/5 border-[#262262]/20", 
+    gold: "from-[#FFB700]/10 to-[#FFB700]/5 border-[#FFB700]/20"
   };
   
   return (
-    <div className={`group relative flex h-full flex-col rounded-2xl border-2 bg-gradient-to-br p-8 shadow-lg transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.03] ${colorClasses[color]} ${className || ''}`}>
+    <div className={`group relative flex h-full flex-col rounded-2xl border-2 bg-gradient-to-br p-8 transition-all duration-500 hover:-translate-y-2 hover:scale-[1.03] ${colorClasses[color]} ${className || ''}`}>
       <div className="mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
         {icon}
       </div>
@@ -558,7 +558,7 @@ const ValueCard = ({ title, children, icon, className, color }) => {
 
 // Services Cards - Clean with accent borders
 const ServiceCard = ({ title, children, icon, className, link }) => (
-  <Link to={link} className={`group relative flex h-full flex-col rounded-xl border-2 border-gray-200 bg-white p-6 shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:scale-[1.02] hover:border-[#262262] ${className || ''}`}>
+  <Link to={link} className={`group relative flex h-full flex-col rounded-xl border-2 border-gray-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:border-[#262262] ${className || ''}`}>
     <h3 className="text-lg font-semibold text-[#262262] transition-colors duration-300 group-hover:text-[#da1c5c] mb-3">{title}</h3>
     <p className="mt-2 text-sm text-gray-600 leading-relaxed flex-grow">{children}</p>
     <div className="mt-4 flex items-center text-[#FFB700] font-medium text-sm group-hover:text-[#da1c5c] transition-colors duration-300">
@@ -569,7 +569,7 @@ const ServiceCard = ({ title, children, icon, className, link }) => (
 
 // Niche Cards - Modern with brand accents
 const NicheCard = ({ title, children, icon, className, link }) => (
-  <Link to={link || "#"} className={`group relative flex h-full flex-col rounded-2xl border border-[#70CBD0]/30 bg-gradient-to-br from-[#70CBD0]/10 to-[#70CBD0]/5 p-6 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:scale-[1.02] hover:border-[#70CBD0] block ${className || ''}`}>
+  <Link to={link || "#"} className={`group relative flex h-full flex-col rounded-2xl border border-[#70CBD0]/30 bg-gradient-to-br from-[#70CBD0]/10 to-[#70CBD0]/5 p-6 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:border-[#70CBD0] block ${className || ''}`}>
     <div className="mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
       {icon}
     </div>
@@ -581,7 +581,7 @@ const NicheCard = ({ title, children, icon, className, link }) => (
 
 // Process Cards - Clean design with new color
 const ProcessCard = ({ title, children, step, className }) => (
-  <div className={`group relative flex h-full flex-col rounded-2xl border border-[#70CBD0]/30 bg-gradient-to-br from-[#70CBD0]/10 to-[#70CBD0]/5 p-6 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:scale-[1.02] hover:border-[#70CBD0] ${className || ''}`}>
+  <div className={`group relative flex h-full flex-col rounded-2xl border border-[#70CBD0]/30 bg-gradient-to-br from-[#70CBD0]/10 to-[#70CBD0]/5 p-6 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:border-[#70CBD0] ${className || ''}`}>
     <div className="mb-2 text-xs font-medium uppercase tracking-wide text-[#70CBD0] group-hover:text-[#da1c5c] transition-colors duration-300">{step}</div>
     <h3 className="text-lg font-semibold text-[#262262] transition-colors duration-300 group-hover:text-[#70CBD0]">{title}</h3>
     <p className="mt-2 text-sm text-gray-600 leading-relaxed">{children}</p>
@@ -592,13 +592,13 @@ const ProcessCard = ({ title, children, step, className }) => (
 // About Section Cards - Slick and modern with brand colors
 const AboutCard = ({ title, children, color, className }) => {
   const colorClasses = {
-    fuschia: "from-[#da1c5c]/15 to-[#da1c5c]/5 border-[#da1c5c]/20 hover:shadow-[#da1c5c]/20 hover:border-[#da1c5c]/40",
-    navy: "from-[#262262]/15 to-[#262262]/5 border-[#262262]/20 hover:shadow-[#262262]/20 hover:border-[#262262]/40", 
-    gold: "from-[#FFB700]/15 to-[#FFB700]/5 border-[#FFB700]/20 hover:shadow-[#FFB700]/20 hover:border-[#FFB700]/40"
+    fuschia: "from-[#da1c5c]/15 to-[#da1c5c]/5 border-[#da1c5c]/20 hover:border-[#da1c5c]/40",
+    navy: "from-[#262262]/15 to-[#262262]/5 border-[#262262]/20 hover:border-[#262262]/40", 
+    gold: "from-[#FFB700]/15 to-[#FFB700]/5 border-[#FFB700]/20 hover:border-[#FFB700]/40"
   };
   
   return (
-    <div className={`group relative flex h-full flex-col rounded-2xl border-2 bg-gradient-to-br p-6 shadow-lg transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.02] ${colorClasses[color]} ${className || ''}`}>
+    <div className={`group relative flex h-full flex-col rounded-2xl border-2 bg-gradient-to-br p-6 transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] ${colorClasses[color]} ${className || ''}`}>
       <h3 className="text-lg font-semibold text-[#262262] transition-colors duration-300 group-hover:text-[#da1c5c] mb-3">{title}</h3>
       <div className="text-sm text-gray-700 leading-relaxed flex-grow">{children}</div>
       <div className="mt-4 h-1 w-12 bg-gradient-to-r from-[#da1c5c] to-[#FFB700] rounded-full transition-all duration-300 group-hover:w-20" />
@@ -608,7 +608,7 @@ const AboutCard = ({ title, children, color, className }) => {
 
 // Legacy Card for backward compatibility
 const Card = ({ title, children, icon, className }) => (
-  <div className={`group relative flex h-full flex-col rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:scale-[1.02] ${className || ''}`}>
+  <div className={`group relative flex h-full flex-col rounded-lg border border-gray-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] ${className || ''}`}>
     <div className="mb-2 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
       {icon}
     </div>
@@ -1202,12 +1202,11 @@ export default function App() {
         {/* Content */}
         <div className="relative z-30 mx-auto max-w-7xl px-4 py-16 sm:py-24">
           <div className="mx-auto max-w-4xl text-center">
-            
-            <h1 className="mt-15 text-4xl font-bold tracking-tight sm:text-7xl animate-pulse">
-              <span className="text-[#262262]">Turn</span>{' '}
-              <span className="text-[#70CBD0]">vision</span>{' '}
-              <span className="text-[#da1c5c]">into</span>{' '}
-              <span className="text-[#FFB700]">velocity</span>
+            <h1 className="mt-15 text-4xl font-bold tracking-tight sm:text-7xl" style={{textRendering: 'optimizeLegibility', WebkitFontSmoothing: 'antialiased'}}>
+              <span className="text-[#0f0f3d]">Turn</span>{' '}
+              <span className="text-[#006b7d]">vision</span>{' '}
+              <span className="text-[#8b0036]">into</span>{' '}
+              <span className="text-[#b8860b]">velocity</span>
             </h1>
             <p className="mx-auto mt-10 max-w-3xl text-lg text-gray-600 animate-fade-in leading-relaxed">
               We craft clean code, bold design, and real connections. From idea to launch, we build experiences that scale, convert, and feel great to use.
@@ -1270,9 +1269,9 @@ export default function App() {
       {/* Value props */}
       <section className="border-y border-gray-100 bg-gradient-to-br from-gray-50 to-white">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-4 py-16 sm:grid-cols-3">
-          <ValueCard title="Clean Code" icon={<img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-20 w-20"/>} color="fuschia" className="animate-float" style={{animationDelay: '0s'}}>We write code that's readable, maintainable, and built to scale — ensuring smooth development and long-term stability.</ValueCard>
-          <ValueCard title="Bold Design" icon={<img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-20 w-20"/>} color="navy" className="animate-float" style={{animationDelay: '1s'}}>Modern, intuitive, and tailored to create lasting impressions across devices and contexts.</ValueCard>
-          <ValueCard title="Real Connection" icon={<img src="/lunaratechIcon.png" alt="LunaraTech Icon" className="h-20 w-20"/>} color="gold" className="animate-float" style={{animationDelay: '2s'}}>Genuine collaboration that turns your ideas into digital experiences people love.</ValueCard>
+          <ValueCard title="Clean Code" icon={<img src="/lunaratechIcon3.png" alt="LunaraTech Icon" className="h-20 w-20"/>} color="fuschia" className="animate-float" style={{animationDelay: '0s'}}>We write code that's readable, maintainable, and built to scale — ensuring smooth development and long-term stability.</ValueCard>
+          <ValueCard title="Bold Design" icon={<img src="/lunaratechIcon3.png" alt="LunaraTech Icon" className="h-20 w-20"/>} color="navy" className="animate-float" style={{animationDelay: '1s'}}>Modern, intuitive, and tailored to create lasting impressions across devices and contexts.</ValueCard>
+          <ValueCard title="Real Connection" icon={<img src="/lunaratechIcon3.png" alt="LunaraTech Icon" className="h-20 w-20"/>} color="gold" className="animate-float" style={{animationDelay: '2s'}}>Genuine collaboration that turns your ideas into digital experiences people love.</ValueCard>
         </div>
       </section>
 
@@ -1339,7 +1338,7 @@ export default function App() {
             </div>
             
             {/* Main Content Card */}
-            <div className="rounded-2xl border border-[#262262]/20 bg-gradient-to-br from-[#262262]/5 to-[#da1c5c]/5 p-6 shadow-lg flex-grow">
+            <div className="rounded-2xl border border-[#262262]/20 bg-gradient-to-br from-[#262262]/5 to-[#da1c5c]/5 p-6 flex-grow">
             <p className="text-gray-700 leading-relaxed">
               Our small but mighty team blends software development, graphic design, and marketing into a digital 
                 Swiss Army knife. We're the folks who actually build your product — no hand-offs, no support queues,
@@ -1465,15 +1464,15 @@ export default function App() {
               <div className="mt-4 space-y-3">
                 <div className="flex items-center gap-3">
                   <img src="/lunaratechIcon2.png" alt="LunaraTech Icon" className="h-12 w-12 flex-shrink-0"/>
-                  <span className="text-sm text-gray-600">User-centered design process with wireframes and prototypes</span>
+                  <span className="text-sm text-gray-600">User-centered, AI-powered design and development process with wireframes and prototypes</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <img src="/lunaratechIcon2.png" alt="LunaraTech Icon" className="h-12 w-12 flex-shrink-0"/>
-                  <span className="text-sm text-gray-600">Agile development with continuous testing and iteration</span>
+                  <span className="text-sm text-gray-600">Agile development with continuous testing, model retraining, and iterative refinement across data-driven pipelines</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <img src="/lunaratechIcon2.png" alt="LunaraTech Icon" className="h-12 w-12 flex-shrink-0"/>
-                  <span className="text-sm text-gray-600">Performance optimization and security best practices</span>
+                  <span className="text-sm text-gray-600">Integrating AI into customer products and workflows to transform static systems into dynamic, learning-driven experiences</span>
                 </div>
               </div>
             </AboutCard>
@@ -1483,15 +1482,15 @@ export default function App() {
               <div className="mt-4 space-y-3">
                 <div className="flex items-center gap-3">
                   <img src="/lunaratechIcon2.png" alt="LunaraTech Icon" className="h-12 w-12 flex-shrink-0"/>
-                  <span className="text-sm text-gray-600">Regular check-ins and transparent communication throughout</span>
+                  <span className="text-sm text-gray-600">Regular check-ins and transparent communication throughout the project to address challenges early, and keep every stakeholder engaged</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <img src="/lunaratechIcon2.png" alt="LunaraTech Icon" className="h-12 w-12 flex-shrink-0"/>
-                  <span className="text-sm text-gray-600">Cross-functional team approach with shared ownership</span>
+                  <span className="text-sm text-gray-600">Cross-functional team approach with shared ownership to ensure that every aspect of the project is aligned and working towards the same goals</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <img src="/lunaratechIcon2.png" alt="LunaraTech Icon" className="h-12 w-12 flex-shrink-0"/>
-                  <span className="text-sm text-gray-600">Your feedback drives every decision and iteration</span>
+                  <span className="text-sm text-gray-600">Your feedback drives every decision and iteration to ensure that the final product meets your expectations and needs</span>
                 </div>
               </div>
             </AboutCard>
@@ -1506,7 +1505,7 @@ export default function App() {
             </div>
           <div className="mx-auto max-w-6xl grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 items-stretch">
               {/* Mortgage Calculator Project */}
-              <div className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-500 hover:shadow-xl hover:-translate-y-2 hover:scale-[1.02] flex flex-col">
+              <div className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] flex flex-col">
                 <div className="aspect-video overflow-hidden">
                   <div className="h-full w-full bg-gradient-to-br from-[#FFB700]/20 to-[#FFB700]/10 flex items-center justify-center">
                     <div className="text-center p-8">
@@ -1554,7 +1553,7 @@ export default function App() {
               </div>
 
               {/* Macroaxis Project */}
-              <div className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-500 hover:shadow-xl hover:-translate-y-2 hover:scale-[1.02] flex flex-col">
+              <div className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] flex flex-col">
                 <div className="aspect-video overflow-hidden">
                   <div className="h-full w-full bg-gradient-to-br from-[#262262]/20 to-[#262262]/10 flex items-center justify-center">
                     <div className="text-center p-8">
@@ -1604,7 +1603,7 @@ export default function App() {
               </div>
 
               {/* Chosen Rooter Project */}
-              <div className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-500 hover:shadow-xl hover:-translate-y-2 hover:scale-[1.02] flex flex-col">
+              <div className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] flex flex-col">
                 <div className="aspect-video overflow-hidden">
                   <div className="h-full w-full bg-gradient-to-br from-[#da1c5c]/20 to-[#da1c5c]/10 flex items-center justify-center">
                     <div className="text-center p-8">
